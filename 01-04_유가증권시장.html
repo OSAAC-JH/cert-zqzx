@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제4장 유가증권시장 | 2026 증권투자권유자문인력</title>
+<style>
+:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f2f0eb;--border:#e0ddd5;--text:#1a1917;--muted:#6b6862;--blue:#2563eb;--blue-l:#eff6ff;--blue-m:#bfdbfe;--green:#16a34a;--green-l:#f0fdf4;--green-m:#bbf7d0;--orange:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;--red:#dc2626;--red-l:#fef2f2;--red-m:#fecaca;--purple:#7c3aed;--purple-l:#f5f3ff;--purple-m:#c4b5fd;--teal:#0d9488;--teal-l:#f0fdfa}
+html[data-theme="dark"]{color-scheme:dark;--bg:#11100f;--surface:#1c1b19;--surface2:#272522;--border:#3d3a35;--text:#f1eee8;--muted:#aaa59c;--blue:#60a5fa;--blue-l:#17243a;--blue-m:#294d78;--green:#4ade80;--green-l:#14291c;--green-m:#28613b;--orange:#fb923c;--orange-l:#302015;--orange-m:#75411f;--red:#f87171;--red-l:#32191b;--red-m:#713135;--purple:#a78bfa;--purple-l:#241d38;--purple-m:#5b4791;--teal:#2dd4bf;--teal-l:#112c29}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;font-size:14px;line-height:1.68}
+.header{position:relative;background:#1a1917;color:#fff;padding:18px 24px 15px;text-align:center}.eyebrow{font-size:11px;letter-spacing:.15em;color:#a09d96}.header h1{font-size:21px;margin-top:3px;letter-spacing:-.03em}.header p{font-size:12px;color:#aaa69f;margin-top:4px}.head-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:9px}.head-badges span{border:1px solid #555;background:#30302e;border-radius:20px;padding:3px 11px;font-size:11px;color:#ddd;white-space:nowrap}
+.theme-toggle{position:absolute;top:16px;right:18px;border:1px solid #5a5752;background:#2d2c2a;color:#f5f3ef;border-radius:20px;padding:7px 11px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}.theme-toggle:hover{background:#403e3a;border-color:#77736c}.theme-toggle:focus-visible{outline:2px solid #fcd34d;outline-offset:2px}
+.tab-wrap{position:sticky;top:0;z-index:50;background:#1a1917;border-bottom:1px solid #333;overflow-x:auto;scrollbar-width:none}.tab-wrap::-webkit-scrollbar{display:none}.tabs{display:flex;min-width:max-content;padding:0 12px}
+.tab-btn{background:none;border:0;border-bottom:2px solid transparent;color:#a09d96;padding:12px 16px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}.tab-btn:hover{color:#fff}.tab-btn.active{color:#fff;border-bottom-color:var(--purple);font-weight:700}
+main{max-width:940px;margin:auto;padding:24px 16px 60px}.panel{display:none}.panel.active{display:block}
+.section-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;border-bottom:1px solid var(--border);padding-bottom:8px;margin:26px 0 14px}.section-kicker:first-child{margin-top:0}
+.hero{border-radius:12px;padding:18px 20px;margin-bottom:16px;background:linear-gradient(135deg,#ede9fe,#eff6ff);border:1px solid #c4b5fd}.hero h2{font-size:19px;margin-bottom:4px}.hero p{color:#4b5563;font-size:13px;line-height:1.6}.weight{display:inline-block;background:#fff;border:1px solid var(--purple-m);color:var(--purple);font-weight:800;font-size:11px;border-radius:20px;padding:2px 9px;margin-left:7px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:17px 19px;margin-bottom:13px;word-wrap:break-word;overflow-wrap:break-word}.grid .card{margin:0;overflow:hidden}
+.card h3{font-size:14px;margin-bottom:9px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.no{display:inline-grid;place-items:center;width:24px;height:24px;background:var(--purple-l);color:var(--purple);border:1px solid var(--purple-m);border-radius:6px;font-size:11px;flex:none}.stars{color:#f59e0b;font-size:11px;letter-spacing:-1px;white-space:nowrap}
+.card h4{font-size:12px;color:var(--muted);margin:11px 0 4px}.card ul{padding-left:19px;overflow:hidden}.card li{margin:3px 0;word-break:break-word}.key{color:var(--blue);font-weight:800}.warn{color:var(--orange);font-weight:800}.danger{color:var(--red);font-weight:800}.good{color:var(--green);font-weight:800}
+.formula{display:grid;gap:20px;background:var(--purple-l);border:1px solid var(--purple-m);border-radius:9px;padding:18px 17px;margin:10px 0;color:var(--purple);overflow-x:auto}.equation{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:15px;font-weight:800;line-height:1.35;min-width:0}.eq-name{min-width:92px;font-weight:900;word-wrap:break-word}.eq-name::before{content:'•';display:inline-block;margin-right:7px;font-weight:900}.eq-sign,.eq-op{font-weight:700;white-space:nowrap}.eq-line-break{flex-basis:100%;height:0}.frac{display:inline-grid;grid-template-rows:auto auto;min-width:84px;text-align:center;vertical-align:middle;line-height:1.15}
+.frac .num{padding:0 7px 4px;border-bottom:1.6px solid currentColor}.frac .den{padding:4px 7px 0}.eq-note{display:block;color:var(--muted);font-size:11px;font-weight:600;line-height:1.5;margin-top:-8px}.formula-terms{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:-8px;padding-top:8px;border-top:1px dashed var(--purple-m);color:var(--muted);font-size:11px;font-weight:600;line-height:1.5;width:100%;overflow:hidden}
+.formula-terms b{color:var(--purple);font-weight:900}.concept-list{list-style:none;padding-left:0!important;margin:2px 0;overflow:hidden}.concept-list>li{position:relative;padding-left:15px;margin:8px 0;word-break:break-word}.concept-list>li::before{content:'•';position:absolute;left:0;color:var(--purple);font-weight:900}.concept-list ul{margin-top:5px;padding-left:20px;overflow:hidden}.concept-list ul li{margin:4px 0}.concept-list b{color:#282524}
+.tip{border:1px solid #fcd34d;border-left:4px solid #f59e0b;background:#fffbeb;padding:11px 13px;border-radius:0 8px 8px 0;margin-top:10px;font-size:12px;word-wrap:break-word}.tip::before{content:'🍎 암기팁  ';font-weight:900;color:#b45309}
+.caution{display:block;margin-top:7px;padding-top:7px;border-top:1px dashed #f5c768;color:#7c4a03;word-wrap:break-word}.caution::before{content:'주의  ';font-weight:900;color:var(--red)}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:10px;margin:12px 0 15px}table{width:100%;border-collapse:collapse;font-size:12px;min-width:100%}th{background:var(--surface2);color:var(--muted);text-align:left;padding:9px 10px;font-size:11px;word-wrap:break-word}td{padding:9px 10px;border-top:1px solid var(--border);vertical-align:top;word-wrap:break-word}tr:nth-child(even) td{background:#faf9f7}td:first-child{font-weight:800;white-space:normal}
+.flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:9px 0}.flow span{background:var(--blue-l);border:1px solid var(--blue-m);color:#1d4ed8;padding:5px 9px;border-radius:7px;font-weight:700;font-size:12px;white-space:nowrap}.flow i{font-style:normal;color:var(--muted)}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;overflow:hidden}.compare>div{background:#fff;border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:8px;padding:12px;word-wrap:break-word;overflow:hidden}.compare h4{color:var(--teal);margin-bottom:5px;word-break:break-word}.compare p{font-size:12px;word-break:break-word;overflow-wrap:break-word}
+.quiz-head{background:linear-gradient(135deg,#1f2937,#111827);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.quiz-head h2{font-size:18px;white-space:nowrap}.quiz-head p{font-size:12px;color:#cbd5e1;white-space:nowrap}.score{display:flex;gap:12px;white-space:nowrap}.score b{font-size:18px}.score small{display:block;color:#9ca3af;font-size:10px}.progress{height:5px;background:#e5e7eb;border-radius:4px;overflow:hidden;margin:-5px 0 15px}.progress div{height:100%;width:0;background:var(--purple);transition:.25s}
+.reset{border:1px solid #555;background:#333;color:#fff;border-radius:6px;padding:6px 9px;cursor:pointer;font:inherit;font-size:11px;white-space:nowrap}
+.q-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px;word-wrap:break-word;overflow-wrap:break-word}.q-card.answered{border-left:4px solid var(--green)}.q-card.wrong-ans{border-left-color:var(--red)}
+.q-meta{display:flex;gap:7px;align-items:center;margin-bottom:8px;flex-wrap:wrap}.q-num{font-weight:900;color:var(--purple);white-space:nowrap}.badge{font-size:10px;border-radius:20px;padding:2px 8px;font-weight:700;white-space:nowrap}.badge-blue{background:var(--blue-l);color:var(--blue)}.badge-red{background:var(--red-l);color:var(--red)}.badge-green{background:var(--green-l);color:var(--green)}
+.q-text{font-weight:700;margin-bottom:10px;word-break:break-word}.q-text mark{background:#fef3c7;padding:0 2px}.q-options{display:grid;gap:6px}.q-option{text-align:left;background:#fafafa;border:1px solid var(--border);border-radius:7px;padding:9px 11px;cursor:pointer;font:inherit;font-size:13px;word-wrap:break-word;overflow-wrap:break-word}
+.q-option:hover:not(:disabled){background:var(--blue-l);border-color:var(--blue-m)}.q-option.correct-opt{background:var(--green-l);border-color:var(--green);color:#166534;font-weight:700}.q-option.wrong-opt{background:var(--red-l);border-color:var(--red);color:#991b1b}.q-option:disabled{cursor:default}
+.explain{display:none;background:var(--surface2);border-radius:7px;padding:11px 13px;margin-top:10px;font-size:12px;word-wrap:break-word}.explain.show{display:block}.explain strong{color:var(--purple)}
+.source{margin-top:24px;background:#fff;border:1px dashed #c9c5bc;border-radius:9px;padding:13px 15px;color:var(--muted);font-size:11px;word-wrap:break-word}.source a{color:var(--blue)}
+html[data-theme="dark"] .hero{background:linear-gradient(135deg,#241d38,#17243a);border-color:#5b4791}html[data-theme="dark"] .hero p{color:#c1bbb1}html[data-theme="dark"] .compare>div,html[data-theme="dark"] .q-card,html[data-theme="dark"] .source{background:var(--surface)}html[data-theme="dark"] tbody tr:nth-child(even) td{background:#211f1c}html[data-theme="dark"] .q-option{background:#24221f;color:var(--text)}html[data-theme="dark"] .q-option:hover:not(:disabled){background:var(--blue-l)}html[data-theme="dark"] .tip{background:#2c2414;border-color:#6e5619;color:#f3e5b7}html[data-theme="dark"] .caution{border-top-color:#675320;color:#e7cf91}html[data-theme="dark"] .progress{background:#35322e}
+@media(max-width:700px){.grid,.compare{grid-template-columns:1fr}.quiz-head{align-items:flex-start;flex-direction:column}.score{width:100%;justify-content:space-between}.tab-btn{padding:11px 12px;font-size:12px}.header{padding-top:54px}.header h1{font-size:18px}.theme-toggle{top:12px;right:12px}.formula{gap:24px;padding:18px 16px}.equation{gap:6px;font-size:14px}.eq-name{min-width:0;flex-basis:100%;padding-bottom:5px}.eq-name+.eq-sign,.eq-line-break+.eq-sign{margin-left:18px}.frac{min-width:76px}.card{padding:14px 16px}.compare>div{padding:10px}.table-wrap{margin:12px -16px 15px}}
+@media print{:root,html[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface2:#f2f0eb;--border:#ddd;--text:#111;--muted:#555;--purple-l:#f5f3ff;--purple-m:#c4b5fd;--blue-l:#eff6ff;--blue-m:#bfdbfe;--green-l:#f0fdf4;--red-l:#fef2f2}.tab-wrap,.reset,.theme-toggle{display:none}.panel{display:block!important;break-before:page}main{max-width:none}.q-option{break-inside:avoid;background:#fff!important;color:#111!important}.explain{display:block}.header{background:#fff;color:#000;border-bottom:2px solid #000}.header p,.eyebrow{color:#555}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="eyebrow">2026 증권투자권유자문인력 · 제1과목 증권분석 및 증권시장</div>
+  <h1>제4장 유가증권시장</h1>
+  <p>8문항 예상 · 발행시장 → 상장제도 → 공시·거래 제도</p>
+  <div class="head-badges"><span>제1절 10%</span><span>제2절 20%</span><span>제3절 30%</span><span>제4절 10%</span><span>제5절 20%</span><span>제6절 5%</span><span>제7절 5%</span></div>
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="다크모드로 전환" aria-pressed="false" onclick="toggleTheme()">🌙 다크모드</button>
+</header>
+<nav class="tab-wrap"><div class="tabs">
+  <button class="tab-btn active" onclick="showTab(0)">① 증권시장 개요</button>
+  <button class="tab-btn" onclick="showTab(1)">② 주식발행</button>
+  <button class="tab-btn" onclick="showTab(2)">③ 상장제도</button>
+  <button class="tab-btn" onclick="showTab(3)">④ 공시제도</button>
+  <button class="tab-btn" onclick="showTab(4)">⑤ 거래제도</button>
+  <button class="tab-btn" onclick="showTab(5)">⑥ 시장관리</button>
+  <button class="tab-btn" onclick="showTab(6)">⑦ 청산결제</button>
+  <button class="tab-btn" onclick="showTab(7)">📝 개념문제 20</button>
+  <button class="tab-btn" onclick="showTab(8)">🔥 심화문제 20</button>
+</div></nav>
+<main>
+
+
+<section class="panel active" id="tab0">
+  <div class="hero"><h2>제1절 증권시장 및 발행시장 개요 <span class="weight">출제비중 10%</span></h2><p>발행시장과 유통시장의 기능을 구분하고, 발행 형태별 위험 분담을 종목별로 연결하세요.</p></div>
+  <div class="grid">
+    <article class="card"><h3><span class="no">01</span> 증권시장의 구조</h3><ul class="concept-list"><li><b>증권시장</b>: 자금의 공급자와 수요자가 증권을 매개로 자금을 이전하는 시장<ul><li>발행시장: 새 증권 발행·모집</li><li>유통시장: 이미 발행된 증권 거래</li></ul></li><li><b>발행시장</b>: 기업·정부 등이 새 증권을 발행해 자금을 조달</li><li><b>유통시장</b>: 투자자 사이에서 증권을 사고팔며 유동성과 공정한 가격 형성</li></ul><div class="table-wrap"><table><thead><tr><th>구분</th><th>발행시장</th><th>유통시장</th></tr></thead><tbody><tr><td>자금의 흐름</td><td>투자자 → 발행인</td><td>매수자 ↔ 매도자</td></tr><tr><td>핵심 기능</td><td>신규 자금 조달</td><td>유동성·가격 형성</td></tr><tr><td>거래 대상</td><td>새로 발행되는 증권</td><td>기존에 발행된 증권</td></tr></tbody></table></div><div class="tip">발행은 기업으로 자금이 들어가고, 유통은 투자자끼리 증권이 돈다.<span class="caution">발행시장과 유통시장의 기능과 자금흐름 방향을 혼동하지 않도록 주의.</span></div></article>
+    <article class="card"><h3><span class="no">02</span> 증권의 발행형태</h3><ul class="concept-list"><li><b>모집·매출</b>: 모집은 신규, 매출은 기발행 증권의 청약<ul><li>모집: 새로 발행되는 증권 50명 이상 대상</li><li>매출: 이미 발행된 증권 50명 이상 대상</li></ul></li><li><b>공모·사모</b>: 공모는 다수, 사모는 제한된 상대방</li><li><b>인수방식</b><ul><li>총액인수: 인수기관이 전량 인수·판매 위험 부담</li><li>잔액인수: 미매각분만 인수</li><li>모집주선: 판매 주선, 위험 부담 없음</li></ul></li></ul><div class="table-wrap"><table><thead><tr><th>방식</th><th>발행인 위험</th><th>인수기관 역할</th></tr></thead><tbody><tr><td>총액인수</td><td>낮음</td><td>전량 인수·판매 위험</td></tr><tr><td>잔액인수</td><td>잔량 위험</td><td>미매각분 인수</td></tr><tr><td>모집주선</td><td>미매각 위험</td><td>주선만 담당</td></tr></tbody></table></div><div class="tip">총액은 전부, 잔액은 남은 몫, 주선은 연결만.<span class="caution">모집(신주)과 매출(기발행 증권) · 공모와 인수방식을 서로 다른 분류축으로 구분하세요.</span></div></article>
+  </div>
+</section>
+
+<section class="panel" id="tab1">
+  <div class="hero"><h2>제2절 주식발행의 방법 및 절차 <span class="weight">출제비중 20%</span></h2><p>IPO 절차의 순서와 유상증자 방식별 주주 우선권 범위를 구분하세요.</p></div>
+  <article class="card"><h3><span class="no">03</span> 기업공개 절차와 실무</h3><ul class="concept-list"><li>기업공개(IPO): 비상장회사가 공모 절차를 거쳐 주식을 일반 투자자에게 공개하고 거래소 상장 추진</li><li>일반적 흐름: 주관사 선정·실사 → 상장예비심사 → 증권신고서 → 수요예측·공모가 → 청약·납입·배정 → 신규상장</li><li>주관회사: 발행인 실사, 공모 구조 설계, 공모가 산정 지원, 청약·배정 실무</li></ul><div class="flow"><span>주관사 선정·실사</span><i>→</i><span>상장예비심사</span><i>→</i><span>증권신고서</span><i>→</i><span>수요예측·공모가</span><i>→</i><span>청약·납입</span><i>→</i><span>상장</span></div><div class="tip">심사 받고, 신고하고, 가격 정해 청약한 뒤 상장.<span class="caution">상장예비심사 통과 ≠ 공모 완료. 증권신고서 효력 발생 시점을 확인하세요.</span></div></article>
+  <article class="card"><h3><span class="no">04</span> 유상증자</h3><ul class="concept-list"><li><b>유상증자</b>: 회사가 신주를 발행하고 대금을 납입받아 자본 조달</li><li><b>주주배정</b>: 기존 주주에게 지분 비례 신주인수 기회</li><li><b>주주우선공모</b>: 기존 주주 우선 → 실권주 일반공모 가능</li><li><b>일반공모</b>: 기존 주주의 우선권 배제, 일반 투자자 대상</li><li><b>제3자배정</b>: 정관·법령상 요건에 따라 특정 제3자 배정</li></ul><div class="table-wrap"><table><thead><tr><th>방식</th><th>우선 청약 대상</th><th>핵심 구분</th></tr></thead><tbody><tr><td>주주배정</td><td>기존 주주</td><td>지분 비례 배정</td></tr><tr><td>주주우선공모</td><td>기존 주주 후 일반</td><td>실권주 공모 가능</td></tr><tr><td>일반공모</td><td>일반 투자자</td><td>기존 주주 우선권 없음</td></tr><tr><td>제3자배정</td><td>특정 제3자</td><td>정관·법령상 요건</td></tr></tbody></table></div><div class="tip">주주에게 먼저, 일반에게 넓게, 제3자에게 지정.<span class="caution">신주인수권과 배정 방식의 관계, 실권주 처리 방법을 혼동하지 않도록.</span></div></article>
+</section>
+
+<section class="panel" id="tab2">
+  <div class="hero"><h2>제3절 상장제도 <span class="weight">출제비중 30%</span></h2><p>상장의 혜택과 부담, 신규상장·추가상장의 구분, 상장폐지와 관리종목의 차이를 정리하세요.</p></div>
+  <div class="grid">
+    <article class="card"><h3><span class="no">05</span> 상장기업의 혜택</h3><ul class="concept-list"><li><b>혜택</b>: 주식 유동성·시장성, 공정한 시장가격, 신인도·인지도, 자금조달 확대, 임직원 보상</li><li><b>부담</b>: 정기·수시 공시, 회계·지배구조·상장유지 요건, 공시 관련 비용</li></ul><div class="compare"><div><h4>혜택</h4><p>유동성·시장성·인지도·자금조달 기반 ↑</p></div><div><h4>부담</h4><p>공시·상장유지 의무·비용 ↑</p></div><div style="border-top-color:#f59e0b"><h4 style="color:#f59e0b">주의</h4><p>상장 = 가치 보증 ✕</p></div></div><div class="tip">상장으로 시장성은 커지고, 공시 책임도 커진다.<span class="caution">상장 심사 ≠ 투자 적합성 판단. 거래소는 경영수익을 보증하지 않습니다.</span></div></article>
+    <article class="card"><h3><span class="no">06</span> 상장절차 및 상장종류</h3><ul class="concept-list"><li><b>신규상장</b>: 처음 거래소 진입</li><li><b>재상장</b>: 상장폐지 후 요건 갖춰 다시 상장</li><li><b>추가상장</b>: 기존 상장 종목에 새 주식 상장</li><li>시장 이전: 한 시장에서 다른 시장으로 변경</li></ul><div class="flow"><span>준비·주관사</span><i>→</i><span>예비심사</span><i>→</i><span>공모·신고</span><i>→</i><span>신규상장 신청</span><i>→</i><span>매매 개시</span></div><div class="tip">신규는 처음, 재상장은 다시, 추가상장은 주식 수를 더한다.</div></article>
+    <article class="card"><h3><span class="no">07</span> 신규상장심사요건</h3><ul class="concept-list"><li>거래소는 투자자 보호·시장 건전성을 위해 종합 심사</li><li><b>심사 요소</b>: 기업의 계속성, 경영성과·재무상태, 지배구조, 회계투명성, 공시·내부통제, 주식 분산·유동성</li><li>시장별 적용 요건·선택 경로가 다름</li><li>재무수치만으로 상장 가능 여부 판단 불가</li></ul><div class="tip">기업이 계속될지, 숫자가 건전한지, 지배·회계·공시가 투명한지, 주식이 잘 돌지 본다.<span class="caution">특정 시장의 정량 기준(자기자본·매출액·시가총액)을 다른 시장과 섞지 마세요.</span></div></article>
+    <article class="card"><h3><span class="no">08</span> 매매거래정지제도 및 상장폐지</h3><ul class="concept-list"><li><b>매매거래정지</b>: 중요 정보 공정 전달, 급격한 가격변동 완화, 상장폐지 절차 등으로 거래 일시 제한</li><li><b>상장폐지</b>: 상장 지위 종료. 상장요건·공시의무 위반, 감사의견, 재무·시장건전성 사유로 심사</li><li><b>관리종목 지정</b>: 상장폐지 위험 요인을 투자자에게 알리는 관리 단계</li></ul><div class="flow"><span>위험 발생</span><i>→</i><span>공시·심사</span><i>→</i><span>거래정지</span><i>→</i><span>상장유지·폐지</span></div><div class="tip">관리 지정 ≠ 상장폐지 확정.<span class="caution">관리종목 지정은 경고 단계. 거래정지와 상장폐지는 별개 절차입니다.</span></div></article>
+  </div>
+</section>
+
+<section class="panel" id="tab3">
+  <div class="hero"><h2>제4절 기업내용 공시제도 <span class="weight">출제비중 10%</span></h2><p>정기·수시·자율·조회·공정·불성실 공시의 발동 조건과 책임자를 구분하세요.</p></div>
+  <article class="card"><h3><span class="no">09</span> 기업내용 공시제도 개요</h3><ul class="concept-list"><li><b>공시</b>: 투자판단 중요 정보를 적시에 공개해 정보 비대칭 완화, 공정한 거래 지원</li><li><b>정기공시</b>: 사업·분기·반기보고서 등 정해진 주기에 제출</li><li><b>수시공시</b>: 중요 사건·결정을 발생 시점에 알림</li><li>거래소 공시 ≠ 금융당국 공시 (근거·체계 다름)</li></ul><div class="tip">정기공시는 달력 따라, 수시공시는 사건 따라.<span class="caution">공시 제출 ≠ 기업 건전성 보증. 투자자는 공시 정보와 판단 분리.</span></div></article>
+  <article class="card"><h3><span class="no">10</span> 자율·조회·공정·불성실 공시</h3><div class="table-wrap"><table><thead><tr><th>유형</th><th>누가·왜</th><th>기억할 점</th></tr></thead><tbody><tr><td>자율공시</td><td>기업이 투자판단 도움 될 정보 자율 공개</td><td>의무공시와 구분</td></tr><tr><td>조회공시</td><td>거래소가 풍문·보도 사실 여부·중요정보 확인</td><td>거래소 요청에 답변</td></tr><tr><td>공정공시</td><td>특정인 선공개 정보를 시장에 공평히 알림</td><td>정보의 동시성·공평성</td></tr><tr><td>불성실공시</td><td>공시의무 위반·허위·지연·번복</td><td>제재·지정 대상</td></tr></tbody></table></div><div class="tip">자율은 기업 선택, 조회는 거래소 질문, 공정은 함께 공개, 불성실은 의무 위반.<span class="caution">조회공시(거래소 확인) ≠ 자율공시(기업 자발). 공정공시의 핵심은 특정인 선공개의 공평화입니다.</span></div></article>
+</section>
+
+<section class="panel" id="tab4">
+  <div class="hero"><h2>제5절 매매거래제도 <span class="weight">출제비중 20%</span></h2><p>호가 우선 원칙(가격→시간)과 매매방식(경쟁·단일가·접속)의 특징을 구분하세요.</p></div>
+  <article class="card"><h3><span class="no">11</span> 매매거래 수탁 및 시장운영</h3><ul class="concept-list"><li>투자자 → 금융투자회사: 매매 위탁</li><li>금융투자회사 → 거래소: 계좌·주문·고객 확인 절차 거쳐 전달</li><li><b>주문 전</b>: 투자자 확인·위험고지</li><li><b>주문 후</b>: 주문 기록, 자금·증권 관리</li><li>거래소는 거래일·시간·호가단위·가격제한·시장감시 규칙 운영</li></ul><div class="tip">과거 교재의 시간표를 현재 기준으로 그대로 외우지 않도록 주의. 시험 기준일의 거래소 안내 우선.</div></article>
+  <article class="card"><h3><span class="no">12</span> 호가 및 매매체결 방법</h3><ul class="concept-list"><li><b>호가</b>: 매수·매도 의사, 가격·수량 표시한 주문</li><li><b>지정가 주문</b>: 가격 지정 (체결 보장 ✕)</li><li><b>시장가 주문</b>: 가격보다 체결 가능성 우선</li><li><b>경쟁매매</b>: 호가 모아서 가격우선→시간우선 원칙</li><li><b>단일가매매</b>: 일정 시간 주문 모아 하나의 가격으로 체결</li><li><b>접속매매</b>: 주문 들어오는 대로 상대 호가와 연속 체결</li></ul><div class="table-wrap"><table><thead><tr><th>기준</th><th>우선 호가</th></tr></thead><tbody><tr><td>가격우선</td><td>매수 높은 가격 / 매도 낮은 가격</td></tr><tr><td>시간우선</td><td>동일 가격 → 먼저 접수</td></tr><tr><td>단일가</td><td>주문 모아 하나의 체결가 결정</td></tr><tr><td>접속매매</td><td>주문 접수 때마다 순차 체결</td></tr></tbody></table></div><div class="tip">가격이 먼저, 같은 가격이면 시간이 먼저.<span class="caution">시장가 주문 ≠ 원하는 가격 보장. 단일가와 접속매매는 체결 방식이 다릅니다.</span></div></article>
+</section>
+
+<section class="panel" id="tab5">
+  <div class="hero"><h2>제6절 시장관리제도 <span class="weight">출제비중 5%</span></h2><p>VI·서킷브레이커·사이드카의 발동 기준(개별 종목 vs 시장 전체 vs 선물시장)을 구분하세요.</p></div>
+  <div class="grid">
+    <article class="card"><h3><span class="no">13</span> 매매거래의 중단</h3><ul class="concept-list"><li><b>변동성완화장치(VI)</b>: 개별 종목 급변 → 일정 시간 단일가 전환</li><li><b>서킷브레이커(CB)</b>: 시장 전체 급락 → 거래 단계적 중단</li><li><b>사이드카</b>: 선물가격 급변 → 현물 프로그램매매 호가 효력 일정 시간 제한</li></ul><div class="table-wrap"><table><thead><tr><th>장치</th><th>발동 기준의 중심</th><th>주된 영향</th></tr></thead><tbody><tr><td>VI</td><td>개별 종목 가격 급변</td><td>해당 종목 단일가 전환</td></tr><tr><td>서킷브레이커</td><td>시장 전체 급락</td><td>시장 거래 일시 중단</td></tr><tr><td>사이드카</td><td>선물시장 급변</td><td>프로그램매매 호가 제한</td></tr></tbody></table></div><div class="tip">VI는 종목, CB는 시장 전체, 사이드카는 선물 신호로 프로그램 호가 제어.<span class="caution">서킷브레이커(시장 중단) ≠ 사이드카(프로그램 제한). 발동 단계·기준 수치는 최신 규정 확인.</span></div></article>
+    <article class="card"><h3><span class="no">14</span> 시장관리제도</h3><ul class="concept-list"><li><b>시장경보제도</b>: 투자주의→경고→위험 등 단계로 이상 급등·불건전 거래 알림</li><li><b>단기과열종목 지정</b>: 과도한 가격변동 완화 위해 매매방식·절차 변경</li><li><b>시장감시</b>: 이상매매·불공정거래 혐의 살펴 공정성·투자자 보호</li></ul><div class="flow"><span>이상 징후</span><i>→</i><span>경보·지정</span><i>→</i><span>투자자 유의</span><i>→</i><span>지속 감시</span></div><div class="tip">주의 → 경고 → 위험, 경계 강도 높아짐.<span class="caution">시장경보 지정 ≠ 위법행위 확정. 지정 사유·조치는 현행 거래소 기준 확인.</span></div></article>
+  </div>
+</section>
+
+<section class="panel" id="tab6">
+  <div class="hero"><h2>제7절 청산결제제도 <span class="weight">출제비중 5%</span></h2><p>청산(계산)과 결제(이전)의 순서, 중앙청산기관(CCP)의 역할을 정리하세요.</p></div>
+  <article class="card"><h3><span class="no">15</span> 청산결제제도</h3><ul class="concept-list"><li><b>청산</b>: 거래 체결 후 매수·매도자의 채권·채무 계산 → 다자간 차감 → 결제 규모 확정</li><li><b>결제</b>: 확정된 증권과 대금을 정해진 방식으로 이전 → 거래 의무 종료</li><li><b>중앙청산기관(CCP)</b>: 거래 상대방 사이에 서서 결제이행 관리</li><li>국내 주식: 거래일 이후 2영업일 결제(T+2) 기준</li></ul><div class="compare"><div><h4>청산</h4><p>누가 얼마를 주고받을지 계산·확정</p></div><div><h4>결제</h4><p>증권과 대금을 실제 이전</p></div><div style="border-top-color:#16a34a"><h4 style="color:#16a34a">순서</h4><p>청산 → 결제</p></div></div><div class="tip">청산은 셈, 결제는 주고받기.<span class="caution">청산 ≠ 증권·대금의 최종 이전(결제). 상품별 결제주기 다름.</span></div></article>
+  <div class="source">참고: 「서기쌤 증권자문 핵심요약 2026」, 「와우패스 증권자문 핵심체크포인트 2026」, 한국거래소 공식 안내.</div>
+</section>
+
+<section class="panel" id="tab7">
+  <div class="quiz-head"><div><h2>개념문제 20</h2><p>정의·비교·기준값을 빠르게 점검합니다. 선택 즉시 정답과 해설이 표시됩니다.</p></div><div class="score"><span><b id="s1-c">0</b><small>정답</small></span><span><b id="s1-w">0</b><small>오답</small></span><span><b id="s1-r">20</b><small>남음</small></span><button class="reset" onclick="resetQuiz('q1')">다시 풀기</button></div></div><div class="progress"><div id="bar1"></div></div><div id="quiz1"></div>
+</section>
+<section class="panel" id="tab8">
+  <div class="quiz-head"><div><h2>심화문제 20</h2><p>사례·정책 파급경로를 실전형으로 훈련합니다.</p></div><div class="score"><span><b id="s2-c">0</b><small>정답</small></span><span><b id="s2-w">0</b><small>오답</small></span><span><b id="s2-r">20</b><small>남음</small></span><button class="reset" onclick="resetQuiz('q2')">다시 풀기</button></div></div><div class="progress"><div id="bar2"></div></div><div id="quiz2"></div>
+</section>
+</main>
+  <footer style="margin-top:40px;padding:20px 16px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);text-align:center">
+    참고: 「서기쌤 증권자문 핵심요약 2026」, 「와우패스 증권자문 핵심체크포인트 2026」, 한국거래소 공식 안내.
+  </footer>
+
+<script>
+const THEME_KEY='economy-note-theme';
+function applyTheme(theme){const dark=theme==='dark';document.documentElement.dataset.theme=dark?'dark':'light';const btn=document.getElementById('theme-toggle');if(btn){btn.textContent=dark?'☀️ 라이트모드':'🌙 다크모드';btn.setAttribute('aria-label',dark?'라이트모드로 전환':'다크모드로 전환');btn.setAttribute('aria-pressed',String(dark))}}
+function toggleTheme(){const next=document.documentElement.dataset.theme==='dark'?'light':'dark';applyTheme(next);try{localStorage.setItem(THEME_KEY,next)}catch(e){}}
+function showTab(n){document.querySelectorAll('.panel').forEach((e,i)=>e.classList.toggle('active',i===n));document.querySelectorAll('.tab-btn').forEach((e,i)=>e.classList.toggle('active',i===n));window.scrollTo({top:0,behavior:'smooth'})}
+const Q1=[
+ {
+  "c": "C01",
+  "q": "발행시장과 유통시장의 기능을 올바르게 연결한 것은?",
+  "o": [
+   "발행시장은 기존 투자자 간 거래, 유통시장은 기업의 신규 자금조달이다.",
+   "발행시장은 신규 자금조달, 유통시장은 기존 증권의 거래와 유동성 제공이다.",
+   "두 시장 모두 발행인에게 직접 자금이 이전된다.",
+   "유통시장은 증권이 처음 발행될 때만 열린다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 새 증권으로 발행인에게 자금이 들어가는 곳이 발행시장이고, 기존 증권을 투자자끼리 거래하는 곳이 유통시장이다."
+ },
+ {
+  "c": "C02",
+  "q": "모집과 매출의 차이로 맞는 것은?",
+  "o": [
+   "모집은 기발행 증권, 매출은 신주만 대상으로 한다.",
+   "모집과 매출은 모두 발행인에게 자금이 직접 들어가는 방식이다.",
+   "모집은 새로 발행되는 증권, 매출은 이미 발행된 증권을 대상으로 한다.",
+   "모집은 사모에만, 매출은 공모에만 적용된다."
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> 모집은 신규 발행 증권의 취득 권유이고, 매출은 이미 발행된 증권의 매도·매수 청약 권유다."
+ },
+ {
+  "c": "C03",
+  "q": "총액인수의 특징은?",
+  "o": [
+   "인수기관이 발행증권 전량을 인수해 판매 위험을 부담한다.",
+   "인수기관은 미매각 잔량만 인수한다.",
+   "인수기관은 모집을 주선하되 인수하지 않는다.",
+   "발행인이 인수기관의 판매 위험을 부담한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 총액인수는 인수기관이 전량을 인수한다. 잔액인수는 미매각분, 모집주선은 주선 역할에 초점이 있다."
+ },
+ {
+  "c": "C04",
+  "q": "IPO 과정의 일반적인 순서로 가장 적절한 것은?",
+  "o": [
+   "청약 → 예비심사 → 주관사 선정 → 상장",
+   "상장 → 증권신고 → 실사 → 청약",
+   "주관사 선정·실사 → 예비심사 → 신고·공모 → 상장",
+   "공모 → 상장 → 예비심사 → 납입"
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> 통상 주관사 선정과 실사 후 예비심사를 받고, 신고·공모 및 청약·납입 절차를 거쳐 상장한다."
+ },
+ {
+  "c": "C05",
+  "q": "주주배정 유상증자를 가장 잘 설명한 것은?",
+  "o": [
+   "기존 주주에게 지분 비례 신주인수 기회를 준다.",
+   "모든 신주를 특정 제3자에게만 배정한다.",
+   "일반 투자자에게만 공모한다.",
+   "신주를 발행하지 않고 기존 주식만 매각한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 주주배정은 기존 주주에게 지분에 비례해 신주인수 기회를 제공한다."
+ },
+ {
+  "c": "C06",
+  "q": "상장기업의 부담으로 가장 적절한 것은?",
+  "o": [
+   "시장가격 형성",
+   "공시 및 상장유지 의무 준수",
+   "주식 유동성 증가",
+   "대외 인지도 제고"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 공시와 상장유지 의무는 상장기업의 지속적인 부담이며, 나머지는 대표적 상장 혜택이다."
+ },
+ {
+  "c": "C07",
+  "q": "신규상장과 추가상장의 구분으로 맞는 것은?",
+  "o": [
+   "신규상장은 새 주식을 더 상장하고 추가상장은 처음 상장하는 것이다.",
+   "둘은 같은 절차를 뜻한다.",
+   "신규상장은 처음 상장하고 추가상장은 기존 상장종목에 주식을 더 상장한다.",
+   "추가상장은 상장폐지만을 뜻한다."
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> 처음 시장에 진입하는 것은 신규상장, 이미 상장된 종목에 추가 주식을 올리는 것은 추가상장이다."
+ },
+ {
+  "c": "C08",
+  "q": "신규상장 심사에서 일반적으로 종합 검토하는 요소가 아닌 것은?",
+  "o": [
+   "회계투명성",
+   "지배구조",
+   "기업의 계속성",
+   "대표주주의 개인적 선호색"
+  ],
+  "a": 3,
+  "e": "<strong>D가 정답.</strong> 계속성, 재무상태, 지배구조, 회계·공시 투명성과 유동성 등이 심사 요소다."
+ },
+ {
+  "c": "C09",
+  "q": "관리종목 지정과 상장폐지의 관계를 올바르게 설명한 것은?",
+  "o": [
+   "관리종목 지정 즉시 상장폐지가 확정된다.",
+   "관리종목 지정은 위험 요인을 알리는 단계이며 상장폐지와 동일하지 않다.",
+   "관리종목은 공시와 무관하다.",
+   "상장폐지는 거래정지의 다른 말이다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 관리종목 지정과 상장폐지는 별개의 절차·상태다. 지정만으로 상장폐지가 확정되지는 않는다."
+ },
+ {
+  "c": "C10",
+  "q": "정기공시와 수시공시의 구분으로 맞는 것은?",
+  "o": [
+   "정기공시는 사건 발생 때마다, 수시공시는 달력에 따라 제출한다.",
+   "두 공시는 제출 주기와 무관하게 같은 제도다.",
+   "정기공시는 정해진 주기에, 수시공시는 중요 사건 발생에 따라 제출한다.",
+   "수시공시는 기업이 원할 때만 제출한다."
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> 정기공시는 정해진 주기, 수시공시는 중요 사건·결정에 대응해 제출한다."
+ },
+ {
+  "c": "C11",
+  "q": "거래소가 풍문이나 보도에 대해 사실 여부 확인을 요구하는 공시는?",
+  "o": [
+   "자율공시",
+   "조회공시",
+   "공정공시",
+   "정기공시"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 조회공시는 거래소가 기업에 사실 여부나 중요 정보를 확인해 알리도록 요구하는 방식이다."
+ },
+ {
+  "c": "C12",
+  "q": "공정공시의 핵심 목적은?",
+  "o": [
+   "중요 정보를 특정 투자자에게만 제공한다.",
+   "특정인에게 먼저 제공된 중요 정보를 시장에도 공평하게 알린다.",
+   "공시 의무를 면제한다.",
+   "허위 공시를 사후 승인한다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 공정공시는 선택적 정보 제공으로 생기는 정보 격차를 줄인다."
+ },
+ {
+  "c": "C13",
+  "q": "지정가 주문의 일반적 특징은?",
+  "o": [
+   "가격을 지정해 주문한다.",
+   "체결가격을 거래소가 보장한다.",
+   "무조건 즉시 체결된다.",
+   "매도 주문에만 사용한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 지정가 주문은 원하는 가격을 제시하지만 해당 가격에서 상대 주문이 없으면 체결되지 않을 수 있다."
+ },
+ {
+  "c": "C14",
+  "q": "같은 가격의 호가 사이에서 일반적으로 적용되는 우선 원칙은?",
+  "o": [
+   "수량이 작은 주문 우선",
+   "늦게 접수된 주문 우선",
+   "먼저 접수된 주문 우선",
+   "개인투자자 주문 우선"
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> 가격이 같으면 시간우선 원칙에 따라 먼저 접수된 호가가 우선한다."
+ },
+ {
+  "c": "C15",
+  "q": "단일가매매를 올바르게 설명한 것은?",
+  "o": [
+   "주문을 일정 시간 모은 뒤 하나의 가격으로 체결한다.",
+   "주문이 들어오는 즉시 항상 체결한다.",
+   "거래소 밖에서만 적용한다.",
+   "가격 경쟁 없이 임의로 가격을 정한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 단일가매매는 주문을 모아 체결가격을 결정하는 방식이다."
+ },
+ {
+  "c": "C16",
+  "q": "서킷브레이커의 주된 대상은?",
+  "o": [
+   "개별 기업의 공시문",
+   "시장 전체의 급격한 하락에 따른 거래",
+   "특정 투자자의 계좌",
+   "결제대금 산출"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 서킷브레이커는 시장 전체의 급격한 하락 때 거래를 일시 중단하는 장치다."
+ },
+ {
+  "c": "C17",
+  "q": "사이드카의 주된 기능은?",
+  "o": [
+   "프로그램매매 호가 효력을 일정 시간 제한한다.",
+   "모든 종목의 상장을 폐지한다.",
+   "공시 제출기한을 연장한다.",
+   "증권 결제를 완료한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 사이드카는 선물가격 급변에 대응해 현물 프로그램매매 호가를 제한한다."
+ },
+ {
+  "c": "C18",
+  "q": "투자주의·경고·위험 등 시장경보제도의 목적은?",
+  "o": [
+   "기업의 수익을 보증한다.",
+   "이상 거래 가능성을 알리고 투자자 주의를 환기한다.",
+   "결제주기를 정한다.",
+   "신규 발행주식 수를 결정한다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 시장경보는 이상 급등이나 불건전 거래 가능성을 알려 투자자 주의를 돕는다."
+ },
+ {
+  "c": "C19",
+  "q": "청산과 결제의 구분으로 맞는 것은?",
+  "o": [
+   "청산은 증권 이전, 결제는 주문 접수다.",
+   "청산은 채권·채무 계산, 결제는 증권과 대금 이전이다.",
+   "두 용어 모두 매매체결을 뜻한다.",
+   "결제는 공시 절차다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 청산에서 주고받을 순액을 계산하고, 결제에서 증권·대금을 실제 이전한다."
+ },
+ {
+  "c": "C20",
+  "q": "중앙청산기관(CCP)의 일반적인 역할은?",
+  "o": [
+   "거래 상대방 사이에 서서 청산·결제 이행을 관리한다.",
+   "발행인의 공모가를 보증한다.",
+   "상장심사를 대신한다.",
+   "모든 투자손실을 보전한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> CCP는 거래 상대방 사이에 개입해 결제이행을 관리하지만 투자손실을 보증하는 기관은 아니다."
+ }
+];
+const Q2=[
+ {
+  "c": "A01",
+  "q": "회사가 신주를 발행해 자금을 조달하고 기존 주주가 그 신주를 서로 사고판다. 두 거래가 속하는 시장을 차례대로 고르면?",
+  "o": [
+   "유통시장, 발행시장",
+   "발행시장, 유통시장",
+   "모두 발행시장",
+   "모두 장외시장"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 신주 발행으로 회사에 자금이 들어가는 거래는 발행시장이고, 이후 투자자 간 거래는 유통시장이다."
+ },
+ {
+  "c": "A02",
+  "q": "회사가 새 주식을 일반인에게 청약 권유하고, 대주주가 보유 중인 구주를 일반인에게 매도 청약 권유한다. 각각 무엇인가?",
+  "o": [
+   "매출, 모집",
+   "모집, 매출",
+   "사모, 모집",
+   "잔액인수, 총액인수"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 신주 대상 권유는 모집, 이미 발행된 구주 대상 권유는 매출이다."
+ },
+ {
+  "c": "A03",
+  "q": "인수기관이 청약되지 않은 잔량에 한해서만 책임지기로 했다. 해당 방식은?",
+  "o": [
+   "총액인수",
+   "잔액인수",
+   "모집주선",
+   "직접발행"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 잔액인수는 모집 후 팔리지 않은 잔량을 인수한다. 총액인수는 전량을, 모집주선은 주선만 담당한다."
+ },
+ {
+  "c": "A04",
+  "q": "상장예비심사를 통과했지만 증권신고서 효력 발생 및 청약 절차가 남아 있다. 가장 타당한 판단은?",
+  "o": [
+   "이미 상장되어 거래할 수 있다.",
+   "심사 통과는 상장 절차의 한 단계이며 공모·상장 절차가 남아 있다.",
+   "청약은 상장 후에만 가능하다.",
+   "심사 통과로 공모가가 자동 확정된다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 예비심사 통과가 곧 공모 완료나 매매 개시를 뜻하지 않는다."
+ },
+ {
+  "c": "A05",
+  "q": "기존 주주에게 먼저 청약 기회를 주고 미청약분을 일반공모로 처리할 수 있는 증자 방식은?",
+  "o": [
+   "주주배정만 가능하고 실권주 처리는 불가",
+   "주주우선공모",
+   "일반공모",
+   "제3자배정"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 주주우선공모는 기존 주주에게 우선 기회를 주고 실권주를 일반에 공모할 수 있다."
+ },
+ {
+  "c": "A06",
+  "q": "기업이 거래소 상장으로 인지도와 자금조달 기반을 얻었다. 동시에 새로 유의해야 할 사항으로 가장 적절한 것은?",
+  "o": [
+   "정기·수시 공시와 상장유지 의무",
+   "투자자 간 거래 금지",
+   "기업가치 보증",
+   "모든 공시의 면제"
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 상장 혜택과 함께 공시·상장유지 의무 및 비용이 따른다."
+ },
+ {
+  "c": "A07",
+  "q": "비상장기업이 처음 거래소 시장에 들어온 뒤 유상증자 신주를 기존 종목에 추가로 올렸다. 두 절차를 순서대로 부르면?",
+  "o": [
+   "재상장, 신규상장",
+   "신규상장, 추가상장",
+   "추가상장, 재상장",
+   "이전상장, 상장폐지"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 처음 시장에 진입하는 것은 신규상장, 그 뒤 새 주식을 더 올리는 것은 추가상장이다."
+ },
+ {
+  "c": "A08",
+  "q": "상장심사 자료에서 재무요건은 충족했지만 내부통제와 회계투명성에 문제가 발견됐다. 가장 적절한 판단은?",
+  "o": [
+   "재무요건만 충족하면 심사가 자동 통과된다.",
+   "심사는 재무수치뿐 아니라 내부통제·회계 등도 종합 평가한다.",
+   "내부통제는 상장 후에만 고려한다.",
+   "거래소는 계속성을 심사하지 않는다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 상장심사는 정량지표와 기업의 계속성, 지배구조, 회계·공시 투명성을 종합적으로 본다."
+ },
+ {
+  "c": "A09",
+  "q": "기업이 관리종목으로 지정되었다. 투자자가 취할 해석으로 가장 적절한 것은?",
+  "o": [
+   "상장폐지가 이미 확정됐다고 본다.",
+   "위험 신호로 살피되 지정만으로 상장폐지가 확정된 것은 아니라고 본다.",
+   "이후 공시를 확인할 필요가 없다.",
+   "매매정지가 영구 적용된다고 본다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 관리종목 지정은 위험 요인을 알리는 단계다. 상장폐지 여부는 별도 사유와 절차에 따라 결정된다."
+ },
+ {
+  "c": "A10",
+  "q": "회사가 정해진 분기보고서 제출일에 맞춰 보고서를 냈고, 이후 중요한 소송이 발생해 별도로 알렸다. 각각 어떤 공시 성격인가?",
+  "o": [
+   "수시공시, 정기공시",
+   "정기공시, 수시공시",
+   "조회공시, 자율공시",
+   "공정공시, 불성실공시"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 정기 보고서는 주기에 따르고, 중요한 사건은 수시공시 대상이 될 수 있다."
+ },
+ {
+  "c": "A11",
+  "q": "온라인에 인수합병 풍문이 퍼지자 거래소가 회사에 사실 여부를 물었다. 회사가 답변하는 절차는?",
+  "o": [
+   "공정공시",
+   "조회공시",
+   "주주배정",
+   "정기공시"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 거래소 요청에 따라 풍문·보도의 사실 여부 등을 확인하는 것은 조회공시다."
+ },
+ {
+  "c": "A12",
+  "q": "회사가 기관투자자에게 중요 경영정보를 먼저 설명했다. 정보 격차를 줄이기 위해 필요한 제도와 목적의 조합은?",
+  "o": [
+   "공정공시 — 시장에 공평하게 정보 제공",
+   "조회공시 — 상장폐지 확정",
+   "자율공시 — 모든 정보 비공개",
+   "불성실공시 — 공모가 결정"
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 특정인에게 제공한 중요 정보를 시장에도 알리는 공정공시가 정보의 공평성을 돕는다."
+ },
+ {
+  "c": "A13",
+  "q": "투자자가 반드시 체결을 보장받고 싶어 시장가 주문을 냈지만 가격이 크게 움직였다. 올바른 설명은?",
+  "o": [
+   "시장가 주문은 가격을 보장한다.",
+   "시장가 주문은 체결 가능성을 우선하므로 원하는 가격이 보장되지 않는다.",
+   "시장가 주문은 미리 지정한 가격에서만 체결된다.",
+   "시장가 주문은 매도에 사용할 수 없다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 시장가 주문은 가격보다 체결 가능성을 우선한다. 실제 체결가격은 호가 상황에 따라 달라질 수 있다."
+ },
+ {
+  "c": "A14",
+  "q": "매수호가 10,100원 주문이 매수호가 10,000원 주문보다 늦게 접수됐다. 어느 주문이 가격우선 원칙에서 앞서는가?",
+  "o": [
+   "10,000원 매수 주문",
+   "10,100원 매수 주문",
+   "늦게 들어온 주문",
+   "두 주문은 항상 동순위"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 매수는 더 높은 가격이 우선한다. 시간우선은 같은 가격끼리 적용한다."
+ },
+ {
+  "c": "A15",
+  "q": "거래소가 일정 시간 주문을 모아 한 가격으로 체결한다. 매매 방식은?",
+  "o": [
+   "접속매매",
+   "단일가매매",
+   "장외매매",
+   "청산"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 단일가매매는 주문을 모아 하나의 가격을 결정해 체결한다."
+ },
+ {
+  "c": "A16",
+  "q": "개별 종목이 급변해 해당 종목을 잠시 단일가로 거래하게 했다. 시장 전체 급락 때 전체 거래를 멈추는 조치와 구분되는 장치는?",
+  "o": [
+   "사이드카",
+   "서킷브레이커",
+   "변동성완화장치(VI)",
+   "조회공시"
+  ],
+  "a": 2,
+  "e": "<strong>C가 정답.</strong> VI는 개별 종목의 급격한 가격변동을 완화하며, 서킷브레이커는 시장 전체 급락에 대응한다."
+ },
+ {
+  "c": "A17",
+  "q": "선물가격이 급변해 현물 프로그램매매 호가의 효력을 제한했다. 해당 장치는?",
+  "o": [
+   "사이드카",
+   "VI",
+   "서킷브레이커",
+   "투자주의 지정"
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> 사이드카는 선물시장 급변을 신호로 프로그램매매 호가를 제한한다."
+ },
+ {
+  "c": "A18",
+  "q": "한 종목이 투자위험종목으로 지정됐으나 아직 불공정거래 사실이 확정되지 않았다. 올바른 해석은?",
+  "o": [
+   "지정 자체가 범죄 확정이다.",
+   "시장경보는 위험을 알리는 조치이며 위법 확정과 구분해야 한다.",
+   "회사의 상장폐지가 자동 확정된다.",
+   "결제가 취소된다."
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 시장경보 지정은 투자자 주의를 위한 절차로, 위법행위 확정 판정과 동일하지 않다."
+ },
+ {
+  "c": "A19",
+  "q": "매수자와 매도자의 의무를 차감해 순액을 계산하고, 이후 증권과 대금을 서로 이전했다. 두 단계를 순서대로 고르면?",
+  "o": [
+   "결제, 청산",
+   "청산, 결제",
+   "체결, 발행",
+   "공시, 청산"
+  ],
+  "a": 1,
+  "e": "<strong>B가 정답.</strong> 거래 후 채권·채무를 계산하는 것은 청산, 증권과 대금을 이전하는 것은 결제다."
+ },
+ {
+  "c": "A20",
+  "q": "중앙청산기관이 거래 상대방 사이에 개입했다. 이에 대한 설명으로 맞는 것은?",
+  "o": [
+   "결제이행을 관리하지만 투자손실을 보증하는 것은 아니다.",
+   "상장기업의 영업이익을 보장한다.",
+   "모든 시장가격 변동을 막는다.",
+   "거래소 공시를 면제한다."
+  ],
+  "a": 0,
+  "e": "<strong>A가 정답.</strong> CCP의 핵심 역할은 거래 상대방 사이에서 청산·결제 이행을 관리하는 것이며, 투자손실 보전 기관은 아니다."
+ }
+];
+const state={q1:{c:0,w:0,a:Array(20).fill(false)},q2:{c:0,w:0,a:Array(20).fill(false)}};
+function renderQuiz(id,data,target){const el=document.getElementById(target);el.innerHTML='';data.forEach((x,n)=>{const d=document.createElement('article');d.className='q-card';d.id=`${id}-card-${n}`;d.innerHTML=`<div class="q-meta"><span class="q-num">Q${String(n+1).padStart(2,'0')}</span><span class="badge ${id==='q1'?'badge-blue':'badge-red'}">${x.c}</span></div><div class="q-text">${x.q}</div><div class="q-options">${x.o.map((v,i)=>`<button class="q-option" id="${id}-o-${n}-${i}" onclick="answer('${id}',${n},${i})">${'①②③④'[i]} ${v}</button>`).join('')}</div><div class="explain" id="${id}-e-${n}">${x.e}</div>`;el.appendChild(d)})}
+function answer(id,n,choice){if(state[id].a[n])return;state[id].a[n]=true;const data=id==='q1'?Q1:Q2,ok=data[n].a===choice;for(let i=0;i<4;i++){const b=document.getElementById(`${id}-o-${n}-${i}`);b.disabled=true;if(i===data[n].a)b.classList.add('correct-opt');else if(i===choice&&!ok)b.classList.add('wrong-opt')}document.getElementById(`${id}-e-${n}`).classList.add('show');const card=document.getElementById(`${id}-card-${n}`);card.classList.add('answered');if(!ok)card.classList.add('wrong-ans');ok?state[id].c++:state[id].w++;score(id)}
+function score(id){const k=id==='q1'?'1':'2',s=state[id],done=s.c+s.w;document.getElementById(`s${k}-c`).textContent=s.c;document.getElementById(`s${k}-w`).textContent=s.w;document.getElementById(`s${k}-r`).textContent=20-done;document.getElementById(`bar${k}`).style.width=`${done*5}%`}
+function resetQuiz(id){state[id]={c:0,w:0,a:Array(20).fill(false)};const one=id==='q1';renderQuiz(id,one?Q1:Q2,one?'quiz1':'quiz2');score(id)}
+let savedTheme='light';try{savedTheme=localStorage.getItem(THEME_KEY)||'light'}catch(e){}applyTheme(savedTheme);renderQuiz('q1',Q1,'quiz1');renderQuiz('q2',Q2,'quiz2');
+</script>
+</body>
+</html>

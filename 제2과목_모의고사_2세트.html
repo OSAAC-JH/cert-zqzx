@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제2과목 모의고사 2세트 - 금융상품 및 직무윤리</title>
+<style>
+:root{color-scheme:light;--bg:#f6f7fb;--bg2:#fff;--card:#fff;--ink:#172033;--muted:#697286;--pri:#3f5efb;--pri2:#7b61ff;--hard:#d9480f;--hard2:#f08c00;--ok:#13a66b;--bad:#db3a34;--line:#e5e8f0;--soft:#eef2ff;--warn:#fff6df;--warn-line:#f1dc9a;--warn-ink:#5b4a17;--ok-bg:#eafaf3;--ok-line:rgba(19,166,107,.4);--bad-bg:#fff0ef;--bad-line:rgba(219,58,52,.4);--stem:#f8fafc;--hover:#fafbff;--hover-line:#b8c2ff;--pill:#f2f4f8;--pill-ink:#5b6478;--head:rgba(255,255,255,.93);--shadow:0 8px 22px rgba(23,32,51,.05)}
+html[data-theme=dark]{color-scheme:dark;--bg:#12131a;--bg2:#12131a;--card:#1b1d27;--ink:#eceef6;--muted:#a3a9bb;--pri:#8ea2ff;--pri2:#b39dff;--hard:#ff9f6e;--hard2:#ffc46b;--ok:#4cd694;--bad:#ff8782;--line:#32364a;--soft:#262b4a;--warn:#2d2815;--warn-line:#5f5222;--warn-ink:#ecdca3;--ok-bg:#12301f;--ok-line:rgba(76,214,148,.5);--bad-bg:#3a1b1d;--bad-line:rgba(255,135,130,.5);--stem:#20232f;--hover:#232638;--hover-line:#5a67b8;--pill:#262a39;--pill-ink:#b6bdd0;--head:rgba(27,29,39,.93);--shadow:none}
+body.hard{--pri:var(--hard);--pri2:var(--hard2);--soft:#fff1e8;--hover:#fff8f3;--hover-line:#f4b48f}
+html[data-theme=dark] body.hard{--soft:#3a2417;--hover:#2a2320;--hover-line:#a8693f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg) 45%,var(--bg2));color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Malgun Gothic",Arial,sans-serif;font-size:15px;line-height:1.65}
+header{position:sticky;top:0;z-index:20;background:var(--head);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1080px;margin:0 auto;padding:12px 20px}
+.toprow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;background:var(--pill);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;color:var(--muted);border-radius:999px;padding:6px 14px;font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;white-space:nowrap}
+.seg button.on{background:var(--pri);color:#fff}
+html[data-theme=dark] .seg button.on{color:#10131f}
+.seg button small{opacity:.85;font-weight:700;margin-left:4px}
+.progress-area{flex:1;min-width:200px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pri),var(--pri2));transition:width .25s}
+.stat{font-weight:800;color:var(--pri);white-space:nowrap;font-size:13.5px}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 11px;font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+.tabs{display:flex;gap:8px;margin-top:9px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;cursor:pointer;font:inherit;font-size:13px;font-weight:700;color:var(--muted)}
+.tab small{margin-left:4px;opacity:.75;font-weight:800}
+.tab.active{background:var(--pri);border-color:var(--pri);color:#fff}
+html[data-theme=dark] .tab.active{color:#10131f}
+button:focus-visible{outline:3px solid #f5b301;outline-offset:2px}
+.hero{padding:28px 20px 8px}
+.badge{display:inline-flex;gap:8px;padding:6px 11px;border-radius:999px;background:var(--soft);color:var(--pri);font-weight:800;font-size:13px}
+.hero h1{font-size:31px;letter-spacing:-.04em;margin:14px 0 8px;line-height:1.28}
+.hero p{margin:0;color:var(--muted)}
+.lvbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:16px}
+.lv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:14px}
+.lv b{display:block;margin-bottom:2px}.lv span{color:var(--muted);font-size:13px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.sumcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.sumcard b{display:block;font-size:21px;line-height:1.25}.sumcard span{color:var(--muted);font-size:13px}
+.sumcard.total{background:linear-gradient(135deg,var(--pri),var(--pri2));border:0}.sumcard.total b,.sumcard.total span{color:#fff}
+.note{margin-top:14px;background:var(--warn);border:1px solid var(--warn-line);border-radius:16px;padding:13px 16px;color:var(--warn-ink);font-size:14px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.btn.primary{background:var(--pri);border-color:var(--pri);color:#fff}html[data-theme=dark] .btn.primary{color:#10131f}
+.btn[aria-pressed=true]{border-color:var(--pri);color:var(--pri);background:var(--soft)}
+main.wrap{padding-top:6px}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:16px 0;padding:22px;box-shadow:var(--shadow);scroll-margin-top:150px}
+.qcard.is-ok{border-left:5px solid var(--ok)}.qcard.is-bad{border-left:5px solid var(--bad)}
+.qtop{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-size:12px;border-radius:999px;padding:4px 10px;background:var(--pill);color:var(--pill-ink);font-weight:700}
+.pill.ch{background:var(--soft);color:var(--pri)}
+.num{font-weight:900;color:var(--pri)}
+.q{font-size:17px;font-weight:800;letter-spacing:-.02em;margin:10px 0 14px;line-height:1.6;white-space:pre-wrap}
+.opts{display:grid;gap:9px}
+.opt{width:100%;text-align:left;display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-size:15px;color:var(--ink);transition:.15s}
+.opt b{flex:none;color:var(--pri)}
+.opt:hover:not(:disabled){border-color:var(--hover-line);background:var(--hover)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--ok-line);background:var(--ok-bg)}.opt.correct b{color:var(--ok)}
+.opt.wrong{border-color:var(--bad-line);background:var(--bad-bg)}.opt.wrong b{color:var(--bad)}
+.opt .mark{margin-left:auto;flex:none;font-size:12px;font-weight:900;padding-left:8px}
+.opt.correct .mark{color:var(--ok)}.opt.wrong .mark{color:var(--bad)}
+.explain{display:none;margin-top:14px;padding:15px 16px;border-radius:16px;background:var(--stem);border:1px solid var(--line)}
+.explain.show{display:block}
+.result{font-weight:900;margin-bottom:6px}.result.ok{color:var(--ok)}.result.bad{color:var(--bad)}.result.peek{color:var(--pri)}
+.explain .ans{font-weight:800;margin-bottom:4px}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.gradebox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+.gradebox h2{margin:0 0 6px;font-size:20px}
+.score-big{font-size:34px;font-weight:900;color:var(--pri);letter-spacing:-.03em}
+.score-big small{font-size:14px;color:var(--muted);font-weight:700;margin-left:6px}
+.chrow{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;margin:9px 0;font-size:14px}
+.chrow .mini{height:8px;background:var(--line);border-radius:999px;overflow:hidden}.chrow .mini i{display:block;height:100%;background:var(--ok)}
+.chrow .val{font-weight:800;white-space:nowrap}
+.cmp{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.cmp div{flex:1;min-width:150px;border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--stem)}
+.cmp b{display:block;font-size:20px}.cmp span{font-size:13px;color:var(--muted)}
+.wrongs{margin-top:14px}.wrongs a{display:inline-block;margin:3px 6px 3px 0;padding:3px 10px;border-radius:999px;background:var(--bad-bg);border:1px solid var(--bad-line);color:var(--bad);font-weight:800;font-size:13px;text-decoration:none;cursor:pointer}
+.hidden{display:none!important}
+footer{color:var(--muted);font-size:13px;padding:10px 20px 50px}
+@media(max-width:700px){.hero h1{font-size:24px}.wrap{padding-left:14px;padding-right:14px}.hero{padding-left:14px;padding-right:14px}.progress-area{grid-template-columns:1fr;gap:4px}.qcard{padding:17px;border-radius:18px}.q{font-size:16px}.chrow{grid-template-columns:100px 1fr auto}.seg button{padding:6px 10px;font-size:13px}}
+@media print{header,.controls,.theme{display:none}.explain{display:block!important}.qcard{break-inside:avoid;box-shadow:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="toprow">
+    <div class="seg" id="seg" role="tablist" aria-label="세트 선택">
+      <button type="button" data-set="1" class="on" role="tab">SET 1<small>표준</small></button>
+      <button type="button" data-set="2" role="tab">SET 2<small>고난도</small></button>
+    </div>
+    <div class="progress-area"><div class="bar" role="progressbar" aria-label="풀이 진행률" aria-valuemin="0" aria-valuemax="100"><span id="progress"></span></div><div class="stat" id="stat"></div></div>
+    <button class="theme" id="theme" type="button"></button>
+  </div>
+  <div class="tabs" id="tabs" role="tablist" aria-label="장별 필터"></div>
+</div></header>
+
+<section class="hero wrap">
+  <span class="badge" id="badge"></span>
+  <h1>금융상품 및 직무윤리<br>모의고사 2세트</h1>
+  <div class="lvbox">
+    <div class="lv"><b>SET 1 · 표준 난이도</b><span>정의·비교·기준값 확인과 1단계 계산. 학습노트의 핵심 개념을 실전 형식으로 점검합니다.</span></div>
+    <div class="lv"><b>SET 2 · 고난도</b><span>2~3단계 계산, ㄱㄴㄷ 복합 진술, 조문·사례 매칭, 상담 사례 판단 중심으로 구성했습니다.</span></div>
+  </div>
+  <div class="summary" id="summary"></div>
+  <div class="controls">
+    <button class="btn" id="wrongBtn" type="button" aria-pressed="false">오답만 보기</button>
+    <button class="btn" id="expBtn" type="button" aria-pressed="false">해설 전체 펼치기</button>
+    <button class="btn primary" id="gradeBtn" type="button">채점 요약 보기</button>
+    <button class="btn" id="resetBtn" type="button">이 세트 기록 초기화</button>
+  </div>
+</section>
+
+<main class="wrap">
+  <div id="questions"></div>
+  <div class="empty hidden" id="empty">조건에 맞는 문항이 없습니다.</div>
+  <div class="gradebox hidden" id="gradeBox"></div>
+</main>
+<footer class="wrap">학습용 모의고사입니다. 제도·수치(예금자보호 한도, ISA·연금저축 한도, 보고기한, 과태료 등)는 시험 직전 금융당국·금융투자협회의 최신 기준과 대조하세요.</footer>
+
+<script>
+const SETS={1:[{"ch": "금융상품분석", "sec": 1, "type": "은행 업무범위", "q": "일반은행의 업무 중 금융위원회에 신고해야 영위할 수 있는 것은?", "o": ["고유업무", "부수업무", "위탁업무", "겸영업무"], "a": 3, "e": "고유업무(예금·대출·환 등)는 인가받은 본연의 업무, 부수업무는 별도 인허가 없이 영위, 겸영업무(펀드 판매·방카슈랑스 등)는 금융위 신고가 필요하다."}, {"ch": "금융상품분석", "sec": 1, "type": "금융투자업자", "q": "투자자문업과 투자일임업의 차이로 옳은 것은?", "o": ["투자자문업은 업자가 주문을 직접 실행한다", "투자자문업은 고객이 직접 판단·주문하고, 투자일임업은 업자가 판단·주문한다", "투자일임업은 고객이 모든 투자 판단을 한다", "둘 다 업자가 고객의 재산을 보관한다"], "a": 1, "e": "자문업은 조언만 제공하고 최종 판단·주문은 고객이 한다. 일임업은 고객으로부터 투자판단 권한을 위임받아 업자가 운용한다."}, {"ch": "금융상품분석", "sec": 2, "type": "ELW", "q": "만기에 기초자산의 평가가격이 행사가격보다 높을 때의 권리행사로 옳은 것은?", "o": ["콜ELW는 권리를 포기하고 풋ELW는 권리를 행사한다", "콜ELW는 권리를 행사하고 풋ELW는 권리를 포기한다", "콜ELW와 풋ELW 모두 권리를 행사한다", "콜ELW와 풋ELW 모두 권리를 포기한다"], "a": 1, "e": "평가가격 > 행사가격이면 콜은 싸게 살 수 있어 행사하고(이익), 풋은 불리하므로 포기한다(손실은 프리미엄으로 한정)."}, {"ch": "금융상품분석", "sec": 2, "type": "ELD·ELS·ELF", "q": "ELD, ELS, ELF에 대한 설명으로 옳은 것은?", "o": ["ELD는 은행이 취급하는 예금상품으로 예금자보호 대상이다", "ELS는 은행이 취급하며 예금자보호 대상이다", "ELF는 증권사가 발행하는 원금보장 예금이다", "ELD와 ELS는 모두 실적배당 펀드이다"], "a": 0, "e": "ELD는 은행(예금), ELS는 증권사(유가증권, 비보호), ELF는 자산운용사(펀드, 실적배당·비보호)이다."}, {"ch": "금융상품분석", "sec": 2, "type": "집합투자기구", "q": "원칙적으로 환매금지형으로 운용해야 하는 집합투자기구가 아닌 것은?", "o": ["부동산집합투자기구", "특별자산집합투자기구", "증권집합투자기구(증권펀드)", "혼합자산집합투자기구"], "a": 2, "e": "부동산·특별자산·혼합자산펀드와 기업성장펀드(BDC)는 환매금지형이고, 증권펀드는 개방형이 원칙이다."}, {"ch": "금융상품분석", "sec": 2, "type": "ISA", "q": "ISA(개인종합저축계좌)에 대한 설명으로 옳은 것은?", "o": ["이익에는 과세하고 손실은 통산하지 않는다", "서민형의 비과세 한도는 200만원이다", "의무가입기간은 1년이다", "일정 기간의 이익과 손실을 통산한 순이익 기준으로 비과세 한도를 적용하고 초과분은 9.9% 분리과세한다"], "a": 3, "e": "비과세 한도는 일반형 200만원, 서민형·농어민형 400만원이며 의무가입기간은 3년, 납입한도는 연 2,000만원(최대 1억원)이다."}, {"ch": "금융상품분석", "sec": 2, "type": "예금보험", "q": "예금자보호법상 보호한도에 대한 설명으로 옳은 것은?", "o": ["동일한 금융기관 안에서 예금자 1인당 원금과 소정이자를 합해 최고 1억원까지 보호한다", "예금의 종류별로 각각 1억원씩 보호한다", "지점별로 각각 1억원씩 보호한다", "개인만 보호하고 법인은 보호하지 않는다"], "a": 0, "e": "보호한도 1억원은 동일 금융기관 내 예금자 1인 기준의 총액이며 종류별·지점별이 아니다. 개인뿐 아니라 법인도 대상이다."}, {"ch": "투자전략", "sec": 1, "type": "자산배분의 중요성", "q": "통합적 투자관리 4단계에서 투자전략적 관점의 자산배분을 실시하는 단계는?", "o": ["1단계", "3단계", "4단계", "2단계"], "a": 3, "e": "1단계 목표 설정·사전분석, 2단계 자산배분, 3단계 개별종목 선택, 4단계 포트폴리오 수정과 사후통제이다."}, {"ch": "투자전략", "sec": 2, "type": "기대수익률", "q": "경기 호황(확률 40%) 15%, 보통(40%) 8%, 불황(20%) −5%일 때 기대수익률은?", "o": ["6.0%", "8.2%", "9.5%", "12.0%"], "a": 1, "e": "E(R) = Σ(확률 × 수익률) = 0.4×15 + 0.4×8 + 0.2×(−5) = 6 + 3.2 − 1 = 8.2%. 단순평균(6.0%)은 확률을 무시한 오답이다."}, {"ch": "투자전략", "sec": 2, "type": "최적증권", "q": "보수적인 투자자의 무차별효용곡선에 대한 설명으로 옳은 것은?", "o": ["기울기가 가파르며 위험이 조금만 늘어도 더 많은 기대수익을 요구한다", "기울기가 완만하며 기대수익 증가가 위험 증가에 미치지 못해도 만족한다", "수평선 형태이다", "기울기가 음(−)이다"], "a": 0, "e": "보수적 투자자는 곡선이 가파르고, 공격적 투자자는 완만하다."}, {"ch": "투자전략", "sec": 2, "type": "성과측정", "q": "펀드매니저의 운용성과를 투자자의 입출금(현금흐름) 영향 없이 비교하려 할 때 가장 적합한 수익률은?", "o": ["금액가중수익률", "내부수익률(IRR)", "시간가중수익률", "실현수익률의 단순합계"], "a": 2, "e": "시간가중수익률은 현금흐름 영향을 제거해 운용 성과를 비교한다. 금액가중수익률(IRR)은 투자자 본인의 실제 성과에 적합하다."}, {"ch": "투자전략", "sec": 3, "type": "전술적 자산배분", "q": "전술적 자산배분전략(TAA)의 이론적 배경으로 옳은 것은?", "o": ["시장가격이 내재가치보다 고평가되면 매도하고 저평가되면 매수하는 역투자전략", "효율적 투자기회선에 따라 구성비를 장기 고정하는 전략", "시가총액 비중대로 구성하는 CAPM 기반 전략", "시장 변화와 무관하게 재조정하지 않는 전략"], "a": 0, "e": "TAA는 중·단기적이고 적극적인 동적 전략으로 역투자전략과 시장의 과잉반응을 활용한다. 나머지는 SAA의 특징이다."}, {"ch": "투자전략", "sec": 4, "type": "자산배분 모델", "q": "블랙리터만 모델이 마코위츠 평균-분산 모델에 비해 개선한 점은?", "o": ["위험을 완전히 제거한다", "극단적인 자산배분 비중 문제를 완화하고 투자자의 시장전망을 반영할 수 있다", "공분산 추정이 필요 없다", "시가총액 정보가 필요 없다"], "a": 1, "e": "블랙리터만 모델은 균형기대수익률(시가총액 비중)에 투자자 전망을 결합한다. 한계로는 시가총액 산출의 어려움과 주관적 전망의 오류 가능성이 있다."}, {"ch": "투자권유·고객관리", "sec": 1, "type": "투자권유", "q": "적합성 원칙과 적정성 원칙의 구분으로 옳은 것은?", "o": ["적합성은 권유 없이 판매할 때, 적정성은 권유할 때 적용된다", "둘 다 전문금융소비자에게만 적용된다", "적합성은 투자를 권유하는 경우에, 적정성은 권유 없이 판매하는 경우에 적용된다", "둘 다 투자권유 여부와 관계없이 동일하게 적용된다"], "a": 2, "e": "권유하면 적합성(부적합 상품은 권유 불가), 권유 없이 팔아도 일정 상품은 적정성(부적정이면 고지·확인)이 적용된다."}, {"ch": "투자권유·고객관리", "sec": 1, "type": "고객관리", "q": "판매 후 7영업일 이내에 판매직원이 아닌 제3자가 소비자와 통화하여 설명의무 이행 여부를 확인하는 제도는?", "o": ["해피콜 서비스", "미스터리쇼핑", "고객의 소리(VOC)", "위법계약해지"], "a": 0, "e": "해피콜은 제3자 통화 확인, 미스터리쇼핑은 소비자로 가장한 점검, VOC는 불만·제안·칭찬의 수집이다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "고객상담", "q": "고객상담 프로세스의 순서로 가장 적절한 것은?", "o": ["준비 → 대안 제시 → 라포 형성 → 질문·경청 → 요구 확인 → 후속관리 → 이해·동의 확인", "라포 형성 → 대안 제시 → 준비 → 요구 확인 → 질문·경청 → 이해·동의 확인 → 후속관리", "준비 → 라포 형성 → 질문·경청 → 요구 확인 → 대안 제시 → 이해·동의 확인 → 후속관리", "준비 → 요구 확인 → 대안 제시 → 라포 형성 → 질문·경청 → 후속관리 → 이해·동의 확인"], "a": 2, "e": "질문으로 열고 경청으로 좁히고 요약으로 맞춘 뒤, 필요 확인 후에 대안을 제시한다. 상품 설명부터 시작하지 않는다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "관계 형성", "q": "라포와 공감에 대한 설명으로 옳은 것은?", "o": ["공감을 위해서는 고객의 의견에 항상 동의해야 한다", "친밀감을 위해 기대수익을 다소 과장해도 된다", "경청은 고객의 말을 끊고 핵심만 확인하는 것이다", "공감은 고객의 관점을 정확히 이해했음을 보여 주는 것이며 사실이나 위험을 왜곡해 동조하는 것이 아니다"], "a": 3, "e": "공감은 동의가 아니다. 무조건 같은 의견인 척하거나 과장된 약속을 해서는 안 된다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "동의 확보·클로징", "q": "클로징 단계에서 고객의 동의를 확보하는 방법으로 가장 적절한 것은?", "o": ["핵심 조건과 위험을 고객이 자기 말로 설명할 수 있는지 확인하고, 결정을 보류할 수 있음을 알려 준다", "고객이 침묵하면 동의한 것으로 보고 계약서류를 작성한다", "서명만 받으면 이해한 것으로 간주한다", "오늘 결정하지 않으면 혜택이 사라진다고 말해 결정을 유도한다"], "a": 0, "e": "동의는 설명을 이해한 고객의 자발적 결정이어야 한다. 침묵이나 서명만으로 이해를 추정하지 않고, 결정 압박을 피한다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "직무윤리 일반", "q": "직무윤리의 성격과 핵심으로 옳은 것은?", "o": ["정부의 타율규제가 성격이며 핵심은 수익성과 안정성이다", "법적 의무가 아니라 권고에 불과하다", "회사 우선과 비용 절감이 핵심이다", "자율규제와 자기단속(내부통제기준)을 성격으로 하며 핵심은 고객우선과 신의성실이다"], "a": 3, "e": "직무윤리는 자율규제 원칙과 자기단속체계가 성격이고 핵심은 고객우선·신의성실이다. 신의성실은 법적 의무이기도 하다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "이해상충", "q": "이해상충 방지체계의 단계로 옳은 것은?", "o": ["거래 회피 → 고지 → 파악", "고지 없이 거래 → 사후 보상 → 회피", "파악 → 사후 보고 → 거래 계속", "이해상충 가능성 파악 → 고지 후 저감하여 거래 → 불가하면 거래 회피"], "a": 3, "e": "발생 가능성을 파악·관리하고, 고지·저감 후에 거래하며, 그래도 어려우면 거래를 회피(거래단념)한다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "자본시장법", "q": "자본시장법 제37조의 내용으로 옳은 것은?", "o": ["정보교류차단의무", "신의성실원칙과 자기거래·쌍방대리 금지의 원칙", "이해상충방지시스템 구축 및 공시·거래단념", "위반 시 손해배상책임"], "a": 1, "e": "제37조 신의성실·자기거래 금지, 제44조 이해상충방지시스템·공시·거래단념, 제45조 정보교류차단, 제46조 손해배상책임이다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "비밀정보", "q": "회사의 비밀정보를 다른 부서나 제3자에게 제공해야 할 때의 절차로 옳은 것은?", "o": ["담당자 판단으로 즉시 제공한다", "계열회사에는 승인 없이 제공할 수 있다", "필요한 범위에서 준법감시인의 사전 승인 등 절차를 거치고 제공 내역을 기록한다", "구두로 요청받으면 제공한다"], "a": 2, "e": "비밀정보는 필요한 범위에서 최소한으로(Need to know) 관리하고, 제공 시 정해진 절차를 거치며 기록한다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "대외활동", "q": "금융투자업 종사자의 SNS·강연 등 대외활동으로 옳은 것은?", "o": ["개인 의견이므로 회사의 허가 절차와 무관하다", "불확실한 사항도 단정적으로 표현하면 투자자의 이해를 돕는다", "회사의 공식 의견이 아니면 사견임을 명백히 표현하고, 금전적 보상을 받으면 회사에 신고한다", "경쟁 금융투자회사를 비교·비방해도 무방하다"], "a": 2, "e": "대외활동은 회사 업무에 지장을 주지 않아야 하고, 불확실한 사항의 단정적 표현이나 타사 비방은 금지된다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "내부통제", "q": "준법감시인에 대한 설명으로 옳은 것은?", "o": ["임기는 2년 이상이며 해임 시 이사 총수의 2/3 이상 찬성이 필요하다", "임기는 1년이며 대표이사가 단독으로 해임한다", "회사의 본질적 업무를 겸직할 수 있다", "사외이사만 선임될 수 있다"], "a": 0, "e": "준법감시인은 사내이사 또는 업무집행책임자 중에서 선임하고 임기는 2년 이상이며, 본질적·부수·겸영·위험관리업무를 겸직할 수 없다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "제재", "q": "직무윤리 위반에 대한 제재와 주체의 연결로 옳은 것은?", "o": ["자율적 제재: 금융위원회 / 행정적 제재: 금융투자협회", "자율적 제재: 금융투자협회 / 행정적 제재: 금융위원회", "민사적 제재: 금융위원회 / 형사적 제재: 금융투자협회", "시장 제재: 법원 / 형사적 제재: 시장"], "a": 1, "e": "자율(금투협), 행정(금융위), 민사·형사(법원), 시장(시장의 신뢰 상실)이다."}, {"ch": "직무윤리·분쟁예방", "sec": 2, "type": "6대 판매원칙", "q": "6대 판매원칙 위반 시 위법계약해지가 인정되지 않는 것은?", "o": ["적합성 원칙", "허위·부당광고 금지", "설명의무", "부당권유행위 금지"], "a": 1, "e": "허위·부당광고 금지 위반은 과태료·과징금·손해배상 대상이지만 위법계약해지 대상은 아니다."}, {"ch": "직무윤리·분쟁예방", "sec": 2, "type": "분쟁사례", "q": "일임매매 분쟁에서 손해배상책임이 인정되는 경우로 가장 적절한 것은?", "o": ["위임의 취지를 벗어나 과도하게 매매하여 선관주의의무를 위반한 경우", "일임계약을 체결했다는 사실만으로 항상 인정", "시장 하락으로 손실이 발생한 모든 경우", "고객이 일임 사실을 알고 있었던 경우"], "a": 0, "e": "일임매매는 원칙적으로 책임이 없으나, 위임내용·투자목적·자금성격·매매양태를 종합해 일임의 본질을 벗어난 과도한 매매는 선관주의의무 위반이다(월 매매회전율 1,400% 사례)."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "STR · CTR", "q": "STR(의심거래보고)과 CTR(고액현금거래보고)의 비교로 옳은 것은?", "o": ["STR은 1천만원 이상 현금거래만, CTR은 의심거래만 보고한다", "STR은 종사자의 주관적 판단에 따라 금액 기준 없이, CTR은 1천만원 이상 현금거래를 객관적 기준으로 보고한다", "둘 다 고객 동의가 있어야 보고한다", "둘 다 주관적 판단에 따른다"], "a": 1, "e": "STR은 의심(주관, 금액 무관), CTR은 1거래일 현금 1천만원 이상(객관)이다."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "CDD · EDD", "q": "강화된 고객확인(EDD)의 대상으로 옳은 것은?", "o": ["저위험 고객", "모든 소액 거래", "국가·지방자치단체와의 거래", "고위험 고객 및 고위험 상품(비대면거래 등)"], "a": 3, "e": "CDD는 저·중위험 고객·상품, EDD는 고위험 고객·상품이며 CDD 항목에 거래의 목적, 자금의 원천을 더해 확인한다."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "RBA", "q": "위험기반접근법(RBA)의 위험 분류에 포함되지 않는 것은?", "o": ["국가위험", "고객위험", "시장가격위험", "상품위험"], "a": 2, "e": "RBA의 위험 분류는 국가·고객·상품·사업(서비스) 위험이다. 시장가격위험은 AML 위험분류가 아니다."}],2:[{"ch": "금융상품분석", "sec": 1, "type": "부정형", "q": "금융회사에 대한 설명으로 옳지 않은 것은?", "o": ["부수업무는 감독당국의 별도 인허가 없이 영위할 수 있고 겸영업무는 금융위 신고가 필요하다", "우체국예금은 예금자보호법에 따라 1인당 1억원까지 보호된다", "상호저축은행은 상호저축은행법의 규제를 받으며 일반은행 고유업무와 유사한 업무를 영위한다", "특수은행은 특별법으로 설립되며 정부가 자본금을 출자·통제한다(협동조합 제외)"], "a": 1, "e": "우체국예금은 예금자보호법 적용 대상이 아니며 국가가 전액 지급을 보장한다."}, {"ch": "금융상품분석", "sec": 1, "type": "복합 진술", "q": "금융투자회사에 대한 설명 중 옳은 것만 묶은 것은?\n\nㄱ. 투자신탁(계약형)은 법인격이 없고 투자회사(회사형)는 법인격이 있다.\nㄴ. 증권회사는 직접금융시장에서 기업이 발행한 증권을 매개로 투자자의 자금을 기업에 이전시킨다.\nㄷ. 선물회사는 증권의 인수·주선을 주된 업무로 한다.\nㄹ. 투자일임업자는 고객으로부터 투자판단 권한을 위임받아 운용한다.", "o": ["ㄱ, ㄴ", "ㄴ, ㄷ, ㄹ", "ㄱ, ㄴ, ㄹ", "ㄱ, ㄷ, ㄹ"], "a": 2, "e": "선물회사는 선물거래·해외선물거래 등 장내파생상품의 투자매매·중개업무를 영위한다(ㄷ 오답)."}, {"ch": "금융상품분석", "sec": 2, "type": "계산 · ELW", "q": "콜ELW 가격이 450원, 행사가격이 20,000원, 전환비율이 0.1일 때 손익분기점은? (손익분기점 = 행사가격 + ELW가격 ÷ 전환비율)", "o": ["20,045원", "24,500원", "20,450원", "65,000원"], "a": 1, "e": "450 ÷ 0.1 = 4,500원, 20,000 + 4,500 = 24,500원. 전환비율로 나누지 않고 곱하거나 더하면 20,045원·20,450원이 되어 오답이다."}, {"ch": "금융상품분석", "sec": 2, "type": "계산 · ISA", "q": "서민형 ISA에서 만기까지 이익 650만원, 손실 150만원이 발생했다. 이익·손실을 통산한 뒤 비과세 한도 400만원을 적용하고 초과분을 9.9% 분리과세할 때 세액은?", "o": ["0원", "29.7만원", "49.5만원", "9.9만원"], "a": 3, "e": "순이익 = 650 − 150 = 500만원. 비과세 400만원 초과분 100만원 × 9.9% = 9.9만원. 29.7만원은 일반형(한도 200만원) 기준, 49.5만원은 비과세 한도를 무시한 값이다."}, {"ch": "금융상품분석", "sec": 2, "type": "계산 · 예금보험", "q": "A은행에 원금과 소정이자를 합한 예금이 1억 8천만원, 대출이 5천만원 있다. A은행이 파산한 경우 보호받는 금액은? (보호한도 1억원)", "o": ["8천만원", "1억 3천만원", "1억 8천만원", "1억원"], "a": 3, "e": "대출과 예금을 먼저 상계하면 1억 8천 − 5천 = 1억 3천만원이 남지만, 보호한도가 1억원이므로 1억원까지 보호한다."}, {"ch": "금융상품분석", "sec": 2, "type": "집합투자기구", "q": "특수한 형태의 집합투자기구를 정의와 짝지은 것으로 옳은 것은?", "o": ["모자형: 자펀드가 모펀드가 발행한 집합투자증권을 취득 / 종류형: 보수·수수료 차이로 기준가격이 다른 여러 종류의 증권을 발행", "모자형: 보수 차이로 기준가격이 다른 증권을 발행 / 종류형: 복수 펀드 간 전환권을 부여", "전환형: 자펀드가 모펀드에 투자 / 종류형: 일정 단위 이상의 증권 실물로 설정·환매", "ETF: 환매가 금지되고 상장되지 않음 / 전환형: 모펀드가 자펀드에 투자"], "a": 0, "e": "전환형(Umbrella)은 복수 펀드 간 전환권, ETF는 환매가 허용되고 30일 이내 상장되는 구조이다."}, {"ch": "금융상품분석", "sec": 2, "type": "부정형 · 보장성", "q": "보장성 금융상품에 대한 설명으로 옳지 않은 것은?", "o": ["CI보험은 중병 상태가 계속될 때 사망보험금의 통상 50~80%를 선지급한다", "실손의료보험은 정액으로 의료비를 지급하며 실제 발생한 의료비와 무관하다", "연금보험은 10년 이상 유지하면 보험차익에 대한 이자소득세가 비과세된다", "변액보험은 투자수익에 따라 보험금이 변동한다"], "a": 1, "e": "실손의료보험은 실제 발생한 의료비를 기준으로 보장한다(본인부담금 일부 제외)."}, {"ch": "투자전략", "sec": 1, "type": "통합적 투자관리", "q": "통합적 투자관리의 4단계를 순서대로 바르게 나열한 것은?", "o": ["자산배분 → 사전분석 → 개별종목 선택 → 사후통제", "사전분석 → 개별종목 선택 → 자산배분 → 사후통제", "개별종목 선택 → 자산배분 → 사전분석 → 사후통제", "사전분석(목표·전략 수립) → 자산배분 → 개별종목 선택 → 포트폴리오 수정·사후통제"], "a": 3, "e": "큰 틀(자산배분)을 먼저, 세부(종목)를 나중에 정한다."}, {"ch": "투자전략", "sec": 2, "type": "계산 · 공분산 수", "q": "12개 자산으로 포트폴리오를 구성할 때 평균-분산 분석을 위해 추정해야 하는 공분산의 개수는?", "o": ["12개", "66개", "24개", "132개"], "a": 1, "e": "공분산 수 = n(n−1)/2 = 12×11/2 = 66. 132는 n(n−1)로 중복을 세어 오답이다."}, {"ch": "투자전략", "sec": 2, "type": "계산 · 위험 분해", "q": "주식의 베타가 0.8, 시장수익률의 분산이 0.04, 비체계적 위험(잔차분산)이 0.0125일 때 총위험(분산) 중 체계적 위험의 비중은 약 얼마인가?", "o": ["약 32.8%", "약 67.2%", "약 80%", "약 100%"], "a": 1, "e": "체계적 위험 = β²σ²(Rm) = 0.64×0.04 = 0.0256. 총분산 = 0.0256 + 0.0125 = 0.0381. 비중 = 0.0256÷0.0381 ≈ 67.2%."}, {"ch": "투자전략", "sec": 2, "type": "계산 · 기하평균", "q": "연 수익률이 +20%, −10%, +30%일 때 3년간의 기하평균수익률은 약 얼마인가?", "o": ["약 10.0%", "약 13.3%", "약 12.0%", "약 20.0%"], "a": 2, "e": "(1.2 × 0.9 × 1.3)^(1/3) − 1 = 1.404^(1/3) − 1 ≈ 12.0%. 산술평균(13.3%)은 기하평균보다 크다."}, {"ch": "투자전략", "sec": 3, "type": "계산 · 정률법", "q": "정률법 포뮬러 플랜으로 주식:채권 = 50:50을 유지한다. 처음 주식 100, 채권 100이었는데 주가 상승으로 주식 140, 채권 100(합계 240)이 되었다. 원래 비율로 되돌리는 거래는?", "o": ["주식 40 매도, 채권 40 매수", "주식 20 매수, 채권 20 매도", "주식 20 매도, 채권 20 매수", "주식 40 매도(주식 투자금액 100 유지)"], "a": 2, "e": "합계 240의 50%는 120이므로 주식 20을 팔고 채권 20을 산다. 마지막 보기는 주식 금액을 일정하게 유지하는 정액법의 방식이다."}, {"ch": "투자전략", "sec": 4, "type": "부정형 · 마코위츠", "q": "마코위츠 평균-분산 모델에 대한 설명으로 옳지 않은 것은?", "o": ["모든 증권의 상관계수가 +1이 아닌 한 증권을 추가할수록 포트폴리오 위험이 감소한다", "위험에 대한 적절한 보상은 체계적 위험에 한정된다", "효용무차별곡선과 효율적 투자선의 접점이 최적 포트폴리오이다", "무위험자산을 포함하면 효율적 포트폴리오의 투자성과가 위험자산만으로 구성한 경우보다 낮아진다"], "a": 3, "e": "무위험자산을 포함하면 위험자산만으로 구성한 포트폴리오보다 투자성과가 높아진다."}, {"ch": "투자권유·고객관리", "sec": 1, "type": "투자성향 파악", "q": "투자성향 파악 방법을 설명과 짝지은 것으로 옳은 것은?\n\nㄱ. 설문 응답을 점수화하여 성향을 분류\nㄴ. 설문 정보로 부적합한 상품군을 제외\nㄷ. 상담 과정과 결과를 기록해 판단", "o": ["ㄱ 투자성향 점수화 · ㄴ 부적합 상품 추출 · ㄷ 상담보고서 활용", "ㄱ 부적합 상품 추출 · ㄴ 투자성향 점수화 · ㄷ 상담보고서 활용", "ㄱ 상담보고서 활용 · ㄴ 투자성향 점수화 · ㄷ 부적합 상품 추출", "ㄱ 투자성향 점수화 · ㄴ 상담보고서 활용 · ㄷ 부적합 상품 추출"], "a": 0, "e": "점수화는 일관성, 부적합 상품 추출은 부적합 배제, 상담보고서는 심층 상담(신탁·자문·일임·포트폴리오 투자)에 적합하지만 상담 역량에 따라 편차가 있다."}, {"ch": "투자권유·고객관리", "sec": 1, "type": "방문·전화 판매 절차", "q": "방문·전화 등 실시간 대화를 통한 판매 절차의 순서로 옳은 것은?", "o": ["개시안내 → 사전안내 → 통상 판매절차 → 녹취 안내 → 계약서류 제공", "사전안내 → 녹취 시작 → 개시안내 → 통상 판매절차 → 계약서류 제공", "계약서류 제공 → 사전안내 → 개시안내 → 녹취 동의 → 통상 판매절차", "사전안내 → 개시안내·자격 확인 → 녹취 안내·동의 → 통상 판매절차 → 계약서류 제공"], "a": 3, "e": "먼저 알리고, 신분·목적을 밝히고, 녹취 동의를 받은 다음 기록한다. 사전안내와 개시안내를 합치거나 녹취 동의를 생략해서는 안 된다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "고객상담 사례", "q": "고객이 “원금 손실은 절대 싫은데 은행 예금보다 훨씬 높은 수익을 원한다”고 말했다. 상담자의 대응으로 가장 적절한 것은?", "o": ["수익 기대와 위험 감수 수준의 충돌을 요약해 확인하고, 우선순위와 대안을 같은 기준으로 비교해 준다", "고객이 원하는 수익을 낼 수 있는 상품을 바로 추천한다", "손실 가능성은 낮다고 말해 안심시킨다", "투자성향 점수가 낮으므로 상담을 종료한다"], "a": 0, "e": "표면적 요청 뒤의 실제 필요와 제약을 확인하고, 수익·위험·기간·비용·유동성을 같은 기준으로 비교해 선택을 돕는다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "설득 사례", "q": "상품 설명 중 고객이 “과거에 수익이 났다는데 이번에도 그런가요?”라고 물었을 때 적절한 답변은?", "o": ["최근 수익률이 좋았으므로 앞으로도 비슷할 것이라고 설명한다", "예시 수익률은 확정 수익처럼 설명해 이해를 돕는다", "과거 수익은 참고 정보이며 미래 수익을 보장하지 않는다고 설명하고, 손실 가능성과 조건을 함께 알려 준다", "질문에 방어적으로 반박하고 상품의 장점만 반복한다"], "a": 2, "e": "과거 수익이나 예시 수익을 미래의 확정 수익처럼 말해서는 안 되며, 불확실성과 손실 가능성을 정직하게 설명한다."}, {"ch": "투자권유·고객관리", "sec": 2, "type": "클로징 사례", "q": "설명을 마치자 고객이 서명을 했지만 중도 환매 조건과 손실 가능성을 묻는 질문에 제대로 답하지 못했다. 가장 적절한 조치는?", "o": ["핵심 조건과 위험을 다시 설명하고 이해 여부를 확인한 뒤 진행하며, 필요하면 결정을 보류하도록 안내한다", "서명이 있으므로 설명의무를 이행한 것으로 보고 계약을 진행한다", "서류를 먼저 제공하고 설명 확인서는 사후에 작성한다", "고객에게 질문을 그만하도록 안내하고 계약을 마무리한다"], "a": 0, "e": "서명만으로 충분한 이해를 추정하지 않는다. 설명·동의 절차를 사후에 만들어서도 안 된다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "부정형 · 직무윤리", "q": "직무윤리에 대한 설명으로 옳지 않은 것은?", "o": ["금융투자업은 금융소비자의 질적 변화와 금융투자상품의 특성 때문에 직무윤리가 강조된다", "핵심 원칙은 고객우선의 원칙과 신의성실의 원칙이다", "직무윤리 관련 법률에는 자본시장법, 금융소비자보호법, 지배구조법이 있다", "직무윤리는 자율규제를 원칙으로 하므로 법적 의무와는 무관하다"], "a": 3, "e": "신의성실의 원칙은 직무윤리이면서 동시에 법적 의무이다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "조문 매칭", "q": "자본시장법 조문과 내용을 순서대로 짝지은 것은?\n\nㄱ. 제37조  ㄴ. 제44조  ㄷ. 제45조  ㄹ. 제46조\n\n① 신의성실·자기거래/쌍방대리 금지\n② 이해상충방지시스템 구축·공시·거래단념\n③ 정보교류차단\n④ 위반 시 손해배상책임", "o": ["ㄱ-①, ㄴ-②, ㄷ-③, ㄹ-④", "ㄱ-②, ㄴ-①, ㄷ-③, ㄹ-④", "ㄱ-①, ㄴ-③, ㄷ-②, ㄹ-④", "ㄱ-①, ㄴ-②, ㄷ-④, ㄹ-③"], "a": 0, "e": "조문 번호 순서대로 37(신의성실) → 44(이해상충방지) → 45(정보교류차단) → 46(손해배상)이다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "판매 이후 보호", "q": "상품 판매 이후 단계의 금융소비자 보호에 대한 설명으로 옳은 것은?", "o": ["매매체결 후 익월 20일까지 매매명세를 통지하며, 소비자의 자료열람 요구에는 6일 이내 제공한다", "매매명세는 체결 후 분기 말까지 통지하면 된다", "해피콜은 판매 후 30영업일 이내에 판매직원이 직접 실시한다", "위법계약해지권은 전문금융소비자에게만 인정된다"], "a": 0, "e": "해피콜은 판매 후 7영업일 이내 제3자가 실시하며, 위법계약해지는 금융소비자가 6대 판매원칙 위반을 이유로 요구하는 권리다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "금품 수수 금지", "q": "재산상 이익의 제공·수령 금지 사례로 보기 어려운 것은?", "o": ["집합투자업자가 판매실적에 연동해 판매회사에 이익을 제공하는 경우", "사용범위가 문화활동으로 한정된 상품권을 통상적인 수준에서 제공하는 경우", "거래상대방만 참석한 여가·오락 활동의 비용을 제공하는 경우", "비정상적인 조건의 금융투자상품 매매 체결 등의 방법으로 이익을 제공하는 경우"], "a": 1, "e": "금전·상품권·금융투자상품 제공은 금지되나, 사용범위가 문화활동으로 한정된 상품권은 제외된다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "적합성 원칙 절차", "q": "일반금융소비자에 대한 적합성 원칙 이행으로 옳은 것은?", "o": ["일반/전문 구분보다 상품 설명을 먼저 한다", "파악한 정보는 소비자에게 제공하지 않고 회사가 보관한다", "예금성 상품에도 동일하게 적용한다", "투자권유 희망 여부 확인 → 일반/전문 확인 → 면담·질문으로 정보 파악 → 서명·녹취 등으로 확인 → 확인 내용을 소비자에게 제공 순으로 진행한다"], "a": 3, "e": "KYC 순서는 권유 희망 → 일반/전문 → 정보 파악 → 확인 → 제공이다. 예금성 상품은 적용에서 제외된다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "부정형 · 준법감시인", "q": "준법감시인에 대한 설명 중 옳지 않은 것은?", "o": ["임기는 2년 이상이다", "해임 시 이사 총수의 2/3 이상 찬성이 필요하다", "회사의 부수업무와 위험관리업무를 겸직하는 것이 허용된다", "사내이사 또는 업무집행책임자 중에서 선임한다"], "a": 2, "e": "준법감시인과 준법감시부서 직원은 회사의 본질적·부수·겸영·위험관리업무를 수행할 수 없다."}, {"ch": "직무윤리·분쟁예방", "sec": 1, "type": "제재 매칭", "q": "다음 제재 사례를 제재 유형별로 올바르게 짝지은 것은?\n\nㄱ. 금융위원회의 영업정지·등록취소\nㄴ. 금융투자협회의 회원자격 정지·제재금\nㄷ. 법원의 손해배상 판결\nㄹ. 고객 이탈과 평판 하락", "o": ["ㄱ 행정적 · ㄴ 자율적 · ㄷ 민사적 · ㄹ 시장", "ㄱ 자율적 · ㄴ 행정적 · ㄷ 민사적 · ㄹ 시장", "ㄱ 행정적 · ㄴ 자율적 · ㄷ 형사적 · ㄹ 민사적", "ㄱ 행정적 · ㄴ 민사적 · ㄷ 자율적 · ㄹ 시장"], "a": 0, "e": "금융위(행정), 금융투자협회(자율), 법원(민사·형사), 시장(평판·신뢰) 제재로 구분한다."}, {"ch": "직무윤리·분쟁예방", "sec": 2, "type": "판매원칙 책임", "q": "6대 판매원칙 위반 시 책임에 대한 설명으로 옳은 것은?", "o": ["설명의무 위반에는 과태료가 부과되지 않는다", "불공정영업행위 금지 위반에는 손해배상책임이 없다", "적합성·적정성 원칙 위반에는 과징금이 부과되지 않고, 허위·부당광고 위반에는 위법계약해지가 인정되지 않는다", "적합성 원칙 위반에는 과징금이 부과된다"], "a": 2, "e": "책임표에서 적합성·적정성은 과징금 ×, 허위·부당광고는 위법계약해지 ×이고 나머지는 모두 ○이다."}, {"ch": "직무윤리·분쟁예방", "sec": 2, "type": "부정형 · 분쟁조정", "q": "분쟁조정제도에 대한 설명으로 옳지 않은 것은?", "o": ["신청 후 30일 이내 합의가 안 되면 조정위원회에 회부하고, 회부일부터 60일 이내 조정안을 작성한다", "금융감독원 조정위원회의 조정안을 수락하면 재판상 화해와 동일한 효력이 있다", "조정위원회의 조정안은 당사자가 수락하지 않아도 법원 판결과 같은 구속력을 가진다", "일반금융소비자가 신청한 2천만원 이하 소액분쟁은 조정안 제시 전까지 금융회사의 제소가 금지된다"], "a": 2, "e": "분쟁조정은 법원 판결과 달리 구속력이 없고, 당사자가 수락한 경우에 한해 효력이 생긴다."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "CTR 사례", "q": "하루 동안 한 고객의 거래가 다음과 같을 때 CTR(고액현금거래보고) 대상인 것은?", "o": ["현금 입금 600만원 + 현금 출금 800만원", "현금 입금 700만원 + 현금 입금 500만원 (입금 합계 1,200만원)", "계좌이체 5,000만원", "인터넷뱅킹 이체 2,000만원"], "a": 1, "e": "CTR은 1거래일 동안의 입금액과 출금액을 각각 별도로 합산해 1천만원 이상인 현금거래가 대상이다. 계좌이체·인터넷뱅킹은 보고제외 대상이다."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "부정형 · 고객확인", "q": "자금세탁방지 관련 설명으로 옳지 않은 것은?", "o": ["고객확인제도(CDD)는 신규 계좌 개설 시에만 적용되며 일회성 거래에는 적용되지 않는다", "STR 허위보고나 보고내용을 누설하면 1년 이하 징역 또는 1천만원 이하 벌금이다", "의심거래를 보고하지 않으면 건당 1천만원 이하 과태료 또는 영업정지를 받을 수 있다", "1,500만원(외화 1만달러) 이상의 일회성 거래도 고객확인 대상이다"], "a": 0, "e": "고객확인은 신규 계좌 개설·서비스 등록, 1,500만원(외화 1만달러) 이상 일회성 거래, 자금세탁 우려 시 적용된다."}, {"ch": "직무윤리·분쟁예방", "sec": 3, "type": "RBA 위험 분류", "q": "다음 사례를 위험 분류(국가·고객·상품·사업)와 순서대로 짝지은 것은?\n\nㄱ. 비협조국가·이행계획 미수립 국가와의 거래\nㄴ. 외국의 정치적 주요인물(PEP)인 고객\nㄷ. 새로운 유통구조를 가진 신상품 출시\nㄹ. 신규 판매채널 도입", "o": ["ㄱ 고객위험 · ㄴ 국가위험 · ㄷ 상품위험 · ㄹ 사업(서비스)위험", "ㄱ 국가위험 · ㄴ 고객위험 · ㄷ 상품위험 · ㄹ 사업(서비스)위험", "ㄱ 국가위험 · ㄴ 고객위험 · ㄷ 사업(서비스)위험 · ㄹ 상품위험", "ㄱ 상품위험 · ㄴ 고객위험 · ㄷ 국가위험 · ㄹ 사업(서비스)위험"], "a": 1, "e": "신상품의 새로운 유통구조·판매처·신기술은 상품위험, 신규사업·신규 판매채널 도입은 사업(서비스)위험으로 분류한다."}]};
+const KEYS={1:'sec2mock2-set1',2:'sec2mock2-set2'},TKEY='sec2mock2-theme',SKEY='sec2mock2-lastset',MARK='①②③④';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const load=k=>{try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}};
+const saveds={1:load(KEYS[1]),2:load(KEYS[2])};
+let cur=1,Q=SETS[1],saved=saveds[1],filter='all',wrongOnly=false,expand=false;
+const chapters=[...new Set(SETS[1].map(q=>q.ch))];
+const count=(ch,S=Q)=>S.filter(q=>q.ch===ch).length;
+const secs=(ch,S=Q)=>{const m={};S.filter(q=>q.ch===ch).forEach(q=>m[q.sec]=(m[q.sec]||0)+1);return Object.keys(m).sort().map(k=>k+'절 '+m[k]).join(' · ')};
+
+/* theme */
+function applyTheme(t){document.documentElement.dataset.theme=t;const b=$('theme');b.textContent=t==='dark'?'☀️ 라이트':'🌙 다크';b.setAttribute('aria-label',t==='dark'?'라이트 모드로 전환':'다크 모드로 전환')}
+let th='light';try{th=localStorage.getItem(TKEY)||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}
+applyTheme(th);
+$('theme').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';applyTheme(n);try{localStorage.setItem(TKEY,n)}catch(e){}};
+
+/* build for a set */
+function build(n){
+  cur=n;Q=SETS[n];saved=saveds[n];filter='all';wrongOnly=false;expand=false;
+  document.body.classList.toggle('hard',n===2);
+  document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('on',+b.dataset.set===n));
+  $('badge').textContent=n===1?'SET 1 · 표준 30문항':'SET 2 · 고난도 30문항';
+  $('summary').innerHTML=`<div class="sumcard total"><b>${Q.length}</b><span>총 문항</span></div>`+chapters.map(c=>`<div class="sumcard"><b>${count(c)}</b><span>${esc(c)}</span><span style="display:block;font-size:11.5px;opacity:.8">${secs(c)}</span></div>`).join('');
+  $('tabs').innerHTML=`<button class="tab active" role="tab" data-f="all">전체<small>${Q.length}</small></button>`+chapters.map(c=>`<button class="tab" role="tab" data-f="${esc(c)}">${esc(c)}<small>${count(c)}</small></button>`).join('');
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');filter=t.dataset.f;applyFilter()}));
+  $('questions').innerHTML=Q.map((x,i)=>`<article class="qcard" id="q${i}" data-i="${i}"><div class="qtop"><div class="meta"><span class="pill ch">${esc(x.ch)}</span><span class="pill">${x.sec}절 · ${esc(x.type)}</span></div><span class="num">Q${String(i+1).padStart(2,'0')}</span></div><div class="q">${esc(x.q)}</div><div class="opts">${x.o.map((v,j)=>`<button type="button" class="opt" data-j="${j}"><b>${MARK[j]}</b><span>${esc(v)}</span></button>`).join('')}</div><div class="explain"><div class="result"></div><div class="ans"></div><div class="why"></div></div></article>`).join('');
+  document.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+    const i=+b.closest('.qcard').dataset.i;if(saved[i]!==undefined)return;
+    saved[i]=+b.dataset.j;try{localStorage.setItem(KEYS[cur],JSON.stringify(saved))}catch(e){}
+    paint(i);stats();if(!$('gradeBox').classList.contains('hidden'))grade(false);
+  }));
+  $('wrongBtn').setAttribute('aria-pressed','false');$('wrongBtn').textContent='오답만 보기';
+  $('expBtn').setAttribute('aria-pressed','false');$('expBtn').textContent='해설 전체 펼치기';
+  $('gradeBox').classList.add('hidden');
+  Q.forEach((_,i)=>paint(i));stats();applyFilter();
+  try{localStorage.setItem(SKEY,String(n))}catch(e){}
+}
+function paint(i){
+  const x=Q[i],card=$('q'+i),ch=saved[i],done=ch!==undefined,ok=done&&ch===x.a;
+  card.classList.toggle('is-ok',ok);card.classList.toggle('is-bad',done&&!ok);
+  card.querySelectorAll('.opt').forEach(o=>{
+    const j=+o.dataset.j;o.disabled=done;
+    o.classList.toggle('correct',done&&j===x.a);o.classList.toggle('wrong',done&&j===ch&&ch!==x.a);
+    let m=o.querySelector('.mark');if(m)m.remove();
+    if(done&&(j===x.a||j===ch)){m=document.createElement('span');m.className='mark';m.textContent=j===x.a?'정답':'내 선택';o.appendChild(m)}
+  });
+  card.querySelector('.explain').classList.toggle('show',done||expand);
+  const r=card.querySelector('.result');
+  r.textContent=done?(ok?'정답입니다.':'오답입니다.'):'정답 미리보기';
+  r.className='result '+(done?(ok?'ok':'bad'):'peek');
+  card.querySelector('.ans').textContent='정답 '+(x.a+1)+'. '+x.o[x.a];
+  card.querySelector('.why').textContent=x.e;
+}
+function visible(i){const x=Q[i];if(filter!=='all'&&x.ch!==filter)return false;if(wrongOnly&&!(saved[i]!==undefined&&saved[i]!==x.a))return false;return true}
+function applyFilter(){let n=0;Q.forEach((x,i)=>{const v=visible(i);$('q'+i).classList.toggle('hidden',!v);if(v)n++});$('empty').classList.toggle('hidden',n>0)}
+function stats(){const n=Object.keys(saved).length,c=Object.keys(saved).filter(i=>saved[i]===Q[i].a).length;$('stat').textContent=`${n} / ${Q.length} 풀이 · 정답 ${c}`;$('progress').style.width=(n/Q.length*100)+'%';$('progress').parentNode.setAttribute('aria-valuenow',Math.round(n/Q.length*100))}
+function tally(n){const s=saveds[n],S=SETS[n];return {n:Object.keys(s).length,c:Object.keys(s).filter(i=>s[i]===S[i].a).length}}
+
+document.querySelectorAll('#seg button').forEach(b=>b.addEventListener('click',()=>{build(+b.dataset.set);scrollTo({top:0,behavior:'smooth'})}));
+$('wrongBtn').onclick=e=>{wrongOnly=!wrongOnly;e.currentTarget.setAttribute('aria-pressed',wrongOnly);e.currentTarget.textContent=wrongOnly?'전체 문항 보기':'오답만 보기';applyFilter()};
+$('expBtn').onclick=e=>{expand=!expand;e.currentTarget.setAttribute('aria-pressed',expand);e.currentTarget.textContent=expand?'해설 전체 접기':'해설 전체 펼치기';Q.forEach((_,i)=>paint(i))};
+$('resetBtn').onclick=()=>{if(!confirm('SET '+cur+'의 응답 기록을 모두 초기화할까요?'))return;Object.keys(saved).forEach(k=>delete saved[k]);try{localStorage.removeItem(KEYS[cur])}catch(e){}Q.forEach((_,i)=>paint(i));stats();$('gradeBox').classList.add('hidden');applyFilter();scrollTo({top:0,behavior:'smooth'})};
+
+function grade(scroll=true){
+  const box=$('gradeBox'),t=tally(cur),n=t.n,c=t.c;
+  const rows=chapters.map(ch=>{const idx=Q.map((q,i)=>i).filter(i=>Q[i].ch===ch);const a=idx.filter(i=>saved[i]!==undefined).length,k=idx.filter(i=>saved[i]===Q[i].a).length;
+    return `<div class="chrow"><span>${esc(ch)}</span><div class="mini"><i style="width:${k/idx.length*100}%"></i></div><span class="val">${k} / ${idx.length} 정답${a<idx.length?` · ${a}풀이`:''}</span></div>`}).join('');
+  const wrong=Q.map((q,i)=>i).filter(i=>saved[i]!==undefined&&saved[i]!==Q[i].a);
+  const t1=tally(1),t2=tally(2);
+  box.innerHTML=`<h2>SET ${cur} 채점 요약</h2><div class="score-big">${Math.round(c/Q.length*100)}점<small>${c} / ${Q.length} 정답 · ${n}문항 풀이${n<Q.length?' (미풀이는 오답 처리)':''}</small></div><div style="margin-top:14px">${rows}</div>`+
+    (wrong.length?`<div class="wrongs"><b>틀린 문항</b><br>${wrong.map(i=>`<a data-go="${i}">Q${String(i+1).padStart(2,'0')}</a>`).join('')}</div>`:(n?'<p>틀린 문항이 없습니다. 👏</p>':''))+
+    `<div class="cmp"><div><b>${Math.round(t1.c/30*100)}점</b><span>SET 1 · ${t1.c}/30 정답 (${t1.n}풀이)</span></div><div><b>${Math.round(t2.c/30*100)}점</b><span>SET 2 · ${t2.c}/30 정답 (${t2.n}풀이)</span></div></div>`+
+    `<div class="note">실전 목표는 70점 이상입니다. SET 2는 계산·복합 진술·사례 판단 비중이 높아 점수가 낮을 수 있으니, 틀린 문항의 해설에서 풀이 과정을 다시 따라 써 보세요.</div>`;
+  box.classList.remove('hidden');
+  box.querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>{filter='all';wrongOnly=false;$('wrongBtn').setAttribute('aria-pressed','false');$('wrongBtn').textContent='오답만 보기';document.querySelectorAll('.tab').forEach((t,k)=>t.classList.toggle('active',k===0));applyFilter();$('q'+a.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})});
+  if(scroll)box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+$('gradeBtn').onclick=()=>grade(true);
+
+let start=1;try{start=+(localStorage.getItem(SKEY)||1)}catch(e){}
+build(start===2?2:1);
+</script>
+</body>
+</html>

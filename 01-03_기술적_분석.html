@@ -460,6 +460,27 @@ html[data-theme="dark"] .caution{border-top-color:#92400e}
 <!-- Concept 11 -->
 <article class="card">
   <h3><span class="no">11</span>지표분석<span class="stars">★★★</span></h3>
+  <div class="table-wrap" role="region" aria-label="기술적 지표 요약표" tabindex="0" style="margin:12px 0 14px">
+    <table style="min-width:700px">
+      <caption style="caption-side:top;text-align:left;padding:10px 12px;font-weight:800;color:var(--text)">지표별 기준과 암기 포인트 · 첨부 교재 표 기준</caption>
+      <thead><tr><th scope="col">지표</th><th scope="col">유형·범위</th><th scope="col">수치·신호</th><th scope="col">핵심 구분</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">OBV</th><td>거래량지표</td><td>U마크·D마크, 주가 횡보 시 참고</td><td>상승일 거래량을 더하고 하락일 거래량을 빼는 누적값</td></tr>
+        <tr><th scope="row">VR</th><td>거래량지표</td><td>70% 이하 바닥권 · 150% 보통 · 450% 초과 과열</td><td>상승일·하락일 거래량의 비율. 150%는 바닥권이 아님</td></tr>
+        <tr><th scope="row">투자심리도</th><td>상승일 비중 · 0-100%</td><td>25% 이하 바닥권 · 25-75% 중립 · 75% 이상 과열</td><td>일정 기간 상승일 수 ÷ 전체 거래일 수 × 100</td></tr>
+        <tr><th scope="row">RSI</th><td>상대강도지수 · 0-100%</td><td>교재 기준 25% 이하 바닥권 · 75% 이상 과열</td><td>상승폭과 하락폭 비교. 75%는 바닥권이 아님</td></tr>
+        <tr><th scope="row">스토캐스틱 %K</th><td>고가·저가 범위 내 종가 위치 · 0-100%</td><td>30% 이하 하락 추세, 15% 이하 과매도 · 70% 이상 상승 추세, 85% 이상 과매수</td><td>%K·%D 교차 방향도 확인. 90%는 과매수 쪽</td></tr>
+        <tr><th scope="row">MACD</th><td>이동평균선 기반 추세지표</td><td>0선과 MACD-시그널선 교차를 관찰</td><td>시그널선은 MACD의 이동평균선. 고정된 바닥권 % 기준 없음</td></tr>
+        <tr><th scope="row">ADL</th><td>상승·하락 종목 수 관련 시장폭지표</td><td>전일 ADL + (상승종목 수 − 하락종목 수)</td><td>보합 종목 수는 제외. 고정된 바닥권 % 기준 없음</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tip" style="margin-bottom:16px">바닥권 문제는 <b>지표마다 숫자표가 다르다</b>고 기억한다. 투자심리도·이 교재의 RSI는 25% 이하, VR은 70% 이하, 스토캐스틱 %K는 15% 이하가 강한 과매도 기준이다. MACD·OBV·ADL은 같은 % 기준으로 비교하지 않는다.<span class="caution">교재의 RSI 기준은 25/75이며, 일반적인 차트 설정에서는 30/70을 쓰기도 한다. 이 표의 수치를 모든 교재·설정에 공통인 절대 기준으로 외우지 않게 주의하세요.</span></div>
+  <div class="formula" style="gap:7px;margin-bottom:17px">
+    <b>유형 예시 · 시장이 바닥권에 있음을 의미하는 지표는?</b>
+    <span>① 스토캐스틱 90%　② 투자심리도 20%　③ VR 150%　④ RSI 75%</span>
+    <span class="eq-note" style="margin-top:0">정답 ② · 투자심리도 20%는 25% 이하. ①은 과매수, ③은 보통, ④는 교재 기준 과열이다.</span>
+  </div>
   <ul class="concept-list">
     <li><b>거래량지표:</b> OBV·VR</li>
     <li><b>시장폭지표:</b> ADL·ADR</li>
@@ -532,7 +553,7 @@ html[data-theme="dark"] .caution{border-top-color:#92400e}
       <span>100 −</span>
       <span class="frac"><span class="num">100</span><span class="den">1 + RS</span></span>
     </div>
-    <span class="eq-note">일반적으로 70 이상 과매수, 30 이하 과매도</span>
+    <span class="eq-note">첨부 교재 기준: 75% 이상 과열, 25% 이하 바닥권 (일반 차트 설정의 70/30과 구분)</span>
     <div class="formula-terms"><b>약어·용어</b><span>RSI: Relative Strength Index, 상대강도지수</span><span>RS: 평균 상승폭 ÷ 평균 하락폭</span><span>평균 상승·하락폭: 분석기간 가격변화의 평균</span></div>
   </div>
 

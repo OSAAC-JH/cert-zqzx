@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>기본적 분석 공식 연관성 지도</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --surface2: #f2f0eb;
+    --border: #dedbd4;
+    --text: #22201f;
+    --muted: #6b6761;
+    --purple: #7c3aed;
+    --purple-l: #f5f3ff;
+    --purple-m: #c4b5fd;
+    --blue: #2563eb;
+    --blue-l: #eff6ff;
+    --green: #15803d;
+    --green-l: #ecfdf3;
+    --orange: #b45309;
+    --orange-l: #fff7ed;
+    --red: #b91c1c;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #17161a;
+    --surface: #211f24;
+    --surface2: #2a282e;
+    --border: #3a3740;
+    --text: #efece7;
+    --muted: #a6a19a;
+    --purple: #a78bfa;
+    --purple-l: #2c2440;
+    --purple-m: #6d5bb0;
+    --blue: #60a5fa;
+    --blue-l: #1b2a42;
+    --green: #4ade80;
+    --green-l: #163428;
+    --orange: #fbbf24;
+    --orange-l: #3a2a10;
+    --red: #f87171;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: calc(70px + env(safe-area-inset-top, 0px)); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, sans-serif;
+    line-height: 1.6;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  header.top {
+    position: sticky; top: 0; z-index: 30;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .top-inner {
+    max-width: 980px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .top-inner h1 { font-size: 17px; margin: 0; letter-spacing: -0.2px; }
+  .top-inner p.sub { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); }
+  #themeToggle {
+    border: 1px solid var(--border); background: var(--surface2); color: var(--text);
+    border-radius: 999px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+    min-height: 40px; white-space: nowrap;
+  }
+  #themeToggle:focus-visible, button:focus-visible, [role="tab"]:focus-visible, .node-btn:focus-visible, .link-card:focus-visible {
+    outline: 2.5px solid var(--blue); outline-offset: 2px;
+  }
+
+  .tabs {
+    display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding: 10px 16px 0; max-width: 980px; margin: 0 auto;
+    scrollbar-width: thin;
+  }
+  .tabs::-webkit-scrollbar { height: 5px; }
+  [role="tab"] {
+    flex: 0 0 auto; min-height: 40px; padding: 9px 14px;
+    border: 1.5px solid var(--border); background: var(--surface);
+    color: var(--muted); border-radius: 10px 10px 0 0;
+    font-size: 13.5px; font-weight: 600; cursor: pointer;
+    border-bottom: none; position: relative; top: 1px;
+  }
+  [role="tab"][aria-selected="true"] {
+    color: var(--purple); background: var(--surface2);
+    border-color: var(--purple-m); border-bottom: 2.5px solid var(--surface2);
+    font-weight: 800;
+  }
+  [role="tabpanel"] { padding: 16px 0 40px; border-top: 1.5px solid var(--border); margin-top: -1px; }
+  [role="tabpanel"][hidden] { display: none; }
+
+  h2.section-title { font-size: 18px; margin: 4px 0 4px; }
+  p.section-desc { color: var(--muted); font-size: 13.5px; margin: 0 0 16px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 17px; margin-bottom: 12px;
+  }
+  @media (max-width: 700px) { .card { padding: 14px; border-radius: 10px; } }
+
+  .concept-card h3 {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 15.5px; margin: 0 0 10px;
+  }
+  .concept-card .no {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 7px;
+    background: var(--purple-l); color: var(--purple); font-size: 12px; font-weight: 800;
+  }
+  .concept-card .stars { color: var(--orange); font-size: 13px; letter-spacing: 1px; }
+  .concept-card .tag {
+    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+    background: var(--blue-l); color: var(--blue); margin-left: auto;
+  }
+
+  .concept-list { list-style: none; margin: 0; padding: 0; }
+  .concept-list li { padding: 5px 0; font-size: 14px; }
+  .concept-list ul { list-style: none; margin: 4px 0 2px 14px; padding-left: 14px; border-left: 2px solid var(--border); }
+  .concept-list ul li { padding: 3px 0; font-size: 13.3px; color: var(--muted); }
+  .concept-list b { color: var(--text); }
+
+  /* formula */
+  .formula {
+    display: grid; gap: 20px; padding: 18px 17px;
+    border: 1px solid var(--purple-m); border-radius: 9px;
+    background: var(--purple-l); color: var(--purple); margin: 10px 0;
+  }
+  .equation { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; line-height: 1.35; font-size: 14.5px; }
+  .eq-name { min-width: 92px; font-weight: 900; }
+  .eq-name::before { content: '•'; display: inline-block; margin-right: 7px; }
+  .eq-sign { font-weight: 700; }
+  .eq-op { font-weight: 600; }
+  .frac {
+    display: inline-grid; grid-template-rows: auto auto; min-width: 84px;
+    text-align: center; line-height: 1.15; font-weight: 700;
+  }
+  .frac .num { padding: 0 7px 4px; border-bottom: 1.6px solid currentColor; }
+  .frac .den { padding: 4px 7px 0; }
+  .eq-line-break { flex-basis: 100%; height: 0; }
+  .formula .unit { font-size: 12px; color: var(--muted); margin-top: -8px; }
+  @media (max-width: 700px) {
+    .formula { gap: 24px; padding: 18px 16px; }
+    .equation { gap: 6px; }
+    .eq-name { min-width: 0; flex-basis: 100%; padding-bottom: 5px; }
+    .eq-name + .eq-sign, .eq-line-break + .eq-sign { margin-left: 18px; }
+    .frac { min-width: 76px; }
+  }
+
+  /* compare */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .compare .cmp-item { border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: var(--surface2); }
+  .compare .cmp-item h4 { margin: 0 0 6px; font-size: 13.5px; color: var(--blue); }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+
+  /* table */
+  .table-wrap { overflow: auto; border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; }
+  table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13.2px; }
+  th, td { padding: 9px 11px; border-bottom: 1px solid var(--border); text-align: left; }
+  thead th { background: var(--surface2); font-weight: 800; }
+  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--surface2) 55%, transparent); }
+
+  /* flow */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; }
+  .flow-step {
+    background: var(--blue-l); color: var(--blue); border: 1px solid var(--blue);
+    border-radius: 8px; padding: 7px 11px; font-size: 13px; font-weight: 700;
+  }
+  .flow-arrow { color: var(--muted); font-weight: 700; }
+
+  /* tip / caution */
+  .tip { border: 1px solid var(--orange); background: var(--orange-l); border-radius: 10px; padding: 14px; margin: 10px 0; }
+  .tip-label { display: inline-block; font-weight: 800; color: var(--orange); font-size: 13px; margin-bottom: 6px; }
+  .tip-body { font-size: 13.8px; }
+  .caution { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 13px; color: var(--muted); }
+  .caution-label { font-weight: 800; color: var(--red); margin-right: 6px; }
+
+  .connect-box {
+    border: 1.5px dashed var(--green); background: var(--green-l);
+    border-radius: 10px; padding: 13px 14px; margin: 12px 0; font-size: 13.8px;
+  }
+  .connect-box .cb-label { font-weight: 800; color: var(--green); font-size: 12.5px; display:block; margin-bottom:5px; }
+
+  /* mindmap */
+  .mindmap-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-bottom: 14px; }
+  svg#mindmap { width: 100%; height: auto; display: block; }
+  .node-circle { fill: var(--surface2); stroke: var(--border); stroke-width: 1.5; transition: fill .15s; }
+  .node-btn:hover .node-circle, .node-btn:focus-visible .node-circle { fill: var(--purple-l); stroke: var(--purple); }
+  .node-center circle { fill: var(--purple); }
+  .node-center text { fill: #fff; font-weight: 800; }
+  .node-label { font-size: 11.5px; font-weight: 700; fill: var(--text); text-anchor: middle; pointer-events: none; }
+  .spoke { stroke: var(--border); stroke-width: 2; }
+  .cross-link { stroke: var(--green); stroke-width: 1.6; stroke-dasharray: 5 4; fill: none; opacity: .85; }
+  .node-btn { cursor: pointer; }
+
+  .link-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .link-card {
+    display: block; width: 100%; text-align: left; border: 1px solid var(--green);
+    background: var(--green-l); border-radius: 9px; padding: 10px 12px; font-size: 13px;
+    cursor: pointer; color: var(--text); min-height: 40px;
+  }
+  .link-card b { color: var(--green); }
+
+  footer.page-footer { max-width: 980px; margin: 20px auto 0; padding: 0 16px; color: var(--muted); font-size: 12px; }
+
+  @media print {
+    .tabs, #themeToggle, header.top { display: none !important; }
+    [role="tabpanel"][hidden] { display: block !important; }
+    .card, .formula, .tip { break-inside: avoid; }
+    body { background: #fff; color: #000; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div>
+      <h1>기본적 분석 공식 연관성 지도</h1>
+      <p class="sub">듀퐁분해·레버리지·밸류에이션·배당모형을 하나의 구조로 연결</p>
+    </div>
+    <button id="themeToggle" type="button" aria-label="다크 모드로 전환">🌙 다크</button>
+  </div>
+  <div class="tabs" role="tablist" aria-label="학습 탭">
+    <button role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true" tabindex="0">전체 지도</button>
+    <button role="tab" id="tab-profit" aria-controls="panel-profit" aria-selected="false" tabindex="-1">① 수익성·듀퐁</button>
+    <button role="tab" id="tab-stability" aria-controls="panel-stability" aria-selected="false" tabindex="-1">② 안정성</button>
+    <button role="tab" id="tab-leverage" aria-controls="panel-leverage" aria-selected="false" tabindex="-1">③ 레버리지분석</button>
+    <button role="tab" id="tab-valuation" aria-controls="panel-valuation" aria-selected="false" tabindex="-1">④ 주당지표·밸류에이션</button>
+    <button role="tab" id="tab-dividend" aria-controls="panel-dividend" aria-selected="false" tabindex="-1">⑤ 배당·성장모형</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ===================== 전체 지도 ===================== -->
+<section role="tabpanel" id="panel-overview" aria-labelledby="tab-overview" tabindex="0">
+  <h2 class="section-title">공식들이 서로 어떻게 연결되는가</h2>
+  <p class="section-desc">실선은 각 지표군의 소속 관계, 초록 점선은 암기 시 함께 묶어야 할 핵심 연결고리입니다. 노드를 누르면 해당 탭으로 이동합니다.</p>
+
+  <div class="mindmap-wrap">
+    <svg id="mindmap" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="재무분석 지표 연관 마인드맵">
+      <!-- spokes -->
+      <line class="spoke" x1="200" y1="250" x2="200" y2="105"/>
+      <line class="spoke" x1="200" y1="250" x2="340" y2="202"/>
+      <line class="spoke" x1="200" y1="250" x2="290" y2="358"/>
+      <line class="spoke" x1="200" y1="250" x2="110" y2="358"/>
+      <line class="spoke" x1="200" y1="250" x2="60" y2="202"/>
+
+      <!-- cross links -->
+      <path class="cross-link" d="M200,85 Q275,120 340,185" aria-hidden="true"/>
+      <path class="cross-link" d="M200,95 Q245,230 285,345" aria-hidden="true"/>
+      <path class="cross-link" d="M60,220 Q85,290 112,345" aria-hidden="true"/>
+      <path class="cross-link" d="M335,215 Q315,290 300,340" aria-hidden="true"/>
+
+      <!-- center -->
+      <g class="node-center">
+        <circle cx="200" cy="250" r="46"/>
+        <text x="200" y="245" text-anchor="middle" font-size="11.5">기업 재무분석</text>
+        <text x="200" y="260" text-anchor="middle" font-size="11.5">핵심 공식</text>
+      </g>
+
+      <!-- node: 수익성 -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="수익성·듀퐁 탭으로 이동" data-target="tab-profit">
+        <circle class="node-circle" cx="200" cy="80" r="42"/>
+        <text class="node-label" x="200" y="76">①수익성</text>
+        <text class="node-label" x="200" y="90">ROI·ROE</text>
+      </g>
+      <!-- node: 밸류에이션 -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="주당지표·밸류에이션 탭으로 이동" data-target="tab-valuation">
+        <circle class="node-circle" cx="357" cy="199" r="42"/>
+        <text class="node-label" x="357" y="195">④밸류에이션</text>
+        <text class="node-label" x="357" y="209">PER·PBR·PCR·PSR</text>
+      </g>
+      <!-- node: 배당·성장 -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="배당·성장모형 탭으로 이동" data-target="tab-dividend">
+        <circle class="node-circle" cx="297" cy="383" r="42"/>
+        <text class="node-label" x="297" y="379">⑤배당·성장</text>
+        <text class="node-label" x="297" y="393">항상성장모형</text>
+      </g>
+      <!-- node: 레버리지 -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="레버리지분석 탭으로 이동" data-target="tab-leverage">
+        <circle class="node-circle" cx="103" cy="383" r="42"/>
+        <text class="node-label" x="103" y="379">③레버리지</text>
+        <text class="node-label" x="103" y="393">DOL·DFL·DCL</text>
+      </g>
+      <!-- node: 안정성 -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="안정성 탭으로 이동" data-target="tab-stability">
+        <circle class="node-circle" cx="43" cy="199" r="42"/>
+        <text class="node-label" x="43" y="195">②안정성</text>
+        <text class="node-label" x="43" y="209">유동·부채·이자보상</text>
+      </g>
+    </svg>
+  </div>
+
+  <ul class="link-list">
+    <li><button class="link-card" data-target="tab-valuation"><b>PBR = PER × ROE</b> — 수익성(ROE)이 높을수록 같은 PER라도 PBR이 높게 정당화됨</button></li>
+    <li><button class="link-card" data-target="tab-dividend"><b>지속가능성장률 g = 유보율 × ROE</b> — 수익성 지표가 그대로 성장모형의 성장률로 들어감</button></li>
+    <li><button class="link-card" data-target="tab-leverage"><b>EBIT(영업이익) 공유</b> — 이자보상비율과 DFL은 둘 다 영업이익과 이자비용의 관계로 설명됨</button></li>
+    <li><button class="link-card" data-target="tab-dividend"><b>PER = f(배당성향, g, k)</b> — 밸류에이션 배수(PER)는 결국 배당할인모형에서 수학적으로 유도됨</button></li>
+  </ul>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14.5px;">암기 순서 제안</h3>
+    <div class="flow">
+      <span class="flow-step">① 수익성(ROI·ROE)</span><span class="flow-arrow">→</span>
+      <span class="flow-step">② 안정성</span><span class="flow-arrow">→</span>
+      <span class="flow-step">③ 레버리지분석</span><span class="flow-arrow">→</span>
+      <span class="flow-step">④ 주당지표·밸류에이션</span><span class="flow-arrow">→</span>
+      <span class="flow-step">⑤ 배당·성장모형</span>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:0;">① 수익성의 구성요소(이익률·회전율·레버리지)를 먼저 익히면 ④, ⑤의 연결 공식이 저절로 이해됩니다.</p>
+  </div>
+</section>
+
+<!-- ===================== ① 수익성 · 듀퐁분해 ===================== -->
+<section role="tabpanel" id="panel-profit" aria-labelledby="tab-profit" tabindex="0" hidden>
+  <h2 class="section-title">① 수익성 지표 — 듀퐁(DuPont) 분해</h2>
+  <p class="section-desc">ROI와 ROE는 하나의 회사를 "이익률 × 회전율 × 레버리지"로 쪼개보는 같은 틀의 다른 버전입니다.</p>
+
+  <article class="card concept-card" data-concept="01">
+    <h3><span class="no">01</span>총자본이익률 (ROI)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list">
+      <li><b>정의:</b> 총자본(=총자산) 대비 당기순이익의 비율. 회사가 조달한 자본 전체를 얼마나 효율적으로 굴렸는지를 본다.</li>
+      <li><b>분해:</b> "얼마나 남기는가(매출액순이익률)" × "얼마나 빨리 굴리는가(총자본회전율)"
+        <ul>
+          <li><b>매출액순이익률</b> = 당기순이익 ÷ 매출액 — 마진의 질</li>
+          <li><b>총자본회전율</b> = 매출액 ÷ 총자본 — 자산 활용 속도</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">ROI</span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">당기순이익</span><span class="den">총자본</span></span>
+        <span class="eq-op">× 100</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span>매출액순이익률</span>
+        <span class="eq-op">×</span>
+        <span>총자본회전율</span>
+      </div>
+      <div class="unit">단위: %</div>
+    </div>
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">"<b>마진 × 회전</b>" — 마진이 얇아도 회전이 빠르면(예: 편의점) ROI는 높을 수 있다는 관점으로 기억하면 분해식이 자연스럽게 남는다.</div>
+      <div class="caution"><span class="caution-label">주의</span>총자본회전율의 분모는 <b>총자본</b>이지 자기자본이 아니다. "총자본 ÷ 자기자본"은 아래 ROE에 나오는 재무레버리지의 식이므로 혼동하지 않는다.</div>
+    </div>
+  </article>
+
+  <article class="card concept-card" data-concept="02">
+    <h3><span class="no">02</span>자기자본이익률 (ROE)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list">
+      <li><b>정의:</b> 주주 몫인 자기자본 대비 당기순이익의 비율. 주주 입장에서 가장 직접적인 수익성 지표.</li>
+      <li><b>분해:</b> ROI에 <b>재무레버리지</b> 한 겹을 더 곱한 것</li>
+    </ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">ROE</span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">당기순이익</span><span class="den">자기자본</span></span>
+        <span class="eq-op">× 100</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span>ROI</span>
+        <span class="eq-op">×</span>
+        <span>재무레버리지</span>
+      </div>
+      <div class="unit">단위: %</div>
+    </div>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">재무레버리지</span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">총자본</span><span class="den">자기자본</span></span>
+      </div>
+    </div>
+    <div class="connect-box">
+      <span class="cb-label">🔗 전체 구조로 펼치면</span>
+      ROE = 매출액순이익률 × 총자본회전율 × 재무레버리지 — "<b>이익률·회전율·레버리지</b>" 세 글자로 외우는 3단 듀퐁 분해.
+    </div>
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">부채를 많이 쓸수록 재무레버리지(총자본/자기자본)가 커져 ROI가 같아도 ROE는 올라간다 — 단, ②안정성 탭의 부채비율·이자보상비율과 함께 봐야 위험까지 균형 있게 읽힌다.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== ② 안정성 ===================== -->
+<section role="tabpanel" id="panel-stability" aria-labelledby="tab-stability" tabindex="0" hidden>
+  <h2 class="section-title">② 안정성 지표</h2>
+  <p class="section-desc">단기 지급능력(유동비율)과 장기 재무구조(부채비율), 이자부담 여력(이자보상비율)을 함께 본다.</p>
+
+  <article class="card concept-card" data-concept="03">
+    <h3><span class="no">03</span>유동비율<span class="stars" aria-label="중요도 별 2개">★★☆</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 1년 내 현금화 가능한 유동자산이 1년 내 갚아야 할 유동부채의 몇 배인지를 본다. 단기 지급능력 지표.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">유동비율</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">유동자산</span><span class="den">유동부채</span></span>
+        <span class="eq-op">× 100</span>
+      </div>
+      <div class="unit">단위: % (통상 200% 이상을 안전권으로 봄)</div>
+    </div>
+  </article>
+
+  <article class="card concept-card" data-concept="04">
+    <h3><span class="no">04</span>부채비율<span class="stars" aria-label="중요도 별 2개">★★☆</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 자기자본 대비 타인자본(부채)의 비중. 장기 재무구조의 건전성, 즉 재무레버리지의 '위험한 쪽' 얼굴.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">부채비율</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">타인자본(부채)</span><span class="den">자기자본</span></span>
+        <span class="eq-op">× 100</span>
+      </div>
+      <div class="unit">단위: %</div>
+    </div>
+    <div class="connect-box"><span class="cb-label">🔗 연결고리</span>부채비율이 높다는 것은 ①탭의 재무레버리지(총자본/자기자본)도 함께 커진다는 뜻 — ROE는 끌어올리지만 이자보상비율·DFL의 위험도 함께 커진다.</div>
+  </article>
+
+  <article class="card concept-card" data-concept="05">
+    <h3><span class="no">05</span>이자보상비율<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 영업이익(EBIT)이 이자비용의 몇 배인지 — 벌어들인 영업이익으로 이자를 갚고도 얼마나 여유가 있는지를 본다.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">이자보상비율</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">영업이익(EBIT)</span><span class="den">이자비용</span></span>
+      </div>
+      <div class="unit">단위: 배 (높을수록 안전)</div>
+    </div>
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">분자가 항상 <b>영업이익(EBIT)</b>이라는 점에서 ③탭의 DFL 공식과 "재료"가 같다. 이자보상비율은 "이자비용으로 나눈 배수", DFL은 "영업이익에서 이자비용을 뺀 나머지로 나눈 배수"라는 차이만 있다.</div>
+      <div class="caution"><span class="caution-label">주의</span>이자보상비율의 분모는 이자비용 그 자체이고, DFL의 분모는 "영업이익 − 이자비용"이다. 두 식의 분모를 바꿔 쓰지 않도록 한다.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== ③ 레버리지분석 ===================== -->
+<section role="tabpanel" id="panel-leverage" aria-labelledby="tab-leverage" tabindex="0" hidden>
+  <h2 class="section-title">③ 레버리지 분석 (DOL·DFL·DCL)</h2>
+  <p class="section-desc">매출액 변화가 영업이익을 거쳐 순이익까지 얼마나 "증폭"되는지를 2단계로 쪼갠다.</p>
+
+  <div class="card">
+    <div class="flow">
+      <span class="flow-step">매출액 변화</span><span class="flow-arrow">→ DOL →</span>
+      <span class="flow-step">영업이익(EBIT) 변화</span><span class="flow-arrow">→ DFL →</span>
+      <span class="flow-step">순이익 변화</span>
+    </div>
+  </div>
+
+  <article class="card concept-card" data-concept="06">
+    <h3><span class="no">06</span>영업레버리지도 (DOL)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 매출액이 1% 변할 때 영업이익이 몇 % 변하는지. 고정영업비(설비 등) 비중이 클수록 DOL이 커진다.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">DOL</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">영업이익 증가율</span><span class="den">매출액 증가율</span></span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">공헌이익</span><span class="den">영업이익(EBIT)</span></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card concept-card" data-concept="07">
+    <h3><span class="no">07</span>재무레버리지도 (DFL)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 영업이익이 1% 변할 때 순이익(주당순이익)이 몇 % 변하는지. 이자비용 등 고정 재무비 비중이 클수록 DFL이 커진다.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">DFL</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">순이익 증가율</span><span class="den">영업이익 증가율</span></span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">영업이익(EBIT)</span><span class="den">영업이익 − 이자비용</span></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card concept-card" data-concept="08">
+    <h3><span class="no">08</span>결합레버리지도 (DCL)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 매출액 변화가 최종적으로 순이익을 몇 배 증폭시키는지 — DOL과 DFL을 이어 붙인 값.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">DCL</span><span class="eq-sign">=</span>
+        <span>DOL</span><span class="eq-op">×</span><span>DFL</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span class="frac"><span class="num">순이익 증가율</span><span class="den">매출액 증가율</span></span>
+      </div>
+    </div>
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">"영업"은 매출→영업이익 구간, "재무"는 영업이익→순이익 구간을 각각 담당하고, "결합"은 둘을 곱해 매출→순이익 전체 구간을 커버한다고 기억한다.</div>
+    </div>
+  </article>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14.5px;">EBIT / EBITDA</h3>
+    <ul class="concept-list">
+      <li><b>EBIT</b> = 영업이익 (이자·세금 차감 전 이익)</li>
+      <li><b>EBITDA</b> = EBIT + 감가상각비(유형·무형자산 상각비) — 현금 유출이 없는 비용을 되살려 현금창출력에 더 가깝게 본 이익</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== ④ 주당지표·밸류에이션 ===================== -->
+<section role="tabpanel" id="panel-valuation" aria-labelledby="tab-valuation" tabindex="0" hidden>
+  <h2 class="section-title">④ 주당 지표와 밸류에이션 배수</h2>
+  <p class="section-desc">PER·PBR·PCR·PSR은 모두 "분자는 주가, 분모만 바뀌는" 같은 가족이다.</p>
+
+  <article class="card concept-card" data-concept="09">
+    <h3><span class="no">09</span>주당순이익 (EPS)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 당기순이익을 발행주식수로 나눈, 주식 1주가 벌어들인 몫.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">EPS</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">당기순이익</span><span class="den">발행주식수</span></span>
+      </div>
+    </div>
+  </article>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14.5px;">분모만 바뀌는 네 자매 — PER·PBR·PCR·PSR</h3>
+    <div class="table-wrap" role="region" aria-label="밸류에이션 배수 비교표" tabindex="0">
+      <table>
+        <thead><tr><th>지표</th><th>분모(주당 지표)</th><th>분모의 원천</th><th>의미</th></tr></thead>
+        <tbody>
+          <tr><td><b>PER</b></td><td>EPS (주당순이익)</td><td>당기순이익 ÷ 발행주식수</td><td>이익 대비 주가 배수</td></tr>
+          <tr><td><b>PBR</b></td><td>BPS (주당순자산)</td><td>자기자본 ÷ 발행주식수</td><td>장부가 대비 주가 배수</td></tr>
+          <tr><td><b>PCR</b></td><td>주당현금흐름</td><td>(순이익+감가상각비 등) ÷ 발행주식수</td><td>현금창출력 대비 주가 배수</td></tr>
+          <tr><td><b>PSR</b></td><td>주당매출액</td><td>매출액 ÷ 발행주식수</td><td>매출 대비 주가 배수 (적자기업에도 적용 가능)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula">
+      <div class="equation"><span class="eq-name">PER</span><span class="eq-sign">=</span><span class="frac"><span class="num">주가</span><span class="den">EPS</span></span></div>
+    </div>
+    <div class="formula">
+      <div class="equation"><span class="eq-name">PBR</span><span class="eq-sign">=</span><span class="frac"><span class="num">주가</span><span class="den">BPS(주당순자산)</span></span></div>
+    </div>
+    <div class="formula">
+      <div class="equation"><span class="eq-name">PCR</span><span class="eq-sign">=</span><span class="frac"><span class="num">주가</span><span class="den">주당현금흐름</span></span></div>
+    </div>
+    <div class="formula">
+      <div class="equation"><span class="eq-name">PSR</span><span class="eq-sign">=</span><span class="frac"><span class="num">주가</span><span class="den">주당매출액</span></span></div>
+    </div>
+  </div>
+
+  <div class="connect-box">
+    <span class="cb-label">🔗 ①탭 ROE와의 연결 — 가장 많이 묻는 항등식</span>
+    <div class="formula" style="margin-top:8px;">
+      <div class="equation">
+        <span class="eq-name">PBR</span><span class="eq-sign">=</span>
+        <span>PER</span><span class="eq-op">×</span><span>ROE</span>
+      </div>
+    </div>
+    PBR(주가/BPS) = (주가/EPS) × (EPS/BPS)로 쪼개면, EPS÷BPS는 결국 당기순이익÷자기자본, 즉 <b>ROE</b>와 같다. 그래서 이익(PER)과 자산(PBR) 두 배수는 수익성(ROE) 하나로 이어진다.
+  </div>
+
+  <div class="tip">
+    <span class="tip-label">🍎 암기팁</span>
+    <div class="tip-body">분자는 네 지표 모두 <b>"주가"</b>로 고정, 분모만 "순이익→순자산→현금흐름→매출액" 순으로 바뀐다고 외우면 네 공식을 따로 외울 필요가 없다.</div>
+  </div>
+</section>
+
+<!-- ===================== ⑤ 배당·성장모형 ===================== -->
+<section role="tabpanel" id="panel-dividend" aria-labelledby="tab-dividend" tabindex="0" hidden>
+  <h2 class="section-title">⑤ 배당 지표와 항상성장모형</h2>
+  <p class="section-desc">이익 중 얼마를 배당하는지(배당성향), 남긴 돈이 회사를 얼마나 키우는지(g), 그 미래 배당을 오늘 가치로 환산하면(항상성장모형) 밸류에이션으로 다시 이어진다.</p>
+
+  <article class="card concept-card" data-concept="10">
+    <h3><span class="no">10</span>주당배당(DPS)과 배당성향<span class="stars" aria-label="중요도 별 2개">★★☆</span></h3>
+    <ul class="concept-list">
+      <li><b>주당배당(DPS)</b> = 현금배당총액 ÷ 발행주식수</li>
+      <li><b>배당성향</b> = 당기순이익 중 현금배당으로 지급한 비율</li>
+    </ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">주당배당</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">현금배당</span><span class="den">발행주식수</span></span>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">배당성향</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">현금배당</span><span class="den">당기순이익</span></span>
+        <span class="eq-op">× 100</span>
+      </div>
+      <div class="unit">= 주당배당 ÷ EPS × 100 (단위: %)</div>
+    </div>
+    <div class="connect-box">
+      <span class="cb-label">🔗 유보율</span>
+      유보율 = 1 − 배당성향 (남겨서 재투자하는 비율) — 바로 아래 지속가능성장률 g의 재료가 된다.
+    </div>
+  </article>
+
+  <article class="card concept-card" data-concept="11">
+    <h3><span class="no">11</span>항상성장모형 (Gordon Growth Model)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list"><li><b>정의:</b> 배당이 매년 일정한 성장률 g로 영원히 성장한다고 가정하고, 미래 배당 전체를 요구수익률 k로 할인해 현재 주가를 구하는 모형.</li></ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">P₀</span><span class="eq-sign">=</span>
+        <span class="frac"><span class="num">D₁</span><span class="den">k − g</span></span>
+      </div>
+      <div class="unit">D₁ = D₀(1+g) : 내년도 예상 배당, k : 요구수익률(자기자본비용), g : 배당성장률, (k &gt; g 전제)</div>
+    </div>
+    <div class="connect-box">
+      <span class="cb-label">🔗 ①탭 ROE와의 연결 — 지속가능성장률</span>
+      <div class="formula" style="margin-top:8px;">
+        <div class="equation">
+          <span class="eq-name">g</span><span class="eq-sign">=</span>
+          <span>유보율</span><span class="eq-op">×</span><span>ROE</span>
+        </div>
+      </div>
+      외부 자금 조달 없이 내부유보만으로 성장한다고 가정하면, 성장률 g는 "얼마나 남겼는가(유보율)" × "그 돈이 버는 수익률(ROE)"로 결정된다. 결국 ①탭의 ROE가 ⑤탭 성장모형의 엔진이다.
+    </div>
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">"안 쓰고 남긴 돈(유보율)이, 회사가 원래 잘 버는 비율(ROE)만큼 불어나서 회사를 키운다"는 문장으로 g=유보율×ROE를 기억한다.</div>
+      <div class="caution"><span class="caution-label">주의</span>항상성장모형은 k &gt; g일 때만 성립한다. g가 k보다 크거나 같으면 식이 발산해 의미가 없다.</div>
+    </div>
+  </article>
+
+  <div class="connect-box">
+    <span class="cb-label">🔗 ④탭 PER과의 연결 — 밸류에이션 배수의 뿌리</span>
+    항상성장모형의 양변을 EPS로 나누면 PER = (배당성향×(1+g)) ÷ (k − g) 꼴이 되어, "싸 보이는 PER"이 실은 배당성향·성장률·요구수익률 세 요소로 설명된다는 것을 보여준다. 즉 ④탭의 밸류에이션 배수들은 결국 이 할인모형에서 수학적으로 흘러나온 결과다.
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  자체 정리 학습자료 · 공식 출처: 재무관리·투자론 표준 정의 · 생성일 자동 표기 없음
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById('themeToggle');
+  function applyTheme(t) {
+    if (t === 'dark') { root.setAttribute('data-theme', 'dark'); toggle.textContent = '☀️ 라이트'; toggle.setAttribute('aria-label','라이트 모드로 전환'); }
+    else { root.setAttribute('data-theme', 'light'); toggle.textContent = '🌙 다크'; toggle.setAttribute('aria-label','다크 모드로 전환'); }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('formula-map-theme'); } catch (e) {}
+  applyTheme(saved === 'dark' ? 'dark' : 'light');
+  toggle.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('formula-map-theme', next); } catch (e) {}
+  });
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(id, focus) {
+    tabs.forEach(function (t) {
+      var selected = t.id === id;
+      t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.setAttribute('tabindex', selected ? '0' : '-1');
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !selected;
+      if (selected && focus) t.focus();
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectTab(t.id, false); window.scrollTo({top:0, behavior:'smooth'}); });
+    t.addEventListener('keydown', function (e) {
+      var idx = i;
+      if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') idx = 0;
+      else if (e.key === 'End') idx = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      selectTab(tabs[idx].id, true);
+    });
+  });
+
+  function goTab(targetId) {
+    selectTab(targetId, false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.node-btn').forEach(function (n) {
+    n.addEventListener('click', function () { goTab(n.getAttribute('data-target')); });
+    n.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTab(n.getAttribute('data-target')); }
+    });
+  });
+  document.querySelectorAll('.link-card').forEach(function (n) {
+    n.addEventListener('click', function () { goTab(n.getAttribute('data-target')); });
+  });
+})();
+</script>
+</body>
+</html>

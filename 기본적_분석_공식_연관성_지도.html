@@ -236,6 +236,7 @@
     <button role="tab" id="tab-leverage" aria-controls="panel-leverage" aria-selected="false" tabindex="-1">③ 레버리지분석</button>
     <button role="tab" id="tab-valuation" aria-controls="panel-valuation" aria-selected="false" tabindex="-1">④ 주당지표·밸류에이션</button>
     <button role="tab" id="tab-dividend" aria-controls="panel-dividend" aria-selected="false" tabindex="-1">⑤ 배당·성장모형</button>
+    <button role="tab" id="tab-eva" aria-controls="panel-eva" aria-selected="false" tabindex="-1">⑥ EVA·ROIC</button>
   </div>
 </header>
 
@@ -247,56 +248,65 @@
   <p class="section-desc">실선은 각 지표군의 소속 관계, 초록 점선은 암기 시 함께 묶어야 할 핵심 연결고리입니다. 노드를 누르면 해당 탭으로 이동합니다.</p>
 
   <div class="mindmap-wrap">
-    <svg id="mindmap" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="재무분석 지표 연관 마인드맵">
+    <svg id="mindmap" viewBox="0 0 400 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="재무분석 지표 연관 마인드맵">
       <!-- spokes -->
-      <line class="spoke" x1="200" y1="250" x2="200" y2="105"/>
-      <line class="spoke" x1="200" y1="250" x2="340" y2="202"/>
-      <line class="spoke" x1="200" y1="250" x2="290" y2="358"/>
-      <line class="spoke" x1="200" y1="250" x2="110" y2="358"/>
-      <line class="spoke" x1="200" y1="250" x2="60" y2="202"/>
+      <line class="spoke" x1="200" y1="260" x2="200" y2="150"/>
+      <line class="spoke" x1="200" y1="260" x2="295" y2="205"/>
+      <line class="spoke" x1="200" y1="260" x2="295" y2="315"/>
+      <line class="spoke" x1="200" y1="260" x2="200" y2="370"/>
+      <line class="spoke" x1="200" y1="260" x2="105" y2="315"/>
+      <line class="spoke" x1="200" y1="260" x2="105" y2="205"/>
 
       <!-- cross links -->
-      <path class="cross-link" d="M200,85 Q275,120 340,185" aria-hidden="true"/>
-      <path class="cross-link" d="M200,95 Q245,230 285,345" aria-hidden="true"/>
-      <path class="cross-link" d="M60,220 Q85,290 112,345" aria-hidden="true"/>
-      <path class="cross-link" d="M335,215 Q315,290 300,340" aria-hidden="true"/>
+      <path class="cross-link" d="M205,110 Q300,220 330,320" aria-hidden="true"/>
+      <path class="cross-link" d="M190,120 Q140,260 190,400" aria-hidden="true"/>
+      <path class="cross-link" d="M50,210 Q20,260 50,315" aria-hidden="true"/>
+      <path class="cross-link" d="M320,355 Q270,410 215,420" aria-hidden="true"/>
+      <path class="cross-link" d="M230,100 Q300,110 320,150" aria-hidden="true"/>
+      <path class="cross-link" d="M310,150 Q200,40 90,150" aria-hidden="true"/>
 
       <!-- center -->
       <g class="node-center">
-        <circle cx="200" cy="250" r="46"/>
-        <text x="200" y="245" text-anchor="middle" font-size="11.5">기업 재무분석</text>
-        <text x="200" y="260" text-anchor="middle" font-size="11.5">핵심 공식</text>
+        <circle cx="200" cy="260" r="46"/>
+        <text x="200" y="255" text-anchor="middle" font-size="11.5">기업 재무분석</text>
+        <text x="200" y="270" text-anchor="middle" font-size="11.5">핵심 공식</text>
       </g>
 
       <!-- node: 수익성 -->
       <g class="node-btn" tabindex="0" role="button" aria-label="수익성·듀퐁 탭으로 이동" data-target="tab-profit">
-        <circle class="node-circle" cx="200" cy="80" r="42"/>
-        <text class="node-label" x="200" y="76">①수익성</text>
-        <text class="node-label" x="200" y="90">ROI·ROE</text>
+        <circle class="node-circle" cx="200" cy="95" r="42"/>
+        <text class="node-label" x="200" y="91">①수익성</text>
+        <text class="node-label" x="200" y="105">ROI·ROE</text>
+      </g>
+      <!-- node: EVA·ROIC -->
+      <g class="node-btn" tabindex="0" role="button" aria-label="EVA·ROIC 탭으로 이동" data-target="tab-eva">
+        <circle class="node-circle" cx="343" cy="178" r="42"/>
+        <text class="node-label" x="343" y="174">⑥EVA·ROIC</text>
+        <text class="node-label" x="343" y="188">투자자본×(ROIC−WACC)</text>
       </g>
       <!-- node: 밸류에이션 -->
       <g class="node-btn" tabindex="0" role="button" aria-label="주당지표·밸류에이션 탭으로 이동" data-target="tab-valuation">
-        <circle class="node-circle" cx="357" cy="199" r="42"/>
-        <text class="node-label" x="357" y="195">④밸류에이션</text>
-        <text class="node-label" x="357" y="209">PER·PBR·PCR·PSR</text>
+        <circle class="node-circle" cx="343" cy="343" r="42"/>
+        <text class="node-label" x="343" y="339">④밸류에이션</text>
+        <text class="node-label" x="343" y="353">PER·PBR·PCR·PSR</text>
       </g>
       <!-- node: 배당·성장 -->
       <g class="node-btn" tabindex="0" role="button" aria-label="배당·성장모형 탭으로 이동" data-target="tab-dividend">
-        <circle class="node-circle" cx="297" cy="383" r="42"/>
-        <text class="node-label" x="297" y="379">⑤배당·성장</text>
-        <text class="node-label" x="297" y="393">항상성장모형</text>
+        <circle class="node-circle" cx="200" cy="425" r="42"/>
+        <text class="node-label" x="200" y="421">⑤배당·성장</text>
+        <text class="node-label" x="200" y="435">항상성장모형</text>
       </g>
       <!-- node: 레버리지 -->
       <g class="node-btn" tabindex="0" role="button" aria-label="레버리지분석 탭으로 이동" data-target="tab-leverage">
-        <circle class="node-circle" cx="103" cy="383" r="42"/>
-        <text class="node-label" x="103" y="379">③레버리지</text>
-        <text class="node-label" x="103" y="393">DOL·DFL·DCL</text>
+        <circle class="node-circle" cx="57" cy="343" r="42"/>
+        <text class="node-label" x="57" y="339">③레버리지</text>
+        <text class="node-label" x="57" y="353">DOL·DFL·DCL</text>
       </g>
       <!-- node: 안정성 -->
       <g class="node-btn" tabindex="0" role="button" aria-label="안정성 탭으로 이동" data-target="tab-stability">
-        <circle class="node-circle" cx="43" cy="199" r="42"/>
-        <text class="node-label" x="43" y="195">②안정성</text>
-        <text class="node-label" x="43" y="209">유동·부채·이자보상</text>
+        <circle class="node-circle" cx="57" cy="178" r="42"/>
+        <text class="node-label" x="57" y="174">②안정성</text>
+        <text class="node-label" x="57" y="188">유동·부채·이자보상</text>
       </g>
     </svg>
   </div>
@@ -306,18 +316,21 @@
     <li><button class="link-card" data-target="tab-dividend"><b>지속가능성장률 g = 유보율 × ROE</b> — 수익성 지표가 그대로 성장모형의 성장률로 들어감</button></li>
     <li><button class="link-card" data-target="tab-leverage"><b>EBIT(영업이익) 공유</b> — 이자보상비율과 DFL은 둘 다 영업이익과 이자비용의 관계로 설명됨</button></li>
     <li><button class="link-card" data-target="tab-dividend"><b>PER = f(배당성향, g, k)</b> — 밸류에이션 배수(PER)는 결국 배당할인모형에서 수학적으로 유도됨</button></li>
+    <li><button class="link-card" data-target="tab-eva"><b>EVA = 투자자본 × (ROIC − WACC)</b> — ROIC가 자본조달비용(WACC)을 넘어야 진짜 가치가 창출됨, ①탭 ROI의 '경제적 이익' 버전</button></li>
+    <li><button class="link-card" data-target="tab-stability"><b>WACC의 부채비중</b> — ⑥탭 WACC를 구성하는 부채·자기자본 비중이 ②탭 부채비율과 같은 재무구조를 공유</button></li>
   </ul>
 
   <div class="card">
     <h3 style="margin-top:0;font-size:14.5px;">암기 순서 제안</h3>
     <div class="flow">
       <span class="flow-step">① 수익성(ROI·ROE)</span><span class="flow-arrow">→</span>
+      <span class="flow-step">⑥ EVA·ROIC</span><span class="flow-arrow">→</span>
       <span class="flow-step">② 안정성</span><span class="flow-arrow">→</span>
       <span class="flow-step">③ 레버리지분석</span><span class="flow-arrow">→</span>
       <span class="flow-step">④ 주당지표·밸류에이션</span><span class="flow-arrow">→</span>
       <span class="flow-step">⑤ 배당·성장모형</span>
     </div>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:0;">① 수익성의 구성요소(이익률·회전율·레버리지)를 먼저 익히면 ④, ⑤의 연결 공식이 저절로 이해됩니다.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:0;">① 수익성의 구성요소(이익률·회전율·레버리지)를 먼저 익히면 ⑥, ④, ⑤의 연결 공식이 저절로 이해됩니다.</p>
   </div>
 </section>
 
@@ -635,6 +648,76 @@
   <div class="connect-box">
     <span class="cb-label">🔗 ④탭 PER과의 연결 — 밸류에이션 배수의 뿌리</span>
     항상성장모형의 양변을 EPS로 나누면 PER = (배당성향×(1+g)) ÷ (k − g) 꼴이 되어, "싸 보이는 PER"이 실은 배당성향·성장률·요구수익률 세 요소로 설명된다는 것을 보여준다. 즉 ④탭의 밸류에이션 배수들은 결국 이 할인모형에서 수학적으로 흘러나온 결과다.
+  </div>
+</section>
+
+<!-- ===================== ⑥ EVA · ROIC ===================== -->
+<section role="tabpanel" id="panel-eva" aria-labelledby="tab-eva" tabindex="0" hidden>
+  <h2 class="section-title">⑥ 경제적 부가가치 (EVA) · ROIC</h2>
+  <p class="section-desc">회계상 순이익은 자기자본을 쓰는 대가(기회비용)를 빼지 않는다. EVA는 그 자본비용까지 차감해 "진짜 남는 이익"을 보여주는 지표다.</p>
+
+  <article class="card concept-card" data-concept="12">
+    <h3><span class="no">12</span>경제적 부가가치 (EVA)<span class="stars" aria-label="중요도 별 3개">★★★</span></h3>
+    <ul class="concept-list">
+      <li><b>정의:</b> 영업활동으로 번 세후 이익에서, 그 영업에 투입된 자본을 조달하는 데 드는 비용(투자자본×WACC)을 차감한 금액. 0보다 크면 자본비용을 넘어서는 가치를 창출했다는 뜻.</li>
+    </ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">EVA</span><span class="eq-sign">=</span>
+        <span>영업상 이익</span><span class="eq-op">−</span><span>투자자본비용</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span>세후 순영업이익</span><span class="eq-op">−</span><span>[투하자본 × WACC]</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-sign">=</span>
+        <span>투자자본</span><span class="eq-op">×</span><span>(ROIC − WACC)</span>
+      </div>
+    </div>
+  </article>
+
+  <div class="card">
+    <h3 style="margin-top:0;font-size:14.5px;">구성요소 세 가지</h3>
+    <ul class="concept-list">
+      <li><b>세후 순영업이익</b> — 영업이익에서 실효법인세 등을 반영한, 영업활동만의 세후 이익</li>
+      <li><b>WACC(가중평균자본비용)</b> — 타인자본과 자기자본 각각의 조달비용을 비중으로 가중평균한 값</li>
+      <li><b>ROIC</b> — 재투자수익률. 투자자본이 벌어들인 수익률(= 세후순영업이익 ÷ 투자자본 개념)</li>
+    </ul>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">세후 순영업이익</span><span class="eq-sign">=</span>
+        <span>영업이익</span><span class="eq-op">+</span><span>기타 영업관련 수익</span>
+        <span class="eq-op">−</span><span>기타 영업관련 비용</span>
+        <span class="eq-line-break" aria-hidden="true"></span>
+        <span class="eq-op">−</span><span>실효법인세</span>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">WACC</span><span class="eq-sign">=</span>
+        <span>(타인자본비용 × 부채비중)</span><span class="eq-op">+</span><span>(자기자본비용 × 자기자본비중)</span>
+      </div>
+    </div>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">ROIC</span><span class="eq-sign">=</span>
+        <span>재투자수익률</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="connect-box">
+    <span class="cb-label">🔗 ①탭 ROI·ROE와의 연결</span>
+    ROIC는 "투하자본이 벌어들인 수익률"이라는 점에서 ①탭 ROI(총자본이 벌어들인 수익률)와 같은 발상이지만, ROIC는 영업용 자산(투하자본)만을 분모로 쓰고 세후순영업이익을 분자로 쓴다는 점에서 더 좁고 정밀한 '영업 수익성'판이다. 여기에 자본조달비용(WACC)까지 비교하면 EVA가 된다 — <b>ROI·ROE가 "얼마나 버는가"</b>를 본다면, <b>EVA는 "자본비용을 넘어설 만큼 버는가"</b>를 본다.
+  </div>
+  <div class="connect-box">
+    <span class="cb-label">🔗 ②탭 안정성과의 연결</span>
+    WACC는 부채비중과 자기자본비중의 가중평균이므로, ②탭의 부채비율이 커질수록(부채비중↑) WACC 구성도 달라진다. 부채비용이 자기자본비용보다 낮아 WACC를 낮추는 효과가 있지만, 동시에 이자보상비율·DFL의 위험도 함께 커진다는 점을 같이 봐야 한다.
+  </div>
+
+  <div class="tip">
+    <span class="tip-label">🍎 암기팁</span>
+    <div class="tip-body">"<b>진짜 번 돈(세후순영업이익) − 자본 쓴 값(투자자본×WACC)</b>" 순서로 기억한다. 마지막 식 EVA=투자자본×(ROIC−WACC)은 "ROIC가 WACC보다 커야 플러스(+) 가치가 생긴다"는 결론을 한눈에 보여주는 형태다.</div>
+    <div class="caution"><span class="caution-label">주의</span>세후 순영업이익은 영업이익에 기타 영업관련 손익을 가감한 뒤 <b>실효법인세</b>를 차감한 값이며, 당기순이익과는 다르다. EVA 계산 시 당기순이익을 그대로 대입하지 않는다.</div>
   </div>
 </section>
 

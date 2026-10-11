@@ -1,37 +1,2968 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>제6장 채권시장 | 2026 증권투자권유자문인력</title><style>
-  :root{--bg:#f8f7f4;--surface:#fff;--surface2:#f2f0eb;--border:#e0ddd5;--text:#1a1917;--muted:#6b6862;--blue:#2563eb;--blue-l:#eff6ff;--blue-m:#bfdbfe;--green:#16a34a;--green-l:#f0fdf4;--green-m:#bbf7d0;--orange:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;--red:#dc2626;--red-l:#fef2f2;--red-m:#fecaca;--purple:#7c3aed;--purple-l:#f5f3ff;--purple-m:#c4b5fd;--teal:#0d9488;--teal-l:#f0fdfa}
-  html[data-theme="dark"]{color-scheme:dark;--bg:#11100f;--surface:#1c1b19;--surface2:#272522;--border:#3d3a35;--text:#f1eee8;--muted:#aaa59c;--blue:#60a5fa;--blue-l:#17243a;--blue-m:#294d78;--green:#4ade80;--green-l:#14291c;--green-m:#28613b;--orange:#fb923c;--orange-l:#302015;--orange-m:#75411f;--red:#f87171;--red-l:#32191b;--red-m:#713135;--purple:#a78bfa;--purple-l:#241d38;--purple-m:#5b4791;--teal:#2dd4bf;--teal-l:#112c29}
-  *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;font-size:14px;line-height:1.68}
-  .header{position:relative;background:#1a1917;color:#fff;padding:18px 24px 15px;text-align:center}.eyebrow{font-size:11px;letter-spacing:.15em;color:#a09d96}.header h1{font-size:21px;margin-top:3px;letter-spacing:-.03em}.header p{font-size:12px;color:#aaa69f;margin-top:4px}.head-badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:9px}.head-badges span{border:1px solid #555;background:#30302e;border-radius:20px;padding:3px 11px;font-size:11px;color:#ddd}.theme-toggle{position:absolute;top:16px;right:18px;border:1px solid #5a5752;background:#2d2c2a;color:#f5f3ef;border-radius:20px;padding:7px 11px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}.theme-toggle:hover{background:#403e3a;border-color:#77736c}.theme-toggle:focus-visible{outline:2px solid #fcd34d;outline-offset:2px}
-  .tab-wrap{position:sticky;top:0;z-index:50;background:#1a1917;border-bottom:1px solid #333;overflow-x:auto;scrollbar-width:none}.tab-wrap::-webkit-scrollbar{display:none}.tabs{display:flex;min-width:max-content;padding:0 12px}.tab-btn{background:none;border:0;border-bottom:2px solid transparent;color:#a09d96;padding:12px 16px;font:inherit;font-size:13px;cursor:pointer}.tab-btn:hover{color:#fff}.tab-btn.active{color:#fff;border-bottom-color:var(--purple);font-weight:700}
-  main{max-width:940px;margin:auto;padding:24px 16px 60px}.panel{display:none}.panel.active{display:block}.section-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;border-bottom:1px solid var(--border);padding-bottom:8px;margin:26px 0 14px}.section-kicker:first-child{margin-top:0}
-  .hero{border-radius:12px;padding:18px 20px;margin-bottom:16px;background:linear-gradient(135deg,#ede9fe,#eff6ff);border:1px solid #c4b5fd}.hero h2{font-size:19px;margin-bottom:4px}.hero p{color:#4b5563;font-size:13px}.weight{display:inline-block;background:#fff;border:1px solid var(--purple-m);color:var(--purple);font-weight:800;font-size:11px;border-radius:20px;padding:2px 9px;margin-left:7px}
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:17px 19px;margin-bottom:13px}.grid .card{margin:0}.card h3{font-size:14px;margin-bottom:9px;display:flex;gap:8px;align-items:center}.no{display:inline-grid;place-items:center;width:24px;height:24px;background:var(--purple-l);color:var(--purple);border:1px solid var(--purple-m);border-radius:6px;font-size:11px;flex:none}.stars{color:#f59e0b;font-size:11px;letter-spacing:-1px}.card h4{font-size:12px;color:var(--muted);margin:11px 0 4px}.card ul{padding-left:19px}.card li{margin:3px 0}.key{color:var(--blue);font-weight:800}.warn{color:var(--orange);font-weight:800}.danger{color:var(--red);font-weight:800}.good{color:var(--green);font-weight:800}
-  .formula{display:grid;gap:20px;background:var(--purple-l);border:1px solid var(--purple-m);border-radius:9px;padding:18px 17px;margin:10px 0;color:var(--purple)}.equation{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:15px;font-weight:800;line-height:1.35}.eq-name{min-width:92px;font-weight:900}.eq-name::before{content:'•';display:inline-block;margin-right:7px;font-weight:900}.eq-sign,.eq-op{font-weight:700}.eq-line-break{flex-basis:100%;height:0}.frac{display:inline-grid;grid-template-rows:auto auto;min-width:84px;text-align:center;vertical-align:middle;line-height:1.15}.frac .num{padding:0 7px 4px;border-bottom:1.6px solid currentColor}.frac .den{padding:4px 7px 0}.eq-note{display:block;color:var(--muted);font-size:11px;font-weight:600;line-height:1.5;margin-top:-8px}.formula-terms{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:-8px;padding-top:8px;border-top:1px dashed var(--purple-m);color:var(--muted);font-size:11px;font-weight:600;line-height:1.5}.formula-terms b{color:var(--purple);font-weight:900}.concept-list{list-style:none;padding-left:0!important;margin:2px 0}.concept-list>li{position:relative;padding-left:15px;margin:8px 0}.concept-list>li::before{content:'•';position:absolute;left:0;color:var(--purple);font-weight:900}.concept-list ul{margin-top:5px;padding-left:20px}.concept-list ul li{margin:4px 0}.concept-list b{color:#282524}.tip{border:1px solid #fcd34d;border-left:4px solid #f59e0b;background:#fffbeb;padding:11px 13px;border-radius:0 8px 8px 0;margin-top:10px;font-size:12px}.tip::before{content:'🍎 암기팁  ';font-weight:900;color:#b45309}.caution{display:block;margin-top:7px;padding-top:7px;border-top:1px dashed #f5c768;color:#7c4a03}.caution::before{content:'주의  ';font-weight:900;color:var(--red)}
-  .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:10px;margin:12px 0 15px}table{width:100%;border-collapse:collapse;font-size:12px;min-width:620px}th{background:var(--surface2);color:var(--muted);text-align:left;padding:9px 10px;font-size:11px}td{padding:9px 10px;border-top:1px solid var(--border);vertical-align:top}tr:nth-child(even) td{background:#faf9f7}td:first-child{font-weight:800;white-space:nowrap}
-  .flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:9px 0}.flow span{background:var(--blue-l);border:1px solid var(--blue-m);color:#1d4ed8;padding:5px 9px;border-radius:7px;font-weight:700;font-size:12px}.flow i{font-style:normal;color:var(--muted)}
-  .compare{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.compare>div{background:#fff;border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:8px;padding:12px}.compare h4{color:var(--teal);margin-bottom:5px}.compare p{font-size:12px}
-  .quiz-head{background:linear-gradient(135deg,#1f2937,#111827);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:14px}.quiz-head h2{font-size:18px}.quiz-head p{font-size:12px;color:#cbd5e1}.score{display:flex;gap:12px;white-space:nowrap}.score b{font-size:18px}.score small{display:block;color:#9ca3af;font-size:10px}.progress{height:5px;background:#e5e7eb;border-radius:4px;overflow:hidden;margin:-5px 0 15px}.progress div{height:100%;width:0;background:var(--purple);transition:.25s}.reset{border:1px solid #555;background:#333;color:#fff;border-radius:6px;padding:6px 9px;cursor:pointer;font:inherit;font-size:11px}
-  .q-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}.q-card.answered{border-left:4px solid var(--green)}.q-card.wrong-ans{border-left-color:var(--red)}.q-meta{display:flex;gap:7px;align-items:center;margin-bottom:8px}.q-num{font-weight:900;color:var(--purple)}.badge{font-size:10px;border-radius:20px;padding:2px 8px;font-weight:700}.badge-blue{background:var(--blue-l);color:var(--blue)}.badge-red{background:var(--red-l);color:var(--red)}.badge-green{background:var(--green-l);color:var(--green)}.q-text{font-weight:700;margin-bottom:10px}.q-text mark{background:#fef3c7;padding:0 2px}.q-options{display:grid;gap:6px}.q-option{text-align:left;background:#fafafa;border:1px solid var(--border);border-radius:7px;padding:9px 11px;cursor:pointer;font:inherit;font-size:13px}.q-option:hover:not(:disabled){background:var(--blue-l);border-color:var(--blue-m)}.q-option.correct-opt{background:var(--green-l);border-color:var(--green);color:#166534;font-weight:700}.q-option.wrong-opt{background:var(--red-l);border-color:var(--red);color:#991b1b}.q-option:disabled{cursor:default}.explain{display:none;background:var(--surface2);border-radius:7px;padding:11px 13px;margin-top:10px;font-size:12px}.explain.show{display:block}.explain strong{color:var(--purple)}
-  .source{margin-top:24px;background:#fff;border:1px dashed #c9c5bc;border-radius:9px;padding:13px 15px;color:var(--muted);font-size:11px}.source a{color:var(--blue)}
-  html[data-theme="dark"] .hero{background:linear-gradient(135deg,#241d38,#17243a);border-color:#5b4791}html[data-theme="dark"] .hero p{color:#c1bbb1}html[data-theme="dark"] .compare>div,html[data-theme="dark"] .q-card,html[data-theme="dark"] .source{background:var(--surface)}html[data-theme="dark"] tbody tr:nth-child(even) td{background:#211f1c}html[data-theme="dark"] .q-option{background:#24221f;color:var(--text)}html[data-theme="dark"] .q-option:hover:not(:disabled){background:var(--blue-l)}html[data-theme="dark"] .tip{background:#2c2414;border-color:#6e5619;color:#f3e5b7}html[data-theme="dark"] .caution{border-top-color:#675320;color:#e7cf91}html[data-theme="dark"] .progress{background:#35322e}
-  @media(max-width:700px){.grid,.compare{grid-template-columns:1fr}.quiz-head{align-items:flex-start;flex-direction:column}.score{width:100%;justify-content:space-between}.tab-btn{padding:11px 12px}.header{padding-top:54px}.header h1{font-size:18px}.theme-toggle{top:12px;right:12px}.formula{gap:24px;padding:18px 16px}.equation{gap:6px;font-size:14px}.eq-name{min-width:0;flex-basis:100%;padding-bottom:5px}.eq-name+.eq-sign,.eq-line-break+.eq-sign{margin-left:18px}.frac{min-width:76px}}
-  @media print{:root,html[data-theme="dark"]{--bg:#fff;--surface:#fff;--surface2:#f2f0eb;--border:#ddd;--text:#111;--muted:#555;--purple-l:#f5f3ff;--purple-m:#c4b5fd;--blue-l:#eff6ff;--blue-m:#bfdbfe;--green-l:#f0fdf4;--red-l:#fef2f2}.tab-wrap,.reset,.theme-toggle{display:none}.panel{display:block!important;break-before:page}main{max-width:none}.q-option{break-inside:avoid;background:#fff!important;color:#111!important}.explain{display:block}.header{background:#fff;color:#000;border-bottom:2px solid #000}.header p,.eyebrow{color:#555}}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제6장 채권시장 | 증권분석</title>
+<style>
+/* ── 토큰 ─────────────────────────────────────── */
+:root{
+  color-scheme:light;
+  --bg:#f7f6f3;--surface:#ffffff;--surface2:#f2f0eb;--border:#dedbd4;
+  --text:#22201f;--muted:#6b6761;
+  --purple:#7c3aed;--purple-l:#f5f3ff;--purple-m:#c4b5fd;
+  --blue:#2563eb;--blue-l:#eff6ff;--blue-m:#93c5fd;
+  --green:#15803d;--green-l:#f0fdf4;
+  --orange:#b45309;--orange-l:#fffbeb;
+  --red:#b91c1c;--red-l:#fef2f2;
+  --teal:#0f766e;--teal-l:#f0fdfa;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111827;--surface:#1f2937;--surface2:#1a2435;--border:#374151;
+  --text:#f9fafb;--muted:#9ca3af;
+  --purple:#a78bfa;--purple-l:#1e1433;--purple-m:#6d28d9;
+  --blue:#60a5fa;--blue-l:#1e3a5f;--blue-m:#1d4ed8;
+  --green:#4ade80;--green-l:#052e16;
+  --orange:#fbbf24;--orange-l:#422006;
+  --red:#f87171;--red-l:#450a0a;
+  --teal:#2dd4bf;--teal-l:#042f2e;
+}
 
-  .concept-card{margin-bottom:13px}.concept-card h3{font-size:14px;margin-bottom:9px;display:flex;gap:8px;align-items:center}.concept-card .num{display:inline-grid;place-items:center;width:24px;height:24px;background:var(--purple-l);color:var(--purple);border:1px solid var(--purple-m);border-radius:6px;font-size:11px;flex:none}.concept-card .key{background:transparent;border:0;border-radius:0;padding:0;color:var(--text);font-weight:400}.concept-card .key ul{padding-left:19px}.concept-card .key li{margin:4px 0}.summary{margin-bottom:0}.visual{margin:16px 0;text-align:center}.visual img{max-width:100%;border:1px solid var(--border);border-radius:10px}.visual figcaption{color:var(--muted);font-size:11px;margin-top:5px}.caution{display:block}.q-options{grid-template-columns:1fr}.q-card .explain{display:none}.q-card .explain.show{display:block}.source{margin-top:24px;background:var(--surface);border:1px dashed var(--border);border-radius:9px;padding:13px 15px;color:var(--muted);font-size:11px}.source ul{padding-left:18px}.q-card.answered{border-left:4px solid var(--green)}.q-card.wrong-ans{border-left-color:var(--red)}
-</style></head><body><header class="header"><div class="eyebrow">2026 증권투자권유자문인력 · 제1과목</div><h1>제6장 채권시장</h1><p>채권가격·듀레이션·수익률곡선·투자전략을 연결해 정리합니다.</p><div class="head-badges"><span>출제 7문항</span><span>개념 15개</span><span>개념·심화 40문항</span><span>학습노트</span></div><button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="다크모드로 전환" aria-pressed="false">🌙 다크모드</button></header><nav class="tab-wrap"><div class="tabs" role="tablist"><button class="tab-btn" role="tab" aria-selected="true" aria-controls="tab0" data-tab="0">장 요약</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab1" data-tab="1">① 채권의 기초</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab2" data-tab="2">② 발행·유통시장</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab3" data-tab="3">③ 시장 분류·특성</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab4" data-tab="4">④ 투자분석</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab5" data-tab="5">⑤ 위험·수익성</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab6" data-tab="6">⑥ 수익률곡선</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab7" data-tab="7">⑦ 투자전략</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab8" data-tab="8">⑧ 신종 채무증권</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab9" data-tab="9">개념문제 20</button><button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab10" data-tab="10">심화문제 20</button></div></nav><main><section class="panel active" id="tab0" role="tabpanel"><section class="summary"><h2>이번 장에서 잡을 것</h2><ul><li>채권가격·수익률·듀레이션의 방향 관계를 공식과 함께 설명한다.</li><li>발행시장과 유통시장, 장내와 장외, 적극적 전략과 소극적 전략을 구분한다.</li><li>수익률곡선 세 가설과 옵션부채권의 권리 주체를 비교한다.</li><li>세부 수치는 기준일 규정에 따라 달라질 수 있으므로 시험 직전 공식 자료를 확인한다.</li></ul></section></section><section class="panel" id="tab1" role="tabpanel"><div class="section-kicker"><h2>제1절 채권의 기초</h2><span class="weight">출제비중 10%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">01</span><h3>채권의 기본적 구조와 분류</h3><span class="stars">★★</span></div><div class="key"><ul><li>채권은 발행자가 자금을 빌리고 정해진 이자와 원금을 지급하기로 한 채무증서다.</li><li>액면가: 만기에 상환할 원금 기준액. 표면이율: 액면가에 적용되는 약정이자율. 만기수익률: 현재가격과 미래 현금흐름을 일치시키는 내부수익률.</li><li>발행주체별로 국채·지방채·특수채·금융채·회사채로 나눈다.</li><li>현금흐름별로 이표채·복리채·할인채(무이표채)로 나눈다.</li></ul></div><div class="tip">채권은 원금의 약속과 이자 흐름을 함께 읽는다.</div><div class="caution"><b>주의</b><br>액면가와 시장가격, 표면이율과 만기수익률을 같은 개념으로 혼동하지 마세요.</div></article><article class="card concept-card"><h3>보충 · 채권 용어와 특수구조</h3><ul><li>액면금액은 만기 원금 기준, 표면이율은 액면 기준 약정이율, 만기수익률은 가격과 미래 현금흐름을 일치시키는 IRR이다. 가격과 수익률은 반대로 움직인다.</li><li>FRN은 기준금리에 연동해 쿠폰을 재설정하여 고정금리채보다 금리 민감도가 낮다. Inverse FRN은 쿠폰이 기준금리와 반대로 움직인다.</li><li>ABS는 대출채권·매출채권을 SPV에 이전하고 그 현금흐름으로 상환한다. 기초자산, 자산이전, 신용보강을 본다. 이표채는 정기 쿠폰, 복리채는 이자를 재투자해 만기에 지급, 할인채는 할인 발행 후 액면 상환한다.</li></ul></article></section><section class="panel" id="tab2" role="tabpanel"><div class="section-kicker"><h2>제2절 발행시장과 유통시장</h2><span class="weight">출제비중 10%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">02</span><h3>발행시장</h3><span class="stars">★★★</span></div><div class="key"><ul><li>발행시장은 발행자가 최초로 채권을 투자자에게 공급해 자금을 조달하는 시장이다.</li><li>직접발행: 발행조건을 정한 뒤 매출하거나 공모입찰로 투자자를 모집한다.</li><li>간접발행: 전문기관이 모집·인수에 관여한다. 위탁모집은 발행인이 위험을 부담하고, 총액인수는 인수기관이 발행물량을 인수하는 구조다.</li><li>공모입찰은 복수조건·단일조건 등 입찰방식에 따라 가격과 배분 방식이 달라질 수 있다.</li></ul></div><div class="tip">처음 공급되면 발행시장, 이후 투자자 사이에서 거래되면 유통시장.</div><div class="caution"><b>주의</b><br>위탁모집·잔액인수·총액인수에서 위험부담 주체를 섞어 기억하지 마세요.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">03</span><h3>유통시장</h3><span class="stars">★★</span></div><div class="key"><ul><li>유통시장은 이미 발행된 채권이 투자자 사이에서 거래되는 시장이다.</li><li>채권은 기관투자자 거래가 많고 장외거래 중심으로 형성되는 특징이 있다.</li><li>장내에는 일반채권시장과 IDM이 있고, 장외에는 대고객 상대매매와 IDB가 있다.</li><li>유통성은 필요한 때 적정 가격으로 매도할 수 있는 정도이며 거래단위와 시장참여자에 영향을 받는다.</li></ul></div><div class="tip">발행은 조달, 유통은 환금성.</div><div class="caution"><b>주의</b><br>장내·장외 구분과 발행·유통 구분을 서로 바꾸지 마세요.</div></article><article class="card concept-card"><h3>보충 · 발행과 유통 세부</h3><div class="table-wrap"><table><tr><th>방식</th><th>특징</th></tr><tr><td>위탁모집</td><td>모집대행, 미매각 위험은 발행자</td></tr><tr><td>잔액인수</td><td>모집 후 잔액만 인수</td></tr><tr><td>총액인수</td><td>인수기관이 발행총액 인수</td></tr><tr><td>Conventional / Dutch</td><td>낙찰자별 가격 / 단일 낙찰가격 적용</td></tr></table></div><ul><li>비경쟁입찰은 경쟁입찰 결과 가격에 배정한다. 주관회사는 발행절차를 주도하고 인수회사는 물량을 인수·판매한다.</li><li>장내에는 일반채권시장과 국채전문유통시장(IDM), 장외에는 대고객 상대매매와 기관 간 거래가 있다. K-Bond는 기관 간 장외 전자거래 시스템이다. 상장채권 및 일부 전환사채·첨가소화채권의 장내거래 원칙을 구분한다.</li></ul></article></section><section class="panel" id="tab3" role="tabpanel"><div class="section-kicker"><h2>제3절 채권시장의 분류와 특성</h2><span class="weight">출제비중 10%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">04</span><h3>한국 채권시장의 특성</h3><span class="stars">★</span></div><div class="key"><ul><li>국채·통안채 등 안전자산 성격의 채권과 회사채가 함께 거래된다.</li><li>기관투자자 비중과 장외거래 비중이 높아 신용·유동성 정보가 중요하다.</li><li>채권시장은 금리, 경기, 물가, 신용상태 변화가 가격과 수익률에 빠르게 반영되는 시장이다.</li></ul></div><div class="tip">채권시장은 금리시장인 동시에 신용시장이다.</div><div class="caution"><b>주의</b><br>채권시장을 주식시장처럼 모든 종목이 동일한 방식으로 거래된다고 보지 마세요.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">05</span><h3>채권의 분류</h3><span class="stars">★★</span></div><div class="key"><ul><li>발행주체: 국채·지방채·특수채·금융채·회사채.</li><li>지급방식: 이표채는 정기 이자를 지급하고, 복리채는 이자가 재투자되어 만기에 원금과 함께 지급되며, 할인채는 이자를 선지급하는 대신 발행가가 액면가보다 낮다.</li><li>담보·보증·신용등급·옵션 부착 여부에 따라 위험과 수익률이 달라진다.</li></ul></div><div class="tip">누가 발행했는지와 돈이 언제 들어오는지를 따로 분류한다.</div><div class="caution"><b>주의</b><br>할인채는 이자가 없다는 뜻이 아니라 할인된 가격과 액면 상환의 차이가 수익이라는 뜻입니다.</div></article><article class="card concept-card"><h3>보충 · 발행주체별 분류</h3><div class="table-wrap"><table><tr><th>채권</th><th>발행주체</th><th>예시·특징</th></tr><tr><td>국채</td><td>국가</td><td>국고채·재정증권</td></tr><tr><td>지방채</td><td>지방자치단체</td><td>도시철도·지역개발채</td></tr><tr><td>특수채</td><td>비금융 특별법인</td><td>공기업 등</td></tr><tr><td>금융채</td><td>금융기관</td><td>금융기관 조달</td></tr><tr><td>회사채</td><td>일반기업</td><td>신용도별 스프레드</td></tr></table></div><p>보증·담보·발행주체·지급방식은 각각 별도 분류축이다. 무보증사채는 발행인의 신용으로 상환하며 복수 신용평가 요건이 출제될 수 있다.</p></article></section><section class="panel" id="tab4" role="tabpanel"><div class="section-kicker"><h2>제4절 채권투자분석</h2><span class="weight">출제비중 10%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">06</span><h3>채권의 수익 및 위험</h3><span class="stars">★★</span></div><div class="key"><ul><li>수익은 이자수익, 매매차익, 재투자수익으로 구성된다.</li><li>주요 위험은 이자율위험, 채무불이행위험, 유동성위험, 인플레이션위험이다.</li><li>이표채의 이자율위험은 가격위험과 재투자위험의 결합이다. 금리 상승은 가격을 낮추지만 새 이자의 재투자수익은 높일 수 있다.</li><li>신용위험이 클수록 투자자는 더 높은 수익률을 요구한다.</li></ul></div><div class="tip">금리 변화는 가격과 재투자에 서로 반대 방향으로 작용한다.</div><div class="caution"><b>주의</b><br>채권을 만기까지 보유한다고 해서 모든 위험이 사라지는 것은 아닙니다.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">07</span><h3>채권가격 결정과정</h3><span class="stars">★★★</span></div><div class="key"><ul><li>채권가격은 미래 현금흐름을 시장수익률로 할인한 현재가치의 합이다.</li><li>채권가격과 만기수익률은 반대로 움직인다.</li><li>만기가 길수록, 표면이율이 낮을수록 가격의 금리 민감도가 커진다.</li><li>수익률 하락에 따른 가격상승폭이 같은 폭의 수익률 상승에 따른 가격하락폭보다 크다. 이를 볼록성으로 설명한다.</li></ul></div><div class="formula"><div class="equation"><span class="eq-name">채권가격</span><span class="eq-sign">=</span><span>미래 현금흐름의 현재가치 합</span></div><span class="eq-note">가격과 만기수익률은 반대 방향으로 움직인다.</span><div class="formula-terms"><b>용어</b><span>미래 현금흐름: 이자와 원금의 지급액</span><span>시장수익률: 현금흐름을 할인하는 수익률</span></div></div><div class="tip">가격은 현금흐름의 현재가치, 금리는 할인율.</div><div class="caution"><b>주의</b><br>가격과 수익률의 방향은 반대이며, 가격변동폭은 만기와 표면이율에 따라 달라집니다.</div></article><article class="card concept-card"><h3>보충 · 가격 공식과 말킬의 정리</h3><div class="formula"><div class="equation">일시상환채: P=F/(1+y)<sup>n</sup></div><div class="equation">이표채: P=Σ C/(1+y)<sup>t</sup> + F/(1+y)<sup>n</sup></div><div class="formula-terms">P 가격 · F 만기상환액 · C 쿠폰 · y 기간수익률 · n 잔존기간</div></div><ul><li>현금흐름과 지급시점을 확인하고 수익률 단위와 쿠폰 주기를 맞춰 할인한다. 보유수익=매매손익+표면이자+재투자수익.</li><li>말킬 1 가격과 수익률은 반비례. 2 할인채는 만기가 길수록 가격이 낮고 할증채는 액면에 접근. 3 만기가 길고 쿠폰이 낮을수록 금리민감도 상승. 4 볼록성 때문에 금리 하락 때 가격상승폭이 더 큼. 5 같은 만기·수익률이면 쿠폰이 낮을수록 민감도가 큼.</li></ul></article></section><section class="panel" id="tab5" role="tabpanel"><div class="section-kicker"><h2>제5절 채권투자의 위험도 및 수익성 측정</h2><span class="weight">목차상 비중 미표기</span></div><article class="card concept-card"><div class="concept-head"><span class="num">08</span><h3>채권의 투자위험도 측정</h3><span class="stars">★★★</span></div><div class="key"><ul><li>듀레이션은 채권 현금흐름의 가중평균 회수기간이자 금리변화에 대한 가격 민감도의 지표다.</li><li>잔존기간이 길수록 듀레이션은 커지고, 표면이율·만기수익률·이자지급빈도가 높을수록 작아진다.</li><li>무이표채·복리채의 듀레이션은 잔존기간과 같고, 이표채의 듀레이션은 잔존기간보다 짧다.</li><li>수정듀레이션은 듀레이션을 1+y로 나눈 값이며 수익률 변화에 따른 근사 가격변동률을 보여준다.</li></ul></div><div class="formula"><div class="equation"><span class="eq-name">수정듀레이션(MD)</span><span class="eq-sign">=</span><span>맥컬리듀레이션</span><span class="eq-op">÷</span><span>(1 + y)</span></div><div class="equation"><span class="eq-name">가격변동률</span><span class="eq-sign">≈</span><span>−MD</span><span class="eq-op">×</span><span>수익률변화</span></div><div class="formula-terms"><b>기호</b><span>MD: 수정듀레이션</span><span>y: 만기수익률</span><span>수익률변화: 시장수익률의 변화</span></div></div><figure class="visual"><img src="채권시장_핵심요약_crop.png" alt="듀레이션과 수익률곡선, 채권투자전략을 요약한 참고자료 크롭"><figcaption>참고자료 크롭 · 듀레이션·수익률곡선·채권투자전략 핵심 정리</figcaption></figure><div class="tip">듀레이션은 회수시간을 금리 민감도로 읽는 도구.</div><div class="caution"><b>주의</b><br>맥컬리듀레이션과 수정듀레이션을 구분하고, 금리 변화의 부호를 빠뜨리지 마세요.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">09</span><h3>채권의 투자수익성 측정</h3><span class="stars">★★</span></div><div class="key"><ul><li>만기수익률은 채권의 현재가격과 만기까지의 현금흐름을 일치시키는 IRR이다.</li><li>실효수익률은 복리 기준이고, 연평균수익률은 단리 기준으로 이해한다.</li><li>세전·세후, 보유기간, 재투자수익 포함 여부를 확인해야 수익률을 올바르게 비교할 수 있다.</li></ul></div><div class="tip">수익률 숫자보다 계산의 기간과 복리 여부를 먼저 확인한다.</div><div class="caution"><b>주의</b><br>만기수익률을 단순 표면이율이나 현재의 이자수익률과 같은 뜻으로 보지 마세요.</div></article><article class="card concept-card"><h3>보충 · 위험요인과 측정식</h3><div class="table-wrap"><table><tr><th>위험</th><th>내용</th></tr><tr><td>채무불이행</td><td>원리금 미회수</td></tr><tr><td>가격·재투자</td><td>금리변화로 매도가격·재투자수익 변동</td></tr><tr><td>유동성·인플레이션</td><td>적정가격 매도 곤란·구매력 하락</td></tr><tr><td>수의상환</td><td>발행자 조기상환으로 쿠폰 종료</td></tr></table></div><div class="formula"><div class="equation">D=Σ[t×PV(CF<sub>t</sub>)]/P</div><div class="equation">ΔP/P≈−D<sub>mod</sub>×Δy</div><div class="equation">볼록성 조정: −D<sub>mod</sub>Δy+½Convexity(Δy)<sup>2</sup></div></div><p>듀레이션 결정요인은 잔존기간·표면이율·수익률·지급빈도다. 무이표채는 D=잔존기간. 실효수익률 FV=P(1+r)<sup>n</sup>; YTM은 IRR이며 만기보유·쿠폰 재투자를 가정한다. 연평균 및 세전·세후는 기간·복리·세금을 구분한다.</p></article></section><section class="panel" id="tab6" role="tabpanel"><div class="section-kicker"><h2>제6절 수익률의 기간구조 및 위험구조</h2><span class="weight">출제비중 10%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">10</span><h3>수익률곡선</h3><span class="stars">★★</span></div><div class="key"><ul><li>수익률곡선은 만기가 다른 채권의 수익률을 연결한 곡선이다.</li><li>불편기대가설: 위험중립적 투자자, 미래 단기금리 기대와 기하평균, 완전대체관계.</li><li>유동성선호가설: 투자자는 장기채를 더 위험하게 보므로 기간 프리미엄이 붙고 수익률곡선이 우상향하기 쉽다.</li><li>시장분할가설: 투자자 선호와 수급이 만기 구간별로 나뉘며 만기별 시장은 대체관계가 약하거나 없다.</li></ul></div><div class="tip">기대는 미래 금리, 유동성은 기간 프리미엄, 시장분할은 수급 구간.</div><div class="caution"><b>주의</b><br>세 가설의 투자자 태도·대체관계·곡선 설명을 한 줄로 섞지 마세요.</div></article><article class="card concept-card"><h3>보충 · 수익률곡선 가설</h3><div class="table-wrap"><table><tr><th>가설</th><th>대체관계</th><th>설명</th></tr><tr><td>불편기대</td><td>완전</td><td>미래 단기금리 기대의 기하평균</td></tr><tr><td>유동성선호</td><td>불완전</td><td>장기채 기간 프리미엄, 우상향 경향</td></tr><tr><td>시장분할</td><td>없거나 약함</td><td>만기별 수급으로 금리 결정</td></tr><tr><td>선호영역</td><td>불완전</td><td>충분한 프리미엄이면 선호 밖 투자</td></tr></table></div><p>기대가설은 미래 단기금리, 유동성선호는 기간 프리미엄, 시장분할은 구간별 수급을 강조한다.</p></article></section><section class="panel" id="tab7" role="tabpanel"><div class="section-kicker"><h2>제7절 채권투자전략</h2><span class="weight">출제비중 20%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">11</span><h3>채권투자전략</h3><span class="stars">★★★</span></div><div class="key"><ul><li>적극적 전략은 시장이 비효율적이라는 전제에서 시장 초과성과를 추구한다.</li><li>수익률 예측전략은 금리 전망에 따라 만기·표면이율·듀레이션을 조절한다.</li><li>채권교체전략은 동종 또는 이종 채권을 교체해 상대가치와 수익을 개선하려는 전략이다.</li><li>수익률곡선 타기전략은 우상향 곡선에서 잔존기간이 투자기간보다 긴 채권을 보유해 가격상승을 노린다.</li></ul></div><div class="tip">적극적 전략은 금리와 상대가치에 대한 판단을 포트폴리오에 반영한다.</div><div class="caution"><b>주의</b><br>수익률 하락 예상 시 장기채와 듀레이션을 늘리는 방향을 반대로 외우지 마세요.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">12</span><h3>적극적 투자전략</h3><span class="stars">★★★</span></div><div class="key"><ul><li>수익률 예측, 채권교체, 수익률곡선 타기가 대표적이다.</li><li>금리 하락 예상 시 장기채 비중과 듀레이션을 늘리고 표면이율이 낮은 채권을 선호한다.</li><li>금리 상승 예상 시에는 금리 민감도를 낮추는 방향이 일반적이다.</li><li>전략의 성과는 금리 전망이 맞는지, 거래비용과 세금을 감안해도 초과수익이 남는지로 평가한다.</li></ul></div><div class="tip">금리 하락은 긴 듀레이션에 우호적, 금리 상승은 짧은 듀레이션에 우호적.</div><div class="caution"><b>주의</b><br>적극적 전략은 시장평균을 추적하는 인덱스전략과 목적이 다릅니다.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">13</span><h3>소극적 투자전략</h3><span class="stars">★★★</span></div><div class="key"><ul><li>효율적 시장을 전제로 시장평균성과와 안정적인 현금흐름을 추구한다.</li><li>만기보유전략은 거래를 줄이고 약정 현금흐름을 확보한다.</li><li>인덱스전략은 채권지수를 추적하고, 현금흐름 일치전략은 예정된 지급액과 채권 현금흐름을 맞춘다.</li><li>사다리형 전략은 만기를 분산해 특정 시점의 금리위험을 완화한다.</li><li>면역전략은 가격위험과 재투자위험을 상쇄하도록 포트폴리오 듀레이션을 투자기간에 맞춘다.</li></ul></div><div class="formula"><div class="equation"><span class="eq-name">면역전략</span><span class="eq-sign">:</span><span>포트폴리오 듀레이션</span><span class="eq-sign">=</span><span>투자기간</span></div><div class="formula-terms"><b>용어</b><span>포트폴리오 듀레이션: 포트폴리오의 금리 민감도</span><span>투자기간: 자금이 필요한 시점까지의 기간</span></div></div><div class="tip">소극적 전략은 예측보다 구조와 현금흐름의 관리에 무게를 둔다.</div><div class="caution"><b>주의</b><br>면역전략의 핵심 조건은 포트폴리오 듀레이션과 투자기간의 일치입니다.</div></article><article class="card concept-card"><h3>보충 · 전략의 적용</h3><ul><li>동종채권 교체는 가격괴리에서 저평가채를 매수한다. 이종채권은 스프레드 확대 때 상대적으로 수익률 높은 채권을 사고 정상화 때 반대매매한다.</li><li>곡선타기는 우상향 곡선이 유지될 때 투자기간보다 긴 채권을 보유한다. 롤링은 만기 단축에 따른 수익률 하락, 숄더는 구간별 기울기 차이 효과다.</li><li>나비형은 단기·장기 금리 하락, 중기 금리 상승 예상에 단기·장기 매수 및 중기 매도. 역나비형은 반대 포지션이다.</li><li>사다리형은 만기 분산, 아령형은 단기·장기물 집중이다. 현금흐름일치는 예정 지급액과 채권 현금흐름을 대응시킨다.</li><li>면역은 자산·부채 현재가치를 맞추고 포트폴리오 듀레이션을 투자기간에 맞춰 가격·재투자 위험을 상쇄한다. 금리가 크게 변하면 재조정한다.</li></ul></article></section><section class="panel" id="tab8" role="tabpanel"><div class="section-kicker"><h2>제8절 새로운 형태의 채무증권</h2><span class="weight">출제비중 20%</span></div><article class="card concept-card"><div class="concept-head"><span class="num">14</span><h3>새로운 형태의 증권</h3><span class="stars">★★</span></div><div class="key"><ul><li>옵션부채권은 발행자 또는 투자자에게 특정 권리를 부여해 채권의 현금흐름과 가격을 바꾼다.</li><li>수의상환채권은 발행자에게 콜권리를 부여하므로 채권가치는 일반채권가치에서 콜가치를 뺀다.</li><li>수의상환청구채권은 투자자에게 풋권리를 부여하므로 채권가치는 일반채권가치에 풋가치를 더한다.</li><li>전환사채는 사채와 전환권의 결합, 신주인수권부사채는 사채와 신주인수권의 결합이다.</li></ul></div><div class="tip">발행자에게 유리한 콜은 채권가치를 깎고, 투자자에게 유리한 풋은 채권가치를 더한다.</div><div class="caution"><b>주의</b><br>전환권 행사 시 사채 지위가 소멸하는 전환사채와 사채가 존속하는 신주인수권부사채를 구분하세요.</div></article><article class="card concept-card"><div class="concept-head"><span class="num">15</span><h3>옵션이 첨부된 채권</h3><span class="stars">★★</span></div><div class="key"><ul><li>콜부채권은 금리 하락 시 발행자가 낮은 금리로 차환하기 위해 상환할 유인이 커 가격상승이 제한될 수 있다.</li><li>풋부채권은 투자자가 금리 상승이나 신용악화 때 상환을 청구할 수 있어 투자자 보호 기능이 있다.</li><li>전환사채는 발행이율이 상대적으로 낮을 수 있고, 전환가치와 채권가치를 함께 고려한다.</li><li>신주인수권부사채는 권리 행사 후에도 사채가 존속하는 구조가 일반적이다.</li></ul></div><div class="tip">콜은 발행자 선택, 풋은 투자자 선택, 전환은 주식으로 바꾸는 선택.</div><div class="caution"><b>주의</b><br>옵션이 붙었다고 항상 투자자에게 유리한 것은 아니며 권리의 주체를 먼저 확인하세요.</div></article><article class="card concept-card"><h3>보충 · 신종증권과 전환 계산</h3><div class="table-wrap"><table><tr><th>증권</th><th>핵심 구조</th></tr><tr><td>신종자본·CoCo</td><td>후순위·자본성, 조건부 전환·상각</td></tr><tr><td>커버드본드</td><td>발행자와 담보자산 이중청구권</td></tr><tr><td>CB / BW / EB</td><td>CB 전환 후 사채 소멸 / BW 행사 후 존속 / EB 주식 등과 교환</td></tr><tr><td>CP / 전자단기사채</td><td>기업 단기조달 / 전자등록 단기사채</td></tr></table></div><div class="formula"><div class="equation">전환주식 수=액면금액÷전환가격</div><div class="equation">전환가치=주가×전환주식 수</div><div class="equation">전환프리미엄=CB 시장가격−전환가치</div><div class="equation">패리티(%)=주가÷전환가격×100</div></div><p>콜부채권=일반채권−발행자 콜가치, 풋부채권=일반채권+투자자 풋가치. ABS는 자산유동화·신용보강의 장점과 구조복잡성·자산부실·조기상환 위험이 있다.</p></article></section><section class="panel" id="tab9" role="tabpanel"><div class="quiz-head"><div><h2>개념문제 20</h2><p>선택 즉시 채점하고 해설을 확인합니다.</p></div><div class="score"><span><b id="s1-c">0</b><small>정답</small></span><span><b id="s1-w">0</b><small>오답</small></span><span><b id="s1-r">20</b><small>남음</small></span><button class="reset" onclick="resetQuiz('q1')">다시 풀기</button></div></div><div class="progress"><div id="bar1"></div></div><article class="q-card" data-q="0" data-answer="B"><div class="q-meta"><span class="q-num">Q01</span><span class="ref">개념 01</span></div><div class="q-text">채권의 표면이율은 무엇을 기준으로 계산하는가?</div><div class="q-options"><button class="q-option">① 시장가격</button><button class="q-option">② 액면가</button><button class="q-option">③ 만기수익률</button><button class="q-option">④ 신용등급</button></div><div class="explain"><b>정답: B</b> · 표면이율은 액면가에 적용되는 약정이자율이다</div></article><article class="q-card" data-q="1" data-answer="B"><div class="q-meta"><span class="q-num">Q02</span><span class="ref">개념 02</span></div><div class="q-text">최초로 발행자가 채권을 공급하는 시장은?</div><div class="q-options"><button class="q-option">① 유통시장</button><button class="q-option">② 발행시장</button><button class="q-option">③ 장외시장</button><button class="q-option">④ 파생시장</button></div><div class="explain"><b>정답: B</b> · 발행시장은 최초 자금조달이 이루어지는 시장이다</div></article><article class="q-card" data-q="2" data-answer="A"><div class="q-meta"><span class="q-num">Q03</span><span class="ref">개념 03</span></div><div class="q-text">채권 유통시장의 일반적 특징은?</div><div class="q-options"><button class="q-option">① 장외거래 중심</button><button class="q-option">② 개인만 참여</button><button class="q-option">③ 주식만 거래</button><button class="q-option">④ 발행자만 거래</button></div><div class="explain"><b>정답: A</b> · 채권은 기관투자자 중심의 장외거래 비중이 높다</div></article><article class="q-card" data-q="3" data-answer="A"><div class="q-meta"><span class="q-num">Q04</span><span class="ref">개념 05</span></div><div class="q-text">할인채의 수익 원천으로 맞는 것은?</div><div class="q-options"><button class="q-option">① 액면보다 낮게 사서 액면으로 상환받는 차이</button><button class="q-option">② 매월 지급되는 표면이자</button><button class="q-option">③ 주식배당</button><button class="q-option">④ 옵션 프리미엄만</button></div><div class="explain"><b>정답: A</b> · 할인채는 발행가와 액면상환액의 차이가 수익이 된다</div></article><article class="q-card" data-q="4" data-answer="A"><div class="q-meta"><span class="q-num">Q05</span><span class="ref">개념 06</span></div><div class="q-text">이표채의 이자율위험은 무엇으로 구성되는가?</div><div class="q-options"><button class="q-option">① 가격위험과 재투자위험</button><button class="q-option">② 신용위험과 환위험만</button><button class="q-option">③ 세금위험만</button><button class="q-option">④ 유동성위험만</button></div><div class="explain"><b>정답: A</b> · 금리 변화는 가격과 재투자수익에 함께 영향을 준다</div></article><article class="q-card" data-q="5" data-answer="B"><div class="q-meta"><span class="q-num">Q06</span><span class="ref">개념 07</span></div><div class="q-text">채권가격과 만기수익률의 관계는?</div><div class="q-options"><button class="q-option">① 정비례</button><button class="q-option">② 반비례</button><button class="q-option">③ 무관</button><button class="q-option">④ 항상 동일</button></div><div class="explain"><b>정답: B</b> · 할인율인 만기수익률이 오르면 현재가치는 하락한다</div></article><article class="q-card" data-q="6" data-answer="B"><div class="q-meta"><span class="q-num">Q07</span><span class="ref">개념 08</span></div><div class="q-text">무이표채의 듀레이션은 일반적으로 무엇과 같은가?</div><div class="q-options"><button class="q-option">① 표면이율</button><button class="q-option">② 잔존기간</button><button class="q-option">③ 신용등급</button><button class="q-option">④ 거래단위</button></div><div class="explain"><b>정답: B</b> · 중간 현금흐름이 없어 듀레이션이 잔존기간과 같다</div></article><article class="q-card" data-q="7" data-answer="A"><div class="q-meta"><span class="q-num">Q08</span><span class="ref">개념 09</span></div><div class="q-text">만기수익률의 성격은?</div><div class="q-options"><button class="q-option">① 채권 IRR</button><button class="q-option">② 단순 표면이율</button><button class="q-option">③ 주가수익비율</button><button class="q-option">④ 현금배당률</button></div><div class="explain"><b>정답: A</b> · 현재가격과 미래 현금흐름을 일치시키는 내부수익률이다</div></article><article class="q-card" data-q="8" data-answer="A"><div class="q-meta"><span class="q-num">Q09</span><span class="ref">개념 10</span></div><div class="q-text">유동성선호가설의 설명으로 맞는 것은?</div><div class="q-options"><button class="q-option">① 장기채에 기간 프리미엄이 붙기 쉽다</button><button class="q-option">② 완전대체만 가정한다</button><button class="q-option">③ 만기별 수급은 무관하다</button><button class="q-option">④ 수익률곡선은 항상 수평이다</button></div><div class="explain"><b>정답: A</b> · 투자자가 장기채를 더 위험하게 보아 기간 프리미엄을 요구한다</div></article><article class="q-card" data-q="9" data-answer="A"><div class="q-meta"><span class="q-num">Q10</span><span class="ref">개념 11</span></div><div class="q-text">적극적 투자전략의 목표는?</div><div class="q-options"><button class="q-option">① 시장 초과성과</button><button class="q-option">② 항상 만기보유</button><button class="q-option">③ 지수와 완전 일치</button><button class="q-option">④ 거래 금지</button></div><div class="explain"><b>정답: A</b> · 비효율적 시장을 전제로 초과성과를 추구한다</div></article><article class="q-card" data-q="10" data-answer="B"><div class="q-meta"><span class="q-num">Q11</span><span class="ref">개념 12</span></div><div class="q-text">금리 하락 예상 시 일반적으로 늘리는 것은?</div><div class="q-options"><button class="q-option">① 단기채와 낮은 듀레이션</button><button class="q-option">② 장기채와 듀레이션</button><button class="q-option">③ 현금만</button><button class="q-option">④ 신용위험만</button></div><div class="explain"><b>정답: B</b> · 금리 하락은 장기채 가격에 더 큰 상승효과를 준다</div></article><article class="q-card" data-q="11" data-answer="A"><div class="q-meta"><span class="q-num">Q12</span><span class="ref">개념 13</span></div><div class="q-text">인덱스전략의 전제는?</div><div class="q-options"><button class="q-option">① 효율적 시장</button><button class="q-option">② 금리 예측의 확실성</button><button class="q-option">③ 옵션행사 의무</button><button class="q-option">④ 발행자 독점</button></div><div class="explain"><b>정답: A</b> · 채권지수를 추적해 시장평균성과를 추구한다</div></article><article class="q-card" data-q="12" data-answer="B"><div class="q-meta"><span class="q-num">Q13</span><span class="ref">개념 14</span></div><div class="q-text">콜부채권에서 콜권리를 가지는 주체는?</div><div class="q-options"><button class="q-option">① 투자자</button><button class="q-option">② 발행자</button><button class="q-option">③ 거래소</button><button class="q-option">④ 예탁결제원</button></div><div class="explain"><b>정답: B</b> · 수의상환채권은 발행자가 중도상환할 수 있다</div></article><article class="q-card" data-q="13" data-answer="B"><div class="q-meta"><span class="q-num">Q14</span><span class="ref">개념 15</span></div><div class="q-text">전환사채와 신주인수권부사채의 구분으로 맞는 것은?</div><div class="q-options"><button class="q-option">① 둘 다 권리 행사 후 사채가 반드시 존속</button><button class="q-option">② 전환사채는 사채지위가 소멸하고 BW는 존속</button><button class="q-option">③ 둘 다 주식으로 자동 전환</button><button class="q-option">④ 둘 다 옵션이 없다</button></div><div class="explain"><b>정답: B</b> · 전환사채는 전환 시 사채가 주식으로 바뀌고 BW는 사채가 남는다</div></article><article class="q-card" data-q="14" data-answer="A"><div class="q-meta"><span class="q-num">Q15</span><span class="ref">개념 06</span></div><div class="q-text">채권시장 위험 중 거래가 어려워 발생하는 것은?</div><div class="q-options"><button class="q-option">① 유동성위험</button><button class="q-option">② 인플레이션위험</button><button class="q-option">③ 가격위험</button><button class="q-option">④ 재투자위험</button></div><div class="explain"><b>정답: A</b> · 유동성위험은 필요한 때 적정 가격으로 매도하기 어려운 위험이다</div></article><article class="q-card" data-q="15" data-answer="A"><div class="q-meta"><span class="q-num">Q16</span><span class="ref">개념 10</span></div><div class="q-text">수익률곡선은 무엇을 나타내는가?</div><div class="q-options"><button class="q-option">① 만기별 수익률</button><button class="q-option">② 기업별 매출</button><button class="q-option">③ 주식별 배당</button><button class="q-option">④ 거래량만</button></div><div class="explain"><b>정답: A</b> · 만기가 다른 채권의 수익률을 연결한 곡선이다</div></article><article class="q-card" data-q="16" data-answer="A"><div class="q-meta"><span class="q-num">Q17</span><span class="ref">개념 13</span></div><div class="q-text">면역전략의 핵심 조건은?</div><div class="q-options"><button class="q-option">① 듀레이션=투자기간</button><button class="q-option">② 가격=액면가</button><button class="q-option">③ 표면이율=수익률</button><button class="q-option">④ 만기=0</button></div><div class="explain"><b>정답: A</b> · 가격위험과 재투자위험을 상쇄하도록 맞춘다</div></article><article class="q-card" data-q="17" data-answer="B"><div class="q-meta"><span class="q-num">Q18</span><span class="ref">개념 14</span></div><div class="q-text">풋부채권의 가치는 일반채권과 비교해?</div><div class="q-options"><button class="q-option">① 풋가치만큼 낮다</button><button class="q-option">② 풋가치만큼 높다</button><button class="q-option">③ 항상 같다</button><button class="q-option">④ 계산할 수 없다</button></div><div class="explain"><b>정답: B</b> · 투자자에게 유리한 풋권리의 가치가 더해진다</div></article><article class="q-card" data-q="18" data-answer="B"><div class="q-meta"><span class="q-num">Q19</span><span class="ref">개념 05</span></div><div class="q-text">복리채의 이자는 언제 지급되는가?</div><div class="q-options"><button class="q-option">① 매일 현금 지급</button><button class="q-option">② 만기에 원금과 함께</button><button class="q-option">③ 발행 전에만</button><button class="q-option">④ 주식으로만</button></div><div class="explain"><b>정답: B</b> · 복리채는 이자가 재투자되어 만기에 함께 지급된다</div></article><article class="q-card" data-q="19" data-answer="A"><div class="q-meta"><span class="q-num">Q20</span><span class="ref">개념 10</span></div><div class="q-text">시장분할가설의 특징은?</div><div class="q-options"><button class="q-option">① 만기별 시장이 분리되고 대체관계가 약하다</button><button class="q-option">② 완전대체관계</button><button class="q-option">③ 미래 기대만 반영</button><button class="q-option">④ 항상 우상향</button></div><div class="explain"><b>정답: A</b> · 투자자 선호와 수급이 만기 구간별로 나뉜다</div></article></section><section class="panel" id="tab10" role="tabpanel"><div class="quiz-head"><div><h2>심화문제 20</h2><p>선택 즉시 채점하고 해설을 확인합니다.</p></div><div class="score"><span><b id="s2-c">0</b><small>정답</small></span><span><b id="s2-w">0</b><small>오답</small></span><span><b id="s2-r">20</b><small>남음</small></span><button class="reset" onclick="resetQuiz('q2')">다시 풀기</button></div></div><div class="progress"><div id="bar2"></div></div><article class="q-card" data-q="0" data-answer="B"><div class="q-meta"><span class="q-num">Q01</span><span class="ref">개념 07</span></div><div class="q-text">시장수익률이 상승할 때 일반적으로 가격 하락폭이 더 큰 채권은?</div><div class="q-options"><button class="q-option">① 잔존기간 짧고 표면이율 높음</button><button class="q-option">② 잔존기간 길고 표면이율 낮음</button><button class="q-option">③ 무조건 국채</button><button class="q-option">④ 거래량 큰 채권</button></div><div class="explain"><b>정답: B</b> · 만기가 길고 표면이율이 낮을수록 금리 민감도가 크다</div></article><article class="q-card" data-q="1" data-answer="C"><div class="q-meta"><span class="q-num">Q02</span><span class="ref">개념 08</span></div><div class="q-text">표면이율과 만기가 같을 때 금리 민감도를 낮추는 요인은?</div><div class="q-options"><button class="q-option">① 잔존기간 증가</button><button class="q-option">② 만기수익률 하락</button><button class="q-option">③ 이자지급빈도 증가</button><button class="q-option">④ 표면이율 하락</button></div><div class="explain"><b>정답: C</b> · 이자지급빈도가 높을수록 현금흐름이 앞당겨져 듀레이션이 작아진다</div></article><article class="q-card" data-q="2" data-answer="A"><div class="q-meta"><span class="q-num">Q03</span><span class="ref">개념 08</span></div><div class="q-text">듀레이션 4인 채권의 수정듀레이션을 단순화해 4/(1+0.05)로 계산하면?</div><div class="q-options"><button class="q-option">① 3.81</button><button class="q-option">② 4.20</button><button class="q-option">③ 0.95</button><button class="q-option">④ 5.00</button></div><div class="explain"><b>정답: A</b> · 4÷1.05≈3.81이다</div></article><article class="q-card" data-q="3" data-answer="B"><div class="q-meta"><span class="q-num">Q04</span><span class="ref">개념 08</span></div><div class="q-text">금리가 0.5%p 하락하고 수정듀레이션이 5라면 근사 가격변동률은?</div><div class="q-options"><button class="q-option">① -2.5%</button><button class="q-option">② +2.5%</button><button class="q-option">③ +0.5%</button><button class="q-option">④ -5%</button></div><div class="explain"><b>정답: B</b> · −MD×Δy=−5×(−0.005)=+0.025이다</div></article><article class="q-card" data-q="4" data-answer="A"><div class="q-meta"><span class="q-num">Q05</span><span class="ref">개념 07</span></div><div class="q-text">수익률 하락 시 가격상승폭이 더 크게 나타나는 이유는?</div><div class="q-options"><button class="q-option">① 볼록성</button><button class="q-option">② 시장분할</button><button class="q-option">③ 표면이율</button><button class="q-option">④ 액면가</button></div><div class="explain"><b>정답: A</b> · 가격-수익률 관계가 직선이 아니라 볼록하기 때문이다</div></article><article class="q-card" data-q="5" data-answer="A"><div class="q-meta"><span class="q-num">Q06</span><span class="ref">개념 09</span></div><div class="q-text">현재가격이 980이고 만기 현금흐름이 1,050인 할인채의 단순 보유수익률은?</div><div class="q-options"><button class="q-option">① 약 7.14%</button><button class="q-option">② 약 1.43%</button><button class="q-option">③ 약 5.00%</button><button class="q-option">④ 약 14.29%</button></div><div class="explain"><b>정답: A</b> · (1050-980)÷980≈7.14%이다</div></article><article class="q-card" data-q="6" data-answer="A"><div class="q-meta"><span class="q-num">Q07</span><span class="ref">개념 12</span></div><div class="q-text">금리 하락이 예상될 때 적극적 전략 조합은?</div><div class="q-options"><button class="q-option">① 장기채·낮은 표면이율·긴 듀레이션</button><button class="q-option">② 단기채·높은 표면이율·짧은 듀레이션</button><button class="q-option">③ 현금만 보유</button><button class="q-option">④ 신용등급만 조정</button></div><div class="explain"><b>정답: A</b> · 가격 민감도를 키워 금리 하락에 따른 가격상승을 노린다</div></article><article class="q-card" data-q="7" data-answer="A"><div class="q-meta"><span class="q-num">Q08</span><span class="ref">개념 11</span></div><div class="q-text">우상향 수익률곡선 타기전략의 전형적 조건은?</div><div class="q-options"><button class="q-option">① 잔존기간이 투자기간보다 길다</button><button class="q-option">② 잔존기간이 항상 0</button><button class="q-option">③ 역우상향만 가능</button><button class="q-option">④ 채권을 발행시장에서만 매수</button></div><div class="explain"><b>정답: A</b> · 투자기간 동안 만기가 짧아지는 효과와 곡선상 이동을 이용한다</div></article><article class="q-card" data-q="8" data-answer="A"><div class="q-meta"><span class="q-num">Q09</span><span class="ref">개념 13</span></div><div class="q-text">현금흐름 일치전략의 목적은?</div><div class="q-options"><button class="q-option">① 예정 지급액과 채권 현금흐름 일치</button><button class="q-option">② 시장 초과수익만 추구</button><button class="q-option">③ 콜옵션 행사</button><button class="q-option">④ 신용등급 상향</button></div><div class="explain"><b>정답: A</b> · 미래 지급시기와 금액에 맞춰 채권을 구성한다</div></article><article class="q-card" data-q="9" data-answer="A"><div class="q-meta"><span class="q-num">Q10</span><span class="ref">개념 13</span></div><div class="q-text">사다리형 전략의 장점으로 맞는 것은?</div><div class="q-options"><button class="q-option">① 만기를 분산해 특정 금리시점 의존을 줄임</button><button class="q-option">② 모든 채권을 같은 날 만기</button><button class="q-option">③ 듀레이션을 무한대로 확대</button><button class="q-option">④ 신용위험 제거</button></div><div class="explain"><b>정답: A</b> · 여러 만기에 분산해 재투자 시점을 나눈다</div></article><article class="q-card" data-q="10" data-answer="A"><div class="q-meta"><span class="q-num">Q11</span><span class="ref">개념 15</span></div><div class="q-text">발행자가 콜을 행사할 유인이 커지는 상황은?</div><div class="q-options"><button class="q-option">① 금리 하락</button><button class="q-option">② 금리 상승</button><button class="q-option">③ 물가 하락만</button><button class="q-option">④ 거래량 증가만</button></div><div class="explain"><b>정답: A</b> · 낮은 금리로 차환할 수 있어 기존 고금리 채권을 상환하려 한다</div></article><article class="q-card" data-q="11" data-answer="A"><div class="q-meta"><span class="q-num">Q12</span><span class="ref">개념 15</span></div><div class="q-text">투자자가 풋을 행사할 유인이 커지는 상황은?</div><div class="q-options"><button class="q-option">① 금리 상승 또는 신용악화</button><button class="q-option">② 금리 하락과 신용개선</button><button class="q-option">③ 표면이율 상승만</button><button class="q-option">④ 만기 단축만</button></div><div class="explain"><b>정답: A</b> · 투자자는 불리한 보유를 중도상환청구로 줄일 수 있다</div></article><article class="q-card" data-q="12" data-answer="A"><div class="q-meta"><span class="q-num">Q13</span><span class="ref">개념 14</span></div><div class="q-text">전환사채의 발행이율이 낮을 수 있는 이유는?</div><div class="q-options"><button class="q-option">① 전환권이라는 주식상승 기회가 부가됨</button><button class="q-option">② 원금이 없다</button><button class="q-option">③ 항상 국채다</button><button class="q-option">④ 풋권리가 의무이기 때문</button></div><div class="explain"><b>정답: A</b> · 투자자는 이자 외에 주가상승에 참여할 수 있다</div></article><article class="q-card" data-q="13" data-answer="A"><div class="q-meta"><span class="q-num">Q14</span><span class="ref">개념 15</span></div><div class="q-text">신주인수권부사채에서 권리 행사 후에도 남는 것은?</div><div class="q-options"><button class="q-option">① 사채</button><button class="q-option">② 전환권</button><button class="q-option">③ 콜권리</button><button class="q-option">④ 액면가만</button></div><div class="explain"><b>정답: A</b> · BW는 신주인수권과 사채가 분리되어 사채가 존속한다</div></article><article class="q-card" data-q="14" data-answer="A"><div class="q-meta"><span class="q-num">Q15</span><span class="ref">개념 06</span></div><div class="q-text">신용위험이 커질 때 일반적으로 요구되는 만기수익률은?</div><div class="q-options"><button class="q-option">① 상승</button><button class="q-option">② 하락</button><button class="q-option">③ 항상 0</button><button class="q-option">④ 무관</button></div><div class="explain"><b>정답: A</b> · 위험 프리미엄이 커져 더 높은 수익률을 요구한다</div></article><article class="q-card" data-q="15" data-answer="A"><div class="q-meta"><span class="q-num">Q16</span><span class="ref">개념 06</span></div><div class="q-text">유동성위험이 상대적으로 커질 수 있는 채권은?</div><div class="q-options"><button class="q-option">① 거래단위가 크고 거래가 드문 채권</button><button class="q-option">② 거래가 활발한 국채</button><button class="q-option">③ 현금</button><button class="q-option">④ 만기 없는 예금</button></div><div class="explain"><b>정답: A</b> · 큰 거래단위와 낮은 거래빈도는 매매 충격을 키운다</div></article><article class="q-card" data-q="16" data-answer="A"><div class="q-meta"><span class="q-num">Q17</span><span class="ref">개념 10</span></div><div class="q-text">불편기대가설의 대체관계는?</div><div class="q-options"><button class="q-option">① 완전대체</button><button class="q-option">② 불완전대체</button><button class="q-option">③ 대체관계 없음</button><button class="q-option">④ 고정대체</button></div><div class="explain"><b>정답: A</b> · 위험중립 투자자는 만기별 채권을 완전대체재로 본다</div></article><article class="q-card" data-q="17" data-answer="A"><div class="q-meta"><span class="q-num">Q18</span><span class="ref">개념 10</span></div><div class="q-text">유동성선호가설과 시장분할가설의 공통점으로 가장 적절한 것은?</div><div class="q-options"><button class="q-option">① 투자자의 선호·수급이 수익률에 영향을 준다</button><button class="q-option">② 항상 완전대체</button><button class="q-option">③ 미래금리 기대만 반영</button><button class="q-option">④ 가격과 수익률 무관</button></div><div class="explain"><b>정답: A</b> · 두 가설은 기대 외에 선호나 수급 요인을 강조한다</div></article><article class="q-card" data-q="18" data-answer="A"><div class="q-meta"><span class="q-num">Q19</span><span class="ref">개념 13</span></div><div class="q-text">포트폴리오 듀레이션이 투자기간보다 길고 금리가 상승하면 면역 포트폴리오에 어떤 문제가 생기는가?</div><div class="q-options"><button class="q-option">① 가격위험이 상대적으로 커진다</button><button class="q-option">② 재투자위험이 항상 0</button><button class="q-option">③ 가격이 반드시 상승</button><button class="q-option">④ 옵션이 자동 행사</button></div><div class="explain"><b>정답: A</b> · 듀레이션이 길면 금리 상승 시 가격하락 민감도가 커진다</div></article><article class="q-card" data-q="19" data-answer="A"><div class="q-meta"><span class="q-num">Q20</span><span class="ref">개념 02</span></div><div class="q-text">발행시장의 총액인수 설명으로 맞는 것은?</div><div class="q-options"><button class="q-option">① 인수기관이 발행총액을 인수하는 구조</button><button class="q-option">② 발행인이 위험을 모두 투자자에게 넘김</button><button class="q-option">③ 유통시장 거래</button><button class="q-option">④ 풋권리 부여</button></div><div class="explain"><b>정답: A</b> · 총액인수는 인수기관이 발행물량 전체를 인수하는 방식이다</div></article></section>
+/* ── 리셋·기반 ────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:15px;line-height:1.65;background:var(--bg);color:var(--text);
+  min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+b,strong{font-weight:700}
+
+/* ── 헤더 ─────────────────────────────────────── */
+.site-header{
+  background:linear-gradient(135deg,#1e1b4b,#312e81);
+  color:#fff;padding:0 20px;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 8px rgba(0,0,0,.3)
+}
+.header-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;
+  gap:12px;height:52px;flex-wrap:wrap}
+.badge{background:#7c3aed;color:#fff;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:4px;letter-spacing:.5px}
+.header-inner h1{font-size:16px;font-weight:700;flex:1;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+#themeToggle{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:#fff;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;
+  white-space:nowrap;flex-shrink:0}
+#themeToggle:hover{background:rgba(255,255,255,.25)}
+
+/* ── 탭 ──────────────────────────────────────── */
+.tab-bar-wrap{background:var(--surface);border-bottom:2px solid var(--border);
+  position:sticky;top:52px;z-index:90;overflow-x:auto;
+  scrollbar-width:none}
+.tab-bar-wrap::-webkit-scrollbar{display:none}
+.tab-bar{display:flex;gap:2px;max-width:980px;margin:0 auto;padding:0 12px}
+[role="tab"]{background:none;border:none;border-bottom:3px solid transparent;
+  color:var(--muted);cursor:pointer;padding:12px 13px;font-size:13px;
+  font-weight:500;white-space:nowrap;transition:color .15s,border-color .15s}
+[role="tab"]:hover{color:var(--text)}
+[role="tab"][aria-selected="true"]{
+  color:var(--purple);border-bottom-color:var(--purple);font-weight:700}
+[role="tab"]:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+
+/* ── 패널 ─────────────────────────────────────── */
+.tab-panels{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+[role="tabpanel"]{display:none}
+[role="tabpanel"].active{display:block}
+
+/* ── 섹션 키커 ────────────────────────────────── */
+.section-kicker{
+  display:flex;align-items:center;gap:10px;
+  border-bottom:2px solid var(--purple-m);
+  padding-bottom:8px;margin:28px 0 16px;color:var(--purple);font-weight:700
+}
+.section-kicker .pct{
+  font-size:11px;background:var(--purple-l);
+  border:1px solid var(--purple-m);border-radius:10px;
+  padding:2px 8px;color:var(--purple);font-weight:600
+}
+
+/* ── 그리드 ─────────────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+/* ── 카드 ─────────────────────────────────────── */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:12px
+}
+.card.full{grid-column:1/-1}
+.card h3{
+  font-size:16px;font-weight:700;
+  display:flex;align-items:center;gap:8px;padding-bottom:10px;
+  border-bottom:1px solid var(--border)
+}
+.card h3 .no{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--purple);color:#fff;font-size:12px;font-weight:700;flex-shrink:0
+}
+.card h3 .stars{color:#f59e0b;font-size:14px;margin-left:auto;flex-shrink:0}
+.card h4{font-size:13px;font-weight:700;color:var(--purple);
+  margin:6px 0 4px;display:flex;align-items:center;gap:6px}
+.card h4::before{content:"▸";color:var(--purple-m)}
+
+/* ── concept-list ─────────────────────────────── */
+.concept-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.concept-list li{
+  padding-left:16px;position:relative;font-size:14px;line-height:1.6
+}
+.concept-list > li::before{
+  content:"•";position:absolute;left:0;color:var(--purple);font-weight:900
+}
+.concept-list .sub{
+  list-style:none;display:flex;flex-direction:column;gap:3px;
+  margin-top:3px;padding-left:12px
+}
+.concept-list .sub li{font-size:13px;color:var(--muted)}
+.concept-list .sub li::before{content:"–";position:absolute;left:0;color:var(--border)}
+
+/* ── 표 ──────────────────────────────────────── */
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:10px;
+  -webkit-overflow-scrolling:touch}
+table{width:100%;min-width:520px;border-collapse:collapse;font-size:13px}
+th{background:var(--surface2);color:var(--purple);font-weight:700;
+  text-align:left;padding:9px 12px;border-bottom:2px solid var(--purple-m)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--surface2)}
+
+/* ── 공식 상자 ────────────────────────────────── */
+.formula{
+  display:grid;gap:14px;padding:16px 17px;
+  border:1px solid var(--purple-m);border-radius:9px;
+  background:var(--purple-l);color:var(--purple)
+}
+.equation{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;line-height:1.35
+}
+.eq-name{min-width:92px;font-weight:900}
+.eq-name::before{content:"•";display:inline-block;margin-right:7px}
+.eq-sign{font-weight:700;font-size:16px}
+.eq-op{font-size:14px}
+.eq-line-break{flex-basis:100%;height:0}
+.frac{
+  display:inline-grid;grid-template-rows:auto auto;
+  min-width:84px;text-align:center;line-height:1.15;vertical-align:middle
+}
+.frac .num{padding:0 7px 4px;border-bottom:1.6px solid currentColor}
+.frac .den{padding:4px 7px 0}
+sub{font-size:.72em;vertical-align:-.2em}
+sup{font-size:.72em;vertical-align:.4em}
+@media(max-width:700px){
+  .formula{gap:18px;padding:14px 13px}
+  .equation{gap:5px}
+  .eq-name{min-width:0;flex-basis:100%;padding-bottom:4px}
+  .eq-name+.eq-sign,.eq-line-break+.eq-sign{margin-left:16px}
+  .frac{min-width:70px}
+}
+
+/* ── 암기팁·주의 ──────────────────────────────── */
+.tip{
+  background:var(--orange-l);border:1px solid #fcd34d;border-radius:8px;
+  padding:12px 14px;font-size:13px;display:flex;flex-direction:column;gap:7px
+}
+.tip-label{font-weight:700;color:var(--orange)}
+.caution{
+  margin-top:5px;background:var(--red-l);border:1px solid #fca5a5;
+  border-radius:6px;padding:9px 12px;font-size:13px;color:var(--red)
+}
+.caution-label{font-weight:700;display:block;margin-bottom:3px}
+
+/* ── 트리 ─────────────────────────────────────── */
+.tree{font-size:13px;padding:14px 10px}
+.tree ul{list-style:none;padding-left:18px;border-left:2px solid var(--purple-m)}
+.tree > ul{padding-left:0;border-left:none}
+.tree li{margin:4px 0;position:relative;padding-left:12px}
+.tree li::before{content:"─";position:absolute;left:-4px;color:var(--purple-m)}
+.tree > ul > li::before{display:none}
+.tree .node{
+  display:inline-block;padding:2px 9px;border-radius:5px;font-weight:600
+}
+.tree .root{background:var(--purple);color:#fff}
+.tree .branch{background:var(--purple-l);color:var(--purple);border:1px solid var(--purple-m)}
+.tree .leaf{color:var(--text);font-weight:400}
+.tree .badge-node{
+  font-size:11px;background:var(--blue-l);color:var(--blue);
+  border:1px solid var(--blue-m);border-radius:4px;padding:1px 6px;margin-left:4px
+}
+
+/* ── 흐름 ─────────────────────────────────────── */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+  padding:12px 14px;background:var(--surface2);border-radius:8px;font-size:13px}
+.flow-step{padding:5px 12px;background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;font-weight:600;color:var(--purple)}
+.flow-arrow{color:var(--muted);font-size:16px}
+
+/* ── 장 요약 카드 ─────────────────────────────── */
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:700px){.summary-grid{grid-template-columns:1fr}}
+.sum-card{background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:14px 16px;border-left:4px solid var(--purple)}
+.sum-card h4{font-size:12px;font-weight:700;color:var(--purple);margin-bottom:6px}
+.sum-card p{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* ── 퀴즈 ─────────────────────────────────────── */
+.quiz-head{
+  background:linear-gradient(135deg,#1f2937,#111827);color:#fff;
+  border-radius:12px;padding:18px 20px;margin-bottom:14px;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  flex-wrap:wrap
+}
+.quiz-head h2{font-size:18px}
+.quiz-head p{font-size:12px;color:#cbd5e1}
+.score{display:flex;gap:14px;white-space:nowrap}
+.score-item{text-align:center}
+.score-item b{display:block;font-size:20px}
+.score-item small{color:#9ca3af;font-size:10px}
+.quiz-progress{height:5px;background:rgba(255,255,255,.2);border-radius:4px;
+  overflow:hidden;margin:8px 0 0;grid-column:1/-1}
+.quiz-progress-bar{height:100%;background:#10b981;border-radius:4px;
+  width:0%;transition:width .4s}
+.reset-btn{background:#374151;border:1px solid #4b5563;color:#d1d5db;
+  padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;flex-shrink:0}
+.reset-btn:hover{background:#4b5563}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;margin-bottom:12px}
+.q-card-inner{padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.q-meta{display:flex;align-items:center;gap:8px}
+.q-num{display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;background:var(--purple);
+  color:#fff;font-size:12px;font-weight:700}
+.q-ref{font-size:11px;background:var(--blue-l);color:var(--blue);
+  border:1px solid var(--blue-m);border-radius:4px;padding:1px 7px}
+.q-text{font-size:14px;font-weight:600;line-height:1.6}
+.q-options{display:flex;flex-direction:column;gap:6px}
+.q-option{
+  background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;
+  padding:9px 14px;text-align:left;cursor:pointer;font-size:13px;
+  transition:border-color .15s,background .15s;line-height:1.5
+}
+.q-option:hover:not(:disabled){border-color:var(--purple);background:var(--purple-l)}
+.q-option:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+.q-option.correct{border-color:var(--green)!important;background:var(--green-l)!important;
+  color:var(--green)!important;font-weight:700}
+.q-option.wrong{border-color:var(--red)!important;background:var(--red-l)!important;
+  color:var(--red)!important}
+.q-option:disabled{cursor:default}
+.explain{
+  background:var(--blue-l);border:1px solid var(--blue-m);border-radius:8px;
+  padding:10px 13px;font-size:13px;color:var(--blue);display:none;line-height:1.6
+}
+.explain.visible{display:block}
+
+/* ── 인쇄 ─────────────────────────────────────── */
+@media print{
+  .site-header,.tab-bar-wrap,#themeToggle,.reset-btn{display:none!important}
+  [role="tabpanel"]{display:block!important}
+  .card{break-inside:avoid}
+  .q-card{break-inside:avoid}
+  .explain{display:block!important}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <span class="badge">제1과목</span>
+    <h1>제6장 채권시장</h1>
+    <button id="themeToggle" aria-label="다크 모드로 전환">🌙 다크</button>
+  </div>
+</header>
+
+<!-- 탭 바 -->
+<div class="tab-bar-wrap">
+  <div class="tab-bar" role="tablist" aria-label="채권시장 섹션">
+    <button role="tab" aria-selected="true" aria-controls="tab0" id="t0">장 요약</button>
+    <button role="tab" aria-selected="false" aria-controls="tab1" id="t1">① 채권의 기초</button>
+    <button role="tab" aria-selected="false" aria-controls="tab2" id="t2">② 발행·유통시장</button>
+    <button role="tab" aria-selected="false" aria-controls="tab3" id="t3">③ 시장 분류·특성</button>
+    <button role="tab" aria-selected="false" aria-controls="tab4" id="t4">④ 투자분석</button>
+    <button role="tab" aria-selected="false" aria-controls="tab5" id="t5">⑤ 위험·수익성</button>
+    <button role="tab" aria-selected="false" aria-controls="tab6" id="t6">⑥ 수익률곡선</button>
+    <button role="tab" aria-selected="false" aria-controls="tab7" id="t7">⑦ 투자전략</button>
+    <button role="tab" aria-selected="false" aria-controls="tab8" id="t8">⑧ 신종 채무증권</button>
+    <button role="tab" aria-selected="false" aria-controls="tab9" id="t9">개념문제 20</button>
+    <button role="tab" aria-selected="false" aria-controls="tab10" id="t10">심화문제 20</button>
+    <button role="tab" aria-selected="false" aria-controls="tab11" id="t11">개념(H)</button>
+    <button role="tab" aria-selected="false" aria-controls="tab12" id="t12">심화(H)</button>
+  </div>
+</div>
+
+<main class="tab-panels">
+
+<!-- ════════════════════════════════════════════════
+     TAB 0 · 장 요약
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab0" aria-labelledby="t0" class="active">
+  <div class="summary-grid">
+    <div class="sum-card">
+      <h4>📌 핵심 관계</h4>
+      <p>채권가격 ↔ 수익률 <b>반비례</b><br>
+         듀레이션 ↔ 가격민감도 <b>비례</b><br>
+         볼록성 → 수익률 변동 시 비대칭 이득</p>
+    </div>
+    <div class="sum-card">
+      <h4>🏛 발행시장 핵심</h4>
+      <p>국채: <b>차등가격경매</b> 방식<br>
+         회사채: <b>총액인수발행</b> 방식<br>
+         무보증사채: 복수 신용평가 필수</p>
+    </div>
+    <div class="sum-card">
+      <h4>📊 투자전략 구분</h4>
+      <p>적극적: 시장 초과성과 추구<br>
+         소극적: 지수·면역·현금흐름 일치<br>
+         수익률 ↓ 예상 → 장기채·저쿠폰</p>
+    </div>
+    <div class="sum-card">
+      <h4>⏱ 듀레이션 공식</h4>
+      <p>D = Σ[t × PV(CF<sub>t</sub>)] / P<br>
+         MD = D / (1+y)<br>
+         ΔP/P ≈ −MD × Δy</p>
+    </div>
+    <div class="sum-card">
+      <h4>📈 수익률곡선 4가설</h4>
+      <p>불편기대 · 유동성선호<br>
+         시장분할 · 선호영역<br>
+         각 가설의 대체관계 여부가 핵심</p>
+    </div>
+    <div class="sum-card">
+      <h4>💡 신종 채무증권</h4>
+      <p>CB·BW·EB 비교<br>
+         전환가치 = 주가 × 전환주수<br>
+         패리티(%) = 주가 / 전환가격 × 100</p>
+    </div>
+  </div>
+
+  <div class="card full">
+    <h3>이번 장에서 잡을 것</h3>
+    <ul class="concept-list">
+      <li><b>채권 기초:</b> 가격·수익률 역관계, 종류별(이표채·할인채·복리채) 특성</li>
+      <li><b>발행시장:</b> 경쟁입찰 3방식(복수가격/단일가격/차등가격) + 비경쟁입찰</li>
+      <li><b>투자분석:</b> 7가지 위험, 말킬의 5정리, 채권가격 계산</li>
+      <li><b>듀레이션·볼록성:</b> 4개 공식 암기, 수정듀레이션·가격변동률 계산</li>
+      <li><b>수익률곡선:</b> 4가설 구분 — 대체관계·프리미엄 여부</li>
+      <li><b>투자전략:</b> 적극적(수익률예측·교체·곡선타기·나비형) vs 소극적(면역·인덱스)</li>
+      <li><b>신종증권:</b> CB 전환가치·프리미엄·패리티 계산, BW와 차이점</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 1 · 채권의 기초
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab1" aria-labelledby="t1">
+  <div class="section-kicker">
+    제1절 채권의 기초 <span class="pct">출제비중 10%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">01</span> 채권의 기본적 구조와 분류 <span class="stars">★★</span></h3>
+
+    <h4>채권의 기본적 특성</h4>
+    <ul class="concept-list">
+      <li><b>채권:</b> 발행자가 자금을 빌리고 정해진 이자(표면이율)와 원금을 지급하기로 한 채무증서</li>
+      <li><b>발행자:</b> 국가·지방자치단체·특별법인·금융기관·일반기업</li>
+      <li><b>안전성:</b> 원리금 지급 의무 → 주식 대비 선순위, 확정적 현금흐름</li>
+    </ul>
+
+    <h4>채권 관련 용어</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>용어</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr><td><b>액면가(Face Value)</b></td><td>만기 시 상환하는 원금 기준 금액 (통상 10,000원)</td></tr>
+          <tr><td><b>표면이율(Coupon Rate)</b></td><td>액면가에 적용하는 약정이자율; 매년 이자 = 액면가 × 표면이율</td></tr>
+          <tr><td><b>만기(Maturity)</b></td><td>원금 상환 예정일까지의 기간</td></tr>
+          <tr><td><b>발행가격</b></td><td>실제 조달 금액; 액면 대비 할인·할증 가능</td></tr>
+          <tr><td><b>채권수익률(YTM)</b></td><td>현재가격과 미래 현금흐름을 일치시키는 내부수익률(IRR)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>채권가격 ↔ 채권수익률 관계</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">핵심 원리</span>
+        <span class="eq-sign">:</span>
+        <span>수익률(할인율) ↑ → 현재가치 ↓ → 채권가격 ↓</span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">항상</span>
+        <span class="eq-sign">반비례(Inverse)</span>
+        <span class="eq-op">관계</span>
+      </div>
+    </div>
+
+    <h4>채권의 종류 — 발행주체 기준</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>종류</th><th>발행주체</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td><b>국채</b></td><td>국가</td><td>국고채, 재정증권, 외국환평형기금채권</td></tr>
+          <tr><td><b>지방채</b></td><td>지방자치단체</td><td>서울시채, 도로공채</td></tr>
+          <tr><td><b>특수채</b></td><td>비금융특별법인</td><td>한전채, 도로공사채</td></tr>
+          <tr><td><b>금융채</b></td><td>금융기관</td><td>은행채, 카드채</td></tr>
+          <tr><td><b>회사채</b></td><td>일반기업</td><td>보증사채, 무보증사채</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>원리금 지급 기준 — 이표채·할인채·복리채·단리채</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>종류</th><th>이자 지급 방식</th><th>특징</th></tr></thead>
+        <tbody>
+          <tr><td><b>이표채(Coupon Bond)</b></td><td>주기적 이자(쿠폰) 현금 지급</td><td>가격위험 + 재투자위험 공존</td></tr>
+          <tr><td><b>할인채(Discount Bond)</b></td><td>액면보다 싸게 발행, 만기에 액면 수령</td><td>가격수익 &gt; 0; 이자 별도 없음</td></tr>
+          <tr><td><b>복리채</b></td><td>이자를 재투자해 만기에 원금+복리이자 지급</td><td>재투자위험 없음; 만기 전 현금 없음</td></tr>
+          <tr><td><b>단리채</b></td><td>단리 계산 후 만기 일시 지급</td><td>장기 보유 시 복리채보다 불리</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>보증 여부 기준</h4>
+    <ul class="concept-list">
+      <li><b>보증사채:</b> 제3자(금융기관·보증보험)가 원리금 지급 보증</li>
+      <li><b>무보증사채:</b> 보증 없이 발행사 신용만으로 발행 → <b>2개 이상의 복수 신용평가 필수</b></li>
+    </ul>
+
+    <h4>자산유동화증권(ABS)</h4>
+    <ul class="concept-list">
+      <li><b>정의:</b> 기초자산(매출채권·부동산·대출채권 등)에서 발생하는 현금흐름을 바탕으로 발행된 증권</li>
+      <li><b>핵심 요소:</b> 발행사유, 기초자산, 자금이체 방법, 기초자산의 신용</li>
+      <li><b>신용보강:</b> 내부(후순위 구조, 과담보) / 외부(보증, 신용장)</li>
+    </ul>
+
+    <h4>금리변동부채권(FRN)</h4>
+    <ul class="concept-list">
+      <li>기준금리(CD·LIBOR 등)에 연동된 표면이율로 이자 지급</li>
+      <li><b>수익률변동위험이 낮음</b> — 금리 상승 시 이자도 함께 상승 → 투자자 유리</li>
+      <li><b>Inverse FRN:</b> 수익률 = 고정금리 − 기준금리 × n → 금리 하락 시 유리</li>
+    </ul>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        무보증사채 = 2개↑ 신용평가 (보증 없으니 여러 곳에서 검증)<br>
+        FRN = 금리 올라도 이자 올라가니 투자자 안심<br>
+        Inverse FRN = 금리가 뒤집혀 빠질수록 이자 높아짐
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        복리채: 재투자위험 없음 (이자를 자동 재투자) ≠ 이표채 (재투자위험 있음)
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 2 · 발행·유통시장
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab2" aria-labelledby="t2">
+  <div class="section-kicker">
+    제2절 발행시장과 유통시장 <span class="pct">출제비중 10%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">02</span> 발행시장 <span class="stars">★★★</span></h3>
+
+    <h4>채권의 발행기관</h4>
+    <ul class="concept-list">
+      <li><b>주관회사:</b> 발행 조건 결정·투자자 배정 등 발행 전 과정을 주도</li>
+      <li><b>인수회사:</b> 채권을 인수해 자신의 책임으로 투자자에게 판매</li>
+    </ul>
+
+    <h4>채권 발행방법 — 구조 트리</h4>
+    <div class="tree">
+      <ul>
+        <li><span class="node root">채권</span>
+          <ul>
+            <li><span class="node branch">사모</span>
+              <ul>
+                <li><span class="node leaf">직접모집</span></li>
+                <li><span class="node leaf">간접모집</span></li>
+              </ul>
+            </li>
+            <li><span class="node branch">공모</span>
+              <ul>
+                <li><span class="node branch">직접모집</span>
+                  <ul>
+                    <li><span class="node leaf">매출발행</span> <span class="badge-node">회사채 불가</span></li>
+                    <li><span class="node branch">공모입찰발행</span>
+                      <ul>
+                        <li><span class="node branch">경쟁입찰</span>
+                          <ul>
+                            <li><span class="node leaf">복수가격경매방식</span> <span class="badge-node">Conventional</span></li>
+                            <li><span class="node leaf">단일가격경매방식</span> <span class="badge-node">Dutch</span></li>
+                            <li><span class="node leaf">차등가격경매방식</span> <span class="badge-node">국채</span></li>
+                          </ul>
+                        </li>
+                        <li><span class="node leaf">비경쟁입찰</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="node branch">간접모집</span>
+                  <ul>
+                    <li><span class="node leaf">위탁발행</span></li>
+                    <li><span class="node branch">인수발행</span>
+                      <ul>
+                        <li><span class="node leaf">잔액인수발행방식</span></li>
+                        <li><span class="node leaf">총액인수발행방식</span> <span class="badge-node">회사채</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h4>직접모집 — 경쟁입찰 3방식 비교</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>방식</th><th>낙찰가격</th><th>특징</th><th>대표 적용</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>복수가격경매</b><br><small>(Conventional)</small></td>
+            <td>각자 입찰한 가격에 낙찰</td>
+            <td>낙찰자마다 다른 가격 → 과도한 경쟁 완화</td>
+            <td>일반 채권</td>
+          </tr>
+          <tr>
+            <td><b>단일가격경매</b><br><small>(Dutch)</small></td>
+            <td>모든 낙찰자 동일 가격</td>
+            <td>한계낙찰금리 기준 → 담합 방지에 유리</td>
+            <td>일부 국채</td>
+          </tr>
+          <tr>
+            <td><b>차등가격경매(낙찰)방식</b></td>
+            <td>입찰금리에 따라 차등</td>
+            <td>고금리(낮은 가격) 입찰 우선 배정; 낙찰자 간 금리 차등 적용</td>
+            <td><b>국채</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>비경쟁입찰</h4>
+    <ul class="concept-list">
+      <li>입찰금리 없이 낙찰금리(경쟁입찰 결과)를 그대로 적용해 배정받는 방식</li>
+      <li>소규모 투자자·기관 등이 입찰 위험 없이 참여 가능</li>
+    </ul>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        국채 = <b>차등가격경매</b>, 회사채 = <b>총액인수발행</b><br>
+        Dutch(단일) = 모두 같은 가격 → 네덜란드식 경매<br>
+        매출발행 = 직접·공모지만 <b>회사채는 불허</b>
+      </div>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">03</span> 유통시장 <span class="stars">★★</span></h3>
+
+    <h4>유통시장의 장내거래</h4>
+    <ul class="concept-list">
+      <li><b>대상채권:</b> 상장채권, 전환사채 및 일부 첨가소화채권 → 장내거래 원칙</li>
+      <li><b>일반채권시장:</b> 소액 투자자 대상, 실시간 매매, 최소 거래단위 소액</li>
+      <li><b>국채전문유통시장(IDM, Inter-Dealer Market):</b> 국채 딜러 간 거래, 지표금리 형성 역할</li>
+    </ul>
+
+    <h4>유통시장의 장외거래</h4>
+    <ul class="concept-list">
+      <li><b>대고객 상대매매:</b> 금융기관 ↔ 고객 간 1:1 협상 거래</li>
+      <li><b>채권딜러 간 장외시장(IDM):</b> 딜러 간 호가·체결 중심</li>
+      <li><b>채권전문 자기매매업자:</b> 자기 포지션으로 매수·매도</li>
+      <li><b>채권거래시스템(K-Bond):</b> 전자 거래 플랫폼</li>
+    </ul>
+
+    <h4>한국 유통시장 현황</h4>
+    <ul class="concept-list">
+      <li>장외거래 + 기관투자자 중심으로 운영</li>
+      <li>국채의 지표수익률로서의 중요성 증대</li>
+      <li>새로운 채권 관련 상품 도입 (ETF, 채권선물 등)</li>
+    </ul>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 3 · 시장 분류·특성
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab3" aria-labelledby="t3">
+  <div class="section-kicker">
+    제3절 채권시장의 분류와 특성 <span class="pct">출제비중 10%</span>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <h3><span class="no">04</span> 한국 채권시장의 특성 <span class="stars">★</span></h3>
+      <ul class="concept-list">
+        <li><b>발행 주체:</b> 국채·통안채 등 안전자산 중심 + 회사채 공존</li>
+        <li><b>1997년(IMF) 이후:</b> 연 성장률 높아지며 규모 급성장; 회사채시장 발달</li>
+        <li><b>기관투자자 중심:</b> 보험·연기금·은행 등 대형 기관이 주거래자</li>
+        <li><b>유통시장:</b> 장외거래 비중 압도적; 장내는 소매 중심</li>
+        <li><b>국채 지표금리:</b> 3년·5년·10년 국고채 수익률이 시장금리 기준점</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3><span class="no">05</span> 채권의 분류 — 발행주체별 <span class="stars">★★</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>종류</th><th>특징</th></tr></thead>
+          <tbody>
+            <tr><td><b>국채</b></td><td>국고채·재정증권·외국환평형기금채; 최고 신용도; 지표금리 역할</td></tr>
+            <tr><td><b>지방채</b></td><td>지자체 발행; 도로·상수도 등 공익사업 자금조달</td></tr>
+            <tr><td><b>특수채</b></td><td>특별법에 의한 법인(한전·도로공사 등); 준정부 신용</td></tr>
+            <tr><td><b>회사채</b></td><td>일반기업 발행; 신용위험 최고; 보증/무보증, 전환사채 등 다양</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 4 · 채권투자분석
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab4" aria-labelledby="t4">
+  <div class="section-kicker">
+    제4절 채권투자분석 <span class="pct">출제비중 10%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">06</span> 채권의 수익 및 위험 <span class="stars">★★</span></h3>
+
+    <h4>채권투자의 7대 위험</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>위험</th><th>내용</th><th>핵심</th></tr></thead>
+        <tbody>
+          <tr><td><b>채무불이행 위험</b></td><td>발행자가 이자·원금을 지급하지 못할 위험</td><td>신용등급으로 측정</td></tr>
+          <tr><td><b>가격변동 위험</b></td><td>시장금리 변동으로 채권가격이 변하는 위험</td><td>듀레이션이 클수록 큼</td></tr>
+          <tr><td><b>재투자 위험</b></td><td>이자를 재투자할 때 금리가 낮아져 기대수익을 못 얻는 위험</td><td>가격위험과 반대 방향</td></tr>
+          <tr><td><b>수익률변동 위험</b></td><td>시장금리 변동에 따른 투자수익률 불확실성</td><td>FRN으로 낮출 수 있음</td></tr>
+          <tr><td><b>유동성 위험</b></td><td>필요한 때 적정 가격으로 매도하기 어려운 위험</td><td>국채 < 회사채</td></tr>
+          <tr><td><b>인플레이션(구매력) 위험</b></td><td>물가 상승으로 실질 수익이 낮아지는 위험</td><td>물가연동채로 헤지</td></tr>
+          <tr><td><b>수의상환(조기소멸) 위험</b></td><td>발행자가 콜옵션 행사로 조기상환할 위험 → 재투자 불확실</td><td>콜부채권</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        채·가·재·수·유·인·수 (채무불이행·가격·재투자·수익률·유동성·인플레·수의상환) → 7가지<br>
+        가격위험 ↑ ←→ 재투자위험 ↓ (금리 오르면 가격 손실, 재투자는 유리)
+      </div>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">07</span> 채권가격 결정과정 <span class="stars">★★★</span></h3>
+
+    <h4>만기 시 일시상환채권의 가격</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">일반 채권가격</span>
+        <span class="eq-sign">=</span>
+        <span>Σ</span>
+        <span class="frac">
+          <span class="num">C<sub>t</sub></span>
+          <span class="den">(1+r)<sup>t</sup></span>
+        </span>
+        <span class="eq-op">+</span>
+        <span class="frac">
+          <span class="num">F</span>
+          <span class="den">(1+r)<sup>n</sup></span>
+        </span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">복리채 가격</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">F × (1+c)<sup>n</sup></span>
+          <span class="den">(1+r)<sup>n</sup></span>
+        </span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">할인채 가격</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">F</span>
+          <span class="den">(1+r)<sup>n</sup></span>
+        </span>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:6px">C<sub>t</sub>=t기 이자, F=액면가, r=만기수익률, c=표면이율, n=만기</p>
+
+    <h4>말킬의 채권가격 5정리 — D = f(t, c, ytm, n)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>정리</th><th>내용</th><th>직관</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>제1정리</b></td>
+            <td>채권수익률(r) ↑ → 채권가격(P) ↓ <b>(반비례)</b></td>
+            <td>할인율 오르면 현재가치 하락</td>
+          </tr>
+          <tr>
+            <td><b>제2정리</b></td>
+            <td>만기가 길수록 같은 수익률 변동에 대한 가격변동폭 큼</td>
+            <td>장기채 = 금리 민감도 대</td>
+          </tr>
+          <tr>
+            <td><b>제3정리</b></td>
+            <td>만기가 길수록 가격변동률이 증가하지만 증가 속도는 감소</td>
+            <td>체감적 증가 (볼록성과 연결)</td>
+          </tr>
+          <tr>
+            <td><b>제4정리</b></td>
+            <td>수익률 하락 시 가격상승폭 &gt; 수익률 상승 시 가격하락폭 <b>(볼록성)</b></td>
+            <td>가격-수익률 관계가 직선이 아닌 볼록한 곡선</td>
+          </tr>
+          <tr>
+            <td><b>제5정리</b></td>
+            <td>표면이율 낮을수록 가격변동률이 큼</td>
+            <td>할인채(쿠폰 0) = 가장 민감; 이표채 < 할인채</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        1정리=방향(반비례) / 2정리=만기와 변동폭 / 3정리=만기와 증가속도 / 4정리=볼록성 / 5정리=표면이율<br>
+        수익률 하락 시 가격 상승폭이 더 크다 = 볼록성의 비대칭성 (투자자에게 유리)
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        제2정리: 가격변동 "폭(절대값)" 증가 / 제3정리: 가격변동률 증가 "속도" 감소 — 혼동 주의
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 5 · 위험도 및 수익성
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab5" aria-labelledby="t5">
+  <div class="section-kicker">
+    제5절 채권투자의 위험도 및 수익성 측정
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">08</span> 채권의 투자위험도 측정 <span class="stars">★★★</span></h3>
+
+    <h4>듀레이션(Duration) 개요</h4>
+    <ul class="concept-list">
+      <li><b>정의:</b> 채권 현금흐름의 가중평균 회수기간 (단위: 년)</li>
+      <li><b>동시에:</b> 채권의 금리 민감도 척도 → 듀레이션 클수록 가격 민감도 큼</li>
+      <li><b>무이표채:</b> 중간 현금흐름 없음 → 듀레이션 = 만기</li>
+      <li><b>이표채:</b> 중간에 이자 지급 → 듀레이션 &lt; 만기</li>
+    </ul>
+
+    <h4>듀레이션 결정 요인</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>요인</th><th>변화</th><th>듀레이션 방향</th></tr></thead>
+        <tbody>
+          <tr><td>잔존만기</td><td>↑ 길수록</td><td>↑ 증가</td></tr>
+          <tr><td>표면이율</td><td>↑ 높을수록</td><td>↓ 감소</td></tr>
+          <tr><td>만기수익률(YTM)</td><td>↑ 높을수록</td><td>↓ 감소</td></tr>
+          <tr><td>이자지급 빈도</td><td>↑ 잦을수록</td><td>↓ 감소</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>듀레이션 관련 공식</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">듀레이션 D</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">Σ[ t × PV(CF<sub>t</sub>) ]</span>
+          <span class="den">P</span>
+        </span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">수정듀레이션 MD</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">D</span>
+          <span class="den">1 + y</span>
+        </span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">가격변동률 ΔP/P</span>
+        <span class="eq-sign">≈</span>
+        <span class="eq-op">−MD × Δy</span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">가격변동폭 ΔP</span>
+        <span class="eq-sign">≈</span>
+        <span class="eq-op">−MD × Δy × P</span>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:6px">y=만기수익률(소수), Δy=수익률변동(소수), P=현재가격</p>
+
+    <h4>볼록성(Convexity)</h4>
+    <ul class="concept-list">
+      <li><b>정의:</b> 볼록성 = 채권가격의 실제변동 − 채권가격의 예측변동(MD 기준)</li>
+      <li><b>특성 1:</b> 듀레이션이 길수록 볼록성 큼</li>
+      <li><b>특성 2:</b> 수익률 변동이 클수록 볼록성 효과 큼</li>
+      <li><b>효과:</b> 수익률 하락 시 실제 가격 상승 > MD 예측 → 투자자에게 항상 유리</li>
+    </ul>
+
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">실제가격 변동</span>
+        <span class="eq-sign">=</span>
+        <span class="eq-op">−MD × Δy × P</span>
+        <span class="eq-op">+</span>
+        <span class="eq-op">½ × Convexity × (Δy)² × P</span>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        MD = D ÷ (1+y) → 수정듀레이션<br>
+        ΔP/P = −MD × Δy → 수익률 1%p 상승하면 가격이 MD% 하락<br>
+        볼록성 = 예측 오차를 보정해주는 "보정항" (항상 양수 → 투자자 유리)
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        수정듀레이션(MD) ≠ 듀레이션(D) — MD가 실제 가격변동률 계산에 사용됨
+      </div>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">09</span> 채권의 투자수익성 측정 <span class="stars">★★</span></h3>
+
+    <h4>채권수익의 구성요인</h4>
+    <ul class="concept-list">
+      <li><b>가격손익(매매손익):</b> 매수가 대비 매도가 또는 만기상환액의 차이</li>
+      <li><b>표면이자수익:</b> 이표에 따른 현금 이자</li>
+      <li><b>재투자수익:</b> 수령한 이자를 재투자하여 발생하는 수익 (복리 효과)</li>
+    </ul>
+
+    <h4>투자수익률의 종류</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">실효수익률 r<sub>e</sub></span>
+        <span class="eq-sign">:</span>
+        <span>FV = P × (1 + r<sub>e</sub>)<sup>n</sup></span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">만기수익률(YTM)</span>
+        <span class="eq-sign">=</span>
+        <span class="eq-op">내부수익률(IRR) = 유통수익률 = 시장수익률</span>
+      </div>
+    </div>
+
+    <h4>할인채와 할증채의 가격수익</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>발행가격</th><th>만기 수령</th><th>가격수익</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>할인채(Discount Bond)</b></td>
+            <td>액면 미만 (싸게 발행)</td>
+            <td>액면가</td>
+            <td><b>&gt; 0</b> (플러스 가격수익)</td>
+          </tr>
+          <tr>
+            <td><b>할증채(Premium Bond)</b></td>
+            <td>액면 초과 (비싸게 발행)</td>
+            <td>액면가</td>
+            <td><b>&lt; 0</b> (마이너스 가격수익)</td>
+          </tr>
+          <tr>
+            <td><b>등가채(Par Bond)</b></td>
+            <td>액면 = 시장가격</td>
+            <td>액면가</td>
+            <td>= 0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>YTM 실현 조건 (이표채)</h4>
+    <ul class="concept-list">
+      <li>이표채를 만기까지 보유하고 이자를 <b>YTM과 동일한 금리로 재투자</b>할 경우에만 YTM 실현</li>
+      <li>시장금리 변동 시 실효수익률과 YTM이 괴리 발생</li>
+    </ul>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        YTM = 채권의 IRR = "이 채권을 지금 사서 만기까지 보유하면 얻는 연수익률"<br>
+        할인채 = 발행가 낮음 → 만기에 액면가 받으면 차익 발생 → 가격수익 양수
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 6 · 수익률곡선
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab6" aria-labelledby="t6">
+  <div class="section-kicker">
+    제6절 수익률의 기간구조 및 위험구조 <span class="pct">출제비중 10%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">10</span> 수익률곡선 <span class="stars">★★</span></h3>
+
+    <p style="font-size:14px;margin-bottom:12px">수익률곡선(Term Structure of Interest Rates): 만기가 다른 채권의 수익률을 연결한 곡선으로, 단기-장기 금리 관계를 나타냄</p>
+
+    <h4>4가지 기간구조 이론 비교</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>가설</th>
+            <th>핵심 전제</th>
+            <th>만기 간 대체관계</th>
+            <th>프리미엄</th>
+            <th>곡선 형태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>불편기대가설</b><br><small>Pure Expectations</small></td>
+            <td>투자자 위험중립; 미래 단기금리 기대가 장기금리 결정</td>
+            <td><b>완전대체</b></td>
+            <td>없음 (무위험 선호)</td>
+            <td>기대에 따라 우상향·하강·수평 모두 가능</td>
+          </tr>
+          <tr>
+            <td><b>유동성선호가설</b><br><small>Liquidity Preference</small></td>
+            <td>투자자는 장기채를 더 위험하게 봄 → 유동성 프리미엄 요구</td>
+            <td><b>불완전대체</b></td>
+            <td>있음 (기간 프리미엄)</td>
+            <td>불편기대가설 대비 우상향 편향; 단기·장기채 대체관계 성립 ✕</td>
+          </tr>
+          <tr>
+            <td><b>시장분할가설</b><br><small>Market Segmentation</small></td>
+            <td>투자자마다 선호 만기구간이 분리됨; 수급이 각 구간 금리 결정</td>
+            <td><b>없음</b></td>
+            <td>구간별 수급에 따라 결정</td>
+            <td>기관투자자의 ALM 헤징에 근거; 어떤 형태도 가능</td>
+          </tr>
+          <tr>
+            <td><b>선호영역가설</b><br><small>Preferred Habitat</small></td>
+            <td>선호 만기가 있지만, 충분한 프리미엄 시 다른 구간도 투자</td>
+            <td><b>부분 대체</b></td>
+            <td>있음 (영역 이탈 프리미엄)</td>
+            <td>시장분할 + 유동성선호의 중간 (현실 설명력 높음)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>각 가설의 금리 예측과 곡선 형태</h4>
+    <ul class="concept-list">
+      <li><b>불편기대가설:</b> 미래 금리상승 예상 → 우상향 곡선 / 미래 금리하락 예상 → 하강 곡선</li>
+      <li><b>유동성선호가설:</b> 항상 프리미엄이 더해지므로 불편기대가설보다 위에 위치 → 우상향 편향</li>
+      <li><b>시장분할가설:</b> 기관투자자의 헤징 수요가 만기별 수익률 결정 → 만기 구간별 독립</li>
+      <li><b>선호영역가설:</b> 충분한 프리미엄 제공 시 영역 이탈 투자 → 부분적 대체관계 인정</li>
+    </ul>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        대체관계: 완전(불편기대) &gt; 부분(선호영역) &gt; 불완전(유동성선호) &gt; 없음(시장분할)<br>
+        시험 포인트: 유동성선호 = 프리미엄 O, 단기-장기 대체관계 ✕<br>
+        시장분할 = 대체관계 ✕, 기관투자자 ALM이 핵심
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        유동성선호가설: "유동성 포기에 따른 프리미엄" — 장기채를 선호하지 않으므로 추가 보상 요구
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 7 · 투자전략
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab7" aria-labelledby="t7">
+  <div class="section-kicker">
+    제7절 채권투자전략 <span class="pct">출제비중 20%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">11</span> 채권투자전략 개요 <span class="stars">★★★</span></h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>전제</th><th>목표</th><th>주요 전략</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>적극적 투자전략</b></td>
+            <td>시장이 비효율적</td>
+            <td>시장 초과성과 추구</td>
+            <td>수익률예측, 채권교체, 곡선타기, 나비형</td>
+          </tr>
+          <tr>
+            <td><b>소극적 투자전략</b></td>
+            <td>시장이 효율적</td>
+            <td>목표수익 안정적 달성</td>
+            <td>만기보유, 인덱스, 현금흐름일치, 면역</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">12</span> 적극적 투자전략 <span class="stars">★★★</span></h3>
+
+    <h4>① 수익률예측전략</h4>
+    <ul class="concept-list">
+      <li><b>개념:</b> 미래 채권수익률의 예측을 통해 채권 포트폴리오 구성을 조정</li>
+      <li><b>수익률 하락 예측 시:</b> 채권가격 상승 → 듀레이션 긴 채권 보유
+        <ul class="sub">
+          <li>장기채, 표면이율이 낮은 채권(할인채) 유리</li>
+        </ul>
+      </li>
+      <li><b>수익률 상승 예측 시:</b> 채권가격 하락 → 듀레이션 짧은 채권 보유
+        <ul class="sub">
+          <li>단기채, 표면이율이 높은 채권 유리 (가격 하락폭 최소화)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>② 채권교체전략</h4>
+    <ul class="concept-list">
+      <li><b>동종채권 간 교체:</b> 일시적 가격 불균형 발생 시 높은 수익률(낮은 가격)의 채권으로 교체 → 균형 회복 시 이득</li>
+      <li><b>이종채권 간 교체:</b> 스프레드 일시적 확대/축소를 이용
+        <ul class="sub">
+          <li>스프레드 확대: 수익률 낮아진 채권 매도 / 수익률 높아진 채권 매수</li>
+          <li>스프레드 원상회복 시 반대 포지션으로 수익 실현</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>③ 수익률곡선타기전략 (Riding the Yield Curve)</h4>
+    <ul class="concept-list">
+      <li><b>조건:</b> 수익률곡선이 우상향하고, 투자기간 동안 형태 불변일 때 사용</li>
+      <li><b>롤링효과(장기채 효과):</b> 잔존만기가 단축됨에 따라 수익률이 하락 → 추가 자본이득</li>
+      <li><b>숄더효과(단기채 효과):</b> 만기가 짧아질수록 수익률의 하락폭이 커지는 구간 존재 → 추가 이득</li>
+    </ul>
+
+    <h4>④ 나비형·역나비형 투자전략</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>전략</th><th>시장 상황</th><th>포지션</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>나비형</b><br><small>(Barbell)</small></td>
+            <td>장·단기물 수익률 하락, 중기물 수익률 상승</td>
+            <td>단기 보유 + 중기 매도 + 장기 보유</td>
+          </tr>
+          <tr>
+            <td><b>역나비형</b><br><small>(Bullet)</small></td>
+            <td>장·단기물 수익률 상승, 중기물 수익률 하락</td>
+            <td>중기 보유 (단기·장기 회피)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        금리 하락 예상 = 길게(장기채, 낮은 쿠폰, 긴 듀레이션) / 금리 상승 예상 = 짧게<br>
+        수익률곡선타기: 우상향 + 불변 조건 → 잔존기간 줄면서 금리 하락 → 가격 오름
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        나비형: "중기 매도" → 수익률곡선에서 중기가 불리한 상황 이용<br>
+        역나비형: "중기 보유" → 중기가 유리한 상황 이용 (정반대)
+      </div>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">13</span> 소극적 투자전략 <span class="stars">★★★</span></h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>전략</th><th>내용</th><th>특징</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>만기보유전략</b></td>
+            <td>채권을 만기까지 보유하여 확정된 YTM 실현</td>
+            <td>가장 단순; 금리 변동에 영향 없음 (단, 재투자위험 존재)</td>
+          </tr>
+          <tr>
+            <td><b>인덱스전략</b></td>
+            <td>채권지수를 추적해 시장평균성과 달성</td>
+            <td>효율적 시장 전제; 낮은 비용</td>
+          </tr>
+          <tr>
+            <td><b>현금흐름일치전략</b></td>
+            <td>미래 예정 지급액(부채)과 채권 현금흐름을 일치시킴</td>
+            <td>재투자위험 사실상 제거; 연금·보험사에 적합</td>
+          </tr>
+          <tr>
+            <td><b>사다리형 만기운용</b></td>
+            <td>여러 만기에 균등하게 채권 분산 투자</td>
+            <td>특정 금리 시점 의존 감소; 유동성 확보</td>
+          </tr>
+          <tr>
+            <td><b>아령형(Barbell) 만기운용</b></td>
+            <td>단기와 장기에 집중, 중기 회피</td>
+            <td>수익률곡선 변화에 따라 유연한 대응 가능</td>
+          </tr>
+          <tr>
+            <td><b>면역전략</b></td>
+            <td>포트폴리오 듀레이션 = 투자기간으로 설정</td>
+            <td>가격위험 ↔ 재투자위험 상쇄 → 목표수익 보호; 만기 ≠ 듀레이션에 주의</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>면역전략의 핵심 조건</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">면역 조건</span>
+        <span class="eq-sign">:</span>
+        <span>포트폴리오 듀레이션(D) = 투자기간(H)</span>
+      </div>
+    </div>
+    <ul class="concept-list">
+      <li>금리 상승 시: 가격 하락 + 재투자수익 증가 → 상쇄</li>
+      <li>금리 하락 시: 가격 상승 + 재투자수익 감소 → 상쇄</li>
+      <li><b>만기 ≠ 투자기간</b> — 만기와 듀레이션을 혼동하지 않도록 주의</li>
+    </ul>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        면역전략 = 면역주사 → 금리 변동에 "면역" → 목표수익 보호<br>
+        사다리형 = 계단식 분산 (1년·2년·3년·4년·5년 균등 배분)<br>
+        아령형 = 양 끝에만 무게 → 단기+장기만 보유
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        면역전략: 듀레이션=투자기간 (만기=투자기간이 아님!) — 듀레이션 재조정 필요
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 8 · 신종 채무증권
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab8" aria-labelledby="t8">
+  <div class="section-kicker">
+    제8절 새로운 형태의 채무증권 <span class="pct">출제비중 20%</span>
+  </div>
+
+  <article class="card full">
+    <h3><span class="no">14</span> 새로운 형태의 증권 <span class="stars">★★</span></h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>증권</th><th>특징</th><th>핵심 포인트</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>ABS<br>(자산유동화증권)</b></td>
+            <td>기초자산 현금흐름으로 원리금 상환; SPV(특수목적법인) 통해 발행</td>
+            <td>기초자산 신용이 핵심; 신용보강(내부·외부)</td>
+          </tr>
+          <tr>
+            <td><b>신종자본증권<br>(하이브리드채권)</b></td>
+            <td>자본의 성격이 강한 후순위 채권; BIS비율 자본 산입 가능</td>
+            <td>채권이지만 주식과 유사한 특성; 발행자 콜옵션 부여</td>
+          </tr>
+          <tr>
+            <td><b>조건부자본증권<br>(CoCo본드)</b></td>
+            <td>특정 트리거 발생 시 채권 → 자본 전환 또는 상각</td>
+            <td>후순위 채권; 금리 높지만 지분(주식)보다 먼저 상각될 수 있음</td>
+          </tr>
+          <tr>
+            <td><b>이중상환청구권부채권<br>(커버드본드)</b></td>
+            <td>발행기관 + 담보자산 풀 양쪽에 청구권; 이중 안전장치</td>
+            <td>위기 시에도 담보자산으로 상환; 유럽에서 발달</td>
+          </tr>
+          <tr>
+            <td><b>기업어음(CP)</b></td>
+            <td>단기 무담보 어음; 만기 1년 이내</td>
+            <td>신용도 높은 기업이 단기 자금조달에 활용</td>
+          </tr>
+          <tr>
+            <td><b>전자단기사채(STB)</b></td>
+            <td>CP의 전자 버전; 전자 등록 발행; 투자자 보호 강화</td>
+            <td>CP보다 법적 보호 우수; 기재 의무 강화</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="card full">
+    <h3><span class="no">15</span> 옵션이 첨부된 채권 <span class="stars">★★</span></h3>
+
+    <h4>전환사채(CB) vs 신주인수권부사채(BW) vs 교환사채(EB)</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>CB(전환사채)</th><th>BW(신주인수권부사채)</th><th>EB(교환사채)</th></tr></thead>
+        <tbody>
+          <tr><td><b>권리</b></td><td>채권을 주식으로 전환</td><td>새 주식을 인수할 권리</td><td>발행사 보유 주식과 교환</td></tr>
+          <tr><td><b>권리 행사 후 사채</b></td><td>소멸 (주식으로 전환)</td><td>존속 (사채 + 신주 분리)</td><td>소멸</td></tr>
+          <tr><td><b>발행 이율</b></td><td>낮음 (전환권 프리미엄)</td><td>낮음 (인수권 프리미엄)</td><td>낮음</td></tr>
+          <tr><td><b>핵심</b></td><td>전환 시 사채 없어짐</td><td>사채는 남고 신주 추가 취득</td><td>발행사 보유 기존 주식</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>전환사채 핵심 공식</h4>
+    <div class="formula">
+      <div class="equation">
+        <span class="eq-name">전환주수</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">액면금액</span>
+          <span class="den">전환가격</span>
+        </span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">전환가치(패리티가치)</span>
+        <span class="eq-sign">=</span>
+        <span class="eq-op">주식의 시장가격 × 전환주수</span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">전환프리미엄(괴리)</span>
+        <span class="eq-sign">=</span>
+        <span class="eq-op">전환사채 시장가격 − 전환가치</span>
+      </div>
+      <div class="equation">
+        <span class="eq-name">패리티(%)</span>
+        <span class="eq-sign">=</span>
+        <span class="frac">
+          <span class="num">주식의 시장가격</span>
+          <span class="den">전환가격</span>
+        </span>
+        <span class="eq-op">× 100</span>
+      </div>
+    </div>
+
+    <h4>콜부채권(수의상환채권) vs 풋부채권</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>콜부채권(Callable Bond)</th><th>풋부채권(Putable Bond)</th></tr></thead>
+        <tbody>
+          <tr><td><b>권리 보유자</b></td><td>발행자(조기상환 권리)</td><td>투자자(조기상환 청구 권리)</td></tr>
+          <tr><td><b>행사 유인</b></td><td>금리 하락 시 → 저금리로 차환발행</td><td>금리 상승·신용악화 시 → 불리한 보유 탈피</td></tr>
+          <tr><td><b>가격</b></td><td>일반채권보다 낮음 (투자자 불리)</td><td>일반채권보다 높음 (투자자 유리)</td></tr>
+          <tr><td><b>공식</b></td><td>콜부채권 가격 = 일반채권 − 콜옵션</td><td>풋부채권 가격 = 일반채권 + 풋옵션</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <span class="tip-label">🍎 암기팁</span>
+      <div class="tip-body">
+        CB vs BW: C(onversion)B = 전환하면 사채 사라짐 / B(arrant)W = 사채 남고 주식 추가<br>
+        패리티(%) = 주가/전환가격 × 100 → 100% 초과 시 전환차익 발생<br>
+        전환프리미엄 = CB시장가 − 전환가치 → 양수면 CB가 전환가치보다 비싸게 거래
+      </div>
+      <div class="caution">
+        <span class="caution-label">주의</span>
+        BW: 신주인수권(Warrant)과 사채가 분리 가능 → 신주인수권만 따로 거래 가능한 경우 있음<br>
+        조건부자본증권: 후순위 + 금리 높음 → BUT 주식보다 먼저 상각될 수 있음 (주식보다 위험할 수 있음)
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 9 · 개념문제 20
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab9" aria-labelledby="t9">
+  <div class="quiz-head">
+    <div>
+      <h2>개념문제 20</h2>
+      <p>선택 즉시 채점하고 해설을 확인합니다.</p>
+    </div>
+    <div class="score">
+      <div class="score-item"><b id="c9">0</b><small>정답</small></div>
+      <div class="score-item"><b id="w9">0</b><small>오답</small></div>
+      <div class="score-item"><b id="r9">20</b><small>남음</small></div>
+    </div>
+    <button class="reset-btn" onclick="resetQuiz('q9')">다시 풀기</button>
+    <div class="quiz-progress" style="flex-basis:100%"><div class="quiz-progress-bar" id="pb9"></div></div>
+  </div>
+  <div id="q9">
+    <!-- Q01 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q01</span><span class="q-ref">개념 01</span></div>
+      <div class="q-text">채권의 표면이율은 무엇을 기준으로 계산하는가?</div>
+      <div class="q-options">
+        <button class="q-option">① 시장가격</button>
+        <button class="q-option">② 액면가</button>
+        <button class="q-option">③ 만기수익률</button>
+        <button class="q-option">④ 신용등급</button>
+      </div>
+      <div class="explain">정답 ② · 표면이율은 액면가에 적용되는 약정이자율이다</div>
+    </div></div>
+    <!-- Q02 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q02</span><span class="q-ref">개념 02</span></div>
+      <div class="q-text">최초로 발행자가 채권을 공급하는 시장은?</div>
+      <div class="q-options">
+        <button class="q-option">① 유통시장</button>
+        <button class="q-option">② 발행시장</button>
+        <button class="q-option">③ 장외시장</button>
+        <button class="q-option">④ 파생시장</button>
+      </div>
+      <div class="explain">정답 ② · 발행시장은 최초 자금조달이 이루어지는 시장이다</div>
+    </div></div>
+    <!-- Q03 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q03</span><span class="q-ref">개념 03</span></div>
+      <div class="q-text">채권 유통시장의 일반적 특징은?</div>
+      <div class="q-options">
+        <button class="q-option">① 장외거래 중심</button>
+        <button class="q-option">② 개인만 참여</button>
+        <button class="q-option">③ 주식만 거래</button>
+        <button class="q-option">④ 발행자만 거래</button>
+      </div>
+      <div class="explain">정답 ① · 채권은 기관투자자 중심의 장외거래 비중이 높다</div>
+    </div></div>
+    <!-- Q04 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q04</span><span class="q-ref">개념 05</span></div>
+      <div class="q-text">할인채의 수익 원천으로 맞는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 액면보다 낮게 사서 액면으로 상환받는 차이</button>
+        <button class="q-option">② 매월 지급되는 표면이자</button>
+        <button class="q-option">③ 주식배당</button>
+        <button class="q-option">④ 옵션 프리미엄만</button>
+      </div>
+      <div class="explain">정답 ① · 할인채는 발행가와 액면상환액의 차이가 수익이 된다</div>
+    </div></div>
+    <!-- Q05 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q05</span><span class="q-ref">개념 06</span></div>
+      <div class="q-text">이표채의 이자율위험은 무엇으로 구성되는가?</div>
+      <div class="q-options">
+        <button class="q-option">① 가격위험과 재투자위험</button>
+        <button class="q-option">② 신용위험과 환위험만</button>
+        <button class="q-option">③ 세금위험만</button>
+        <button class="q-option">④ 유동성위험만</button>
+      </div>
+      <div class="explain">정답 ① · 금리 변화는 가격과 재투자수익에 함께 영향을 준다</div>
+    </div></div>
+    <!-- Q06 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q06</span><span class="q-ref">개념 07</span></div>
+      <div class="q-text">채권가격과 만기수익률의 관계는?</div>
+      <div class="q-options">
+        <button class="q-option">① 정비례</button>
+        <button class="q-option">② 반비례</button>
+        <button class="q-option">③ 무관</button>
+        <button class="q-option">④ 항상 동일</button>
+      </div>
+      <div class="explain">정답 ② · 할인율인 만기수익률이 오르면 현재가치는 하락한다</div>
+    </div></div>
+    <!-- Q07 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q07</span><span class="q-ref">개념 08</span></div>
+      <div class="q-text">무이표채의 듀레이션은 일반적으로 무엇과 같은가?</div>
+      <div class="q-options">
+        <button class="q-option">① 표면이율</button>
+        <button class="q-option">② 잔존기간</button>
+        <button class="q-option">③ 신용등급</button>
+        <button class="q-option">④ 거래단위</button>
+      </div>
+      <div class="explain">정답 ② · 중간 현금흐름이 없어 듀레이션이 잔존기간과 같다</div>
+    </div></div>
+    <!-- Q08 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q08</span><span class="q-ref">개념 09</span></div>
+      <div class="q-text">만기수익률의 성격은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권 IRR</button>
+        <button class="q-option">② 단순 표면이율</button>
+        <button class="q-option">③ 주가수익비율</button>
+        <button class="q-option">④ 현금배당률</button>
+      </div>
+      <div class="explain">정답 ① · 현재가격과 미래 현금흐름을 일치시키는 내부수익률이다</div>
+    </div></div>
+    <!-- Q09 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q09</span><span class="q-ref">개념 10</span></div>
+      <div class="q-text">유동성선호가설의 설명으로 맞는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 장기채에 기간 프리미엄이 붙기 쉽다</button>
+        <button class="q-option">② 완전대체만 가정한다</button>
+        <button class="q-option">③ 만기별 수급은 무관하다</button>
+        <button class="q-option">④ 수익률곡선은 항상 수평이다</button>
+      </div>
+      <div class="explain">정답 ① · 투자자가 장기채를 더 위험하게 보아 기간 프리미엄을 요구한다</div>
+    </div></div>
+    <!-- Q10 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q10</span><span class="q-ref">개념 11</span></div>
+      <div class="q-text">적극적 투자전략의 목표는?</div>
+      <div class="q-options">
+        <button class="q-option">① 시장 초과성과</button>
+        <button class="q-option">② 항상 만기보유</button>
+        <button class="q-option">③ 지수와 완전 일치</button>
+        <button class="q-option">④ 거래 금지</button>
+      </div>
+      <div class="explain">정답 ① · 비효율적 시장을 전제로 초과성과를 추구한다</div>
+    </div></div>
+    <!-- Q11 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q11</span><span class="q-ref">개념 12</span></div>
+      <div class="q-text">금리 하락 예상 시 일반적으로 늘리는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 단기채와 낮은 듀레이션</button>
+        <button class="q-option">② 장기채와 듀레이션</button>
+        <button class="q-option">③ 현금만</button>
+        <button class="q-option">④ 신용위험만</button>
+      </div>
+      <div class="explain">정답 ② · 금리 하락은 장기채 가격에 더 큰 상승효과를 준다</div>
+    </div></div>
+    <!-- Q12 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q12</span><span class="q-ref">개념 13</span></div>
+      <div class="q-text">인덱스전략의 전제는?</div>
+      <div class="q-options">
+        <button class="q-option">① 효율적 시장</button>
+        <button class="q-option">② 금리 예측의 확실성</button>
+        <button class="q-option">③ 옵션행사 의무</button>
+        <button class="q-option">④ 발행자 독점</button>
+      </div>
+      <div class="explain">정답 ① · 채권지수를 추적해 시장평균성과를 추구한다</div>
+    </div></div>
+    <!-- Q13 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q13</span><span class="q-ref">개념 14</span></div>
+      <div class="q-text">콜부채권에서 콜권리를 가지는 주체는?</div>
+      <div class="q-options">
+        <button class="q-option">① 투자자</button>
+        <button class="q-option">② 발행자</button>
+        <button class="q-option">③ 거래소</button>
+        <button class="q-option">④ 예탁결제원</button>
+      </div>
+      <div class="explain">정답 ② · 수의상환채권은 발행자가 중도상환할 수 있다</div>
+    </div></div>
+    <!-- Q14 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q14</span><span class="q-ref">개념 15</span></div>
+      <div class="q-text">전환사채와 신주인수권부사채의 구분으로 맞는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 둘 다 권리 행사 후 사채가 반드시 존속</button>
+        <button class="q-option">② 전환사채는 사채지위가 소멸하고 BW는 존속</button>
+        <button class="q-option">③ 둘 다 주식으로 자동 전환</button>
+        <button class="q-option">④ 둘 다 옵션이 없다</button>
+      </div>
+      <div class="explain">정답 ② · 전환사채는 전환 시 사채가 주식으로 바뀌고 BW는 사채가 남는다</div>
+    </div></div>
+    <!-- Q15 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q15</span><span class="q-ref">개념 06</span></div>
+      <div class="q-text">채권시장 위험 중 거래가 어려워 발생하는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 유동성위험</button>
+        <button class="q-option">② 인플레이션위험</button>
+        <button class="q-option">③ 가격위험</button>
+        <button class="q-option">④ 재투자위험</button>
+      </div>
+      <div class="explain">정답 ① · 유동성위험은 필요한 때 적정 가격으로 매도하기 어려운 위험이다</div>
+    </div></div>
+    <!-- Q16 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q16</span><span class="q-ref">개념 10</span></div>
+      <div class="q-text">수익률곡선은 무엇을 나타내는가?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기별 수익률</button>
+        <button class="q-option">② 기업별 매출</button>
+        <button class="q-option">③ 주식별 배당</button>
+        <button class="q-option">④ 거래량만</button>
+      </div>
+      <div class="explain">정답 ① · 만기가 다른 채권의 수익률을 연결한 곡선이다</div>
+    </div></div>
+    <!-- Q17 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q17</span><span class="q-ref">개념 13</span></div>
+      <div class="q-text">면역전략의 핵심 조건은?</div>
+      <div class="q-options">
+        <button class="q-option">① 듀레이션=투자기간</button>
+        <button class="q-option">② 가격=액면가</button>
+        <button class="q-option">③ 표면이율=수익률</button>
+        <button class="q-option">④ 만기=0</button>
+      </div>
+      <div class="explain">정답 ① · 가격위험과 재투자위험을 상쇄하도록 맞춘다</div>
+    </div></div>
+    <!-- Q18 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q18</span><span class="q-ref">개념 14</span></div>
+      <div class="q-text">풋부채권의 가치는 일반채권과 비교해?</div>
+      <div class="q-options">
+        <button class="q-option">① 풋가치만큼 낮다</button>
+        <button class="q-option">② 풋가치만큼 높다</button>
+        <button class="q-option">③ 항상 같다</button>
+        <button class="q-option">④ 계산할 수 없다</button>
+      </div>
+      <div class="explain">정답 ② · 투자자에게 유리한 풋권리의 가치가 더해진다</div>
+    </div></div>
+    <!-- Q19 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q19</span><span class="q-ref">개념 05</span></div>
+      <div class="q-text">복리채의 이자는 언제 지급되는가?</div>
+      <div class="q-options">
+        <button class="q-option">① 매일 현금 지급</button>
+        <button class="q-option">② 만기에 원금과 함께</button>
+        <button class="q-option">③ 발행 전에만</button>
+        <button class="q-option">④ 주식으로만</button>
+      </div>
+      <div class="explain">정답 ② · 복리채는 이자가 재투자되어 만기에 함께 지급된다</div>
+    </div></div>
+    <!-- Q20 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q20</span><span class="q-ref">개념 10</span></div>
+      <div class="q-text">시장분할가설의 특징은?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기별 시장이 분리되고 대체관계가 약하다</button>
+        <button class="q-option">② 완전대체관계</button>
+        <button class="q-option">③ 미래 기대만 반영</button>
+        <button class="q-option">④ 항상 우상향</button>
+      </div>
+      <div class="explain">정답 ① · 투자자 선호와 수급이 만기 구간별로 나뉜다</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 10 · 심화문제 20
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab10" aria-labelledby="t10">
+  <div class="section-kicker">심화문제 20선 <span class="pct">고난도 응용 문제</span></div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:18px">선택지를 클릭해 정답을 확인하세요. 하단 채점 버튼으로 점수를 확인할 수 있습니다.</p>
+
+  <div id="quiz-adv" class="quiz-grid">
+
+    <!-- Q01 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q01</span><span class="q-ref">개념 05·07</span></div>
+      <div class="q-text">시장수익률이 상승할 때 일반적으로 가격 하락폭이 더 큰 채권은?</div>
+      <div class="q-options">
+        <button class="q-option">① 잔존기간 짧고 표면이율 높음</button>
+        <button class="q-option">② 잔존기간 길고 표면이율 낮음</button>
+        <button class="q-option">③ 무조건 국채</button>
+        <button class="q-option">④ 거래량 큰 채권</button>
+      </div>
+      <div class="explain">정답 ② · 만기가 길고 표면이율이 낮을수록 듀레이션이 크고 금리 민감도가 높아 가격 하락폭이 크다.</div>
+    </div></div>
+
+    <!-- Q02 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q02</span><span class="q-ref">개념 08</span></div>
+      <div class="q-text">표면이율과 만기가 같을 때 금리 민감도(듀레이션)를 낮추는 요인은?</div>
+      <div class="q-options">
+        <button class="q-option">① 잔존기간 증가</button>
+        <button class="q-option">② 만기수익률 하락</button>
+        <button class="q-option">③ 이자지급빈도 증가</button>
+        <button class="q-option">④ 표면이율 하락</button>
+      </div>
+      <div class="explain">정답 ③ · 이자지급빈도가 높을수록 현금흐름이 앞당겨져 듀레이션이 작아지므로 금리 민감도가 낮아진다.</div>
+    </div></div>
+
+    <!-- Q03 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q03</span><span class="q-ref">개념 08</span></div>
+      <div class="q-text">듀레이션이 4년인 채권의 수정듀레이션을 4÷(1+0.05)로 계산하면?</div>
+      <div class="q-options">
+        <button class="q-option">① 3.81</button>
+        <button class="q-option">② 4.20</button>
+        <button class="q-option">③ 0.95</button>
+        <button class="q-option">④ 5.00</button>
+      </div>
+      <div class="explain">정답 ① · MD = D÷(1+y) = 4÷1.05 ≈ 3.81이다.</div>
+    </div></div>
+
+    <!-- Q04 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q04</span><span class="q-ref">개념 08</span></div>
+      <div class="q-text">금리가 0.5%p 하락하고 수정듀레이션이 5라면 근사 가격변동률은?</div>
+      <div class="q-options">
+        <button class="q-option">① −2.5%</button>
+        <button class="q-option">② +2.5%</button>
+        <button class="q-option">③ +0.5%</button>
+        <button class="q-option">④ −5%</button>
+      </div>
+      <div class="explain">정답 ② · ΔP/P ≈ −MD×Δy = −5×(−0.005) = +0.025 = +2.5%이다.</div>
+    </div></div>
+
+    <!-- Q05 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q05</span><span class="q-ref">개념 07·08</span></div>
+      <div class="q-text">수익률 하락 시 가격상승폭이 수익률 상승 시 가격하락폭보다 더 크게 나타나는 이유는?</div>
+      <div class="q-options">
+        <button class="q-option">① 볼록성(Convexity)</button>
+        <button class="q-option">② 시장분할가설</button>
+        <button class="q-option">③ 표면이율 효과</button>
+        <button class="q-option">④ 액면가 고정</button>
+      </div>
+      <div class="explain">정답 ① · 가격-수익률 관계가 볼록한 곡선이기 때문에 수익률 하락 시 가격상승폭이 더 크게 나타난다.</div>
+    </div></div>
+
+    <!-- Q06 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q06</span><span class="q-ref">개념 09</span></div>
+      <div class="q-text">현재가격이 980이고 만기 현금흐름이 1,050인 할인채의 단순 보유수익률은?</div>
+      <div class="q-options">
+        <button class="q-option">① 약 7.14%</button>
+        <button class="q-option">② 약 1.43%</button>
+        <button class="q-option">③ 약 5.00%</button>
+        <button class="q-option">④ 약 14.29%</button>
+      </div>
+      <div class="explain">정답 ① · (1,050 − 980) ÷ 980 ≈ 7.14%이다. 할인채는 싸게 사서 액면(또는 만기상환액)을 받으므로 가격수익이 발생한다.</div>
+    </div></div>
+
+    <!-- Q07 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q07</span><span class="q-ref">개념 11·12</span></div>
+      <div class="q-text">금리 하락이 예상될 때 채택하는 적극적 전략 조합은?</div>
+      <div class="q-options">
+        <button class="q-option">① 장기채·낮은 표면이율·긴 듀레이션</button>
+        <button class="q-option">② 단기채·높은 표면이율·짧은 듀레이션</button>
+        <button class="q-option">③ 현금만 보유</button>
+        <button class="q-option">④ 신용등급만 조정</button>
+      </div>
+      <div class="explain">정답 ① · 가격 민감도를 극대화하여 금리 하락에 따른 가격상승을 최대로 누리는 전략이다.</div>
+    </div></div>
+
+    <!-- Q08 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q08</span><span class="q-ref">개념 12</span></div>
+      <div class="q-text">수익률곡선 타기전략(Riding the Yield Curve)의 전형적 조건은?</div>
+      <div class="q-options">
+        <button class="q-option">① 잔존기간이 투자기간보다 길다</button>
+        <button class="q-option">② 잔존기간이 항상 0</button>
+        <button class="q-option">③ 역우상향 곡선에서만 가능</button>
+        <button class="q-option">④ 발행시장에서만 매수</button>
+      </div>
+      <div class="explain">정답 ① · 투자기간 동안 잔존기간이 단축되어 수익률이 낮아지는 롤링효과를 이용한다. 우상향 수익률곡선 + 형태 불변이 전제다.</div>
+    </div></div>
+
+    <!-- Q09 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q09</span><span class="q-ref">개념 13</span></div>
+      <div class="q-text">현금흐름 일치전략(Cash Flow Matching)의 주요 목적은?</div>
+      <div class="q-options">
+        <button class="q-option">① 예정 지급액(부채)과 채권 현금흐름 일치</button>
+        <button class="q-option">② 시장 초과수익 극대화</button>
+        <button class="q-option">③ 콜옵션 행사</button>
+        <button class="q-option">④ 신용등급 상향</button>
+      </div>
+      <div class="explain">정답 ① · 미래 예정 지급시기와 금액에 맞추어 채권 현금흐름을 구성함으로써 재투자위험을 사실상 제거한다.</div>
+    </div></div>
+
+    <!-- Q10 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q10</span><span class="q-ref">개념 13</span></div>
+      <div class="q-text">사다리형(Laddering) 만기운용 전략의 장점으로 가장 적절한 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기를 분산해 특정 금리 시점 의존도를 줄임</button>
+        <button class="q-option">② 모든 채권을 같은 날 만기</button>
+        <button class="q-option">③ 듀레이션을 무한대로 확대</button>
+        <button class="q-option">④ 신용위험 완전 제거</button>
+      </div>
+      <div class="explain">정답 ① · 여러 만기에 균등 분산하여 재투자 시점을 나누고 특정 금리 시점에 대한 의존도를 줄인다.</div>
+    </div></div>
+
+    <!-- Q11 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q11</span><span class="q-ref">개념 14</span></div>
+      <div class="q-text">발행자가 콜옵션(수의상환권)을 행사할 유인이 커지는 상황은?</div>
+      <div class="q-options">
+        <button class="q-option">① 시장금리 하락</button>
+        <button class="q-option">② 시장금리 상승</button>
+        <button class="q-option">③ 물가 하락만</button>
+        <button class="q-option">④ 거래량 증가만</button>
+      </div>
+      <div class="explain">정답 ① · 금리가 하락하면 더 낮은 금리로 차환발행할 수 있어 기존 고금리 채권을 조기상환하려는 유인이 생긴다.</div>
+    </div></div>
+
+    <!-- Q12 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q12</span><span class="q-ref">개념 14</span></div>
+      <div class="q-text">투자자가 풋옵션(조기상환청구권)을 행사할 유인이 커지는 상황은?</div>
+      <div class="q-options">
+        <button class="q-option">① 시장금리 상승 또는 발행자 신용 악화</button>
+        <button class="q-option">② 시장금리 하락과 신용 개선</button>
+        <button class="q-option">③ 표면이율 상승만</button>
+        <button class="q-option">④ 잔존만기 단축만</button>
+      </div>
+      <div class="explain">정답 ① · 금리가 오르면 채권 보유가 불리해지고, 신용이 악화되면 원금 회수 위험이 커지므로 투자자가 풋을 행사하려 한다.</div>
+    </div></div>
+
+    <!-- Q13 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q13</span><span class="q-ref">개념 15</span></div>
+      <div class="q-text">전환사채(CB)의 발행이율이 일반 사채보다 낮을 수 있는 이유는?</div>
+      <div class="q-options">
+        <button class="q-option">① 전환권(주가 상승 참여 기회)이 부가되기 때문</button>
+        <button class="q-option">② 원금 상환 의무가 없기 때문</button>
+        <button class="q-option">③ 항상 국채이기 때문</button>
+        <button class="q-option">④ 풋권리가 의무화되기 때문</button>
+      </div>
+      <div class="explain">정답 ① · 투자자는 이자 외에 전환권을 통해 주가 상승 이익을 얻을 수 있으므로 낮은 이율도 수용한다.</div>
+    </div></div>
+
+    <!-- Q14 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q14</span><span class="q-ref">개념 15</span></div>
+      <div class="q-text">신주인수권부사채(BW)에서 신주인수권 행사 후에도 남아 있는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 사채(채권)</button>
+        <button class="q-option">② 전환권</button>
+        <button class="q-option">③ 콜권리</button>
+        <button class="q-option">④ 액면가만</button>
+      </div>
+      <div class="explain">정답 ① · BW는 신주인수권과 사채가 분리되어, 신주인수권을 행사해도 사채(원리금 청구권)는 그대로 존속한다.</div>
+    </div></div>
+
+    <!-- Q15 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q15</span><span class="q-ref">개념 06</span></div>
+      <div class="q-text">발행자의 신용위험이 커질 때 시장에서 일반적으로 요구되는 만기수익률은?</div>
+      <div class="q-options">
+        <button class="q-option">① 상승</button>
+        <button class="q-option">② 하락</button>
+        <button class="q-option">③ 항상 0</button>
+        <button class="q-option">④ 신용위험과 무관</button>
+      </div>
+      <div class="explain">정답 ① · 신용위험 프리미엄이 커지면 투자자들은 더 높은 수익률을 요구하여 채권 가격이 하락한다.</div>
+    </div></div>
+
+    <!-- Q16 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q16</span><span class="q-ref">개념 06</span></div>
+      <div class="q-text">유동성위험이 상대적으로 큰 채권은?</div>
+      <div class="q-options">
+        <button class="q-option">① 거래단위가 크고 거래가 드문 채권</button>
+        <button class="q-option">② 거래가 활발한 국채</button>
+        <button class="q-option">③ 현금</button>
+        <button class="q-option">④ 만기 없는 예금</button>
+      </div>
+      <div class="explain">정답 ① · 거래단위가 크고 유통이 활발하지 않은 채권은 적정 가격에 매도하기 어려워 유동성위험이 크다.</div>
+    </div></div>
+
+    <!-- Q17 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q17</span><span class="q-ref">개념 10</span></div>
+      <div class="q-text">불편기대가설에서 단기채와 장기채의 대체관계는?</div>
+      <div class="q-options">
+        <button class="q-option">① 완전대체</button>
+        <button class="q-option">② 불완전대체</button>
+        <button class="q-option">③ 대체관계 없음</button>
+        <button class="q-option">④ 고정된 부분대체</button>
+      </div>
+      <div class="explain">정답 ① · 위험중립적 투자자는 만기와 무관하게 기대수익률만 같으면 완전대체재로 보므로 완전대체 관계가 성립한다.</div>
+    </div></div>
+
+    <!-- Q18 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q18</span><span class="q-ref">개념 10</span></div>
+      <div class="q-text">유동성선호가설과 시장분할가설의 공통점으로 가장 적절한 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 투자자의 선호·수급 요인이 수익률에 영향을 준다</button>
+        <button class="q-option">② 만기별 채권이 항상 완전대체</button>
+        <button class="q-option">③ 미래금리 기대만 반영</button>
+        <button class="q-option">④ 가격과 수익률이 무관</button>
+      </div>
+      <div class="explain">정답 ① · 두 가설 모두 미래 기대 외에 투자자의 선호나 특정 만기 구간의 수급 요인이 수익률에 영향을 미친다고 본다.</div>
+    </div></div>
+
+    <!-- Q19 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q19</span><span class="q-ref">개념 13</span></div>
+      <div class="q-text">포트폴리오 듀레이션이 투자기간보다 길 때 금리가 상승하면 면역 포트폴리오에 발생하는 문제는?</div>
+      <div class="q-options">
+        <button class="q-option">① 가격위험이 재투자위험보다 상대적으로 커진다</button>
+        <button class="q-option">② 재투자위험이 항상 0이 된다</button>
+        <button class="q-option">③ 채권 가격이 반드시 상승한다</button>
+        <button class="q-option">④ 옵션이 자동 행사된다</button>
+      </div>
+      <div class="explain">정답 ① · 듀레이션이 투자기간보다 길면 금리 상승 시 가격 하락 민감도가 재투자 수익 증가분을 초과해 목표수익이 달성되지 않는다.</div>
+    </div></div>
+
+    <!-- Q20 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q20</span><span class="q-ref">개념 02</span></div>
+      <div class="q-text">채권 발행시장의 총액인수발행방식에 대한 설명으로 맞는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 인수기관이 발행총액 전체를 인수하는 구조</button>
+        <button class="q-option">② 발행 위험을 모두 투자자에게 넘기는 구조</button>
+        <button class="q-option">③ 유통시장 거래 방식</button>
+        <button class="q-option">④ 투자자에게 풋권리 부여</button>
+      </div>
+      <div class="explain">정답 ① · 총액인수는 인수기관이 발행물량 전체를 인수하는 방식으로 발행 위험을 인수기관이 부담한다. 회사채의 대표적 방식이다.</div>
+    </div></div>
+
+  </div><!-- /.quiz-grid -->
+
+  <div class="quiz-footer" id="adv-footer">
+    <button class="score-btn" onclick="scoreQuiz('quiz-adv','adv-result')">심화문제 채점하기</button>
+    <div class="score-result" id="adv-result"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     TAB 11 · 개념(H)
+════════════════════════════════════════════════ -->
+<section role="tabpanel" id="tab11" aria-labelledby="t11">
+  <div class="quiz-head">
+    <div>
+      <h2>개념(H)</h2>
+    </div>
+    <div class="score">
+      <div class="score-item"><b id="c11">0</b><small>정답</small></div>
+      <div class="score-item"><b id="w11">0</b><small>오답</small></div>
+      <div class="score-item"><b id="r11">29</b><small>남음</small></div>
+    </div>
+    <button class="reset-btn" onclick="resetQuiz('q11')">다시 풀기</button>
+    <div class="quiz-progress" style="flex-basis:100%"><div class="quiz-progress-bar" id="pb11"></div></div>
+  </div>
+  <div id="q11">
+    <!-- Q01 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q01</span> 채권의 기본적 구조와 분류 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권에 대한 설명 중 잘못된 것으로 모두 묶인 것은?<br>㉠ 잔존기간은 채권발행일부터 원금상환까지를 의미한다.<br>㉡ 만기수익률이란 채권발행 시 발행자가 지급하기로 한 이자율을 의미한다.<br>㉢ 단가란 액면 10,000원당 시장에서 거래되는 가격이다.<br>㉣ 선매출이란 발행일 이전에 일정 기간 채권이 판매되는 것을 의미한다.</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠, ㉡</button>
+        <button class="q-option">② ㉠, ㉣</button>
+        <button class="q-option">③ ㉡, ㉢</button>
+        <button class="q-option">④ ㉢, ㉣</button>
+      </div>
+      <div class="explain">㉠과 ㉡이 잘못되었다. 채권발행일부터 원금상환일까지는 만기기간이며, 잔존기간은 매매일부터 만기일까지의 기간이다. 발행자가 권면에 약속한 이자율은 표면이율이고, 만기수익률(YTM)은 만기까지의 미래현금흐름 현재가치 합을 현재 채권가격과 일치시키는 할인율이다. 채권가격과 채권수익률은 반대 방향으로 움직인다.</div>
+    </div></div>
+    <!-- Q02 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q02</span> 채권의 기본적 구조와 분류 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">보증 여부에 따른 채권의 종류에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 보증사채는 원금상환 및 이자지급을 발행회사 외의 제3자가 보장하는 회사채를 말한다.</button>
+        <button class="q-option">② 보증사채의 보증자는 주로 금융기관이다.</button>
+        <button class="q-option">③ IMF 금융위기 이후 신용문제가 대두되면서 대부분 무보증사채로 발행되고 있다.</button>
+        <button class="q-option">④ 무보증사채를 발행하려면 3개 이상의 신용평가기관에서 신용평가를 받아야 한다.</button>
+      </div>
+      <div class="explain">무보증사채는 발행회사의 자체 신용을 근거로 발행하며 2개 이상의 복수 신용평가를 받아야 한다. 문서에서는 투자등급을 AAA-BBB, 투기등급을 BB-D로 구분한다.</div>
+    </div></div>
+    <!-- Q03 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q03</span> 채권의 기본적 구조와 분류 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">금리변동부채권에 대한 설명 중 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 발행 당시 표면이율에 의하여 결정되는 미래현금흐름이 확정되지 않는다.</button>
+        <button class="q-option">② 일정 단위 기간마다 정해진 기준금리에 연동된 표면이율에 의하여 이자를 지급받는다.</button>
+        <button class="q-option">③ 이자율이 지표금리의 변동에 연동되기 때문에 일반채권과 마찬가지로 시장수익률변동위험에서 벗어날 수 없다.</button>
+        <button class="q-option">④ 금리변동부채권은 역금리 변동부채권 등으로 변용되기도 한다.</button>
+      </div>
+      <div class="explain">금리변동부채권(FRN)은 기준금리에 연동해 지급이자가 조정되므로 일반 고정금리채권보다 수익률변동위험이 낮다. 발행 시점에는 미래의 정확한 이자지급액이 확정되지 않으며, 시장금리가 상승하면 지급이자도 함께 조정되므로 투자자에게 유리할 수 있다.</div>
+    </div></div>
+    <!-- Q04 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q04</span> 발행시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권의 발행에 관한 잘못된 설명들로 모두 묶인 것은?<br>㉠ 발행된 채권을 채권수요자인 일반투자자에게 직접 매매하는 기관은 주관회사이다.<br>㉡ 간접모집에는 매출발행과 공모입찰발행이 있다.<br>㉢ 채권의 발행방법에는 크게 공모와 사모가 있다.<br>㉣ 인수모집에는 잔액인수방식과 총액인수방식이 있다.</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠</button>
+        <button class="q-option">② ㉠, ㉡</button>
+        <button class="q-option">③ ㉠, ㉡, ㉢</button>
+        <button class="q-option">④ ㉠, ㉡, ㉢, ㉣</button>
+      </div>
+      <div class="explain">㉠과 ㉡이 잘못되었다. 주관회사는 발행회사와 인수조건을 결정하고 인수·청약업무를 총괄하지만 일반투자자에게 직접 매매하는 기관이라는 설명은 부정확하다. 또한 매출발행과 공모입찰발행은 직접모집에 속한다. 간접모집에는 위탁발행과 인수발행이 있으며, 인수발행은 잔액인수와 총액인수로 나뉜다.</div>
+    </div></div>
+    <!-- Q05 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q05</span> 발행시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권의 발행방법에 대한 설명 중 가장 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 통화안정증권은 국채이다.</button>
+        <button class="q-option">② 국채와 회사채는 총액인수방식으로 발행된다.</button>
+        <button class="q-option">③ 회사채의 대부분은 총액인수방식에 의한다.</button>
+        <button class="q-option">④ IMF 이후 채권자들의 원금보전에 대한 요구가 증가함에 따라 보증사채의 비중이 증가하고 있는 추세이다.</button>
+      </div>
+      <div class="explain">회사채의 대부분은 간접발행 중 총액인수방식으로 발행된다. 통화안정증권은 특수채인 금융채로 분류되며, 국채는 주로 직접모집으로 발행된다. IMF 이후에는 지급보증 금융기관에 대한 신뢰 저하 등으로 무보증사채 비중이 증가했다.</div>
+    </div></div>
+    <!-- Q06 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q06</span> 발행시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 중 국채의 낙찰방식에서 낙찰된 것 중 최고수익률(최저가격)로 낙찰분을 통일하여 발행하는 방식은?</div>
+      <div class="q-options">
+        <button class="q-option">① Conventional방식</button>
+        <button class="q-option">② Dutch방식</button>
+        <button class="q-option">③ 평균가격입찰방식</button>
+        <button class="q-option">④ 역입찰방식</button>
+      </div>
+      <div class="explain">Dutch 방식은 응찰수익률을 낮은 수익률, 즉 높은 가격부터 배열해 발행예정액에 도달할 때까지 낙찰자를 정한 뒤, 낙찰된 수익률 중 가장 높은 수익률(가장 낮은 가격)을 모든 낙찰분에 동일하게 적용하는 단일가격경매방식이다. 반면 Conventional 방식은 각 낙찰자가 제시한 수익률을 차등 적용한다.</div>
+    </div></div>
+    <!-- Q07 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q07</span> 유통시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권의 유통시장에 대한 설명 중 옳은 것들로만 모두 묶인 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠ 채권거래는 집단경쟁매매를 통한 장외거래의 비중이 높다. ㉡ 장내거래는 상장채권으로 제한되어 있다. ㉢ 전환사채 및 일부 첨가소화채권은 장내거래를 원칙으로 하고 있다.</button>
+        <button class="q-option">② ㉠ 채권거래는 집단경쟁매매를 통한 장외거래의 비중이 높다. ㉣ 국채시장의 활성화를 위해 국채전문유통시장을 두고 있다. ㉤ 장외거래 시에는 당일결제가 보편적이며, 결제불이행위험을 제거하기 위해 채권동시결제제도(DVP)에 의한 결제방식이 확산되고 있다.</button>
+        <button class="q-option">③ ㉡ 장내거래는 상장채권으로 제한되어 있다. ㉢ 전환사채 및 일부 첨가소화채권은 장내거래를 원칙으로 하고 있다. ㉣ 국채시장의 활성화를 위해 국채전문유통시장을 두고 있다.</button>
+        <button class="q-option">④ ㉢ 전환사채 및 일부 첨가소화채권은 장내거래를 원칙으로 하고 있다. ㉣ 국채시장의 활성화를 위해 국채전문유통시장을 두고 있다. ㉤ 장외거래 시에는 당일결제가 보편적이며, 결제불이행위험을 제거하기 위해 채권동시결제제도(DVP)에 의한 결제방식이 확산되고 있다.</button>
+      </div>
+      <div class="explain">장내거래는 상장채권으로 제한되며, 전환사채 및 일부 첨가소화채권은 장내거래를 원칙으로 한다. 국채시장의 활성화를 위해 국채전문유통시장을 두고 있다. 반면 채권거래는 집단경쟁매매 방식의 장내거래보다 상대매매 중심의 장외거래 비중이 높다. 장외거래의 결제는 익일결제가 보편적이며, 매도자와 매수자가 합의하여 정한다. 결제불이행위험을 줄이기 위해 채권동시결제제도(DVP)가 활용된다.</div>
+    </div></div>
+    <!-- Q08 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q08</span> 유통시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">K-Bond시장에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권딜러들 간의 중개업무를 수행하기 위한 시장이다.</button>
+        <button class="q-option">② 장외시장에서 시장참여자들의 채권거래를 지원하는 시장이다.</button>
+        <button class="q-option">③ 한국금융투자협회가 운영하는 전자시스템이다.</button>
+        <button class="q-option">④ 채권거래브로커, 딜러, 매니저, 트레이더 등이 주요 시장참여자이다.</button>
+      </div>
+      <div class="explain">채권딜러 간 중개업무를 수행하는 시장은 IDB(Inter-Dealer Broker) 시장이다. K-Bond는 장외시장에서 시장참여자의 채권거래를 지원하기 위해 한국금융투자협회가 운영하는 전자시스템이다.</div>
+    </div></div>
+    <!-- Q09 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q09</span> 우리나라 채권시장의 특성 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">우리나라의 채권시장에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 보험사는 고객자산의 수익성을 위해 적극적 운용성향을 가지고 있다.</button>
+        <button class="q-option">② 연기금은 장기자금의 운용이라는 면에서 보험사와 유사하다.</button>
+        <button class="q-option">③ 은행은 안정성을 추구하는 특성을 보인다.</button>
+        <button class="q-option">④ 발행주체에 따라 국채, 지방채, 특수채, 회사채로 구분한다.</button>
+      </div>
+      <div class="explain">보험사는 자산·부채 듀레이션 매칭과 고객자산의 안정성을 위해 우량 장기물 투자를 선호한다. 연기금은 장기자금 운용 측면에서 보험사와 유사하지만 보다 적극적이고, 자산운용사는 적극적 운용을 위해 장기채와 신용물을 운용하는 것으로 정리된다.</div>
+    </div></div>
+    <!-- Q10 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q10</span> 채권의 분류 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">발행주체에 따른 채권에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 국채는 전문딜러제도를 이용해 발행한다.</button>
+        <button class="q-option">② 지방채는 규모가 크고 거래도 활발하게 이루어진다.</button>
+        <button class="q-option">③ 특수채는 안정성이 높고 장기물발행이 가능하다.</button>
+        <button class="q-option">④ 회사채를 발행하기 위해서는 2곳 이상의 신용평가기관으로부터 신용등급을 받아야 한다.</button>
+      </div>
+      <div class="explain">지방채는 규모가 크지 않고 거래도 활발하지 않다. 지방개발 재원이 주로 지방공기업의 채권발행으로 조달되어 지방채 시장이 충분히 활성화되지 못했다고 설명한다. 회사채는 2곳 이상의 신용평가기관에서 신용등급을 받아야 하며 ABS는 1곳 이상이다.</div>
+    </div></div>
+    <!-- Q11 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q11</span> 채권의 수익과 위험 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">다음 중 채권투자의 위험에 해당하는 것을 모두 묶은 것은?<br>ㄱ 채무불이행위험<br>ㄴ 가격변동위험<br>ㄷ 재투자위험<br>ㄹ 인플레이션위험<br>ㅁ 유동성위험<br>ㅂ 수의상환위험<br>ㅅ 부외거래위험<br>ㅇ 금융기관위험</div>
+      <div class="q-options">
+        <button class="q-option">① ㄱ,ㄴ,ㄷ,ㄹ,ㅁ</button>
+        <button class="q-option">② ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ</button>
+        <button class="q-option">③ ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅅ</button>
+        <button class="q-option">④ ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅅ,ㅇ</button>
+      </div>
+      <div class="explain">채권투자의 주요 위험은 채무불이행위험, 가격변동위험, 재투자위험, 인플레이션위험, 유동성위험, 수의상환위험이다(부외거래위험·금융기관위험은 해당하지 않는다). 가격변동위험과 재투자위험은 금리변동에 대해 상반된 방향으로 작용하며, 수의상환위험은 시장금리가 하락할 때 발행자가 조기상환하면 기대수익률을 달성하지 못할 수 있는 위험이다.</div>
+    </div></div>
+    <!-- Q12 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q12</span> 채권가격 결정과정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">잔존만기가 2년 15일 남은 할인채의 액면가가 10,000원, 만기가 3년, 표면이율이 8%, 만기수익률이 10%일 때 이 채권의 가격을 구하는 식으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① P = 10,000 ÷ [(1+0.10)<sup>2</sup> × (1+0.10×15/365)]</button>
+        <button class="q-option">② P = 10,000/(1+0.10)<sup>3</sup> + 800/(1+0.10)<sup>3</sup></button>
+        <button class="q-option">③ P = 10,800 ÷ [(1+0.08)<sup>2</sup> × (1+0.08×15/365)]</button>
+        <button class="q-option">④ P = 10,000 ÷ (1+0.10)<sup>2×15</sup></button>
+      </div>
+      <div class="explain">할인채는 만기 전 이자 현금흐름이 없고 만기에 액면금액만 지급하므로 10,000원을 만기수익률 10%로 할인한다. 연 단위 2년은 복리로 할인하고, 나머지 15일은 단리로 할인하므로 P = 10,000 ÷ [(1.10)<sup>2</sup>×(1+0.10×15/365)]가 된다. 표면이율 8%는 할인채의 중간 현금흐름 계산에 사용하지 않는다.</div>
+    </div></div>
+    <!-- Q13 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q13</span> 채권가격 결정과정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 조건을 지닌 이표채를 발행 당일에 유통수익률 8%로 매매하려고 할 때 관행적 방식에 의한 세전 단가를 구하는 식으로 옳은 것은? (액면금액 10,000원, 만기 3년, 매 3개월 후급, 표면이율 6%)</div>
+      <div class="q-options">
+        <button class="q-option">① P = Σ<sub>t=1</sub><sup>3</sup> 600/(1+0.08)<sup>t</sup> + 10,600/(1+0.08)<sup>3</sup></button>
+        <button class="q-option">② P = Σ<sub>t=1</sub><sup>6</sup> 300/(1+0.08/2)<sup>t</sup> + 10,300/(1+0.08/2)<sup>6</sup></button>
+        <button class="q-option">③ P = Σ<sub>t=1</sub><sup>12</sup> 150/(1+0.08)<sup>t</sup> + 10,150/(1+0.08)<sup>12</sup></button>
+        <button class="q-option">④ P = Σ<sub>t=1</sub><sup>12</sup> 150/(1+0.08/4)<sup>t</sup> + 10,000/(1+0.08/4)<sup>12</sup></button>
+      </div>
+      <div class="explain">표면이율 6%이므로 연 이자는 600원이고 3개월마다 지급하는 이자는 150원이다. 3년 동안 총 12회의 이자 현금흐름이 발생하며, 유통수익률 8%도 분기 단위로 환산해 0.08/4를 사용한다. 따라서 각 150원을 12회 할인하고 만기 액면 10,000원을 같은 분기 할인율로 할인한 현재가치를 합산한다.</div>
+    </div></div>
+    <!-- Q14 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q14</span> 채권가격 결정과정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 중 채권가격의 정리에 대한 설명으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권의 잔존만기가 길어질수록 동일한 수익률변동에 대한 가격변동폭은 작아진다.</button>
+        <button class="q-option">② 채권의 수익률이 하락하면 채권가격은 상승한다.</button>
+        <button class="q-option">③ 채권의 잔존만기가 길어짐으로써 증가하는 가격변동률은 체증한다.</button>
+        <button class="q-option">④ 동일한 크기의 수익률변동이 발생하면 채권의 가격변동률은 수익률이 하락할 때와 상승할 때 모두 동일하다.</button>
+      </div>
+      <div class="explain">채권가격과 채권수익률은 역의 관계이므로 수익률이 하락하면 가격은 상승한다. 말킬의 정리에 따르면 잔존만기가 길수록 동일한 수익률변동에 대한 가격변동폭은 커지지만 그 증가율은 체감한다. 또한 볼록성 때문에 같은 폭의 금리변동이라도 금리 하락에 따른 가격상승폭이 금리 상승에 따른 가격하락폭보다 크다.</div>
+    </div></div>
+    <!-- Q15 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q15</span> 채권의 투자위험도 측정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">듀레이션(Duration)의 특징에 대한 설명 중 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기 시 일시상환채권의 듀레이션은 채권의 잔존만기와 동일하다.</button>
+        <button class="q-option">② 이표채의 듀레이션은 채권의 잔존만기보다 작다.</button>
+        <button class="q-option">③ 채권의 시장수익률이 높을수록 듀레이션은 작아진다.</button>
+        <button class="q-option">④ 이표채는 표면이율이 높을수록 듀레이션이 커진다.</button>
+      </div>
+      <div class="explain">이표채는 표면이율이 높을수록 중간 현금흐름의 비중이 커져 원금 회수의 가중평균 시점이 앞당겨지므로 듀레이션이 작아진다. 일반적으로 만기가 길수록 듀레이션은 커지고, 만기수익률이 높을수록 듀레이션은 작아지며, 이자지급 빈도가 증가해도 듀레이션은 작아진다.</div>
+    </div></div>
+    <!-- Q16 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q16</span> 채권의 투자위험도 측정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">컨벡시티(볼록성)에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 듀레이션이 증가할수록 컨벡시티는 가속도로 증가한다.</button>
+        <button class="q-option">② 만기수익률의 수준이 높을수록 컨벡시티는 증가한다.</button>
+        <button class="q-option">③ 만기와 수익률이 일정하면 이표가 낮을수록 컨벡시티가 커진다.</button>
+        <button class="q-option">④ 채권 현금흐름의 분산도가 클수록 컨벡시티가 높다.</button>
+      </div>
+      <div class="explain">만기수익률 수준이 낮을수록 컨벡시티는 증가한다. 볼록성은 듀레이션의 선형 가격변동 추정에서 발생하는 오차를 보정한다. 수익률이 상승할 때는 듀레이션만으로 추정한 가격하락폭을 줄이고, 수익률이 하락할 때는 추정 가격상승폭을 확대하는 방향으로 작용한다.</div>
+    </div></div>
+    <!-- Q17 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q17</span> 채권의 투자위험도 측정 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">잔존만기가 3년, 표면이율이 8%인 연 단위 후급 이표채의 만기수익률이 10%이고 듀레이션이 2.78년이다. 만기수익률이 8%로 하락할 경우 듀레이션을 이용하여 추정한 채권가격의 변동률로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 5.6% 상승</button>
+        <button class="q-option">② 5.6% 하락</button>
+        <button class="q-option">③ 5.05% 상승</button>
+        <button class="q-option">④ 5.05% 하락</button>
+      </div>
+      <div class="explain">수정듀레이션은 D<sub>M</sub> = D/(1+r) = 2.78/1.10 ≈ 2.527이다. 수익률 변화는 Δr = 0.08-0.10 = -0.02이므로 가격변동률은 ΔP/P ≈ -D<sub>M</sub>×Δr = -2.527×(-0.02) = 0.05054이다. 따라서 약 5.05% 상승한다. 금리와 채권가격이 반대로 움직인다는 부호 관계도 함께 확인해야 한다.</div>
+    </div></div>
+    <!-- Q18 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q18</span> 채권의 투자수익성 측정 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">만기가 2년이고 액면 10,000원, 연 단위 5% 복리채의 1년째 지급액(A)과 만기 시 지급액(B)의 현금흐름으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① A 500원, B 10,500원</button>
+        <button class="q-option">② A 500원, B 10,525원</button>
+        <button class="q-option">③ A 0원, B 11,000원</button>
+        <button class="q-option">④ A 0원, B 11,025원</button>
+      </div>
+      <div class="explain">복리채는 중간에 이자를 지급하지 않고 이자를 원금에 가산해 재투자한 뒤 만기에 원금과 이자를 함께 지급한다. 따라서 1년째 현금흐름은 0원이고 만기 지급액은 10,000×(1.05)<sup>2</sup>=11,025원이다.</div>
+    </div></div>
+    <!-- Q19 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q19</span> 채권의 투자수익성 측정 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권수익률에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기수익률은 투자기간 중 실제로 실현된 이자수입과 이자의 재투자수익 그리고 자본손익의 합계액인 실현총수익에 대한 매입가격의 비율을 말한다.</button>
+        <button class="q-option">② 연평균수익률은 단순평균수익률이기 때문에 이자의 이자, 투자기간 등을 반영하지 못한다.</button>
+        <button class="q-option">③ 중도상환수익률의 산식은 만기수익률의 산식과 동일하나 만기까지의 기간이 다르다.</button>
+        <button class="q-option">④ 발행수익률은 동일채권에 대하여 하나밖에 없지만, 유통수익률은 유통 시마다 다르다.</button>
+      </div>
+      <div class="explain">①은 만기수익률이 아니라 실효수익률에 대한 설명이다. 만기수익률(YTM)은 만기까지 발생하는 원리금 현금흐름의 현재가치 합을 현재 채권가격과 일치시키는 할인율이다. 실효수익률은 실제 투자기간 동안 발생한 최종 총수입을 투자원금과 비교해 복리로 측정한다.</div>
+    </div></div>
+    <!-- Q20 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q20</span> 채권의 투자수익성 측정 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">다음 중 채권투자수익에 대한 설명으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 할인채의 가격수익은 (+)이고 할증채의 가격수익은 (-)이다.</button>
+        <button class="q-option">② 시장수익률이 하락하는 경우 가격수익은 (-)이다.</button>
+        <button class="q-option">③ 보유기간이 길 경우 재투자수익이 총수익에 미치는 영향이 가장 적다.</button>
+        <button class="q-option">④ 보유기간이 짧은 경우 시장수익률의 변화가 클수록 가격요소가 총수익에 미치는 영향은 감소한다.</button>
+      </div>
+      <div class="explain">할인채는 액면보다 낮은 가격으로 매입하고 만기에 액면을 받으므로 가격수익이 양(+)이고, 할증채는 액면보다 높은 가격으로 매입해 만기에 액면을 받으므로 가격수익이 음(-)이다. 시장수익률이 하락하면 채권가격은 상승해 가격수익은 양(+)이 되며, 보유기간이 길수록 재투자수익의 영향이 커진다.</div>
+    </div></div>
+    <!-- Q21 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q21</span> 수익률곡선 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">수익률곡선 이론 중 불편기대가설에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 수익률곡선에는 미래의 단기수익률들에 대한 투자자의 기대가 반영되어 있다.</button>
+        <button class="q-option">② 단기채와 장기채는 불완전대체관계에 있다.</button>
+        <button class="q-option">③ 다양한 형태의 수익률곡선을 잘 설명할 수 있다.</button>
+        <button class="q-option">④ 투자자들은 위험중립형 투자자이다.</button>
+      </div>
+      <div class="explain">불편기대가설에서는 단기채와 장기채를 완전대체관계로 본다. 투자자는 위험중립적이며 장기채 수익률은 미래 단기수익률에 대한 기대를 반영한다. 미래 금리 상승 예상은 상승형, 하락 예상은 하강형, 불변 예상은 수평형 수익률곡선으로 설명한다.</div>
+    </div></div>
+    <!-- Q22 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q22</span> 채권투자전략 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권투자전략에 대한 설명 중 옳은 것들로만 묶인 것은?<br>㉠ 면역전략은 투자기간과 잔존만기를 일치시키는 전략이다.<br>㉡ 인덱스전략은 구성종목의 숫자가 작을수록 추적오차가 감소한다.<br>㉢ 현금흐름일치전략은 일치시켜야 할 현금흐름이 단순할수록 효과적인 포트폴리오를 구성할 수 있다.<br>㉣ 상황대응적 면역전략에서는 최소한의 포트폴리오 목표수익률을 정한다.</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠, ㉡</button>
+        <button class="q-option">② ㉡, ㉢</button>
+        <button class="q-option">③ ㉢, ㉣</button>
+        <button class="q-option">④ ㉠, ㉢, ㉣</button>
+      </div>
+      <div class="explain">㉢과 ㉣이 옳다. 면역전략은 투자기간과 잔존만기가 아니라 투자기간과 포트폴리오 듀레이션을 일치시키는 전략이다. 인덱스전략은 구성종목 수가 작을수록 기준지수를 충분히 복제하기 어려워 추적오차가 증가한다.</div>
+    </div></div>
+    <!-- Q23 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q23</span> 적극적 투자전략 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 중 금리상승이 기대될 때 취할 수 있는 전략은?</div>
+      <div class="q-options">
+        <button class="q-option">① 변동금리 채권을 고정금리 채권으로 교체</button>
+        <button class="q-option">② 듀레이션이 높은 채권으로 교체</button>
+        <button class="q-option">③ 장기채권 매도, 단기채권 매수</button>
+        <button class="q-option">④ 사다리형 포트폴리오 구축</button>
+      </div>
+      <div class="explain">금리상승이 예상되면 채권가격 하락이 예상되므로 가격민감도가 낮은 짧은 듀레이션의 채권이 유리하다. 따라서 장기채를 매도하고 단기채를 매수한다. 반대로 금리하락이 예상되면 듀레이션이 긴 장기채와 표면이율이 낮은 채권이 가격상승 측면에서 유리하다.</div>
+    </div></div>
+    <!-- Q24 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q24</span> 적극적 투자전략 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">수익률곡선타기전략에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 수익률곡선이 우상향하고, 그 모양이 투자기간 동안 불변일 경우 사용 가능한 전략이다.</button>
+        <button class="q-option">② 단기채권과 장기채권만 보유하고, 중기채권은 매도하는 전략이다.</button>
+        <button class="q-option">③ 롤링효과(Rolling Effect)는 잔존만기가 단축됨에 따라 수익률이 하락하는 장기채 효과이다.</button>
+        <button class="q-option">④ 숄더효과(Shoulder Effect)는 각 잔존연수마다 수익률의 격차가 일정하지 않고 만기가 짧아질수록 수익률의 하락폭이 커지는 단기채 효과이다.</button>
+      </div>
+      <div class="explain">단기채와 장기채만 보유하고 중기채를 매도하는 것은 나비형 투자전략이다. 수익률곡선타기전략은 우상향 수익률곡선의 형태가 유지된다는 전제에서 만기 단축에 따른 수익률 하락과 가격상승 효과를 활용한다.</div>
+    </div></div>
+    <!-- Q25 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q25</span> 소극적 투자전략 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 채권투자전략 중 일정 기간마다 현금흐름이 있어서 유동성이 높고, 일정 기간이 경과한 이후부터는 이 현금흐름을 장기채권에 다시 투자할 수 있어 수익률의 평준화를 기대할 수 있는 전략은?</div>
+      <div class="q-options">
+        <button class="q-option">① Bullet형 만기전략</button>
+        <button class="q-option">② Barbell형 만기전략</button>
+        <button class="q-option">③ 수익률곡선타기전략</button>
+        <button class="q-option">④ 사다리형 만기전략</button>
+      </div>
+      <div class="explain">사다리형 만기운용전략은 각 잔존기간별 채권보유량을 고르게 유지한다. 만기가 순차적으로 돌아오므로 일정한 현금흐름과 유동성을 확보할 수 있고, 만기자금을 다시 장기채에 투자하면서 금리변동에 따른 수익률과 위험을 평준화한다.</div>
+    </div></div>
+    <!-- Q26 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q26</span> 새로운 형태의 증권 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">특정한 상황에 처할 경우 채권이 자본으로 전환되거나 상각되는 채권은?</div>
+      <div class="q-options">
+        <button class="q-option">① 자산유동화증권(ABS)</button>
+        <button class="q-option">② 신종자본증권</button>
+        <button class="q-option">③ 조건부자본증권</button>
+        <button class="q-option">④ 이중상환청구권부채권</button>
+      </div>
+      <div class="explain">조건부자본증권은 금융회사의 심각한 재무적 위기 등 특정 조건이 발생하면 주식으로 전환되거나 상각되는 채권이다. 후순위성이 강해 일반채권보다 높은 금리를 제공할 수 있으나 조건 충족 시 손실흡수 기능이 작동한다.</div>
+    </div></div>
+    <!-- Q27 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q27</span> 새로운 형태의 증권 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">교환사채(EB)에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 발행사가 보유한 주식으로 교환될 수 있는 권리가 부여된 사채이다.</button>
+        <button class="q-option">② 발행사의 주식이 아닌 발행사가 보유한 주식으로 교환된다.</button>
+        <button class="q-option">③ 주식 취득 시 신규자금이 지출되지 않는다.</button>
+        <button class="q-option">④ 투자 여부는 패리티(Parity)로 판단한다.</button>
+      </div>
+      <div class="explain">패리티로 투자판단을 하는 것은 전환사채(CB)에 대한 설명이다. 교환사채(EB)는 발행사가 보유한 주식으로 교환되는 권리가 붙은 사채로, 발행기업 자신의 신주로 전환되는 CB와 다르며 주식 취득 시 별도의 신규자금이 필요하지 않다는 점에서 BW와도 다르다.</div>
+    </div></div>
+    <!-- Q28 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q28</span> 새로운 형태의 증권 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">자산유동화증권(ABS: Asset Backed Security)에 대한 설명 중 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 자산유동화증권을 발행하는 주체를 자산보유자(Originator)라고 부른다.</button>
+        <button class="q-option">② 기초자산에서 발생하는 현금을 그대로 투자자에게 이전하는 방식을 Pass-Through 방식이라 한다.</button>
+        <button class="q-option">③ 자산유동화증권의 기초자산으로는 주택저당채권, 자동차 할부금융, 대출채권, 신용카드계정, 리스채권 등이 있다.</button>
+        <button class="q-option">④ 자산유동화증권은 부외화의 효과를 거둘 수 있기 때문에 자기자본관리를 강화하는 방안으로 활용할 수 있다.</button>
+      </div>
+      <div class="explain">자산보유자(Originator)는 유동화할 자산을 보유한 금융기관 등이며, ABS를 실제 발행해 투자자에게 판매하는 주체는 유동화전문회사인 SPC다. ABS에서는 발행자 자체 신용보다 기초자산의 신용상태가 중요하고, 선·후순위 구조나 초과담보 등의 신용보강을 사용할 수 있다.</div>
+    </div></div>
+    <!-- Q29 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q29</span> 옵션이 첨부된 채권 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">액면가가 10,000원인 A기업 전환사채의 시장가격은 15,000원이다. A기업의 현재 주가가 7,000원이고 전환사채의 전환가격이 5,000원이라면, 이 전환사채의 전환프리미엄(괴리)은 얼마인가?</div>
+      <div class="q-options">
+        <button class="q-option">① 1,000원</button>
+        <button class="q-option">② 2,000원</button>
+        <button class="q-option">③ 5,000원</button>
+        <button class="q-option">④ 10,000원</button>
+      </div>
+      <div class="explain">전환주수는 10,000÷5,000=2주이고 전환가치(패리티가치)는 7,000×2=14,000원이다. 전환프리미엄은 전환사채 시장가격에서 전환가치를 차감하므로 15,000-14,000=1,000원이다.</div>
+    </div></div>
+  </div>
+</section>
+
+<section role="tabpanel" id="tab12" aria-labelledby="t12">
+  <div class="quiz-head">
+    <div>
+      <h2>심화(H)</h2>
+    </div>
+    <div class="score">
+      <div class="score-item"><b id="c12">0</b><small>정답</small></div>
+      <div class="score-item"><b id="w12">0</b><small>오답</small></div>
+      <div class="score-item"><b id="r12">48</b><small>남음</small></div>
+    </div>
+    <button class="reset-btn" onclick="resetQuiz('q12')">다시 풀기</button>
+    <div class="quiz-progress" style="flex-basis:100%"><div class="quiz-progress-bar" id="pb12"></div></div>
+  </div>
+  <div id="q12">
+    <!-- Q01 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q01</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권의 기본적 특성과 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권은 발행자격의 법적 제한 없이 이사회 결의를 통하여 자율적으로 발행할 수 있다.</button>
+        <button class="q-option">② 채권은 발행 시 약속한 확정이자율 또는 이자율 결정기준에 따라 이자가 확정적으로 지급 되는 채무증서이다.</button>
+        <button class="q-option">③ 채권발행에 의한 자금조달은 한시적이며 원리금에 대한 상환기간이 정해져 있다.</button>
+        <button class="q-option">④ 채권은 CD, CP 등에 비하여 장기상환기간을 가지고 있다.</button>
+      </div>
+      <div class="explain">채권은 발행자격의 법적 제한, 이자지급증권, 기한부증권, 장기증권이라는 특징을 갖고 있다. 채권은 누구나 발행할 수 있는 것이 아니라 발행주체의 자격요건 및 발행요건 등이 법으로 정해져 있다. 따라서 일반 차용증서와 달리 법적인 제약과 보호를 받게 된다.</div>
+    </div></div>
+    <!-- Q02 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q02</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">다음 중 채권에 대한 설명으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권의 단가는 액면 10,000원을 기준으로 산정 표시한다.</button>
+        <button class="q-option">② 표면이율은 시장수익률, 유통수익률 또는 수익률이라고도 한다.</button>
+        <button class="q-option">③ 채권의 발행으로부터 원금상환이 이루어지기까지의 기간을 잔존기간이라 한다.</button>
+        <button class="q-option">④ 채권의 발행일 혹은 매출일로부터 매매일까지의 기간을 만기기간이라 한다.</button>
+      </div>
+      <div class="explain">② 만기수익률에 대한 설명이다.<br>③ 채권의 발행으로부터 원금상환이 이루어지기까지의 기간을 만기기간이라 한다.<br>④ 채권의 발행일 혹은 매출일로부터 매매일까지의 기간을 경과기간이라 한다.</div>
+    </div></div>
+    <!-- Q03 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q03</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">발행주체에 따라 채권을 분류한 것으로 바르게 연결된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 국채 - 지역개발채권</button>
+        <button class="q-option">② 특수채 — 신주인수권부사채권</button>
+        <button class="q-option">③ 금융채 - 통화안정증권</button>
+        <button class="q-option">④ 지방채 - 한국도로공사채권</button>
+      </div>
+      <div class="explain">① 지역개발채권은 지방채에 해당한다.<br>② 신주인수권부사채권은 회사채(사채권)에 해당한다.<br>③ 통화안정증권은 금융채에 해당한다. (옳은 연결)<br>④ 한국도로공사채권은 특수채에 해당한다.</div>
+    </div></div>
+    <!-- Q04 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q04</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권의 발행 방법에 대한 설명 중 잘못된 것으로만 묶인 것은?<br>㉠ Dutch방식은 경쟁입찰방식 중 하나이다.<br>㉡ 무보증회사채는 매출발행의 비중이 가장 높다.<br>㉢ Conventional방식은 복수의 낙찰수익률이 생긴다.<br>㉣ 총액인수방식은 직접발행방식이다.</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠, ㉡</button>
+        <button class="q-option">② ㉠, ㉢</button>
+        <button class="q-option">③ ㉡, ㉣</button>
+        <button class="q-option">④ ㉢, ㉣</button>
+      </div>
+      <div class="explain">㉡ 무보증회사채는 간접모집의 일종인 총액인수방식에 의하여 주로 발행된다.<br>㉣ 총액인수방식은 발행의 위험을 발행기관이 부담하는 간접발행방식이다.</div>
+    </div></div>
+    <!-- Q05 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q05</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">다음 설명에 해당하는 채권의 직접모집 방법으로 옳은 것은? · 발행기관이 내부적으로 정한 내정수익률 이하에서 낮은 수익률 응찰분부터 발행예정액에 도달하기까지 순차적으로 낙찰자를 결정한다. · 이때 모든 낙찰자에게는 낙찰된 수익률 중 가장 높은 수익률이 일률적으로 통일적용되어 발 행이 이루어진다.</div>
+      <div class="q-options">
+        <button class="q-option">① 단일가격(수익률)경매방식</button>
+        <button class="q-option">② 복수가격(수익률)경매방식</button>
+        <button class="q-option">③ 비경쟁입찰</button>
+        <button class="q-option">④ 매출발행</button>
+      </div>
+      <div class="explain">단일가격(수익률)경매방식인 Dutch방식에 대한 설명이다.</div>
+    </div></div>
+    <!-- Q06 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q06</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권발행에 대한 설명으로 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① Conventional방식은 모든 낙찰자에게 낙찰된 수익률 중 가장 높은 수익률이 일률적으로 통일 적용됨으로써 단일가격으로 발행이 이루어진다.</button>
+        <button class="q-option">② Dutch방식은 직접공모방식이다.</button>
+        <button class="q-option">③ 총액인수방식은 발행기관이 총액을 인수하여 기관들의 책임으로 매출하는 방식이다.</button>
+        <button class="q-option">④ 위탁모집은 발행자가 위험부담을 진다.</button>
+      </div>
+      <div class="explain">Conventional방식은 최저수익률부터 발행예정액에 달할 때까지 순차적으로 낙찰자를 결정하는 방법으로, 제시한 수익률을 차등적용하여 복수의 낙찰가격이 생기게 된다.</div>
+    </div></div>
+    <!-- Q07 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q07</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">채권발행방법 중 사모발행에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 위탁모집, 잔액인수, 총액인수의 방법이 있다.</button>
+        <button class="q-option">② 소수투자자와 사적 교섭으로 채권을 매각하는 방법이다.</button>
+        <button class="q-option">③ 투자자는 주로 기관투자자이며, 공모채보다 이자율이 높고 만기가 짧은 것이 일반적이다.</button>
+        <button class="q-option">④ 유동성이 낮은 회사채의 발행에 주로 활용된다.</button>
+      </div>
+      <div class="explain">위탁모집, 잔액인수, 총액인수의 방법은 공모발행 중 간접모집의 방식이다.</div>
+    </div></div>
+    <!-- Q08 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q08</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">다음 채권신용등급 중 투자등급의 최하위등급은?</div>
+      <div class="q-options">
+        <button class="q-option">① AAA</button>
+        <button class="q-option">② BBB(-)</button>
+        <button class="q-option">③ BB</button>
+        <button class="q-option">④ B</button>
+      </div>
+      <div class="explain">BBB(-) 이상을 투자등급으로 하며, BB 이하는 투기등급으로 간주한다.</div>
+    </div></div>
+    <!-- Q09 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q09</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">채권발행자가 약속된 이자와 원금을 상환하지 않을 위험으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채무불이행위험</button>
+        <button class="q-option">② 가격변동위험</button>
+        <button class="q-option">③ 재투자위험</button>
+        <button class="q-option">④ 유동성위험</button>
+      </div>
+      <div class="explain">발행사의 경영실적 악화에 따라 원금 및 이자상환이 불가능한 위험을 채무불이행위험이라고 한다.</div>
+    </div></div>
+    <!-- Q10 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q10</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권의 만기까지 현금흐름이 여러 번 발생하기 때문에 생기는 위험으로 투자 후 수익률 의 변동성이 높을수록 증가하는 위험으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채무불이행위험</button>
+        <button class="q-option">② 인플레이션위험</button>
+        <button class="q-option">③ 재투자위험</button>
+        <button class="q-option">④ 가격변동위험</button>
+      </div>
+      <div class="explain">채권의 만기까지 이자의 수령과 재투자라는 현금흐름이 있기 때문에 재투자위험이 발생한다. 수익률의 변동성이 높다면 중도 에 지급받는 이자의 재투자수익률에 영향을 주게 된다.</div>
+    </div></div>
+    <!-- Q11 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q11</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 복리채권의 조건을 보고 시장수익률로 매매할 경우 관행적 방식에 의한 세전 매매단가를 구하면?<br>· 연 단위 복리채<br>· 만기상환금액: 12,153원<br>· 잔존만기: 2년 73일<br>· 시장수익률: 10%</div>
+      <div class="q-options">
+        <button class="q-option">① 9,846원</button>
+        <button class="q-option">② 10,525원</button>
+        <button class="q-option">③ 10,846원</button>
+        <button class="q-option">④ 11,525원</button>
+      </div>
+      <div class="explain">관행적 방식에 의한 연 단위 복리채의 매매단가는 P = 만기상환금액 ÷ [(1+r)ⁿ × (1+r×d/365)]이다. P = 12,153 ÷ [(1+0.1)² × (1+0.1×73/365)] = 12,153 ÷ 1.2342 ≈ 9,846.86원</div>
+    </div></div>
+    <!-- Q12 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q12</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">만기 1년 단리채의 표면금리가 5%, 잔존만기가 200일이다. 채권수익률이 7%라고 가정할 때 이 채권의 세전 매매단가를 구하는 공식으로 옳은 것은? (단, 액면금액은 10,000원)</div>
+      <div class="q-options">
+        <button class="q-option">① P = 10,000 ÷ (1 + 0.05 × 200/365)</button>
+        <button class="q-option">② P = 10,000 ÷ (1 + 0.07 × 200/365)</button>
+        <button class="q-option">③ P = 10,500 ÷ (1 + 0.07 × 200/365)</button>
+        <button class="q-option">④ P = 10,700 ÷ (1 + 0.05 × 200/365)</button>
+      </div>
+      <div class="explain">관행적 방식에 의한 만기 시 일시상환채권(단리채)의 가격산정방법은 P = (액면금액+표면이자) ÷ (1+r×잔존일수/365)이다. 표면이자는 10,000×5%=500원이므로 P = 10,500 ÷ (1+0.07×200/365)이다.</div>
+    </div></div>
+    <!-- Q13 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q13</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">만기일에 상환받는 금액이 가장 큰 채권은? (단, 액면금액은 모두 동일하다고 가정)</div>
+      <div class="q-options">
+        <button class="q-option">① 표면이율 6%, 만기 1년인 할인채</button>
+        <button class="q-option">② 표면이율 5%, 만기 5년인 연 단위 복리채</button>
+        <button class="q-option">③ 표면이율 5%, 만기 5년인 3개월 단위 복리채</button>
+        <button class="q-option">④ 표면이율 6%, 만기 5년인 6개월 이자 후급 이표채</button>
+      </div>
+      <div class="explain">복리채의 경우 복리로 누적된 이자와 원금을 만기에 함께 수령하므로 동일한 조건의 할인채나 이표채보다 수령액이 크다. 또 한 같은 5년 만기라도 1년에 한 번씩 부리하는 연 단위 복리채보다 3개월에 한 번씩 부리하는 복리채의 만기수령액이 더 크다.</div>
+    </div></div>
+    <!-- Q14 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q14</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">다음 조건의 채권을 2025년 6월 15일에 시장수익률 4.2%로 매입하여 만기일까지 보유하면 매 이자지급일에 액면 10,000원당 ( )원의 이자를 총 ( )회 수령하게 된다. 빈칸 안에 들어갈 말을 순서대로 나열한 것은?<br>· 발행일: 2017년 7월 3일<br>· 만기일: 2027년 7월 3일<br>· 표면이율: 4%<br>· 이자지급 단위기간: 6개월 후급</div>
+      <div class="q-options">
+        <button class="q-option">① 200, 5</button>
+        <button class="q-option">② 220, 5</button>
+        <button class="q-option">③ 200, 6</button>
+        <button class="q-option">④ 220, 6</button>
+      </div>
+      <div class="explain">연 4%의 쿠폰을 연 2회 수령하므로, 액면 10,000원당 200원의 이자를 총 5회 수령하게 된다.</div>
+    </div></div>
+    <!-- Q15 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q15</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 중 말킬의 채권가격의 정리에 대한 설명으로 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권의 잔존만기가 길수록 금리변동에 따른 채권가격변동폭은 커진다.</button>
+        <button class="q-option">② 채권의 잔존만기가 길수록 금리변동에 따른 채권가격변동폭은 커지나 그 변동률은 체감 한다.</button>
+        <button class="q-option">③ 만기가 일정할 때 채권수익률의 하락으로 인한 가격상승폭은 같은 폭의 채권수익률의 상 승으로 인한 가격하락폭보다 작다.</button>
+        <button class="q-option">④ 표면이자율이 높을수록 금리 변동에 따른 가격의 변동률이 작다.</button>
+      </div>
+      <div class="explain">만기가 일정할 때 채권수익률의 하락으로 인한 가격상승폭은 같은 폭의 채권수익률의 상승으로 인한 가격하락폭보다 더 크다.</div>
+    </div></div>
+    <!-- Q16 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q16</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">말킬의 채권가격의 정리에 대한 설명으로 가장 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권의 잔존만기가 짧을수록 동일한 수익률변동에 대한 가격변동률이 커진다.</button>
+        <button class="q-option">② 표면이율이 낮을수록 동일한 수익률변동에 대한 가격 변동률이 커진다.</button>
+        <button class="q-option">③ 동일한 수익률변동에 대한 채권가격의 변동률은 수익률이 상승할 때와 하락할 때가 동일 하지 않다.</button>
+        <button class="q-option">④ 채권가격은 수익률과 반대방향으로 움직인다.</button>
+      </div>
+      <div class="explain">채권의 잔존만기가 길수록 동일한 수익률변동에 대한 가격변동률이 커진다.</div>
+    </div></div>
+    <!-- Q17 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q17</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권가격과 채권수익률에 대한 설명으로 잘못된 것을 모두 고른 것은?<br>㉠ 채권가격은 수익률과 반대방향으로 움직인다.<br>㉡ 채권의 잔존만기가 길수록 동일한 수익률변동에 대한 가격변동률은 커진다.<br>㉢ 채권의 잔존만기가 길어짐으로써 발생하는 가격변동률은 체증한다.<br>㉣ 동일한 크기의 수익률변동이 발생한 경우 수익률이 하락할 때와 상승할 때가 동일하다.</div>
+      <div class="q-options">
+        <button class="q-option">① ㉠, ㉡</button>
+        <button class="q-option">② ㉡, ㉢</button>
+        <button class="q-option">③ ㉠, ㉣</button>
+        <button class="q-option">④ ㉢, ㉣</button>
+      </div>
+      <div class="explain">㉢ 채권의 잔존만기가 길어짐으로써 발생하는 가격변동률은 체감한다.<br>㉣ 동일한 크기의 수익률변동이 발생한 경우 수익률이 하락할 때와 상승할 때가 동일하지 않다.</div>
+    </div></div>
+    <!-- Q18 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q18</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권가격 및 수익률에 관한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 만기수익률의 변동에 따른 채권가격의 변동률은 만기가 길수록 크다.</button>
+        <button class="q-option">② 만기가 일정하다면 수익률하락으로 인한 가격상승폭이 같은 폭의 수익률상승으로 인한 가 격하락폭보다 크다.</button>
+        <button class="q-option">③ 만기수익률이 변하면 표면이자율이 작을수록 채권가격은 하락한다.</button>
+        <button class="q-option">④ 만기수익률이 변하면 채권가격의 변동폭은 만기가 길수록 커지고 변동률은 체감한다.</button>
+      </div>
+      <div class="explain">만기수익률이 변하면 표면이자율이 작을수록 채권가격은 상승한다.</div>
+    </div></div>
+    <!-- Q19 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q19</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 중 듀레이션에 대한 내용으로 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 이표채의 듀레이션은 잔존만기보다 클 수 없다.</button>
+        <button class="q-option">② 다른 조건이 동일하다면 표면금리가 낮을수록 듀레이션이 작다.</button>
+        <button class="q-option">③ 다른 조건이 동일하다면 만기가 길수록 듀레이션도 크다.</button>
+        <button class="q-option">④ 듀레이션은 현가로 산출된 가중평균만기이다.</button>
+      </div>
+      <div class="explain">다른 조건이 동일하다면 표면금리가 낮을수록 듀레이션은 크다.</div>
+    </div></div>
+    <!-- Q20 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q20</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">아래 내용에 제시된 채권들은 연 단위 후급 이표채들이다. 듀레이션이 작은 채권부터 순 서대로 바르게 나열된 것은? 구분 표면이율(%) 잔존만기 (년) 시장수익률(%) 채권 A 5 4 5 채권 B 6 4 5 채권 C 6 4 6 채권 D 6 3 6</div>
+      <div class="q-options">
+        <button class="q-option">① A&lt;B&lt;C&lt;D</button>
+        <button class="q-option">② D&lt;A&lt;B&lt;C</button>
+        <button class="q-option">③ D&lt;B&lt;A&lt;C</button>
+        <button class="q-option">④ D&lt;C&lt;B&lt;A</button>
+      </div>
+      <div class="explain">이표채의 듀레이션은 잔존만기가 짧을수록, 표면이율이 높을수록, 시장수익률이 높을수록 작게 나타난다. 실제 이들 채권의 듀레이션을 산출해 보면 채권 A = 3.72 년, 채권 B = 3.68 년, 채권 C = 3.67년, 채권 D = 2.83 년이므로, D&lt;C&lt;B&lt; A 이다.</div>
+    </div></div>
+    <!-- Q21 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q21</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">컨벡시티의 특징으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 동일한 듀레이션에서 컨벡시티가 큰 채권은 작은 채권보다 수익률의 상승이나 하락에 관 계 없이 항상 높은 가격을 지닌다.</button>
+        <button class="q-option">② 채권의 컨벡시티는 듀레이션이 증가함에 따라 감소한다.</button>
+        <button class="q-option">③ 수익률과 만기가 일정할 때 이표율이 낮을수록 채권의 컨벡시티는 커진다.</button>
+        <button class="q-option">④ 만기수익률이 높을수록 컨벡시티는 감소한다.</button>
+      </div>
+      <div class="explain">채권의 컨벡시티는 듀레이션이 증가함에 따라 증가한다.</div>
+    </div></div>
+    <!-- Q22 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q22</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">잔존만기가 3년, 표면이율이 8%인 연 단위 후급 이표채의 만기수익률이 10%인 채권이 있다. 이 채권의 듀레이션은 2.78년, 채권가격은 9,502.63원, 채권의 볼록성은 8.94이 다. 만기수익률이 10%에서 8%로 하락할 경우 볼록성에 기인한 가격변동폭은 얼마인가? (단, 가장 가까운 근사치를 구함)</div>
+      <div class="q-options">
+        <button class="q-option">① 13원</button>
+        <button class="q-option">② 15원</button>
+        <button class="q-option">③ 17원</button>
+        <button class="q-option">④ 19원</button>
+      </div>
+      <div class="explain">가격변동폭(볼록성 효과) = 1/2 × 볼록성 × (수익률변동폭)² × 채권가격 = 1/2 × 8.94 × (-0.02)² × 9,502.63 ≈ 17원</div>
+    </div></div>
+    <!-- Q23 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q23</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">A기업의 회사채 만기수익률이 8%에서 1%p 하락하였을 때 채권가격의 변화율로 옳은 것은? (단, 이 채권의 수정듀레이션은 2년, 볼록성은 2.4)</div>
+      <div class="q-options">
+        <button class="q-option">① 1.582% 상승</button>
+        <button class="q-option">② 1.582% 하락</button>
+        <button class="q-option">③ 2.012% 상승</button>
+        <button class="q-option">④ 2.012% 하락</button>
+      </div>
+      <div class="explain">채권가격변화율 ≈ -수정듀레이션×(Δy) + 1/2×볼록성×(Δy)² = -2×(-0.01) + 1/2×2.4×(-0.01)² = 0.02012, 즉 2.012% 상승한다.</div>
+    </div></div>
+    <!-- Q24 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q24</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">수정듀레이션이 3.5년인 채권에 100억원을 투자하였을 때 이자율이 10%에서 8%로 하 락하였다면 이 채권의 가치는 어떻게 변동하는가?</div>
+      <div class="q-options">
+        <button class="q-option">① 3.5억원 증가</button>
+        <button class="q-option">② 3.5억원 감소</button>
+        <button class="q-option">③ 7억원 증가</button>
+        <button class="q-option">④ 7억원 감소</button>
+      </div>
+      <div class="explain">채권가격 변동폭 = -수정듀레이션 × 금리변동폭 × 투자금액 = -3.5 × (-0.02) × 100억원 = 7억원</div>
+    </div></div>
+    <!-- Q25 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q25</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">잔존만기가 3년 남은 할인채를 만기수익률 5%에 매입하여 2년이 경과한 후 만기수익률 7%에 매도하였다. 액면 10,000원 단위로 산정한 손익금액은 얼마인가?(단, 가장 가까운 값을 구함)</div>
+      <div class="q-options">
+        <button class="q-option">① 21원 이익</button>
+        <button class="q-option">② 21원 손실</button>
+        <button class="q-option">③ 707원 이익</button>
+        <button class="q-option">④ 707원 손실</button>
+      </div>
+      <div class="explain">매입단가(P) = 10,000 ÷ (1+0.05)³ ≈ 8,638원<br>매도단가(P) = 10,000 ÷ (1+0.07)¹ ≈ 9,345원<br>액면 10,000원당 707원(= 9,345 - 8,638)의 이익을 얻는다.</div>
+    </div></div>
+    <!-- Q26 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q26</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">일반채권의 투자손익으로 가장 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 이자율변화에 의한 가격변동이익</button>
+        <button class="q-option">② 양호한 경영성과로 인한 배당수익</button>
+        <button class="q-option">③ 표면이자수익</button>
+        <button class="q-option">④ 표면이자의 재투자수익</button>
+      </div>
+      <div class="explain">배당수익은 채권의 수익이 될 수 없다.</div>
+    </div></div>
+    <!-- Q27 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q27</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">유동성 프리미엄이론에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 투자자들은 만기가 길수록 증가하는 위험에 대해 유동성 프리미엄을 요구한다.</button>
+        <button class="q-option">② 향후 이자율이 기간에 상관없이 일정할 것이라고 예상될 때에는 수익률곡선이 수평의 형 태를 지닌다.</button>
+        <button class="q-option">③ 유동성 프리미엄은 만기까지의 기간이 길수록 체감적으로 증가한다.</button>
+        <button class="q-option">④ 장기채권수익률은 기대현물이자율에 유동성 프리미엄을 가산한 값의 기하평균과 같다.</button>
+      </div>
+      <div class="explain">유동성 프리미엄이론에 의하면 미래의 이자율이 일정할 것이라고 예상한다 하더라도 수익률곡선은 유동성 프리미엄의 영향 으로 인하여 우상향의 형태를 가진다.</div>
+    </div></div>
+    <!-- Q28 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q28</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">잔존만기가 3년 남은 할인채를 수익률 10%에 매입하여 2년 경과 후 수익률 8%에 매도 하였다면 액면 10,000원을 기준으로 할 때 손익은?</div>
+      <div class="q-options">
+        <button class="q-option">① 1,746원 이익</button>
+        <button class="q-option">② 1,746원 손실</button>
+        <button class="q-option">③ 1,523원 이익</button>
+        <button class="q-option">④ 1,523원 손실</button>
+      </div>
+      <div class="explain">매입가격은 10,000 ÷ (1+0.10)³ ≈ 7,513원이고, 2년 뒤에는 잔존만기가 1년이므로 매도가격은 10,000 ÷ (1+0.08) ≈ 9,259원이다. 따라서 이익은 약 9,259 - 7,513 = 1,746원이다.</div>
+    </div></div>
+    <!-- Q29 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q29</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">표면이율이 8%인 할인채를 잔존만기가 3년 남은 시점에서 8,150원에 매입한 후 만기상환받았다. 이 투자의 연 단위 실효수익률로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① ³√[8,150×(1+0.08)³ ÷ 10,000] × 1/3</button>
+        <button class="q-option">② (10,000-8,150) ÷ 8,150 × 1/3</button>
+        <button class="q-option">③ √[8,150×(1+0.08)³ ÷ 10,000] - 1</button>
+        <button class="q-option">④ ³√(10,000 ÷ 8,150) - 1</button>
+      </div>
+      <div class="explain">할인채의 연 단위 실효수익률은 rₑ = ³√(10,000 ÷ 8,150) - 1로 계산한다.</div>
+    </div></div>
+    <!-- Q30 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q30</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">만기가 1 년 남은 회사채가 105,000원에 매매되고 있다. 이 회사채의 액면금액은 100,000원, 액면금리가 10%이고 이자를 연 1회 지급한다고 할 때 만기수익률은? (단, 가장 가까운 근 사치를 구함)</div>
+      <div class="q-options">
+        <button class="q-option">① 3.8%</button>
+        <button class="q-option">② 4.7%</button>
+        <button class="q-option">③ 8.2%</button>
+        <button class="q-option">④ 10.5%</button>
+      </div>
+      <div class="explain">채권가격은 P₀ = Σ[I÷(1+YTM)ᵗ] + F÷(1+YTM)ⁿ 으로 계산한다. 주어진 가격, 이자, 액면가액과 잔존만기를 대입하면 만기수익률은 약 4.7%이다.</div>
+    </div></div>
+    <!-- Q31 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q31</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">이자율의 기간구조에 대한 설명 중 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 불편기대가설에 의하면 미래의 단기이자율이 현재의 단기이자율보다 높으면 수익률 곡선은 수평이다.</button>
+        <button class="q-option">② 불편기대가설에서 장기이자율이 매년 상승할 것이라고 기대되면 수익률곡선은 우하향 한다.</button>
+        <button class="q-option">③ 유동성선호가설에 따르면 모든 조건이 동일할 때 장기이자율은 유동성 프리미엄으로 단기이자율보다 낮아진다.</button>
+        <button class="q-option">④ 시장분할가설은 기관투자자들의 경우 자산과 부채구조 등의 요인에 따라 수익률곡선 에서 선호하는 만기가 분할되어 있다고 본다.</button>
+      </div>
+      <div class="explain">① 불편기대가설에 의하면 미래의 단기이자율이 현재의 단기이자율보다 높으면 수익률곡선은 우상향한다.<br>② 불편기대가설에서 장기이자율이 매년 상승할 것이라고 기대되면 수익률곡선은 우상향한다.<br>③ 유동성선호가설에 따르면 모든 조건이 동일할 때 장기이자율은 유동성 프리미엄으로 단기이자율보다 높아진다.</div>
+    </div></div>
+    <!-- Q32 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q32</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">법적 · 제도적 요인 등에 의한 구조적 경직성이 존재함으로써 채권시장이 몇 개의 하위시 장으로 분할되어 채권수익률과 잔존만기 간에 어떠한 체계적 관계도 존재하지 않는다는 수익률곡선에 대한 가설로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 불편기대가설</button>
+        <button class="q-option">② 유동성선호가설</button>
+        <button class="q-option">③ 시장분할가설</button>
+        <button class="q-option">④ 선호영역가설</button>
+      </div>
+      <div class="explain">시장분할가설에 대한 설명이다. 시장분할가설에서는 단기채·중기채·장기채 시장이 별도로 형성되고, 수익률의 결정은 각 시장의 수급에 의하여 결정되기 때문에 수익률곡선은 불연속적이라고 본다.</div>
+    </div></div>
+    <!-- Q33 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q33</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">기간구조이론 중 불편기대가설에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 장기채권의 수익률은 미래의 단기채권들에 예상되는 수익률들의 기하평균과 같다.</button>
+        <button class="q-option">② 미래 이자율이 일정할 것이라고 예상될 때 수익률곡선은 수평이다.</button>
+        <button class="q-option">③ 미래 이자율이 상승할 것이라고 예상될 때 수익률곡선은 우상향한다.</button>
+        <button class="q-option">④ 투자자를 위험회피형으로 가정한다.</button>
+      </div>
+      <div class="explain">불편기대가설의 특징<br>- 투자자를 위험중립형으로 가정<br>- 단기채권과 장기채권은 완전대체관계에 있음<br>- 미래 이자율을 정확하게 예상할 수 있다고 가정</div>
+    </div></div>
+    <!-- Q34 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q34</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권투자전략에 대한 설명 중 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 호황이나 금리상승이 예상될 때 채권의 만기구성을 단기화한다.</button>
+        <button class="q-option">② 수익률곡선이 상승하는 경우에는 수익률곡선타기 전략이 유효하다.</button>
+        <button class="q-option">③ 이자율하락이 예상되면 단기채를 매각하고 장기채를 매입한다.</button>
+        <button class="q-option">④ 이자율하락이 예상되면 액면이자율이 낮은 채권을 매각하고, 액면이자율이 높은 채권을 매입한다.</button>
+      </div>
+      <div class="explain">이자율하락이 예상되면 액면이자율이 높은 채권을 매각하고, 액면이자율이 낮은 채권을 매입한다.</div>
+    </div></div>
+    <!-- Q35 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q35</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권가격의 상승 예상 시(채권수익률의 하락 예상 시) 적절한 전략은?</div>
+      <div class="q-options">
+        <button class="q-option">① 장기채 비중을 낮춘다.</button>
+        <button class="q-option">② 표면이자율이 낮은 채권의 비중을 높인다.</button>
+        <button class="q-option">③ 듀레이션을 짧게 한다.</button>
+        <button class="q-option">④ 금리선물매도포지션(Short Position)을 취한다.</button>
+      </div>
+      <div class="explain">① 장기채 비중을 높인다.<br>③ 듀레이션을 길게 한다.<br>④ 금리선물 매수포지션(Long Position)을 취한다.</div>
+    </div></div>
+    <!-- Q36 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q36</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권투자전략 중 소극적 투자전략에 해당하는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 면역전략</button>
+        <button class="q-option">② 수익률예측전략</button>
+        <button class="q-option">③ 채권교체전략</button>
+        <button class="q-option">④ 수익률곡선타기전략</button>
+      </div>
+      <div class="explain">적극적 채권투자전략에는 수익률예측전략, 채권교체전략, 수익률곡선타기전략, 나비형 투자전략, 역나비형 투자전략 등이 있다. 면역전략, 만기보유전략, 인덱스전략, 현금흐름일치전략 등은 소극적 투자전략이다.</div>
+    </div></div>
+    <!-- Q37 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q37</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권투자전략에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 시장이자율이 상승할 것이라고 예상될 때 표면금리가 낮은 채권의 보유비중을 늘리는 것이 좋다.</button>
+        <button class="q-option">② 시장이자율이 하락할 것이라고 예상될 때 단기채보다는 장기채의 보유비중을 늘리는 것이 좋다.</button>
+        <button class="q-option">③ 시장이자율이 상승할 것이라고 예상될 때 이자지급 횟수가 많은 채권의 비중을 늘리는 것이 좋다.</button>
+        <button class="q-option">④ 시장이자율이 하락할 것이라고 예상될 때 할인채의 비중을 늘리는 것이 좋다.</button>
+      </div>
+      <div class="explain">금리상승이 예상되면 만기를 단기로 하고 표면금리와 이자지급횟수를 늘려 듀레이션을 짧게 한다. 금리하락이 예상되면 장기채 비중을 높이고 표면금리와 이자지급횟수가 낮은 채권으로 듀레이션을 길게 한다. 금리 방향이 불명확하면 사다리형 또는 바벨형 포트폴리오를 활용한다.</div>
+    </div></div>
+    <!-- Q38 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q38</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">채권투자전략 중 수익률변동위험을 제거하고 투자목표를 달성하기 위해 투자기간과 채 권 포트폴리오의 듀레이션을 일치시키는 전략은?</div>
+      <div class="q-options">
+        <button class="q-option">① 채권교체전략</button>
+        <button class="q-option">② 인덱스전략</button>
+        <button class="q-option">③ 면역전략</button>
+        <button class="q-option">④ 현금흐름일치전략</button>
+      </div>
+      <div class="explain">면역전략은 수익률변동위험을 제거하고 투자목표를 달성하기 위한 전략이다.<br>투자기간과 채권 포트폴리오의 듀레이션을 일치시킴으로써 수익률상승(하락) 시 채권가격하락(상승)분과 표면이자에 대한 재투자수익 증대(감소)분을 상호 상쇄시켜, 채권투자 종료 시 실현수익률을 목표수익률과 일치시키는 전략이다.</div>
+    </div></div>
+    <!-- Q39 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q39</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">현재 시중 실세금리가 낮은 수준이고 향후 금리가 서서히 상승할 것이라고 예상될 때 가 장 적절한 투자방안은?</div>
+      <div class="q-options">
+        <button class="q-option">① 표면금리가 낮고, 잔존만기가 긴 채권에 투자</button>
+        <button class="q-option">② 표면금리가 높고, 잔존만기가 긴 채권에 투자</button>
+        <button class="q-option">③ 표면금리가 낮고, 잔존만기가 짧은 채권에 투자</button>
+        <button class="q-option">④ 표면금리가 높고, 잔존만기가 짧은 채권에 투자</button>
+      </div>
+      <div class="explain">금리하락 시에는 표면금리가 낮은 장기채에 투자하여 변동성을 최대한 활용하고, 금리상승 시에는 표면금리가 높은 단기채에 투자하여 위험을 회피한다.</div>
+    </div></div>
+    <!-- Q40 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q40</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">수익률곡선타기전략에 대한 설명 중 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 예상운용기간보다 만기가 긴 채권을 매입한다.</button>
+        <button class="q-option">② 수익률곡선이 우상향일 때 가능하다.</button>
+        <button class="q-option">③ 만기 이전에 채권을 매각하여 가격상승효과까지 기대한다.</button>
+        <button class="q-option">④ 기간구조에 관한 순수기대이론이 옳다고 가정한다.</button>
+      </div>
+      <div class="explain">수익률곡선타기전략은 유동성 프리미엄으로 인하여 수익률곡선이 우상향한다고 판단될 때 써야 하는 전략이다. 수익률곡선 의 형태가 예측대로 유지되어야만 투자목표의 실현이 가능하다는 한계를 지니고 있다.</div>
+    </div></div>
+    <!-- Q41 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q41</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">다음 A기업의 주식과 관련된 채권 중 채권에 부가된 권리가 실행될 때 A기업으로 현금 이 유입되는 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 전환사채 (CB)</button>
+        <button class="q-option">② 신주인수권부사채 (BW)</button>
+        <button class="q-option">③ 교환사채 (EB)</button>
+        <button class="q-option">④ 어느 것도 아님</button>
+      </div>
+      <div class="explain">신주인수권부사채(BW)의 신주인수권이 행사되는 경우 A기업으로 현금이 유입된다.</div>
+    </div></div>
+    <!-- Q42 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q42</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">채권의 만기일 이전에 당해 채권을 매입할 수 있는 권리를 채권발행자에게 부여한 채권은?</div>
+      <div class="q-options">
+        <button class="q-option">① 수의상환채권</button>
+        <button class="q-option">② 교환사채</button>
+        <button class="q-option">③ 전환사채</button>
+        <button class="q-option">④ 비분리형 신주인수권부사채</button>
+      </div>
+      <div class="explain">수의상환채권(Callable Bond)은 채권의 만기일 이전에 당해 채권을 매입할 수 있는 권리를 채권발행자에게 부여한 채권이다.</div>
+    </div></div>
+    <!-- Q43 -->
+    <div class="q-card" data-answer="2"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q43</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">자산유동화증권(ABS)에 대한 설명으로 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 유동화대상 자산에는 부동산, 자동차할부채권, 신용카드채권, 리스채권 등이 있다.</button>
+        <button class="q-option">② Primary CBO는 신규발행한 회사채를 기초자산으로 하는 ABS, Secondary CBO는 기존 에 발행된 회사채를 기초자산으로 하는 ABS를 의미한다.</button>
+        <button class="q-option">③ Pay-Through방식은 기초자산에서 발생하는 현금흐름이 그대로 투자자에게 이전된다.</button>
+        <button class="q-option">④ 내부적 신용보강방식에는 선 · 후순위 증권발행(일반적), 초과담보, 현금담보 등이 있고 외 부적 신용보강방식에는 지급보증, 신용공여 등이 있다.</button>
+      </div>
+      <div class="explain">Pay-Through방식은 기초자산에서 발생하는 현금흐름을 기초로 하되, 유동화전문회사가 별도의 현금흐름을 투자자에게 지 급한다.</div>
+    </div></div>
+    <!-- Q44 -->
+    <div class="q-card" data-answer="3"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q44</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">다음 중 자산유동화증권(ABS)에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 기업이나 금융기관이 보유하고 있는 자산을 표준화하고 특정 조건별로 집합하여 이를 바 탕으로 증권을 발행하고 기초자산의 현금흐름을 상환하는 것이다.</button>
+        <button class="q-option">② 유동화대상 자산은 유동성이 낮은 것이 특징이다.</button>
+        <button class="q-option">③ 현금흐름의 예측과 자산의 양도가 가능하여야 한다.</button>
+        <button class="q-option">④ 동질성이 적은 자산을 대규모로 집합하여 기초자산을 구성하는 것이 바람직하다.</button>
+      </div>
+      <div class="explain">동질성이 높은 자산을 대규모로 집합하여 기초자산을 구성하는 것이 바람직하다. 동질성이 결여된 자산으로 구성하면 현금흐 름 예측의 정확성이 감소하므로 이에 수반되는 신용보강 및 평가에 따른 비용이 증가하게 된다.</div>
+    </div></div>
+    <!-- Q45 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q45</span> 채권시장 <span class="stars" aria-label="중요도 별 1개">★</span></div>
+      <div class="q-text">자산유동화증권(ABS)에 대한 설명으로 가장 거리가 먼 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 자산보유자(Originator)는 자산유동화증권을 발행하여 투자자에게 판매하는 회사이다.</button>
+        <button class="q-option">② 유동화를 통하여 자산의 부외화(Off-Balance) 효과를 거둘 수 있다.</button>
+        <button class="q-option">③ 부실자산의 조기정리, BIS비율의 증대, 유동성확보 등의 사유로 발행한다.</button>
+        <button class="q-option">④ 은행 등의 신용보증기관에 의한 지급보증은 외부적 신용보강방식이다.</button>
+      </div>
+      <div class="explain">자산보유자(Originator): 유동화자산을 보유한 각종 금융기관<br>유동화전문회사(SPC: Special Purpose Company): 자산유동화증권을 발행하여 투자자에게 판매하는 회사</div>
+    </div></div>
+    <!-- Q46 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q46</span> 채권시장 <span class="stars" aria-label="중요도 별 3개">★★★</span></div>
+      <div class="q-text">신종자본증권에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 부채의 성격이 강한 채권이다.</button>
+        <button class="q-option">② 후순위성, 만기의 영구성, 이자지급의 임의성이 강할수록 자본성이 높아진다.</button>
+        <button class="q-option">③ 하이브리드채권과 동일한 개념이다.</button>
+        <button class="q-option">④ 코코펀드와 유사한 개념이다.</button>
+      </div>
+      <div class="explain">신종자본증권은 자본의 성격이 강한 채권이며, 후순위성, 만기의 영구성, 이자지급의 임의성이 강할수록 자본성이 높아진다.</div>
+    </div></div>
+    <!-- Q47 -->
+    <div class="q-card" data-answer="0"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q47</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">커버드본드에 대한 설명으로 잘못된 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 은행이나 금융지주회사가 발행하는 코코펀드와 유사하다.</button>
+        <button class="q-option">② 은행이 정상적인 방법으로 자금을 조달하기 어려울 경우 이용된다.</button>
+        <button class="q-option">③ 보유채권의 담보를 제공하면서 자금을 조달하는 방법이다.</button>
+        <button class="q-option">④ 일반적으로 담보가 제공되므로 조달금리는 일반채권보다 낮다.</button>
+      </div>
+      <div class="explain">커버드본드는 은행이 채권을 발행하면서 보유하고 있는 자산을 담보로 제공하는 채권이다. 은행이나 금융지주회사가 발행하는 코코펀드와 유사한 금융상품은 신종자본증권이다.</div>
+    </div></div>
+    <!-- Q48 -->
+    <div class="q-card" data-answer="1"><div class="q-card-inner">
+      <div class="q-meta"><span class="q-num">Q48</span> 채권시장 <span class="stars" aria-label="중요도 별 2개">★★</span></div>
+      <div class="q-text">기업이 단기자금 조달을 위해 발행하는 융통어음으로 옳은 것은?</div>
+      <div class="q-options">
+        <button class="q-option">① 전자단기사채(STB)</button>
+        <button class="q-option">② 기업어음(CP)</button>
+        <button class="q-option">③ 표지어음</button>
+        <button class="q-option">④ 발행어음</button>
+      </div>
+      <div class="explain">기업어음에 관한 설명이다. 표지어음과 발행어음은 새로운 형태의 증권으로 볼 수 없는 전통적 금융상품이다.</div>
+    </div></div>
+  </div>
+</section>
+
+</main>
+
 <script>
-const THEME_KEY='bond-note-theme';
-function applyTheme(theme){const dark=theme==='dark';document.documentElement.dataset.theme=dark?'dark':'light';const btn=document.getElementById('theme-toggle');if(btn){btn.textContent=dark?'☀️ 라이트모드':'🌙 다크모드';btn.setAttribute('aria-label',dark?'라이트모드로 전환':'다크모드로 전환');btn.setAttribute('aria-pressed',String(dark))}}
-function toggleTheme(){const next=document.documentElement.dataset.theme==='dark'?'light':'dark';applyTheme(next);try{localStorage.setItem(THEME_KEY,next)}catch(e){}}
-const state={q1:{c:0,w:0,a:[]},q2:{c:0,w:0,a:[]}};
-function score(id){const k=id==='q1'?1:2,s=state[id],done=s.c+s.w;document.getElementById(`s${k}-c`).textContent=s.c;document.getElementById(`s${k}-w`).textContent=s.w;document.getElementById(`s${k}-r`).textContent=20-done;document.getElementById(`bar${k}`).style.width=`${done*5}%`}
-function wireQuiz(id){document.querySelectorAll(`#tab${id==='q1'?9:10} .q-card`).forEach((card,n)=>{const answer=card.dataset.answer;card.querySelectorAll('.q-option').forEach((btn,i)=>btn.addEventListener('click',()=>{if(state[id].a[n])return;state[id].a[n]=true;const letter='ABCD'[i],ok=letter===answer;card.querySelectorAll('.q-option').forEach((b,j)=>{b.disabled=true;if('ABCD'[j]===answer)b.classList.add('correct-opt');else if(!ok&&j===i)b.classList.add('wrong-opt')});card.querySelector('.explain').classList.add('show');card.classList.add('answered');if(ok)state[id].c++;else{state[id].w++;card.classList.add('wrong-ans')}score(id)}))})}
-function resetQuiz(id){state[id]={c:0,w:0,a:[]};const panel=document.getElementById(id==='q1'?'tab9':'tab10');panel.querySelectorAll('.q-card').forEach(card=>{card.classList.remove('answered','wrong-ans');card.querySelectorAll('.q-option').forEach(b=>{b.disabled=false;b.classList.remove('correct-opt','wrong-opt')});card.querySelector('.explain').classList.remove('show')});score(id)}
-function showTab(n){document.querySelectorAll('.panel').forEach((e,i)=>e.classList.toggle('active',i===n));document.querySelectorAll('.tab-btn').forEach((e,i)=>{e.classList.toggle('active',i===n);e.setAttribute('aria-selected',String(i===n))});window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.tab-btn').forEach((b,i)=>b.addEventListener('click',()=>showTab(i)));document.querySelectorAll('.tab-btn').forEach((b,i)=>b.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();document.querySelectorAll('.tab-btn')[(i+1)%11].focus()}if(e.key==='ArrowLeft'){e.preventDefault();document.querySelectorAll('.tab-btn')[(i+10)%11].focus()}if(e.key==='Enter'||e.key===' '){e.preventDefault();showTab(i)}}));
-let savedTheme='light';try{savedTheme=localStorage.getItem(THEME_KEY)||'light'}catch(e){}applyTheme(savedTheme);wireQuiz('q1');wireQuiz('q2');score('q1');score('q2');
-</script>
-</main></body></html>
+/* ── 1. 탭 전환 ──────────────────────────────── */
+const tabs   = document.querySelectorAll('[role="tab"]');
+const panels = document.querySelectorAll('[role="tabpanel"]');
 
+function activateTab(tab) {
+  tabs.forEach(t => {
+    t.setAttribute('aria-selected', 'false');
+    t.removeAttribute('tabindex');
+  });
+  panels.forEach(p => p.classList.remove('active'));
+  tab.setAttribute('aria-selected', 'true');
+  tab.setAttribute('tabindex', '0');
+  const panel = document.getElementById(tab.getAttribute('aria-controls'));
+  if (panel) panel.classList.add('active');
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', e => {
+    let idx = [...tabs].indexOf(e.currentTarget);
+    if (e.key === 'ArrowRight') idx = (idx + 1) % tabs.length;
+    else if (e.key === 'ArrowLeft') idx = (idx - 1 + tabs.length) % tabs.length;
+    else return;
+    tabs[idx].focus();
+    activateTab(tabs[idx]);
+  });
+});
+
+// 초기 상태: 첫 번째 탭 활성화
+activateTab(tabs[0]);
+
+/* ── 2. 다크모드 ──────────────────────────────── */
+const darkBtn = document.getElementById('themeToggle');
+const root    = document.documentElement;
+
+function applyTheme(dark) {
+  root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  darkBtn.textContent = dark ? '☀️ 라이트' : '🌙 다크';
+}
+
+let isDark = false;
+try { isDark = localStorage.getItem('채권_dark') === '1'; } catch(e) {}
+applyTheme(isDark);
+
+darkBtn.addEventListener('click', () => {
+  isDark = !isDark;
+  applyTheme(isDark);
+  try { localStorage.setItem('채권_dark', isDark ? '1' : '0'); } catch(e) {}
+});
+
+/* ── 3. 퀴즈 초기화 ────────────────────────────── */
+function resetQuiz(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.querySelectorAll('.q-card').forEach(card => {
+    delete card.dataset.answered;
+    card.classList.remove('answered-ok', 'answered-no');
+    card.querySelectorAll('.q-option').forEach(b => {
+      b.classList.remove('correct', 'wrong');
+      b.disabled = false;
+    });
+    const explain = card.querySelector('.explain');
+    if (explain) explain.classList.remove('visible');
+  });
+  // 점수판 초기화
+  const section = container.closest('[role="tabpanel"]');
+  if (section) {
+    const cEl = section.querySelector('[id^="c"]');
+    const wEl = section.querySelector('[id^="w"]');
+    const rEl = section.querySelector('[id^="r"]');
+    const pb  = section.querySelector('.quiz-progress-bar');
+    const total = container.querySelectorAll('.q-card').length;
+    if (cEl) cEl.textContent = '0';
+    if (wEl) wEl.textContent = '0';
+    if (rEl) rEl.textContent = total;
+    if (pb)  pb.style.width = '0%';
+  }
+}
+
+/* ── 4. 퀴즈 공통 로직 ────────────────────────── */
+function initQuiz(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const section = container.closest('[role="tabpanel"]');
+  const cEl = section ? section.querySelector('.score-item b:nth-child(1)') : null;
+  const wEl = section ? section.querySelectorAll('.score-item b')[1] : null;
+  const rEl = section ? section.querySelectorAll('.score-item b')[2] : null;
+  const pb  = section ? section.querySelector('.quiz-progress-bar') : null;
+  const totalCards = container.querySelectorAll('.q-card').length;
+
+  function updateScoreBoard() {
+    let c = 0, w = 0;
+    container.querySelectorAll('.q-card').forEach(card => {
+      if (card.classList.contains('answered-ok'))  c++;
+      else if (card.classList.contains('answered-no')) w++;
+    });
+    if (cEl) cEl.textContent = c;
+    if (wEl) wEl.textContent = w;
+    if (rEl) rEl.textContent = totalCards - c - w;
+    if (pb)  pb.style.width = `${Math.round((c + w) / totalCards * 100)}%`;
+  }
+
+  container.querySelectorAll('.q-card').forEach(card => {
+    const correct = parseInt(card.dataset.answer, 10);
+    const options = card.querySelectorAll('.q-option');
+    const explain = card.querySelector('.explain');
+
+    options.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        if (card.dataset.answered) return;   // 이미 답한 경우
+        card.dataset.answered = '1';
+
+        options.forEach((b, i) => {
+          b.classList.remove('correct', 'wrong');
+          if (i === correct) b.classList.add('correct');
+          else if (i === idx) b.classList.add('wrong');
+          b.disabled = true;
+        });
+
+        if (explain) explain.classList.add('visible');
+        card.classList.add(idx === correct ? 'answered-ok' : 'answered-no');
+        updateScoreBoard();
+      });
+    });
+  });
+}
+
+initQuiz('q9');
+initQuiz('quiz-adv');
+initQuiz('q11');
+initQuiz('q12');
+
+/* ── 4. 채점 기능 ──────────────────────────────── */
+function scoreQuiz(containerId, resultId) {
+  const container = document.getElementById(containerId);
+  const resultEl  = document.getElementById(resultId);
+  if (!container || !resultEl) return;
+
+  const cards   = container.querySelectorAll('.q-card');
+  const total   = cards.length;
+  let   correct = 0;
+
+  cards.forEach(card => {
+    if (card.classList.contains('answered-ok')) correct++;
+  });
+
+  const pct = Math.round((correct / total) * 100);
+  let grade = '';
+  if (pct >= 90) grade = '🏆 우수';
+  else if (pct >= 70) grade = '👍 보통';
+  else grade = '📚 복습 필요';
+
+  resultEl.textContent = `${correct} / ${total} (${pct}%) — ${grade}`;
+  resultEl.style.display = 'block';
+  resultEl.style.marginTop = '12px';
+  resultEl.style.padding = '10px 14px';
+  resultEl.style.borderRadius = '8px';
+  resultEl.style.background = 'var(--purple-l)';
+  resultEl.style.border = '1px solid var(--purple-m)';
+  resultEl.style.color = 'var(--purple)';
+  resultEl.style.fontWeight = '700';
+  resultEl.style.fontSize = '14px';
+}
+</script>
+</body>
+</html>

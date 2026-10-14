@@ -1,0 +1,36 @@
+name: Mock 05 quality and browser checks
+on:
+  push:
+    paths:
+      - '증권자문_Copilot 모의고사05.html'
+      - 'tests/**'
+      - 'package*.json'
+      - '.github/workflows/mock05-tests.yml'
+  pull_request:
+    paths:
+      - '증권자문_Copilot 모의고사05.html'
+      - 'tests/**'
+      - 'package*.json'
+      - '.github/workflows/mock05-tests.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mock05-browser-results
+          path: tests/browser-results.txt
+          if-no-files-found: ignore

@@ -1,0 +1,9 @@
+{
+  "name": "cert-zqzx-mock05-checks",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/mock05.test.cjs",
+    "test:browser": "node tests/mock05.browser.cjs"
+  },
+  "devDependencies": { "playwright": "1.62.1" }
+}

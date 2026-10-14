@@ -1,1 +1,1594 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>증권자문 Copilot 모의고사05</title><style>*{box-sizing:border-box}body{margin:0;background:#f6f7fb;color:#172033;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;line-height:1.65}header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e8f0;z-index:5}.wrap{max-width:1080px;margin:auto;padding:14px 20px}.bars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.bar{height:9px;background:#e5e8f0;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:#13a66b}.hero{padding-top:28px}.badge{background:#eef2ff;color:#3f5efb;padding:6px 11px;border-radius:30px;font-weight:800}h1{line-height:1.25}.controls{display:flex;gap:8px;flex-wrap:wrap}.btn{padding:9px 13px;border:1px solid #e5e8f0;border-radius:11px;background:#fff;font-weight:800}.qcard{background:#fff;border:1px solid #e5e8f0;border-radius:20px;margin:16px 0;padding:21px}.meta{color:#697286;font-size:13px}.q{font-size:17px;font-weight:800;margin:10px 0}.opts{display:grid;gap:8px}.opt{width:100%;text-align:left;padding:12px;border:1px solid #e5e8f0;border-radius:12px;background:#fff}.opt.ok{background:#eafaf3;border-color:#13a66b}.opt.bad{background:#fff0ef;border-color:#db3a34}.exp{display:none;margin-top:12px;padding:14px;background:#f8fafc;border-radius:12px}.exp.show{display:block}.casebox{background:#eef2ff;border-left:5px solid #3f5efb;padding:12px;border-radius:10px}@media(max-width:700px){.bars{grid-template-columns:repeat(2,1fr)}.wrap{padding:12px}.qcard{padding:16px}}</style></head><body><header><div class="wrap bars"><div><b>전체</b> <span id="t0"></span><div class="bar"><i id="b0" style="width:0"></i></div></div><div><b>제1과목</b> <span id="t1"></span><div class="bar"><i id="b1" style="width:0"></i></div></div><div><b>제2과목</b> <span id="t2"></span><div class="bar"><i id="b2" style="width:0"></i></div></div><div><b>제3과목</b> <span id="t3"></span><div class="bar"><i id="b3" style="width:0"></i></div></div></div></header><section class="wrap hero"><span class="badge">고난도·실전응용 100문항</span><h1>증권투자권유자문인력<br>Copilot 모의고사 05</h1><p>복합판단과 사례형 비중을 높였고, 해설은 판단 근거와 혼동 포인트를 명확히 정리했습니다.</p><div class="controls"><button class="btn" onclick="setf(0)">전체</button><button class="btn" onclick="setf(1)">제1과목</button><button class="btn" onclick="setf(2)">제2과목</button><button class="btn" onclick="setf(3)">제3과목</button><button class="btn" onclick="wrong=!wrong;render()">오답만 보기</button><button class="btn" onclick="allExp=!allExp;render()">해설 전체 펼치기</button><button class="btn" onclick="grade()">채점 요약</button><button class="btn" onclick="if(confirm('기록을 초기화할까요?')){localStorage.removeItem(S);location.reload()}">기록 초기화</button></div></section><main class="wrap"><div id="questions"></div></main><script>const Q=[[1, "경기분석", "심화개념", "통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "고난도 복합판단", "선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "경기분석", "심화개념", "다음 사례 3을 전제로 판단할 때, 통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "경기분석", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "심화개념", "다음 사례 6을 전제로 판단할 때, 선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "기본적 분석", "계산·응용", "A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기본적 분석", "고난도 복합판단", "다른 조건이 같을 때 고든모형의 주가를 높이는 변화는?", ["요구수익률 상승", "성장률 하락", "차기 배당 증가", "요구수익률과 성장률의 차이 확대"], 2, "고든모형 P=D1/(k-g)에서 D1 증가는 주가를 높인다. k 상승, g 하락, k-g 확대는 분모를 키워 가치를 낮춘다. 반드시 k>g 조건도 확인해야 한다."], [1, "기본적 분석", "계산·응용", "다음 사례 3을 전제로 판단할 때, A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기본적 분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 다른 조건이 같을 때 고든모형의 주가를 높이는 변화는?", ["요구수익률 상승", "성장률 하락", "차기 배당 증가", "요구수익률과 성장률의 차이 확대"], 2, "고든모형 P=D1/(k-g)에서 D1 증가는 주가를 높인다. k 상승, g 하락, k-g 확대는 분모를 키워 가치를 낮춘다. 반드시 k>g 조건도 확인해야 한다."], [1, "기본적 분석", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기술적 분석", "심화개념", "가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "심화개념", "다음 사례 3을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "유가증권시장", "심화개념", "동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "고난도 복합판단", "총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 3을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 4을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 6을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 7을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "코스닥시장", "심화개념", "기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "코스닥시장", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "코스닥시장", "심화개념", "다음 사례 3을 전제로 판단할 때, 기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "채권시장", "계산·응용", "수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "고난도 복합판단", "같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "계산·응용", "다음 사례 3을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "심화개념", "다음 사례 4을 전제로 판단할 때, 같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "심화개념", "다음 사례 6을 전제로 판단할 때, 같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "계산·응용", "다음 사례 7을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "기타 증권시장", "심화개념", "K-OTC의 성격으로 가장 적절한 것은?", ["거래소 상장시장", "비상장주식의 제도권 장외시장", "원금보장시장", "파생상품 전용시장"], 1, "K-OTC는 비상장주식을 일정한 규칙 아래 거래하도록 한 제도권 장외시장이다. 거래기업이 거래소 상장법인과 동일하다는 뜻은 아니다."], [1, "기타 증권시장", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, K-OTC의 성격으로 가장 적절한 것은?", ["거래소 상장시장", "비상장주식의 제도권 장외시장", "원금보장시장", "파생상품 전용시장"], 1, "K-OTC는 비상장주식을 일정한 규칙 아래 거래하도록 한 제도권 장외시장이다. 거래기업이 거래소 상장법인과 동일하다는 뜻은 아니다."], [2, "금융상품분석 및 투자전략", "심화개념", "ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 3을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 4을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 6을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 7을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 9을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 10을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 12을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 13을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 3을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 4을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 6을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 7을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 9을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 10을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 12을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 13을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 14을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 15을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 16을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 17을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [3, "자본시장 관련 법규", "심화개념", "파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 3을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 4을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 6을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 7을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 9을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 10을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 12을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 13을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 14을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 15을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 16을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 17을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 18을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 19을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 20을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "한국금융투자협회 규정", "심화개념", "조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "심화개념", "다음 사례 3을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "심화개념", "다음 사례 4을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "회사법", "심화개념", "주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 3을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 4을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 6을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "증권세제", "심화개념", "직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "심화개념", "다음 사례 3을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "심화개념", "다음 사례 4을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."]],S='secAdviceMock05',A=JSON.parse(localStorage.getItem(S)||'{}');let filter=0,wrong=false,allExp=false;const circ=['①','②','③','④'];function render(){let out='';Q.forEach((q,i)=>{let n=i+1;if(filter&&q[0]!=filter)return;let a=A[i];if(wrong&&a===q[5])return;out+=`<article class="qcard" id="q${n}"><div class="meta">제${q[0]}과목 · ${q[1]} · ${q[2]}</div><div class="q">Q${n}. ${q[3]}</div><div class="opts">${q[4].map((x,j)=>`<button class="opt ${a!=null?(j==q[5]?'ok':j==a?'bad':''):''}" onclick="pick(${i},${j})">${circ[j]} ${x}</button>`).join('')}</div><div class="exp ${(a!=null||allExp)?'show':''}"><b>정답: ${circ[q[5]]} | 해설</b><br>${q[6]}</div></article>`});document.querySelector('#questions').innerHTML=out;progress()}function pick(i,j){A[i]=j;localStorage.setItem(S,JSON.stringify(A));render()}function progress(){[0,1,2,3].forEach(s=>{let idx=Q.map((q,i)=>[q,i]).filter(x=>!s||x[0][0]==s);let done=idx.filter(x=>A[x[1]]!=null).length,ok=idx.filter(x=>A[x[1]]==x[0][5]).length;document.querySelector('#b'+s).style.width=(done/idx.length*100)+'%';document.querySelector('#t'+s).textContent=`${done}/${idx.length} · 정답 ${ok}`})}function setf(x){filter=x;render()}function grade(){let ok=Q.filter((q,i)=>A[i]==q[5]).length;alert(`총점 ${ok}/100\n제1과목 ${Q.filter((q,i)=>q[0]==1&&A[i]==q[5]).length}/35\n제2과목 ${Q.filter((q,i)=>q[0]==2&&A[i]==q[5]).length}/30\n제3과목 ${Q.filter((q,i)=>q[0]==3&&A[i]==q[5]).length}/35`)}render();</script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>증권자문 Copilot 모의고사05 - 증권투자권유자문인력</title>
+<style>
+:root{color-scheme:light;--bg:#f6f7fb;--card:#fff;--ink:#172033;--muted:#697286;--pri:#3f5efb;--pri2:#7b61ff;--ok:#13a66b;--bad:#db3a34;--yel:#e0a800;--line:#e5e8f0;--soft:#eef2ff;--warn:#fff6df;--warn-line:#f1dc9a;--warn-ink:#5b4a17;--ok-bg:#eafaf3;--ok-line:rgba(19,166,107,.4);--bad-bg:#fff0ef;--bad-line:rgba(219,58,52,.4);--stem:#f8fafc;--hover:#fafbff;--hover-line:#b8c2ff;--pill:#f2f4f8;--pill-ink:#5b6478;--head:rgba(255,255,255,.94);--shadow:0 8px 22px rgba(23,32,51,.05)}
+html[data-theme=dark]{color-scheme:dark;--bg:#12131a;--card:#1b1d27;--ink:#eceef6;--muted:#a3a9bb;--pri:#8ea2ff;--pri2:#b39dff;--ok:#4cd694;--bad:#ff8782;--yel:#f5c84c;--line:#32364a;--soft:#262b4a;--warn:#2d2815;--warn-line:#5f5222;--warn-ink:#ecdca3;--ok-bg:#12301f;--ok-line:rgba(76,214,148,.5);--bad-bg:#3a1b1d;--bad-line:rgba(255,135,130,.5);--stem:#20232f;--hover:#232638;--hover-line:#5a67b8;--pill:#262a39;--pill-ink:#b6bdd0;--head:rgba(27,29,39,.94);--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Malgun Gothic",Arial,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
+header{position:sticky;top:0;z-index:20;background:var(--head);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1080px;margin:0 auto;padding:12px 20px;width:100%}
+.pgrid{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
+.bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 14px}
+.pb{min-width:0}.pb .lab{display:flex;justify-content:space-between;gap:6px;font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap}
+.pb .lab b{color:var(--ink)}.pb .lab .st{overflow:hidden;text-overflow:ellipsis}
+.bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin-top:3px}
+.bar>span{display:block;height:100%;width:0;background:var(--ok);transition:width .25s,background .25s}
+.pb.yel .bar>span{background:var(--yel)}.pb.red .bar>span{background:var(--bad)}
+.pb.yel .lab .st{color:var(--yel)}.pb.red .lab .st{color:var(--bad)}.pb.grn .lab .st{color:var(--ok)}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 11px;font:inherit;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+.tabs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 12px;cursor:pointer;font:inherit;font-size:13px;font-weight:700;color:var(--muted)}
+.tab small{margin-left:4px;opacity:.75;font-weight:800}
+.tab.active{background:var(--pri);border-color:var(--pri);color:#fff}html[data-theme=dark] .tab.active{color:#10131f}
+button:focus-visible{outline:3px solid #f5b301;outline-offset:2px}
+.hero{padding:26px 20px 6px}
+.badge{display:inline-flex;padding:6px 11px;border-radius:999px;background:var(--soft);color:var(--pri);font-weight:800;font-size:13px}
+.hero h1{font-size:30px;letter-spacing:-.04em;margin:12px 0 8px;line-height:1.25}
+.hero p{margin:0;color:var(--muted)}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+.sumcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;min-width:0}
+.sumcard b{display:block;font-size:22px;line-height:1.25}.sumcard span{color:var(--muted);font-size:13px}
+.sumcard.total{background:linear-gradient(135deg,var(--pri),var(--pri2));border:0}.sumcard.total b,.sumcard.total span{color:#fff}
+.note{margin-top:14px;background:var(--warn);border:1px solid var(--warn-line);border-radius:16px;padding:13px 16px;color:var(--warn-ink);font-size:14px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px 14px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.btn.primary{background:var(--pri);border-color:var(--pri);color:#fff}html[data-theme=dark] .btn.primary{color:#10131f}
+.btn[aria-pressed=true]{border-color:var(--pri);color:var(--pri);background:var(--soft)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:16px 0;padding:22px;box-shadow:var(--shadow);scroll-margin-top:170px;min-width:0;overflow-wrap:anywhere}
+.qcard.is-ok{border-left:5px solid var(--ok)}.qcard.is-bad{border-left:5px solid var(--bad)}
+.qtop{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+.pill{font-size:12px;border-radius:999px;padding:4px 10px;background:var(--pill);color:var(--pill-ink);font-weight:700}
+.pill.sj{background:var(--pri);color:#fff}html[data-theme=dark] .pill.sj{color:#10131f}
+.pill.ch{background:var(--soft);color:var(--pri)}
+.num{font-weight:900;color:var(--pri);flex:none}
+.q{font-size:17px;font-weight:800;letter-spacing:-.02em;margin:10px 0 14px;line-height:1.55}
+.opts{display:grid;gap:9px}
+.opt{width:100%;text-align:left;display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-size:15px;color:var(--ink);transition:.15s;min-width:0}
+.opt span.t{min-width:0;flex:1}
+.opt b{flex:none;color:var(--pri)}
+.opt:hover:not(:disabled){border-color:var(--hover-line);background:var(--hover)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--ok-line);background:var(--ok-bg)}.opt.correct b{color:var(--ok)}
+.opt.wrong{border-color:var(--bad-line);background:var(--bad-bg)}.opt.wrong b{color:var(--bad)}
+.opt .mark{flex:none;font-size:12px;font-weight:900}
+.opt.correct .mark{color:var(--ok)}.opt.wrong .mark{color:var(--bad)}
+.explain{display:none;margin-top:14px;padding:15px 16px;border-radius:16px;background:var(--stem);border:1px solid var(--line)}
+.explain.show{display:block}
+.result{font-weight:900;margin-bottom:6px}.result.ok{color:var(--ok)}.result.bad{color:var(--bad)}.result.peek{color:var(--pri)}
+.ans{font-weight:800;margin-bottom:6px}
+.src{margin-top:10px;padding:10px 12px;border-left:3px solid var(--warn-line);background:var(--warn);color:var(--warn-ink);border-radius:8px;font-size:13.5px}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:8px 0;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;max-width:100%;overflow-x:auto;font-family:"Cambria Math","Times New Roman",serif;font-size:16px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px}
+.frac .top{border-bottom:1.5px solid currentColor;padding:0 4px;line-height:1.3}.frac .bottom{padding:0 4px;line-height:1.3}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.gradebox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+.gradebox h2{margin:0 0 6px;font-size:20px}
+.verdict{display:inline-block;padding:4px 12px;border-radius:999px;font-weight:900;font-size:14px;margin-left:8px;vertical-align:middle}
+.verdict.pass{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line)}.verdict.fail{background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad-line)}
+.score-big{font-size:34px;font-weight:900;color:var(--pri);letter-spacing:-.03em}
+.score-big small{font-size:15px;color:var(--muted);font-weight:700;margin-left:6px}
+.chrow{display:grid;grid-template-columns:170px minmax(0,1fr) auto;gap:12px;align-items:center;margin:9px 0;font-size:14px}
+.chrow .mini{height:8px;background:var(--line);border-radius:999px;overflow:hidden}.chrow .mini i{display:block;height:100%}
+.chrow .val{font-weight:800;white-space:nowrap}
+.wrongs{margin-top:14px}.wrongs a{display:inline-block;margin:3px 6px 3px 0;padding:3px 10px;border-radius:999px;background:var(--bad-bg);border:1px solid var(--bad-line);color:var(--bad);font-weight:800;font-size:13px;text-decoration:none;cursor:pointer}
+.hidden{display:none!important}
+main{padding-bottom:50px}
+@media(max-width:820px){.bars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.hero h1{font-size:24px}.wrap,.hero{padding-left:14px;padding-right:14px}.qcard{padding:17px;border-radius:18px;scroll-margin-top:200px}.q{font-size:16px}.chrow{grid-template-columns:110px minmax(0,1fr);}.chrow .val{grid-column:1/-1}}
+@media print{header,.controls{display:none}.explain{display:block!important}.qcard{break-inside:avoid;box-shadow:none}}
+
+.casebox,.bulletbox{margin:14px 0 4px;padding:14px 16px;border:1px solid var(--hover-line);border-left:5px solid var(--pri);border-radius:12px;background:var(--soft);display:grid;gap:9px}.caseitem{padding:8px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line);line-height:1.62}.bulletbox{display:block;padding-left:36px}.bulletbox li{margin:7px 0;line-height:1.62}.lesson{display:grid;gap:10px;margin-top:10px}.lesson-row{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);line-height:1.65}.lesson-label{font-weight:800;color:var(--pri)}@media(max-width:640px){.lesson-row{grid-template-columns:1fr;gap:4px}.casebox{padding:11px}.q{line-height:1.68}}
+button{min-height:44px}a{color:var(--pri)}#storageNotice:empty{display:none}#legacy{background:var(--card);padding:14px;border:1px solid var(--line);border-radius:12px}#legacy summary{cursor:pointer;font-weight:700}#legacyRecords article{border-top:1px solid var(--line);padding:12px 0}#legacyRecords{overflow-wrap:anywhere}.opt{flex-wrap:wrap}.opt .mark{margin-left:auto}.gradebox{scroll-margin-top:200px}@media(max-width:380px){.pb .lab{font-size:10px}.theme{padding:6px}.wrap{padding-left:10px;padding-right:10px}.score-big small{display:block;margin:0}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="pgrid"><div class="bars" id="bars"></div><button class="theme" id="theme" type="button"></button></div>
+  <div class="tabs" id="tabs" role="group" aria-label="과목 필터"></div>
+</div></header>
+<section class="hero wrap">
+  <span class="badge">실전응용·복합판단 100문항</span>
+  <h1>증권투자권유자문인력<br>Copilot 모의고사 05</h1>
+  <p>선택지를 누르면 정답 여부와 해설이 바로 열리고, 풀이 기록은 이 기기에 저장됩니다. 2026-10-14 개정: 기존 답안은 아래 ‘개정 전 학습 기록’에서 확인할 수 있습니다. 개정판은 별도 기록으로 시작합니다.</p>
+  <div class="summary" id="summary"></div>
+  <div class="note"><b>합격 기준</b><br>과목별 정답률 50% 이상, 총점 70% 이상이어야 합격입니다. 미풀이 문항은 오답으로 처리합니다. 상단 막대는 오답이 과락 경계에 도달하면 <b>노란색</b>, 경계를 넘으면 <b>빨간색</b>으로 바뀝니다.</div>
+  <div class="controls">
+    <button class="btn" id="wrongBtn" type="button" aria-pressed="false">오답만 보기</button>
+    <button class="btn" id="expBtn" type="button" aria-pressed="false">해설 전체 펼치기</button>
+    <button class="btn primary" id="gradeBtn" type="button">채점 요약 보기</button>
+    <button class="btn" id="resetBtn" type="button">기록 초기화</button>
+  </div>
+</section>
+<main class="wrap">
+  <p id="storageNotice" role="status"></p>
+  <details id="legacy"><summary>개정 전 학습 기록 보기</summary><div id="legacyRecords"></div></details>
+  <div id="questions"></div>
+  <div class="empty hidden" id="empty">조건에 맞는 문항이 없습니다.</div>
+  <div class="gradebox hidden" id="gradeBox" role="status"></div>
+</main>
+<script>
+const RAW=[
+  [
+    1,
+    "경기분석",
+    "통화정책",
+    "[[BOX:물가압력이 높은 상황에서 중앙은행이 정책금리를 올렸다.]] 다른 조건이 같을 때 일반적인 총수요 경로는?",
+    [
+      "환율 변화와 관계없이 수출량 확정 증가",
+      "조달비용 하락으로 투자 확대",
+      "통화량 증가로 물가 즉시 하락",
+      "조달비용 상승으로 소비·투자 둔화"
+    ],
+    3,
+    "금리 인상은 차입비용을 높여 총수요를 억제한다. 조달비용 하락은 반대 경로이며 통화량 증가와 수출량 확정은 이 조치로 도출할 수 없다."
+  ],
+  [
+    1,
+    "경기분석",
+    "지표 시차",
+    "[[BOX:생산지수는 현재 경기를 따라 움직이고 실업률은 경기전환 뒤 늦게 반응한다.]] 두 지표의 분류는?",
+    [
+      "생산 선행·실업 동행",
+      "생산 후행·실업 선행",
+      "생산 동행·실업 후행",
+      "둘 다 선행"
+    ],
+    2,
+    "사례에서 현재 활동을 반영하는 생산은 동행, 늦게 반응하는 실업은 후행이다. 지표 이름만으로 단정하지 않고 제시된 시차로 분류한다."
+  ],
+  [
+    1,
+    "경기분석",
+    "환율 계산",
+    "[[BOX:달러 자산 1,000달러의 원화 가치를 평가한다. 달러 가격은 불변이고 환율이 1달러당 1,300원에서 1,430원으로 올랐다.]] 비용 제외 원화 수익률은?",
+    [
+      "-10%",
+      "10%",
+      "0%",
+      "13%"
+    ],
+    1,
+    "130만원에서 143만원으로 13만원 증가하여 10%다. 원/달러 환율 상승은 원화 약세이며 달러 가격 불변이라도 원화 평가액이 변한다."
+  ],
+  [
+    1,
+    "경기분석",
+    "실질금리",
+    "[[BOX:명목금리 5%, 예상물가상승률 3%다.]] 피셔방정식의 단순 근사에 따른 예상 실질금리는?",
+    [
+      "2%",
+      "3%",
+      "5%",
+      "8%"
+    ],
+    0,
+    "근사 실질금리=명목금리-예상물가상승률=2%다. 8%는 합계, 5%는 명목금리, 3%는 물가상승률이다. 정확식은 1.05/1.03-1이다."
+  ],
+  [
+    1,
+    "경기분석",
+    "승수",
+    "[[BOX:폐쇄경제에서 조세·수입·구축효과를 무시한다.]] 한계소비성향 0.8, 자율적 정부지출 증가 20억원일 때 단순 지출승수에 따른 균형소득 증가액은?",
+    [
+      "16억원",
+      "20억원",
+      "100억원",
+      "25억원"
+    ],
+    2,
+    "승수는 1/(1-0.8)=5이므로 100억원이다. 16억원은 최초 소비반응, 25억원은 잘못된 분모 적용, 20억원은 후속 소비를 무시한 값이다."
+  ],
+  [
+    1,
+    "경기분석",
+    "공급충격",
+    "[[BOX:국제 원유가격 급등으로 기업의 생산비가 상승했다.]] 총수요가 그대로인 단기 총수요·총공급 모형의 변화는?",
+    [
+      "물가 하락·산출 감소",
+      "물가 상승·산출 증가",
+      "물가 하락·산출 증가",
+      "물가 상승·산출 감소"
+    ],
+    3,
+    "단기 총공급곡선이 왼쪽으로 이동하여 물가는 오르고 산출은 감소한다. 수요 확대와 달리 물가와 산출이 반대 방향으로 움직인다."
+  ],
+  [
+    1,
+    "기본적 분석",
+    "지속가능성장",
+    "[[BOX:ROE 15%, 배당성향 40%가 일정하다.]] ROE×유보율로 단순화한 지속가능성장률은?",
+    [
+      "6%",
+      "15%",
+      "25%",
+      "9%"
+    ],
+    3,
+    "유보율=1-0.4=0.6, 성장률=15%×0.6=9%다. 6%는 배당성향을 곱한 값이고 15%는 유보율을 무시한 값이다."
+  ],
+  [
+    1,
+    "기본적 분석",
+    "배당할인",
+    "[[BOX:고든모형에서 차기 연간배당 600원, 요구수익률 8%, 영구성장률 2%다.]] 이론주가는?",
+    [
+      "10,000원",
+      "30,000원",
+      "7,500원",
+      "12,000원"
+    ],
+    0,
+    "D1/(k-g)=600/0.06=10,000원이며 k>g다. 7,500원은 성장 무시, 30,000원은 성장률만으로 할인, 12,000원은 제시 분모와 맞지 않는다."
+  ],
+  [
+    1,
+    "기본적 분석",
+    "주가배수",
+    "[[BOX:주가 30,000원, 주당순이익 2,000원, 주당순자산 10,000원이다.]] PER·PBR 조합은?",
+    [
+      "PER 15배·PBR 3배",
+      "PER 3배·PBR 15배",
+      "PER 10배·PBR 2배",
+      "PER 2배·PBR 10배"
+    ],
+    0,
+    "PER=30,000/2,000=15배, PBR=30,000/10,000=3배다. 이익과 순자산을 서로 바꾸거나 주가 대신 다른 분자를 쓰면 안 된다."
+  ],
+  [
+    1,
+    "기본적 분석",
+    "현금흐름",
+    "[[BOX:당기순이익 80억원, 감가상각비 20억원, 매출채권 증가 15억원이다.]] 다른 조정 항목이 없을 때 간접법 영업현금흐름은?",
+    [
+      "65억원",
+      "80억원",
+      "85억원",
+      "115억원"
+    ],
+    2,
+    "80+20-15=85억원이다. 감가상각은 비현금비용이므로 가산하고 매출채권 증가는 아직 회수하지 못한 매출이므로 차감한다."
+  ],
+  [
+    1,
+    "기본적 분석",
+    "잔여이익",
+    "[[BOX:기초 자기자본 1,000억원, 당기순이익 90억원, 자기자본비용 10%다.]] 단순 잔여이익은?",
+    [
+      "10억원",
+      "-10억원",
+      "190억원",
+      "90억원"
+    ],
+    1,
+    "잔여이익=90-1,000×10%=-10억원이다. 회계상 이익이 양수라도 주주의 요구보상 100억원보다 적으면 경제적 잔여이익은 음수다."
+  ],
+  [
+    1,
+    "기술적 분석",
+    "다이버전스",
+    "[[BOX:주가 고점이 10,000원에서 11,000원으로 높아졌지만 해당 고점의 OBV는 50만에서 45만으로 낮아졌다.]] 해석은?",
+    [
+      "상승추세 확정 강화",
+      "OBV가 가격을 전혀 반영하지 않음",
+      "하락 종료 확정",
+      "약세 다이버전스 가능성"
+    ],
+    3,
+    "가격 신고가를 OBV가 확인하지 못하므로 약세 다이버전스 가능성이 있다. 이는 경고이며 추세전환 시점이나 하락 종료를 확정하지 않는다."
+  ],
+  [
+    1,
+    "기술적 분석",
+    "RSI 계산",
+    "[[BOX:관찰기간의 평균 상승폭은 3, 평균 하락폭의 절댓값은 1이다.]] RSI=100-100/(1+RS)일 때 RSI는?",
+    [
+      "25",
+      "100",
+      "75",
+      "50"
+    ],
+    2,
+    "RS=3/1=3, RSI=100-100/4=75다. 25는 보완값이고 100은 평균 하락폭이 0일 때의 극한값이다. 과매수 해석이 즉시 매도 수익을 보장하지 않는다."
+  ],
+  [
+    1,
+    "기술적 분석",
+    "이동평균",
+    "[[BOX:전일 단기이동평균 98·장기이동평균 100, 오늘 단기 102·장기 101이다.]] 발생한 신호는?",
+    [
+      "갭 하락",
+      "골든크로스",
+      "헤드앤숄더",
+      "데드크로스"
+    ],
+    1,
+    "단기가 장기 아래에서 위로 교차했으므로 골든크로스다. 데드크로스는 반대 방향이며 가격 패턴과 갭은 이 자료로 판단할 수 없다."
+  ],
+  [
+    1,
+    "기술적 분석",
+    "스토캐스틱",
+    "[[BOX:최근 구간 최고가 120, 최저가 80, 현재 종가 110이다.]] %K=(종가-최저가)/(최고가-최저가)×100의 값은?",
+    [
+      "50",
+      "110",
+      "75",
+      "25"
+    ],
+    2,
+    "구간 내 종가 위치는 (110-80)/(120-80)×100=75다. RSI와 달리 상승·하락 평균을 사용하지 않는다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "가격·시간우선",
+    "[[BOX:연속매매에서 매도주문 없이 매수 A(9시, 10,000원, 100주), B(9시1분, 10,100원, 50주), C(9시2분, 10,000원, 500주)가 차례로 접수되어 모두 미체결 상태다. 이후 10,000원 매도 700주가 들어왔다.]] 매수 체결 우선순서는?",
+    [
+      "A→C→B",
+      "B→A→C",
+      "A→B→C",
+      "C→A→B"
+    ],
+    1,
+    "높은 매수가격 B가 우선이고 동일 가격 A·C는 먼저 접수한 A가 우선한다. 수량이 큰 C가 시간우선을 앞설 수 없다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "인수 방식",
+    "[[BOX:공모 100억원 중 70억원만 판매됐다.]] 인수인이 발행증권 전부를 먼저 인수한 총액인수 계약에서 미판매 30억원의 판매위험 부담자는?",
+    [
+      "인수인",
+      "일반 청약자",
+      "거래소",
+      "발행인만"
+    ],
+    0,
+    "총액인수인은 전량을 인수하므로 미판매분의 판매위험도 부담한다. 모집주선과 달리 발행인에게 미판매분을 그대로 남기는 구조가 아니다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "지정가 주문",
+    "매수 지정가 10,000원 주문의 체결가격 조건은? 호가단위 등 요건은 충족했다.",
+    [
+      "어떤 가격이든 즉시 전량 체결",
+      "10,000원 이하에서 체결 가능하나 체결 보장은 없음",
+      "10,000원 이상에서만 체결 가능",
+      "반드시 10,000원보다 비싸야 함"
+    ],
+    1,
+    "매수 지정가는 최대 지불가격을 정한다. 유리한 낮은 가격 체결도 가능하지만 매도 물량이 없으면 체결되지 않는다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "시장가 위험",
+    "[[BOX:최우선 매도호가 10,000원 10주, 다음 호가 10,100원 90주다.]] 다른 주문 없이 시장가로 100주를 매수하면 평균 체결가격은?",
+    [
+      "10,050원",
+      "10,000원",
+      "10,090원",
+      "10,100원"
+    ],
+    2,
+    "총대금=10×10,000+90×10,100=1,009,000원, 평균 10,090원이다. 시장가는 여러 호가를 소진할 수 있어 최우선 가격 전량 체결을 보장하지 않는다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "유상증자 권리락",
+    "[[BOX:기존주가 12,000원, 기존 4주당 신주 1주를 발행가 7,000원으로 유상증자한다.]] 다른 가치변화 없는 이론 권리락 가격은?",
+    [
+      "12,000원",
+      "7,000원",
+      "9,500원",
+      "11,000원"
+    ],
+    3,
+    "기존 4주 가치 48,000원에 신주 납입 7,000원을 더해 5주로 나누면 11,000원이다. 단순 가격 평균은 발행비율을 무시한다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "주식분할",
+    "[[BOX:1주를 5주로 분할한다. 분할 전 10주 보유·주가 50,000원이고 기업가치 변화는 없다고 가정한다.]] 분할 후 보유수량과 이론가격은?",
+    [
+      "2주·250,000원",
+      "50주·10,000원",
+      "10주·10,000원",
+      "50주·50,000원"
+    ],
+    1,
+    "수량은 5배, 주당가격은 1/5이므로 총가치 50만원은 같다. 분할 자체로 총가치가 5배 증가하지 않는다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "신주·구주 공모",
+    "[[BOX:상장 공모에서 회사가 새 주식 100만주를 발행하고 기존 대주주가 보유주식 20만주를 매각했다.]] 자금 귀속 설명은?",
+    [
+      "신주 대금은 회사, 구주매출 대금은 매도주주로 귀속",
+      "구주매출은 회사의 발행주식수를 증가",
+      "두 대금 모두 대주주로 귀속",
+      "두 대금 모두 회사로 귀속"
+    ],
+    0,
+    "신주발행은 회사 자본조달이고 구주매출은 기존 주주의 매도다. 구주 소유권 이전만으로 발행주식수가 증가하지 않는다."
+  ],
+  [
+    1,
+    "유가증권시장",
+    "결제",
+    "[[BOX:국내 주식 정규 거래의 T+2 결제를 전제로 월요일에 매수했다. 화요일·수요일은 모두 결제 영업일이다.]] 결제일은?",
+    [
+      "화요일",
+      "수요일",
+      "월요일",
+      "목요일"
+    ],
+    1,
+    "거래일 이후 두 번째 결제 영업일인 수요일이다. 달력일 대신 결제 영업일을 세며 휴일은 제외한다."
+  ],
+  [
+    1,
+    "코스닥시장",
+    "기술특례",
+    "[[BOX:적자 기술기업이 기술평가를 활용해 코스닥 상장을 추진한다.]] 기술특례의 취지에 맞는 설명은?",
+    [
+      "상장 뒤 공시 전면 면제",
+      "현재 이익만으로 포착하기 어려운 기술력·성장성을 심사",
+      "기술평가 합격만으로 모든 상장심사 자동 통과",
+      "투자원금 보장"
+    ],
+    1,
+    "기술특례는 이익요건 외 기술력·성장성을 평가하는 경로다. 기술평가와 거래소 심사는 구별되며 공시 면제나 원금보장은 없다."
+  ],
+  [
+    1,
+    "코스닥시장",
+    "상장과 자금조달",
+    "[[BOX:이미 상장된 코스닥 주식을 투자자끼리 장내 매매했다. 신규 발행은 없다.]] 해당 거래대금의 직접 귀속자는?",
+    [
+      "회사 채권자",
+      "금융투자협회",
+      "발행회사",
+      "매도 투자자"
+    ],
+    3,
+    "유통시장 거래의 매도대금은 매도자에게 간다. 상장기업이라는 이유로 장내 매수대금이 회사 운영자금으로 직접 들어가지는 않는다."
+  ],
+  [
+    1,
+    "코스닥시장",
+    "상장심사·투자판단",
+    "[[BOX:기술특례 상장사의 사업화가 예상보다 지연되고 현금 소진이 빠르다.]] 상장 사실을 고려한 투자판단으로 적절한 것은?",
+    [
+      "상장심사가 미래 수익률을 보증",
+      "기술평가가 높으면 모든 공시 생략",
+      "현금흐름·추가 조달·사업화 위험을 별도로 분석",
+      "코스닥은 사업위험이 존재하지 않음"
+    ],
+    2,
+    "상장은 투자성과 보증이 아니다. 사업화 지연과 유동성 부족은 상장 후에도 독립적으로 점검해야 한다. 공시의무도 계속 적용된다."
+  ],
+  [
+    1,
+    "채권시장",
+    "현재가치",
+    "[[BOX:액면 100만원, 1년 만기 무이표채의 연 수익률이 5%다.]] 복리 할인 이론가격에 가장 가까운 것은?",
+    [
+      "100만원",
+      "90만원",
+      "95.24만원",
+      "105만원"
+    ],
+    2,
+    "100/1.05≈95.238만원이다. 액면과 이자는 만기 현금흐름을 현재가치로 할인해야 하며 105만원은 미래가치 방향이다."
+  ],
+  [
+    1,
+    "채권시장",
+    "수정듀레이션",
+    "[[BOX:수정듀레이션 4년인 채권의 수익률이 0.5%p 상승한다.]] 볼록성을 무시한 가격변화율 근사는?",
+    [
+      "+2%",
+      "-0.5%",
+      "+4%",
+      "-2%"
+    ],
+    3,
+    "ΔP/P≈-Dmod×Δy=-4×0.005=-0.02다. 0.5%p를 0.5가 아닌 0.005로 입력하며 금리 상승은 가격 하락이다."
+  ],
+  [
+    1,
+    "채권시장",
+    "볼록성",
+    "[[BOX:가격·수정듀레이션이 같고 양의 볼록성이 A 60, B 100이다.]] 동일한 작은 금리변동에서 2차 근사의 B와 A 비교는?",
+    [
+      "하락금리에서 B 상승폭 더 크고 상승금리에서 B 하락폭 더 작음",
+      "B는 신용위험 없음",
+      "두 가격변화 완전히 같음",
+      "상승금리에서 B 하락폭 더 큼"
+    ],
+    0,
+    "가격 근사에 +0.5×볼록성×(Δy)²가 더해져 양방향으로 B에 유리하다. 볼록성과 채무불이행 위험은 별개다."
+  ],
+  [
+    1,
+    "채권시장",
+    "경과이자",
+    "[[BOX:채권 클린가격 99만원, 경과이자 1.5만원이다.]] 수수료 제외 더티가격은?",
+    [
+      "101.5만원",
+      "100.5만원",
+      "97.5만원",
+      "99만원"
+    ],
+    1,
+    "더티가격=클린가격+경과이자=100.5만원이다. 클린가격은 경과이자를 제외한 호가이며 실제 정산에는 경과이자를 가산한다. 경과이자를 빼거나 액면가에 더하지 않는다."
+  ],
+  [
+    1,
+    "채권시장",
+    "재투자위험",
+    "[[BOX:만기수익률 5%로 이표채를 매수했다. 만기까지 보유하고 부도는 없지만 중간 이자를 2%에 재투자했다.]] 실현 복리수익률 설명은?",
+    [
+      "반드시 5%",
+      "반드시 2%",
+      "매수 시 만기수익률보다 낮아질 수 있음",
+      "재투자율은 무관"
+    ],
+    2,
+    "만기수익률의 실현에는 중간 이자를 해당 수익률로 재투자하는 가정이 필요하다. 원금·이표 지급이 같아도 재투자율 하락은 실현 수익률을 낮춘다."
+  ],
+  [
+    1,
+    "채권시장",
+    "신용스프레드",
+    "[[BOX:동일 만기 국채 수익률 3%, 회사채 수익률 5%다. 이후 국채는 그대로, 회사채는 6%가 되었다.]] 스프레드 변화는?",
+    [
+      "변화 없음",
+      "2%p에서 3%p로 확대",
+      "2%p에서 1%p로 축소",
+      "5%p에서 6%p로 확대"
+    ],
+    1,
+    "스프레드는 회사채-기준 국채 수익률이므로 2%p에서 3%p다. 확대는 신용·유동성 위험보상 증가 등을 반영할 수 있으며 부도 확정은 아니다."
+  ],
+  [
+    1,
+    "채권시장",
+    "수익률곡선",
+    "[[BOX:단기금리 5%, 장기금리 3%의 역전된 곡선을 관찰했다.]] 기대가설 관점에서 가능한 해석은?",
+    [
+      "장기금리는 언제나 현재 단기금리와 같음",
+      "모든 채권이 부도 확정",
+      "미래 단기금리 상승만 예상",
+      "향후 단기금리 하락 기대가 반영될 수 있음"
+    ],
+    3,
+    "기대가설에서 장기금리는 미래 단기금리 기대를 반영한다. 역전은 하락 기대와 양립하지만 실제 곡선에는 기간프리미엄도 있어 경기침체를 확정할 수 없다."
+  ],
+  [
+    1,
+    "기타 증권시장",
+    "ETF 괴리율",
+    "[[BOX:ETF 시장가격 10,200원, 순자산가치(NAV) 10,000원이다.]] (가격-NAV)/NAV 기준 괴리율은?",
+    [
+      "-2%",
+      "0%",
+      "+2%",
+      "+20%"
+    ],
+    2,
+    "200/10,000=2%로 NAV 대비 프리미엄이다. 추적오차는 기간 수익률의 지수 추종 정도이며 시점 가격 괴리와 구별한다."
+  ],
+  [
+    1,
+    "기타 증권시장",
+    "ETN 위험",
+    "[[BOX:기초지수 수익률이 양수지만 ETN 발행사가 채무불이행에 빠졌다.]] 가장 직접적인 추가 위험은?",
+    [
+      "지수 계산 불가능만 존재",
+      "ETF 신탁재산과 동일하게 발행사 부도 영향 전무",
+      "원금 자동 보장",
+      "발행자 신용위험으로 손실 가능"
+    ],
+    3,
+    "ETN은 발행사의 채무증권이어서 지수 성과와 별개로 발행사 신용위험을 부담한다. ETF의 별도 신탁재산 구조와 같지 않다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "단리·복리",
+    "[[BOX:100만원을 연 10%로 2년간 연복리 운용한다.]] 세금·비용이 없을 때 만기금액은?",
+    [
+      "200만원",
+      "110만원",
+      "120만원",
+      "121만원"
+    ],
+    3,
+    "100×1.1²=121만원이다. 120만원은 단리, 110만원은 1년만 반영한 값이다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "RP",
+    "[[BOX:증권을 팔면서 일정 시점에 정해진 가격으로 다시 사기로 약정했다.]] 상품의 기본 구조는?",
+    [
+      "무담보 영구 주식",
+      "무조건 영구 양도",
+      "환매조건부매매(RP)",
+      "보통주 유상증자"
+    ],
+    2,
+    "RP는 증권 매매에 환매 약정이 결합된다. 담보성 증권이 있어도 거래상대방·담보가격 위험이 완전히 없어지는 것은 아니다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "CMA",
+    "[[BOX:CMA 광고의 '매일 수익 지급'만 보고 예금과 동일하다고 판단했다.]] 먼저 확인할 사항은?",
+    [
+      "계좌 이름만으로 위험 판정 완료",
+      "수익 지급 주기가 원금보장을 의미",
+      "모든 CMA는 예금자보호가 동일",
+      "RP형·MMF형 등 운용 구조와 보호 여부"
+    ],
+    3,
+    "CMA는 운용 유형에 따라 법적 구조와 보호 여부가 다르다. 수익 지급 주기와 원금보장·예금자보호는 별개의 속성이다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "펀드 기준가격",
+    "[[BOX:펀드 자산 105억원, 부채 5억원, 총좌수 10억좌다.]] 1,000좌당 기준가격은?",
+    [
+      "1,000원",
+      "100원",
+      "10,500원",
+      "10,000원"
+    ],
+    3,
+    "순자산 100억원/10억좌=1좌당 10원, 1,000좌당 10,000원이다. 자산에서 부채를 차감하고 기준 단위 1,000좌를 반영한다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "전환사채",
+    "액면 100만원의 전환사채 전환가격이 주당 20,000원이다. 전액 전환 시 주식 수는? 단주·조정은 없다.",
+    [
+      "50주",
+      "100주",
+      "5주",
+      "20주"
+    ],
+    0,
+    "1,000,000/20,000=50주다. 전환가와 액면 금액의 단위를 맞춰 나눈다. 전환권 행사 후에는 그 부분 채권이 주식으로 바뀐다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "신주인수권부사채",
+    "[[BOX:분리형 신주인수권부사채에서 신주인수권을 매각했다.]] 별도 사채를 그대로 보유한 경우 일반적인 설명은?",
+    [
+      "사채도 자동 소멸",
+      "신주가 무상으로 자동 지급",
+      "사채의 원리금 청구권은 계속 보유",
+      "사채가 보통주로 자동 전환"
+    ],
+    2,
+    "분리형 BW는 채권과 신주인수권을 분리할 수 있다. 권리 매각이 채권 소멸이나 전환을 뜻하지 않으며 신주 취득에는 행사 조건에 따른 납입이 필요하다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "기대수익률",
+    "[[BOX:자산 A 기대수익률 8%, B 2%다.]] 투자비중 A 60%, B 40%일 때 기대수익률은?",
+    [
+      "5.6%",
+      "5%",
+      "6%",
+      "10%"
+    ],
+    0,
+    "0.6×8%+0.4×2%=5.6%다. 단순평균 5%는 비중을 무시하며 기대수익률 계산에 상관계수는 필요하지 않다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "분산투자",
+    "[[BOX:동일한 변동성의 두 자산을 결합한다.]] 공분산이 낮아질 때 다른 조건이 같은 포트폴리오 위험은?",
+    [
+      "반드시 증가",
+      "항상 0",
+      "기대수익률과 동일",
+      "감소"
+    ],
+    3,
+    "포트폴리오 분산의 교차항 2w1w2Cov가 줄어 위험이 감소한다. 상관이 낮다는 이유만으로 위험이 항상 0이 되지는 않는다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "CAPM",
+    "[[BOX:무위험수익률 3%, 시장 기대수익률 9%, 베타 1.2다.]] CAPM 요구수익률은?",
+    [
+      "13.8%",
+      "10.2%",
+      "7.2%",
+      "12%"
+    ],
+    1,
+    "3%+1.2×(9%-3%)=10.2%다. 7.2%는 위험프리미엄만, 13.8%는 시장수익률 전체에 베타를 곱한 오류다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "샤프지수",
+    "[[BOX:포트폴리오 수익률 11%, 무위험수익률 3%, 표준편차 20%다.]] 샤프지수는?",
+    [
+      "0.15",
+      "0.55",
+      "2.5",
+      "0.4"
+    ],
+    3,
+    "(11%-3%)/20%=0.4다. 0.55는 무위험수익 차감을 빠뜨리고 2.5는 분자·분모를 뒤집은 값이다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "리밸런싱",
+    "[[BOX:주식 60·채권 40의 금액으로 시작해 주식이 80, 채권이 40이 됐다.]] 총액 유지하며 원래 비중으로 복귀하려면?",
+    [
+      "주식 8 매도·채권 8 매수",
+      "주식 8 매수·채권 8 매도",
+      "매매 불필요",
+      "주식 20 매도·현금 보유"
+    ],
+    0,
+    "총액 120의 목표는 주식 72·채권 48이므로 8을 옮긴다. 원래 금액 60·40으로 돌아가는 것이 아니라 목표 비중을 복원한다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "체계적 위험",
+    "[[BOX:다수 업종 주식을 충분히 분산해도 시장 전체 금리충격의 위험이 남는다.]] 이 위험은?",
+    [
+      "기업 고유위험",
+      "분산하면 반드시 소멸",
+      "체계적 위험",
+      "회계 오류위험만"
+    ],
+    2,
+    "시장 전체에 공통인 체계적 위험은 단순 종목 분산으로 제거하기 어렵다. 기업별 비체계적 위험 감소와 구별한다."
+  ],
+  [
+    2,
+    "금융상품분석·투자전략",
+    "환노출 수익률",
+    "[[BOX:해외자산이 현지통화로 10% 상승하고 현지통화의 원화 환산가치가 5% 하락했다.]] 환헤지·비용이 없을 때 원화 수익률은?",
+    [
+      "-5%",
+      "4.5%",
+      "5%",
+      "15%"
+    ],
+    1,
+    "(1+0.10)×(1-0.05)-1=4.5%다. 단순 합산 5%는 교차항을 생략하고 15%는 환율 방향을 반대로 처리했다."
+  ],
+  [
+    2,
+    "투자권유 및 고객관리",
+    "투자기간",
+    "[[BOX:1개월 뒤 주거자금으로 반드시 써야 하는 돈이며 손실을 감수할 수 없는 고객에게 장기 고위험 상품을 권유하려 한다.]] 적절한 대응은?",
+    [
+      "나이가 젊으면 무조건 적합",
+      "고수익 전망만 강조",
+      "자금 사용 시점·손실감수능력을 확인해 권유 재검토",
+      "서명만 받으면 정보 파악 생략"
+    ],
+    2,
+    "투자기간과 손실감수능력은 상품의 만기·변동성·유동성과 함께 보아야 한다. 연령 하나나 서명만으로 적합성을 대신할 수 없다."
+  ],
+  [
+    2,
+    "투자권유 및 고객관리",
+    "정보 갱신",
+    "[[BOX:2년 전 공격형으로 분류한 고객이 은퇴 후 소득이 급감했다고 알렸다.]] 추가 권유 전 조치는?",
+    [
+      "고객 정보 삭제 후 추정",
+      "과거 등급 영구 사용",
+      "수수료 높은 상품 우선 권유",
+      "변경된 재산·소득·투자목적을 확인하고 성향 재평가"
+    ],
+    3,
+    "중요 상황 변화가 드러나면 최신 정보로 투자성향을 확인해야 한다. 과거 분류를 고정하거나 정보를 추정하는 것은 타당하지 않다."
+  ],
+  [
+    2,
+    "투자권유 및 고객관리",
+    "집중도",
+    "[[BOX:고객 금융자산 1억원 중 7,000만원이 한 회사 주식이고 추가 2,000만원도 같은 종목에 투자하려 한다.]] 상담의 핵심은?",
+    [
+      "투자 경험이 있으면 위험 없음",
+      "종목 수익 전망만 설명",
+      "금액이 크면 자동 안전",
+      "전체 자산의 집중도와 손실감수능력 검토"
+    ],
+    3,
+    "추가 투자 뒤 90%가 단일 종목이다. 개별 거래만이 아니라 전체 자산의 집중위험을 검토해야 하며 경험이나 금액이 위험을 없애지 않는다."
+  ],
+  [
+    2,
+    "투자권유 및 고객관리",
+    "상담 기록",
+    "[[BOX:고객이 원금손실 가능성과 중도환매 불이익을 질문했다.]] 적절한 상담 기록은?",
+    [
+      "수익률 전망만 저장",
+      "질문 삭제 후 동의 표시",
+      "분쟁 발생 뒤 기억으로만 작성",
+      "질문·설명 내용·고객 확인을 사실대로 남김"
+    ],
+    3,
+    "판단에 중요한 위험과 고객 질문, 답변, 확인을 정확히 기록한다. 불리한 내용 삭제나 사후 재구성은 설명 과정의 신뢰성을 훼손한다."
+  ],
+  [
+    2,
+    "투자권유 및 고객관리",
+    "목표 기반 배분",
+    "[[BOX:비상생활비와 10년 뒤 은퇴자금을 함께 투자하려 한다.]] 적절한 접근은?",
+    [
+      "전액 하나의 장기 상품",
+      "비상자금을 가장 고위험 자산에 우선 배분",
+      "목표별 기간·유동성 요구를 나누어 배분",
+      "은퇴자금도 항상 현금만 가능"
+    ],
+    2,
+    "단기 비상자금과 장기 은퇴자금은 필요한 유동성과 위험감수 범위가 다르다. 목표를 구분해 배분하며 특정 자산에 전액 고정하지 않는다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "이해상충",
+    "[[BOX:담당자가 고객에게 자신의 성과급이 큰 상품만 권유하려 한다.]] 윤리적으로 우선할 기준은?",
+    [
+      "직원 성과급 극대화",
+      "회사 재고 소진만",
+      "고객 이익과 적합성, 이해상충 관리",
+      "판매량 순위"
+    ],
+    2,
+    "보상체계가 고객 이익을 침해하지 않도록 이해상충을 관리한다. 회사·직원의 이익만으로 권유상품을 정하면 안 된다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "선행매매",
+    "[[BOX:직원이 고객의 대량 매수 주문을 알게 되어 가격 상승을 기대하고 자기 계좌로 먼저 매수했다.]] 문제되는 행위는?",
+    [
+      "분산투자",
+      "정상 공개정보 분석",
+      "고객 주문 충실 집행",
+      "고객 주문정보를 이용한 선행매매"
+    ],
+    3,
+    "고객 주문정보로 자기 이익을 먼저 추구하는 선행매매는 고객 이익과 공정성을 침해한다. 일반적인 공개정보 투자와 다르다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "과당매매",
+    "[[BOX:담당자가 투자목적 변화 없이 수수료를 늘리려고 빈번한 매매를 권했다.]] 가장 직접적인 문제는?",
+    [
+      "고객 요청 없는 분산효과 보장",
+      "저비용 장기투자",
+      "고객 이익보다 수수료를 앞세운 과당매매",
+      "유동성 확보 목적의 모든 매매"
+    ],
+    2,
+    "거래 빈도 자체만으로 위법을 확정하는 것이 아니라 목적·비용·고객 상황을 함께 본다. 제시된 수수료 목적과 불필요한 반복 매매가 문제다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "비밀유지",
+    "[[BOX:동료가 업무 필요 없이 유명 고객의 보유종목을 알려 달라고 했다.]] 대응은?",
+    [
+      "접근 권한과 업무 필요가 없으므로 제공 거절",
+      "고객 이름만 지우면 세부내역 무조건 제공",
+      "동료니까 전체 공유",
+      "개인 메신저로 전달"
+    ],
+    0,
+    "같은 회사 동료라도 업무상 필요와 권한 없이 고객 정보를 제공하면 안 된다. 이름 삭제만으로 재식별·비밀유지 문제가 모두 사라지는 것도 아니다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "성과 광고",
+    "[[BOX:최근 1개월 최고수익률만 골라 광고하며 손실 가능성과 계산기간은 숨겼다.]] 적절한 조치는?",
+    [
+      "기간·산출근거·위험을 균형 있게 제시",
+      "광고 그대로 유지",
+      "최고수익만 더 크게 표시",
+      "수익률 보장 문구 추가"
+    ],
+    0,
+    "선택적 성과 제시는 오인을 유발한다. 기간·근거·위험과 적용 조건을 명확히 밝혀야 하며 과거 성과가 미래 보장으로 바뀌지 않는다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "민원 대응",
+    "[[BOX:고객이 설명받지 못한 수수료를 주장하며 민원을 제기했다.]] 초기 대응으로 적절한 것은?",
+    [
+      "담당자 기억만 믿고 기각",
+      "계약·설명·수수료 기록을 보존하고 사실관계 확인",
+      "민원 제기 자체를 막음",
+      "기록 즉시 폐기"
+    ],
+    1,
+    "주장을 접수하고 관련 자료를 보존하여 사실관계를 검토해야 한다. 책임을 즉시 확정하거나 기록을 폐기해서는 안 된다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "손실보전 약속",
+    "[[BOX:판매직원이 계약 유치를 위해 투자 손실 발생 시 개인 돈으로 메워주겠다고 약속했다.]] 올바른 평가는?",
+    [
+      "개인 돈이면 언제나 허용",
+      "구두 약속이면 문제 없음",
+      "임의 손실보전 약속은 해서는 안 됨",
+      "고객 요청이면 자동 허용"
+    ],
+    2,
+    "정당한 손해배상 등 법정 예외와 달리 계약 유치용 임의 손실보전 약속은 금지된다. 개인 자금·구두·고객 요청이 금지 회피 근거가 되지 않는다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "자전거래·성과",
+    "[[BOX:운용자가 실질적 거래 목적 없이 관계 계좌끼리 거래해 성과를 꾸미려 한다.]] 윤리 판단은?",
+    [
+      "운용 재량이면 무조건 허용",
+      "허위 성과 유발과 이해상충을 점검하고 중단",
+      "거래량이 늘면 정당화",
+      "실제 투자자 이익 자동 증가"
+    ],
+    1,
+    "성과 왜곡을 위한 거래는 진실성·공정성을 해친다. 재량이나 거래량 증가가 허위 성과를 정당화하지 않는다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "공정 배분",
+    "[[BOX:두 고객의 동일 조건 주문을 집행하면서 친한 고객에게만 유리한 체결분을 사후 배정했다.]] 개선 원칙은?",
+    [
+      "사전에 정한 합리적이고 공정한 배분 기준 적용",
+      "친분 순서로 배분",
+      "담당자가 매번 임의 선택",
+      "수수료 높은 고객만 우선"
+    ],
+    0,
+    "사후 선별 배정은 고객 간 불공정이다. 객관적 사전 기준을 일관되게 적용해야 하며 친분·수수료만으로 차별하면 안 된다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "선물·접대",
+    "[[BOX:외부 상품 공급자가 추천 순위를 올려 달라며 직원에게 고가 선물을 제안했다.]] 적절한 조치는?",
+    [
+      "고객 모르면 수령",
+      "추천 순위만 올리고 수령",
+      "개인 선물이라 신고 생략",
+      "내부 선물 규정에 따라 거절·보고하고 이해상충 관리"
+    ],
+    3,
+    "고가 선물과 추천 요구는 판단의 독립성을 해칠 수 있다. 사적 수령이나 비공개가 정당화하지 않으며 내부 규정과 보고 절차를 따른다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "취약 고객 설명",
+    "[[BOX:금융용어 이해가 어려운 고령 고객이 질문을 반복했다.]] 설명 방법은?",
+    [
+      "서명부터 받고 질문 생략",
+      "설명 시간을 줄이려고 위험 생략",
+      "나이만으로 모든 거래 금지",
+      "쉬운 말·예시로 설명하고 이해를 확인"
+    ],
+    3,
+    "이해 수준에 맞추어 핵심 위험·비용을 설명하고 확인한다. 서명만 받거나 연령만으로 일률 금지하는 것은 적절한 대안이 아니다."
+  ],
+  [
+    2,
+    "직무윤리·투자자분쟁예방",
+    "내부통제",
+    "[[BOX:판매 오류를 발견했지만 실적 평가를 우려해 숨기려 한다.]] 적절한 대응은?",
+    [
+      "고객 연락만 차단",
+      "기록 삭제",
+      "정해진 보고체계로 보고하고 시정·재발방지",
+      "퇴사할 때까지 은폐"
+    ],
+    2,
+    "내부통제는 오류의 발견·보고·시정이 작동해야 한다. 은폐와 기록 삭제는 피해를 키우고 사후 검증을 어렵게 한다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "금융투자상품",
+    "투자성, 즉 지급금액보다 회수금액이 적어질 위험이 있는 권리라는 금융투자상품 개념에 맞는 설명은? 법정 예외는 제외한다.",
+    [
+      "원본손실 가능성 등 법정 실질 요건으로 판단",
+      "판매 명칭만으로 판단",
+      "모든 현금은 자동 해당",
+      "높은 수익률 광고가 유일한 기준"
+    ],
+    0,
+    "법은 명칭·광고보다 투자성과 권리의 실질 등 법정 요건을 본다. 모든 현금이나 고수익 광고만으로 금융투자상품이 되지는 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "증권·파생상품",
+    "[[BOX:주식을 기초로 한 선물계약과 보통주를 비교한다.]] 일반적 구분으로 옳은 것은?",
+    [
+      "둘 다 예금",
+      "보통주는 지분증권·선물은 파생상품",
+      "보통주는 파생상품·선물은 지분증권",
+      "둘 다 보통주"
+    ],
+    1,
+    "보통주는 지분 권리를 나타내는 증권이고 선물은 기초자산을 바탕으로 미래 이행을 약정하는 파생상품이다. 기초자산이 주식이라고 선물 자체가 주식이 되지는 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "중개·매매업",
+    "[[BOX:회사가 고객 주문을 중개하는 것과 자기 계산으로 증권을 매매하는 영업을 구분한다.]] 맞는 연결은?",
+    [
+      "둘 다 투자자문업",
+      "고객 중개는 신탁업·자기 계산은 중개업",
+      "고객 중개는 투자중개업·자기 계산은 투자매매업",
+      "둘 다 투자일임업"
+    ],
+    2,
+    "타인 계산 중개와 자기 계산 매매를 구분한다. 자문은 조언, 일임은 고객으로부터 판단을 맡아 운용하는 구조다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "자문·일임",
+    "[[BOX:A는 고객에게 종목 의견만 제공하고 고객이 주문한다. B는 계약으로 투자판단을 위임받아 운용한다.]] 업의 구분은?",
+    [
+      "A 일임·B 자문",
+      "A 자문·B 일임",
+      "둘 다 중개",
+      "둘 다 증권 인수"
+    ],
+    1,
+    "의견 제공은 자문, 위임받은 투자판단과 운용은 일임이다. 단순 주문 중개나 발행증권 인수와는 역할이 다르다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "인허가",
+    "[[BOX:영업으로 금융투자업을 시작하려는 회사가 사업자등록만으로 충분하다고 주장한다.]] 적절한 판단은?",
+    [
+      "고객 동의가 인허가 대체",
+      "사업자등록만으로 모든 업 영위",
+      "자본금이 많으면 규제 면제",
+      "업종별 인가·등록 등 법정 진입요건 확인 필요"
+    ],
+    3,
+    "금융투자업은 유형에 따라 인가 또는 등록 등 요건이 적용된다. 사업자등록·고객동의·자본 규모만으로 요건을 생략할 수 없다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "증권신고서",
+    "[[BOX:일반적인 신고서 제출 대상 공모에서 발행사가 위험요인과 재무정보를 공개한다.]] 제도의 주된 목적은?",
+    [
+      "투자판단에 필요한 정보 제공",
+      "모든 부도 방지 확약",
+      "주가 상승 승인",
+      "투자수익 보장"
+    ],
+    0,
+    "증권신고서는 정보 공시를 통한 투자자 판단 지원 장치다. 신고서 수리가 수익성 심사 통과나 원금 보증을 뜻하지 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "투자설명서",
+    "[[BOX:신고서 제출 대상 공모에 참여하는 일반 투자자에게 법정 투자설명서 교부가 요구되는 상황이다.]] 판매자의 적절한 행동은?",
+    [
+      "요청하지 않으면 항상 생략",
+      "광고 한 줄로 무조건 대체",
+      "청약 완료 후 언제든 전달하면 충분",
+      "법정 시기·방식에 따라 교부하고 중요정보 확인 지원"
+    ],
+    3,
+    "투자설명서는 공모 투자판단을 위한 법정 서류다. 제시된 교부대상 상황에서는 광고나 임의 사후 전달로 의무를 대체하지 못한다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "정기·수시공시",
+    "[[BOX:상장사의 연간 실적 보고와 합병 결정 공시를 구분한다.]] 기본 분류는?",
+    [
+      "합병은 항상 비공개",
+      "연간 보고는 정기, 합병 결정은 중요 경영사항 수시공시 검토",
+      "둘 다 정기공시만",
+      "연간 보고는 광고"
+    ],
+    1,
+    "정기보고와 중요 경영사항 발생 시의 보고·공시는 역할이 다르다. 합병 결정은 적용 요건에 따라 신속한 공시를 검토해야 한다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "공개매수",
+    "[[BOX:공개매수 조건을 제시한 뒤 일부 일반 주주에게만 비밀리에 더 유리한 조건을 제공하려 한다.]] 제도 취지상 문제는?",
+    [
+      "공개매수는 경영진 전용",
+      "투자수익 보장 의무 위반",
+      "모든 장외매매 금지 위반만",
+      "공개된 조건 아래 주주의 공정한 매도기회 훼손"
+    ],
+    3,
+    "공개매수는 조건·정보 공개와 공정한 대우가 핵심이다. 일부 주주에 대한 비밀 우대는 그 취지를 훼손한다. 수익 보증 제도가 아니다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "대량보유 보고",
+    "[[BOX:대량보유자의 보유목적이 단순투자에서 경영권 영향으로 바뀌었다.]] 필요한 검토는?",
+    [
+      "법정 보유목적 변경 보고 요건 확인",
+      "보유비율만 같으면 목적은 영구 비공개",
+      "매매 영구 금지",
+      "배당세 자동 면제"
+    ],
+    0,
+    "보유목적은 지배구조 판단에 중요하므로 변경 보고 대상 여부를 확인해야 한다. 같은 보유비율이어도 목적 변화가 무의미하지 않다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "미공개정보 이용",
+    "[[BOX:상장사 임원이 미공개 대형 계약 체결정보를 직무상 알고 공시 전 자기 계좌로 매수했다.]] 핵심 규제 쟁점은?",
+    [
+      "공개정보 기반 분석",
+      "모든 임원 매매의 무조건 합법성",
+      "단순 정보 보유만 있고 거래 없음",
+      "미공개중요정보의 거래 이용"
+    ],
+    3,
+    "직무상 취득한 미공개중요정보를 거래에 이용한 사례다. 정보 보유만의 사례도 아니고 공개자료 분석도 아니다. 법정 중요성·미공개성 등 요건을 적용한다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "시세조종",
+    "[[BOX:서로 약정한 계좌들이 활발한 거래처럼 보이게 같은 종목을 반복 매매한다.]] 가장 관련 깊은 규제는?",
+    [
+      "통상 배당 지급",
+      "고객 정보 갱신",
+      "통정매매 등 시세조종 규제",
+      "상속세"
+    ],
+    2,
+    "거래 성황을 오인시키려는 약정 매매는 시세조종 규제의 쟁점이다. 배당·상속·고객 성향 갱신과는 무관하다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "부정거래",
+    "[[BOX:주가를 올리고 매도하려고 허위 호재자료를 만들어 유포했다.]] 가장 적절한 평가는?",
+    [
+      "표현만 바꾸면 언제나 적법",
+      "허위정보를 이용한 부정거래 등 규제 검토",
+      "실제 매도 전이면 모든 규제 면제",
+      "회사 밖에서 작성하면 책임 없음"
+    ],
+    1,
+    "투자자를 속이는 허위자료 유포는 부정거래 등의 쟁점이다. 표현 변경·작성 장소·매도 시점만으로 면책되지 않으며 구체적 법정 요건을 판단한다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "적합성",
+    "[[BOX:일반금융소비자에게 권유대상 투자성 상품을 권유한다. 파악한 투자목적·재산·경험에 비추어 부적합하다.]] 원칙에 맞는 행동은?",
+    [
+      "수수료 설명만 하면 계속 권유",
+      "부적합한 계약 체결 권유를 하지 않음",
+      "전문소비자로 임의 표시",
+      "서명만 받고 계속 권유"
+    ],
+    1,
+    "적합성원칙은 고객 정보에 비추어 부적합한 권유를 금지한다. 서명이나 비용 설명만으로 부적합 권유가 적합해지지 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "적정성",
+    "[[BOX:권유 없이 일반금융소비자가 적정성원칙 적용 대상 투자성 상품을 신청했다. 파악한 정보상 부적정하다.]] 요구되는 핵심 조치는?",
+    [
+      "권유가 없으니 정보 파악 전면 면제",
+      "부적정 사실을 알리고 법정 방식으로 확인",
+      "부적정 사실 숨김",
+      "고객을 임의 전문소비자로 변경"
+    ],
+    1,
+    "금소법 제18조 적용 대상에서는 권유가 없어도 정보를 파악하고 부적정 사실을 알린 뒤 확인해야 한다. 적합성의 권유 금지와 구별하며 모든 금융상품에 일률 적용하지 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "설명의무",
+    "[[BOX:일반금융소비자에게 설명의무 적용 대상 투자성 상품을 권유했다.]] 중요한 위험과 비용의 설명으로 적절한 것은?",
+    [
+      "유리한 수익만 설명",
+      "질문이 없으면 위험 생략",
+      "서명만 받아 설명 대체",
+      "이해할 수 있도록 핵심 내용을 설명하고 법정 확인"
+    ],
+    3,
+    "금소법 제19조는 중요한 사항을 이해 가능하게 설명하고 확인하도록 한다. 서명은 설명 자체의 대체물이 아니며 손실위험·비용을 누락하면 안 된다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "부당권유",
+    "[[BOX:일반금융소비자에게 손실 가능 상품을 '확실히 원금과 고수익이 보장된다'며 권유했다. 실제 보장 약정은 없다.]] 문제는?",
+    [
+      "고객 서명으로 사실관계 변경",
+      "수익 전망은 언제나 확정적 표현 허용",
+      "구두면 규제 밖",
+      "불확실한 사항을 확실한 것처럼 오인시키는 권유"
+    ],
+    3,
+    "불확실한 수익을 보장처럼 제시하면 부당권유 등의 문제가 된다. 고객 서명이나 구두 전달이 허위·오인 내용을 정당화하지 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "전문소비자 확인",
+    "[[BOX:판매자가 거래금액이 크다는 이유만으로 일반 고객을 전문금융소비자로 취급하려 한다.]] 적절한 판단은?",
+    [
+      "동의 없이 직원 임의 전환",
+      "금액만으로 자동 전환",
+      "수익률이 높으면 전문소비자",
+      "법정 구분 요건과 필요한 전환 절차 확인"
+    ],
+    3,
+    "전문·일반 구분은 법정 요건과 전환 절차에 따른다. 금액·직원 판단·수익률만으로 임의 변경해 보호의무를 피할 수 없다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "투자권유대행인",
+    "[[BOX:등록한 투자권유대행인이 위탁업무를 수행하면서 고객의 투자금을 자기 계좌로 받으려 한다.]] 적절한 판단은?",
+    [
+      "회사에 나중 전달하면 무조건 허용",
+      "고객 요청으로 자동 허용",
+      "고객 금전 수취는 허용되지 않음",
+      "등록하면 자기 계좌 수취 허용"
+    ],
+    2,
+    "대행인의 역할은 위탁 범위 내 권유이며 고객 금전·증권 수취는 제한된다. 등록이나 고객 요청이 자기 계좌 수취를 정당화하지 않는다."
+  ],
+  [
+    3,
+    "자본시장 관련 법규",
+    "분쟁조정·배상",
+    "[[BOX:상품이 손실났지만 아직 위법 판매·인과관계 등이 확인되지 않았다.]] 배상책임 판단으로 적절한 것은?",
+    [
+      "수익이 없으면 형사범죄 확정",
+      "고객 서명이 있으면 모든 책임 면제",
+      "위반행위·손해·인과관계와 해당 법의 입증 규칙 검토",
+      "손실이면 항상 전액 배상"
+    ],
+    2,
+    "시장손실만으로 배상을 자동 확정하지 않는다. 의무 위반과 인과관계 등 및 법률상 입증책임 특칙을 검토해야 하며 서명도 일괄 면책이 아니다."
+  ],
+  [
+    3,
+    "한국금융투자협회 규정",
+    "전문인력 등록",
+    "[[BOX:직원이 증권투자권유자문인력 시험 합격만으로 즉시 모든 권유업무가 가능하다고 주장한다.]] 확인할 사항은?",
+    [
+      "담당 업무에 맞는 전문인력 등록·교육 등 요건",
+      "합격만으로 등록·교육 전부 면제",
+      "어떤 자격도 모든 상품 권유 가능",
+      "고객 동의로 등록 대체"
+    ],
+    0,
+    "시험 합격과 업무 수행에 필요한 등록·교육은 구분된다. 상품별 업무범위도 확인해야 하며 고객 동의가 요건을 대신하지 않는다."
+  ],
+  [
+    3,
+    "한국금융투자협회 규정",
+    "투자광고 심사",
+    "[[BOX:회원사가 투자광고를 게시하려 한다. 사내 검토만으로 항상 협회 절차까지 면제된다고 주장한다.]] 적절한 조치는?",
+    [
+      "모든 광고가 심사와 무관",
+      "광고 유형별 협회 심사·신고와 예외 요건 확인",
+      "직원 개인 SNS는 항상 면제",
+      "수익률 광고만 자유"
+    ],
+    1,
+    "협회 규정의 광고 유형별 절차와 예외를 확인해야 한다. 사내 검토나 게시 매체만으로 적용 여부를 일률 단정할 수 없다."
+  ],
+  [
+    3,
+    "한국금융투자협회 규정",
+    "표준투자권유준칙",
+    "[[BOX:금융투자회사가 표준투자권유준칙을 참고해 내부 권유 절차를 마련한다.]] 바람직한 운영은?",
+    [
+      "투자자 정보 확인 삭제",
+      "법보다 판매목표 우선",
+      "회사·고객·상품 특성과 법령에 맞는 절차를 마련하고 준수",
+      "표준준칙 문구 복사만으로 실제 이행 면제"
+    ],
+    2,
+    "표준준칙을 참고하되 적용 법령과 실제 업무에 맞는 절차를 마련·이행해야 한다. 문서 존재 자체가 이행을 증명하지 않는다."
+  ],
+  [
+    3,
+    "한국금융투자협회 규정",
+    "규정 적용 확인",
+    "[[BOX:직원이 예전 규정집의 자격 제재기간을 현재에도 그대로 적용하려 한다.]] 적절한 확인 방법은?",
+    [
+      "현행 규정·시행일·경과조치와 해당 사실관계 확인",
+      "과거 숫자 영구 고정",
+      "인터넷 후기만 확인",
+      "동료 경험만으로 확정"
+    ],
+    0,
+    "자율규제도 개정될 수 있으므로 현행 조문과 시행일·경과조치를 확인한다. 오래된 숫자나 경험만으로 현재 적용 결과를 확정하면 안 된다."
+  ],
+  [
+    3,
+    "회사법",
+    "특별결의 수치",
+    "[[BOX:의결권 있는 발행주식 총수 900주, 출석 의결권 600주다. 정관변경에 찬성 390주·반대 210주다. 특수 제한·예외는 없다.]] 특별결의 성립 여부는?",
+    [
+      "출석 과반수라 성립",
+      "만장일치만 가능",
+      "출석 의결권 2/3에 미달하므로 불성립",
+      "총수 1/3만 넘으면 성립"
+    ],
+    2,
+    "총수 1/3=300주와 출석 2/3=400주를 모두 충족해야 한다. 찬성 390주는 총수 기준은 넘지만 출석 기준에 10주 부족하다."
+  ],
+  [
+    3,
+    "회사법",
+    "보통결의 수치",
+    "[[BOX:의결권 있는 발행주식 총수 1,000주, 출석 의결권 400주, 찬성 220주다. 상법상 일반 보통결의이며 예외는 없다.]] 결과는?",
+    [
+      "총수 1/4에 미달해 불성립",
+      "만장일치 미달로 불성립",
+      "출석 과반수만 충족하면 성립",
+      "총수 1/5만 충족하면 성립"
+    ],
+    0,
+    "보통결의는 출석 의결권 과반수와 발행주식 총수 1/4 이상을 함께 요구한다. 220주는 200주 초과지만 250주 미만이다."
+  ],
+  [
+    3,
+    "회사법",
+    "기관 역할",
+    "[[BOX:주식회사에서 대표이사의 업무 집행과 이사의 직무 집행 감시를 구분한다.]] 일반적인 연결은?",
+    [
+      "거래소가 회사 감사기관",
+      "대표이사 집행·감사 또는 감사위원회 감시",
+      "감사만 업무 집행·대표이사만 감사",
+      "주주총회가 모든 일상 업무 직접 집행"
+    ],
+    1,
+    "대표이사는 회사를 대표하고 업무를 집행하며 감사·감사위원회는 이사 직무 집행을 감사한다. 주주총회는 일상 집행기관이 아니고 거래소도 회사 내부기관이 아니다."
+  ],
+  [
+    3,
+    "회사법",
+    "주주 유한책임",
+    "[[BOX:주식대금을 전액 납입한 일반 주주가 회사의 채무 전액을 개인 재산으로 갚아야 한다고 주장됐다. 별도 보증·법인격 남용 등 예외는 없다.]] 원칙은?",
+    [
+      "회사 채무 모두 연대책임",
+      "주주는 채권자보다 먼저 원금 반환",
+      "주주는 인수가액을 한도로 책임",
+      "지분율만큼 무한책임"
+    ],
+    2,
+    "상법상 주주의 책임은 인수가액을 한도로 한다. 별도 보증 등 추가 사유 없는 전액 납입 주주에게 회사 채무의 무한책임을 부과하지 않는다."
+  ],
+  [
+    3,
+    "회사법",
+    "이사 자기거래",
+    "[[BOX:이사가 자신이 소유한 건물을 회사에 팔려 한다. 상법상 자기거래 적용 대상이며 예외는 없다.]] 필요한 통제는?",
+    [
+      "중요사실 공개와 법정 이사회 승인, 내용·절차의 공정성",
+      "대표이사 혼자 비공개 승인",
+      "가격이 싸면 모든 절차 면제",
+      "주주 한 명에게 알리면 완료"
+    ],
+    0,
+    "자기거래는 이해상충 때문에 중요사실 공개·법정 승인과 거래의 공정성이 요구된다. 좋은 가격이나 비공개 단독 승인만으로 충분하지 않다."
+  ],
+  [
+    3,
+    "회사법",
+    "신주발행·희석",
+    "[[BOX:기존 발행주식 1,000주 중 100주를 가진 주주가 추가 발행 250주에 참여하지 않았다.]] 의결권 구조가 동일하고 별도 조정이 없을 때 발행 후 지분율은?",
+    [
+      "12.5%",
+      "8%",
+      "25%",
+      "10%"
+    ],
+    1,
+    "100/(1,000+250)=8%다. 보유수량이 같아도 분모가 늘면 지분율이 낮아진다. 기업가치 손실까지 자동 확정되는 것은 아니다."
+  ],
+  [
+    3,
+    "증권세제",
+    "원천징수 계산",
+    "[[BOX:이 문제에서 적용할 이자소득 원천징수 세율은 소득세 14%와 지방소득세 1.4%로 명시한다.]] 세전 이자 100만원, 특례 없음. 세후 수령액은?",
+    [
+      "84만6,000원",
+      "100만원",
+      "86만원",
+      "98만6,000원"
+    ],
+    0,
+    "합계 15.4%인 15만4,000원을 차감하면 84만6,000원이다. 86만원은 지방소득세 누락, 98만6,000원은 소득세 누락이다. 세율은 문제에 주어진 조건이다."
+  ],
+  [
+    3,
+    "증권세제",
+    "양도차익 계산",
+    "주식 양도대금 1,200만원, 취득가액 900만원, 필요경비 20만원이다. 이 문제는 양도소득 과세 대상 거래로 전제하며 공제 전 양도차익만 묻는다.",
+    [
+      "880만원",
+      "300만원",
+      "280만원",
+      "1,180만원"
+    ],
+    2,
+    "양도차익=1,200-900-20=280만원이다. 과세표준·최종 세액이 아니라 공제 전 차익을 구하므로 별도 기본공제나 세율을 적용하지 않는다."
+  ],
+  [
+    3,
+    "증권세제",
+    "거래세·소득세",
+    "손실을 보고 주식을 양도한 거래에도 증권거래세 적용 여부를 따로 확인해야 하는 이유는?",
+    [
+      "거래세는 이익에만 과세",
+      "거래세와 양도소득세는 과세대상·과세표준이 다름",
+      "손실이면 모든 세금 자동 면제",
+      "손실은 이자소득으로 전환"
+    ],
+    1,
+    "거래세는 거래가액 등을 기준으로 하고 양도소득세는 소득을 기준으로 하므로 구분해야 한다. 손실 여부만으로 거래세 비과세를 확정할 수 없다."
+  ],
+  [
+    3,
+    "증권세제",
+    "배당 이중과세",
+    "[[BOX:법인이 이익에 법인세를 부담하고 그 이익을 배당받은 주주도 배당소득 과세를 받는다.]] 이중과세 조정의 취지는?",
+    [
+      "같은 이익에 대한 법인·주주 단계 중복 과세 완화",
+      "모든 배당 세금 면제",
+      "양도손실 자동 환급",
+      "배당을 근로소득으로 변경"
+    ],
+    0,
+    "배당의 경제적 이중과세를 일정 요건 아래 조정하는 취지다. 모든 배당 비과세나 양도손실 환급을 뜻하지 않는다."
+  ],
+  [
+    3,
+    "증권세제",
+    "상속·증여",
+    "[[BOX:부모가 생전에 자녀에게 주식을 무상 이전한 경우와 사망으로 주식이 이전된 경우를 구분한다.]] 기본 연결은?",
+    [
+      "생전은 상속·사망은 증여",
+      "생전은 증여·사망은 상속",
+      "둘 다 항상 비과세",
+      "둘 다 유상 양도"
+    ],
+    1,
+    "생전 무상이전은 증여, 사망에 따른 이전은 상속이다. 사전증여 합산 등 개별 과세요건은 추가 검토하며 무상이라는 이유로 모두 비과세가 되지 않는다."
+  ]
+];
+const SUBJ={1:'증권분석 및 증권시장',2:'금융상품 및 직무윤리',3:'법규 및 세제'};
+const Q=RAW.map(r=>({s:r[0],ch:r[1],t:r[2],q:r[3],o:r[4],a:r[5],e:r[6]}));
+const KEY='secAdviceMock05-v2',TKEY='copilotmock-theme',MARK='①②③④';
+const OLD_KEY='secAdviceMock05';
+const LEGACY=[[1, "경기분석", "심화개념", "통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "고난도 복합판단", "선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "경기분석", "심화개념", "다음 사례 3을 전제로 판단할 때, 통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "경기분석", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 통화긴축의 일반적 파급경로로 가장 적절한 것은?", ["시장금리 하락→총수요 확대", "시장금리 상승→투자·소비 둔화", "통화량 증가→물가 하락", "환율 하락이 언제나 수출 증가"], 1, "정책금리 인상은 시장금리와 자금조달비용을 높여 투자·소비를 둔화시키는 것이 일반적이다. 다만 환율·물가 경로의 크기는 경제상황에 따라 달라질 수 있다."], [1, "경기분석", "심화개념", "다음 사례 6을 전제로 판단할 때, 선행·동행·후행지표의 해석으로 옳은 것은?", ["후행지표는 경기전환을 항상 먼저 알린다", "동행지표는 현재 경기 흐름을 반영한다", "선행지표는 과거 경기만 설명한다", "고용지표는 언제나 선행한다"], 1, "동행지표는 현재 생산·소비 등 경기 흐름을 반영한다. 선행은 전환에 앞서 움직일 가능성이 있고, 고용은 통상 후행성이 강하므로 지표의 시차를 구분해야 한다."], [1, "기본적 분석", "계산·응용", "A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기본적 분석", "고난도 복합판단", "다른 조건이 같을 때 고든모형의 주가를 높이는 변화는?", ["요구수익률 상승", "성장률 하락", "차기 배당 증가", "요구수익률과 성장률의 차이 확대"], 2, "고든모형 P=D1/(k-g)에서 D1 증가는 주가를 높인다. k 상승, g 하락, k-g 확대는 분모를 키워 가치를 낮춘다. 반드시 k>g 조건도 확인해야 한다."], [1, "기본적 분석", "계산·응용", "다음 사례 3을 전제로 판단할 때, A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기본적 분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 다른 조건이 같을 때 고든모형의 주가를 높이는 변화는?", ["요구수익률 상승", "성장률 하락", "차기 배당 증가", "요구수익률과 성장률의 차이 확대"], 2, "고든모형 P=D1/(k-g)에서 D1 증가는 주가를 높인다. k 상승, g 하락, k-g 확대는 분모를 키워 가치를 낮춘다. 반드시 k>g 조건도 확인해야 한다."], [1, "기본적 분석", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, A기업의 ROE가 15%, 배당성향이 40%일 때 단순 지속가능성장률은?", ["6%", "9%", "15%", "25%"], 1, "유보율은 60%이고 단순 지속가능성장률은 ROE×유보율이다. 따라서 15%×60%=9%다. 배당성향과 유보율을 뒤바꾸지 않는 것이 핵심이다."], [1, "기술적 분석", "심화개념", "가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "심화개념", "다음 사례 3을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "기술적 분석", "심화개념", "다음 사례 4을 전제로 판단할 때, 가격은 전고점을 돌파했으나 거래량과 OBV가 전고점을 넘지 못했다. 가장 적절한 해석은?", ["강세 확정", "약세 다이버전스 가능성", "추세와 무관", "하락 종료 확정"], 1, "가격의 신고가를 거래량 지표가 확인하지 못하면 상승 탄력이 약해지는 약세 다이버전스를 의심한다. 즉시 반전을 확정하는 신호는 아니므로 다른 추세·지지선과 함께 판단한다."], [1, "유가증권시장", "심화개념", "동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "고난도 복합판단", "총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 3을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 4을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 6을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "유가증권시장", "심화개념", "다음 사례 7을 전제로 판단할 때, 동일 가격의 두 지정가 주문이 있을 때 일반적인 우선순위는?", ["수량이 큰 주문", "늦게 접수된 주문", "먼저 접수된 주문", "기관 주문"], 2, "연속매매에서는 가격우선 후 시간우선이 기본이다. 동일 가격이면 먼저 접수된 주문이 앞선다. 투자자 유형이나 주문수량이 시간우선을 임의로 뒤집지 않는다."], [1, "유가증권시장", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 총액인수의 위험부담에 관한 설명으로 옳은 것은?", ["발행인이 미매각분 전부 부담", "인수인이 발행증권 전부를 인수해 판매위험 부담", "주선인은 위험을 전혀 지지 않으면서 항상 전량매입", "기존주주만 위험 부담"], 1, "총액인수는 인수인이 발행증권 전부를 자기 책임으로 인수하므로 미매각 위험도 부담한다. 모집주선과 달리 단순 사무대행에 그치지 않는다."], [1, "코스닥시장", "심화개념", "기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "코스닥시장", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "코스닥시장", "심화개념", "다음 사례 3을 전제로 판단할 때, 기술성장기업 상장특례의 취지로 옳은 것은?", ["현재 이익만 평가", "기술성과 성장성을 별도 평가", "공시의무 면제", "손실 보장"], 1, "현재 이익요건만으로 평가하기 어려운 기업의 기술성과 성장성을 별도 심사하는 제도다. 상장 후 공시·시장규율까지 면제하는 제도는 아니다."], [1, "채권시장", "계산·응용", "수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "고난도 복합판단", "같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "계산·응용", "다음 사례 3을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "심화개념", "다음 사례 4을 전제로 판단할 때, 같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "채권시장", "심화개념", "다음 사례 6을 전제로 판단할 때, 같은 듀레이션에서 볼록성이 큰 채권의 특징은?", ["금리 하락 시 상승폭이 상대적으로 크다", "금리 상승 시 하락폭이 더 크다", "가격이 금리와 정비례", "항상 무위험"], 0, "양의 볼록성이 클수록 금리 하락 때 가격상승 이점이 커지고 금리 상승 때 가격하락은 완화된다. 듀레이션의 선형 근사를 2차 효과가 보완한다."], [1, "채권시장", "계산·응용", "다음 사례 7을 전제로 판단할 때, 수익률이 상승할 때 일반 채권가격의 변화는?", ["상승", "하락", "불변", "액면가로 고정"], 1, "채권의 미래 현금흐름을 더 높은 할인율로 할인하면 현재가치는 낮아진다. 따라서 금리와 채권가격은 역관계다. 만기·표면이율·듀레이션에 따라 민감도는 달라진다."], [1, "기타 증권시장", "심화개념", "K-OTC의 성격으로 가장 적절한 것은?", ["거래소 상장시장", "비상장주식의 제도권 장외시장", "원금보장시장", "파생상품 전용시장"], 1, "K-OTC는 비상장주식을 일정한 규칙 아래 거래하도록 한 제도권 장외시장이다. 거래기업이 거래소 상장법인과 동일하다는 뜻은 아니다."], [1, "기타 증권시장", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, K-OTC의 성격으로 가장 적절한 것은?", ["거래소 상장시장", "비상장주식의 제도권 장외시장", "원금보장시장", "파생상품 전용시장"], 1, "K-OTC는 비상장주식을 일정한 규칙 아래 거래하도록 한 제도권 장외시장이다. 거래기업이 거래소 상장법인과 동일하다는 뜻은 아니다."], [2, "금융상품분석 및 투자전략", "심화개념", "ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 3을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 4을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 6을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 7을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 9을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 10을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 12을 전제로 판단할 때, 분산투자의 효과로 옳은 것은?", ["체계적 위험 완전 제거", "비체계적 위험 완화", "손실 가능성 제거", "수익률 보장"], 1, "종목 수와 상관구조를 고려한 분산은 개별기업 고유의 비체계적 위험을 줄인다. 시장 전체에 공통된 체계적 위험까지 없애거나 수익을 보장하지는 않는다."], [2, "금융상품분석 및 투자전략", "심화개념", "다음 사례 13을 전제로 판단할 때, ETF와 ETN의 핵심 차이로 옳은 것은?", ["ETN에는 발행사 신용위험이 없다", "ETF는 집합투자기구, ETN은 발행사 채무증권이다", "둘 다 예금이다", "ETF는 거래소에서 거래할 수 없다"], 1, "ETF는 펀드 재산을 보유하는 집합투자기구이고 ETN은 증권회사가 발행한 무담보 채무증권이다. 따라서 ETN은 기초지수 위험 외에 발행사 신용위험을 함께 본다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 3을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 4을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 6을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 7을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 9을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 10을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 12을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 13을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 14을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 15을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [2, "투자권유·고객관리 및 직무윤리", "심화개념", "다음 사례 16을 전제로 판단할 때, 설명의무 이행으로 가장 적절한 것은?", ["설명서 교부만 하면 종료", "중요 손익구조와 위험을 이해 가능한 방식으로 설명·확인", "수익만 강조", "계약 후 위험 고지"], 1, "설명의무는 서류 교부만의 형식적 절차가 아니다. 상품 구조, 최대손실, 수수료, 중도해지 불이익 등을 고객이 이해할 수 있게 설명하고 이해 여부를 확인해야 한다."], [2, "투자권유·고객관리 및 직무윤리", "고난도 복합판단", "다음 사례 17을 전제로 판단할 때, 직원의 권유 없이 일반금융소비자가 고난도 상품 가입을 요청했고 부적정하다고 판단됐다. 우선 조치는?", ["아무 설명 없이 체결", "부적정 사실과 위험을 알리고 확인", "손실 보장", "고객정보 삭제"], 1, "비권유 판매라도 법정 대상 상품은 적정성 판단이 필요하다. 부적정하면 그 사실과 위험을 알리고 법정 방식으로 확인해야 한다. 이는 적합성 원칙과 적용상황이 다르다."], [3, "자본시장 관련 법규", "심화개념", "파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 3을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 4을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 6을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 7을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 8을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 9을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 10을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 11을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 12을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 13을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 14을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 15을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 16을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 17을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 18을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "자본시장 관련 법규", "심화개념", "다음 사례 19을 전제로 판단할 때, 파생결합증권의 법적 분류로 옳은 것은?", ["항상 파생상품", "증권", "예금", "보험"], 1, "기초자산과 연계되더라도 취득 후 추가지급의무가 없도록 설계된 ELS·DLS 등은 자본시장법상 증권이다. 원본초과손실 가능 계약인 파생상품과 구별한다."], [3, "자본시장 관련 법규", "고난도 복합판단", "다음 사례 20을 전제로 판단할 때, 미공개중요정보 규제대상에 관한 설명으로 옳은 것은?", ["임직원만 대상", "준내부자와 1차 정보수령자도 대상이 될 수 있다", "공개 후 거래도 모두 금지", "정보 보유만으로 언제나 성립"], 1, "규제는 내부자뿐 아니라 직무·계약으로 정보를 안 준내부자와 1차 정보수령자까지 미칠 수 있다. 다만 정보가 공개되기 전 거래 등에 이용했는지를 판단해야 한다."], [3, "한국금융투자협회 규정", "심화개념", "조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "심화개념", "다음 사례 3을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "한국금융투자협회 규정", "심화개념", "다음 사례 4을 전제로 판단할 때, 조사분석자료 공표와 이해상충 관리로 옳은 것은?", ["애널리스트의 선행매매 허용", "관련 이해관계를 고지하고 정보교류를 통제", "성과보수를 특정 기업 IB실적에 직접 연동", "공표 전 고객에게 선택 제공"], 1, "조사분석의 독립성을 위해 이해관계를 고지하고 기업금융 부서와 정보교류를 통제한다. 선행매매나 특정 기업 IB성과와 직접 연동한 보상은 분석의 객관성을 훼손한다."], [3, "회사법", "심화개념", "주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 3을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 4을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "회사법", "심화개념", "다음 사례 6을 전제로 판단할 때, 주주총회 특별결의가 요구되는 사항의 일반적 특징은?", ["일상적 업무", "정관변경 등 회사 기초에 중대한 변경", "모든 직원 채용", "소액 비용 집행"], 1, "정관변경, 합병 등 회사의 기초와 주주 권리에 중대한 영향을 주는 사항에는 강화된 특별결의가 요구된다. 일상 경영은 이사회·대표이사의 권한과 구분한다."], [3, "증권세제", "심화개념", "직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "고난도 복합판단", "다음 사례 2을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "심화개념", "다음 사례 3을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "심화개념", "다음 사례 4을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."], [3, "증권세제", "고난도 복합판단", "다음 사례 5을 전제로 판단할 때, 직접세와 간접세의 구분으로 옳은 것은?", ["직접세는 납세자와 담세자가 원칙적으로 같다", "증권거래세는 직접세", "부가가치세는 직접세", "간접세는 조세전가가 없다"], 0, "직접세는 법률상 납세자와 경제적 담세자가 원칙적으로 같고, 간접세는 조세부담이 전가될 수 있다. 소득세는 직접세, 부가가치세와 증권거래세는 간접세로 구분한다."]];
+function storageNotice(message){document.getElementById('storageNotice').textContent=message;}
+function cleanAnswers(value){
+ const result={};if(!value||typeof value!=='object'||Array.isArray(value))return result;
+ for(const [k,v] of Object.entries(value))if(/^(0|[1-9]\d*)$/.test(k)&&+k<Q.length&&Number.isInteger(v)&&v>=0&&v<4)result[k]=v;
+ return result;
+}
+function loadAnswers(key){try{return cleanAnswers(JSON.parse(localStorage.getItem(key)||'{}'));}catch(e){storageNotice('저장된 기록을 읽을 수 없습니다. 원본은 삭제하지 않았습니다. 이번 풀이를 진행할 수 있습니다.');return {};}}
+let saved=loadAnswers(KEY);
+let filter='all',wrongOnly=false,expand=false;
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){storageNotice('기록 저장이 차단되었습니다. 현재 화면의 풀이는 유지되지만 새로고침하면 사라질 수 있습니다.');}}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function fml(src){const p=src.split('|');let h='';for(let i=0;i<p.length;i+=3){if(p[i])h+=`<span>${esc(p[i])}</span>`;if(p[i+1]!==undefined)h+=`<span class="frac"><span class="top">${esc(p[i+1])}</span><span class="bottom">${esc(p[i+2]||'')}</span></span>`}return `<div class="formula">${h}</div>`}
+function rich(s){return String(s).split(/(\[\[[\s\S]*?\]\])/).map(seg=>{const m=seg.match(/^\[\[([\s\S]*)\]\]$/);if(!m)return esc(seg).replace(/\n/g,'<br>');const z=m[1];if(z.startsWith('NOTE:'))return `<div class="src"><b>📘 교재 기준 주석</b> ${esc(z.slice(5))}</div>`;if(z.startsWith('BOX:'))return `<div class="casebox">${z.slice(4).split('||').map(v=>`<div class="caseitem">${esc(v)}</div>`).join('')}</div>`;if(z.startsWith('BULLETS:'))return `<ul class="bulletbox">${z.slice(8).split('||').map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`;if(z.startsWith('LESSON:'))return `<div class="lesson">${z.slice(7).split('||').map(v=>{const p=v.split('｜');return `<div class="lesson-row"><span class="lesson-label">${esc(p.shift()||'학습 포인트')}</span><span>${esc(p.join('｜'))}</span></div>`}).join('')}</div>`;return fml(z)}).join('')}
+const SUBS=[1,2,3];
+const idxOf=s=>Q.map((q,i)=>i).filter(i=>s==='all'||Q[i].s===s);
+function limit(s){const n=idxOf(s).length,r=s==='all'?0.7:0.5;return n-Math.ceil(n*r-1e-9)}
+function applyTheme(t){document.documentElement.dataset.theme=t;const b=$('theme');b.textContent=t==='dark'?'☀️ 라이트':'🌙 다크'}
+let th='light';try{th=localStorage.getItem(TKEY)||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}
+applyTheme(th);
+$('theme').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';applyTheme(n);try{localStorage.setItem(TKEY,n)}catch(e){}};
+$('bars').innerHTML=['all',...SUBS].map(s=>`<div class="pb grn" id="pb-${s}"><div class="lab"><b>${s==='all'?'전체':'제'+s+'과목'}</b><span class="st"></span></div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span></span></div></div>`).join('');
+$('summary').innerHTML=`<div class="sumcard total"><b>${Q.length}</b><span>총 문항 · 합격 ${Math.ceil(Q.length*0.7)}문항 이상</span></div>`+SUBS.map(s=>{const n=idxOf(s).length;return `<div class="sumcard"><b>${n}</b><span>제${s}과목 ${SUBJ[s]} · 과락 기준 ${Math.ceil(n*0.5)}문항</span></div>`}).join('');
+$('tabs').innerHTML=`<button class="tab active" aria-pressed="true" data-f="all">전체<small>${Q.length}</small></button>`+SUBS.map(s=>`<button class="tab" aria-pressed="false" data-f="${s}">제${s}과목 ${SUBJ[s]}<small>${idxOf(s).length}</small></button>`).join('');
+$('questions').innerHTML=Q.map((x,i)=>`<article class="qcard" id="q${i}" data-i="${i}"><div class="qtop"><div class="meta"><span class="pill sj">제${x.s}과목</span><span class="pill ch">${esc(x.ch)}</span><span class="pill">${esc(x.t)}</span></div><span class="num">Q${String(i+1).padStart(2,'0')}</span></div><div class="q">${rich(x.q)}</div><div class="opts">${x.o.map((v,j)=>`<button type="button" class="opt" aria-label="문항 ${i+1} 선택지 ${j+1}: ${esc(v)}" data-j="${j}"><b>${MARK[j]}</b><span class="t">${rich(v)}</span></button>`).join('')}</div><div class="explain"><div class="result"></div><div class="ans"></div></div></article>`).join('');
+function paint(i){
+  const x=Q[i],card=$('q'+i),ch=saved[i],done=ch!==undefined,ok=done&&ch===x.a;
+  card.classList.toggle('is-ok',ok);card.classList.toggle('is-bad',done&&!ok);
+  card.querySelectorAll('.opt').forEach(o=>{const j=+o.dataset.j;o.disabled=done;
+    o.classList.toggle('correct',done&&j===x.a);o.classList.toggle('wrong',done&&j===ch&&ch!==x.a);
+    let m=o.querySelector('.mark');if(m)m.remove();
+    if(done&&(j===x.a||j===ch)){m=document.createElement('span');m.className='mark';m.textContent=j===x.a?(j===ch?'정답 · 내 선택':'정답'):'내 선택';o.appendChild(m)}});
+  card.querySelector('.explain').classList.toggle('show',done||expand);
+  const r=card.querySelector('.result');r.textContent=done?(ok?'정답입니다.':`오답입니다. 내 선택 ${MARK[ch]}`):'정답 미리보기';r.className='result '+(done?(ok?'ok':'bad'):'peek');
+  card.querySelector('.ans').innerHTML='<b>정답: '+MARK[x.a]+'</b> <span aria-hidden="true">|</span> <b>해설:</b> '+rich(x.e);
+}
+function tally(s){const id=idxOf(s);const a=id.filter(i=>saved[i]!==undefined).length,c=id.filter(i=>saved[i]===Q[i].a).length;return{n:id.length,a,c,w:a-c}}
+function stats(){['all',...SUBS].forEach(s=>{const t=tally(s),L=limit(s),el=$('pb-'+s);
+  const st=t.w>L?'red':t.w===L?'yel':'grn';el.className='pb '+st;
+  el.querySelector('.bar>span').style.width=(t.a/t.n*100)+'%';el.querySelector('.bar').setAttribute('aria-valuenow',Math.round(t.a/t.n*100));
+  el.querySelector('.st').textContent=`${t.a}/${t.n} · 오답 ${t.w}/${L}${st==='red'?(s==='all'?' 불합격':' 과락'):st==='yel'?' 경계':''}`;})}
+function visible(i){const x=Q[i];if(filter!=='all'&&x.s!==+filter)return false;if(wrongOnly&&!(saved[i]!==undefined&&saved[i]!==x.a))return false;return true}
+function applyFilter(){let n=0;Q.forEach((x,i)=>{const v=visible(i);$('q'+i).classList.toggle('hidden',!v);if(v)n++});$('empty').classList.toggle('hidden',n>0)}
+document.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const i=+b.closest('.qcard').dataset.i;if(saved[i]!==undefined)return;saved[i]=+b.dataset.j;persist();paint(i);stats();applyFilter();if(!$('gradeBox').classList.contains('hidden'))grade(false)}));
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-pressed',x===t));filter=t.dataset.f;applyFilter()}));
+$('wrongBtn').onclick=e=>{wrongOnly=!wrongOnly;e.currentTarget.setAttribute('aria-pressed',wrongOnly);e.currentTarget.textContent=wrongOnly?'전체 문항 보기':'오답만 보기';applyFilter()};
+$('expBtn').onclick=e=>{expand=!expand;e.currentTarget.setAttribute('aria-pressed',expand);e.currentTarget.textContent=expand?'해설 전체 접기':'해설 전체 펼치기';Q.forEach((_,i)=>paint(i))};
+$('resetBtn').onclick=()=>{if(!confirm('개정판 응답 기록을 초기화할까요? 개정 전 기록은 유지됩니다.'))return;saved={};try{localStorage.removeItem(KEY)}catch(e){storageNotice('저장소의 기록 삭제가 차단되었습니다. 새로고침하면 이전 기록이 다시 나타날 수 있습니다.');}Q.forEach((_,i)=>paint(i));stats();$('gradeBox').classList.add('hidden');applyFilter();scrollTo({top:0,behavior:'smooth'})};
+function score(answers=saved){
+ const subjects=SUBS.map(s=>{const ids=idxOf(s),c=ids.filter(i=>answers[i]===Q[i].a).length;return {s,n:ids.length,c,need:Math.ceil(ids.length*0.5),pass:c>=Math.ceil(ids.length*0.5)};});
+ const c=subjects.reduce((v,t)=>v+t.c,0),a=Q.filter((q,i)=>Number.isInteger(answers[i])&&answers[i]>=0&&answers[i]<4).length;
+ return {c,a,unanswered:Q.length-a,subjects,pass:c>=70&&subjects.every(t=>t.pass)};
+}
+function grade(scroll=true){
+  const box=$('gradeBox'),T=tally('all');let pass=score().pass;
+  const rows=SUBS.map(s=>{const t=tally(s),need=Math.ceil(t.n*0.5-1e-9),okS=t.c>=need;if(!okS)pass=false;
+    const chs=[...new Set(idxOf(s).map(i=>Q[i].ch))].map(ch=>{const id=idxOf(s).filter(i=>Q[i].ch===ch),k=id.filter(i=>saved[i]===Q[i].a).length;return `${esc(ch)} ${k}/${id.length}`}).join(' · ');
+    return `<div class="chrow"><span><b>제${s}과목</b><br><small>${SUBJ[s]}</small></span><div class="mini"><i style="width:${t.c/t.n*100}%;background:${okS?'var(--ok)':'var(--bad)'}"></i></div><span class="val">${t.c} / ${t.n} (${Math.round(t.c/t.n*100)}%) ${okS?'통과':'과락'}</span></div><div style="font-size:12.5px;color:var(--muted);margin:-4px 0 10px">${chs}</div>`}).join('');
+  const wrong=Q.map((q,i)=>i).filter(i=>saved[i]!==undefined&&saved[i]!==Q[i].a);
+  box.innerHTML=`<h2>채점 요약<span class="verdict ${pass?'pass':'fail'}">${pass?'합격':'불합격'}</span></h2><div class="score-big">${T.c}점<small>${T.c} / ${T.n} 정답 · 풀이 ${T.a} · 미풀이 ${T.n-T.a}(오답 처리)</small></div><div style="margin-top:14px">${rows}</div>`+
+    (wrong.length?`<div class="wrongs"><b>틀린 문항</b><br>${wrong.map(i=>`<a href="#q${i}" data-go="${i}">Q${String(i+1).padStart(2,'0')}</a>`).join('')}</div>`:'');
+  box.classList.remove('hidden');
+  box.querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>{filter='all';wrongOnly=false;$('wrongBtn').setAttribute('aria-pressed','false');$('wrongBtn').textContent='오답만 보기';document.querySelectorAll('.tab').forEach((t,k)=>(t.classList.toggle('active',k===0),t.setAttribute('aria-pressed',k===0)));applyFilter();$('q'+a.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})});
+  if(scroll)box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+$('gradeBtn').onclick=()=>grade(true);
+const legacy=loadAnswers(OLD_KEY);
+const legacyIds=Object.keys(legacy).map(Number);
+$('legacyRecords').innerHTML=legacyIds.length ? `<p>개정 전 풀이 ${legacyIds.length}/100 · 정답 ${legacyIds.filter(i=>legacy[i]===LEGACY[i][5]).length}개. 당시 문항 기준의 기록이며 개정판 점수와 합산하지 않습니다.</p>`+legacyIds.map(i=>`<article><b>이전 Q${i+1} · 내 선택 ${MARK[legacy[i]]} · 당시 정답 ${MARK[LEGACY[i][5]]}</b><p>${esc(LEGACY[i][3])}</p><ol>${LEGACY[i][4].map(v=>`<li>${esc(v)}</li>`).join('')}</ol><p>${esc(LEGACY[i][6])}</p></article>`).join('') : '<p>이 기기에 개정 전 풀이 기록이 없습니다.</p>';
+Q.forEach((_,i)=>paint(i));stats();applyFilter();
+</script>
+</body>
+</html>
